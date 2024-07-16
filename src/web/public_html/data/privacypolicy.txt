@@ -1,0 +1,53 @@
+= Privacy Policy
+
+DragonTanks may require the following information from you:
+
+= Facebook Login
+
+We are using facebook login to provide users a convenient way to play DragonTanks. We do not control the 
+facebook login process, nor do we have any record of your passwords.
+
+= Facebook Information
+
+We may view your PUBLIC facebook profile, email and birthday for the purpose of verifying your identity.
+
+Your PUBLIC facebook profile photo and name will be used as the default in-game photo and name - You can change 
+name and photo in game.DragonTanks will automatically gather your gender information to determine your gender 
+in-game.
+
+We will never share or give to 3rd party any of your private information. We will never send you any emails 
+(unless you contacted us first).
+
+We will not use any of your facebook information for any purpose other than those stated above.
+
+= Visit Information
+
+Your visit data is collected by Google Analytics for anonymous information purposes only.
+
+= Ads Cookies
+
+Third party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website.
+Google's use of the DoubleClick cookie enables it and its partners to serve ads to your users based on their 
+visit to your sites and/or other sites on the Internet.
+Users may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Ads Settings.
+
+= Third Party Payment Information
+
+DragonTanks employs third parties to make payments more convenient for users. These companies may require 
+personal, payment, and billing information. The information you provide these companies do not pass through 
+DragonTanks.
+
+= In-Game Information
+
+All information and statistics transmitted in-game may be monitored, and may be used by DragonTanks for 
+whatever purpose it may deem fit.
+
+= Sharing Information
+
+DragonTanks will not share your information with anyone. DragonTanks will treat your information with utmost 
+confidentiality.
+
+= Changes to the Privacy Policy
+
+DragonTanks may modify, in part or entirely, its privacy policy. The most updated version will be available on 
+the website.

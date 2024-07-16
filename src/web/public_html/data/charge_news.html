@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ThorBound - Charge News</title>
+        <script src="/cdn-cgi/apps/head/iR8OSjNSfwcexYD8YdkF6QmafNg.js"></script>
+        <script src="/static/js/jquery-2.1.4.min.js"></script>
+        <style>
+            body {
+                margin: 0 10px;
+                padding: 0;
+                font-family: arial, helvetica, sans-serif;
+                color: white;
+                font-size: 0.8em;
+            }
+
+            a {
+                color: #f85;
+                text-decoration: none;
+            }
+
+            #ChargeWelcomeMsg {
+                font-size: 30px;
+                margin: 20px auto 0 auto;
+                text-align: center;
+            }
+
+            .updates {
+                font-size: large;
+            }
+
+            .title {
+                font-weight: bold;
+                color: orange;
+            }
+
+            .title-date {
+                color: orangered;
+            }
+
+            .blinkingGlow {
+                border-radius: 10px;
+                /*box-shadow: 0 0 8px 8px #ff0;*/
+                animation: blinking_glow_anim 1s ease-in infinite alternate;
+                -webkit-animation: blinking_glow_anim 1s ease-in infinite alternate;
+            }
+
+            @keyframes blinking_glow_anim {
+                50% {
+                    box-shadow: 0 0 0px 0px #ff0;
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    box-shadow: 0 0 8px 8px #ff0;
+                    transform: rotate(10deg);
+                }
+            }
+
+            @-webkit-keyframes blinking_glow_anim /* Safari and Chrome */
+            {
+                50% {
+                    box-shadow: 0 0 0px 0px #ff0;
+                    -webkit-transform: rotate(0deg);
+                }
+
+                100% {
+                    box-shadow: 0 0 8px 8px #ff0;
+                    -webkit-transform: rotate(10deg);
+                }
+            }
+
+            .blackShadow {
+                text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+            }
+        </style>
+        <script>
+            var TIME_SECOND = 1000
+              , TIME_MINUTE = 60 * TIME_SECOND
+              , TIME_HOUR = 60 * TIME_MINUTE
+              , TIME_DAY = 24 * TIME_HOUR
+              , TIME_WEEK = 7 * TIME_DAY
+              , TIME_MONTH = 30 * TIME_DAY
+              , TIME_YEAR = 365 * TIME_DAY
+
+            function SetTimerDiv(div, time_left, total_time, callback) {
+                if (typeof div == 'string')
+                    div = $(div)
+                var start = get_time()
+                var interval
+                var f = function() {
+                    var time_left2 = time_left - (get_time() - start)
+                    if (time_left2 < 0)
+                        time_left2 = 0
+                    div.html(MsToClock(time_left2))
+                    if (total_time)
+                        div.parent().children('meter').prop('value', time_left2 / total_time)
+                    if (time_left2 == 0) {
+                        clearInterval(interval)
+                        if (callback)
+                            callback()
+                    }
+                }
+                f()
+                interval = setInterval(f, 1000)
+                return interval
+            }
+            function PadTo2Digits(num) {
+                return (num < 10) ? '0' + num : num
+            }
+            function SecondsToClock(total_seconds) {
+                var negative = ''
+                if (total_seconds < 0) {
+                    negative = '-'
+                    total_seconds *= -1
+                }
+
+                var days = Math.floor(total_seconds / 86400)
+                  , hours = Math.floor(total_seconds % 86400 / 3600)
+                  , minutes = Math.floor(total_seconds % 3600 / 60)
+                  , seconds = total_seconds % 60
+
+                return negative + ((days) ? PadTo2Digits(days) + 'd ' : '') + ((days || hours) ? PadTo2Digits(hours) + ':' : '') + ((days || hours) ? PadTo2Digits(minutes) : minutes) + ':' + PadTo2Digits(seconds)
+            }
+            function MsToClock(ms) {
+                return SecondsToClock(Math.round(ms / 1000))
+            }
+
+            var get_time = Date.now
+
+            $(function() {
+                // fix emails
+                $('.email').each(function(i, e) {
+                    e = $(e)
+                    var email = e.html().replace(' ', '@')
+                    e.attr('href', 'mailto:' + email)
+                    e.html(email)
+                })
+                if (top == self)
+                    $('body').css({
+                        background: 'rgb(0,50,100)'
+                    })
+
+                var end = new Date(2016,2,1)
+                var now = new Date()
+                if (now < end)
+                    SetTimerDiv('#timer', end - now, 8 * TIME_DAY)
+                else
+                    $('#timer_warp').hide()
+            })
+        </script>
+    </head>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <body class="blackShadow">
+        <div class="title blinkingGlow">
+	     	<center><h1 style="color: #EFFBF5">^ Click ^<br>
+            ¿Quieres más ThorBound Cash?<br>
+            ¡Hay muchas maneras de obtener Cash!<br>Selecciona una de estas opciones y mira como hacerlo.</h1></center>
+        </div>       
+    </body>
+</html>

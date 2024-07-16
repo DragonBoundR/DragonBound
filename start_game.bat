@@ -1,0 +1,2 @@
+node game.js
+pause

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>ThorBound</title>
+        <link rel="stylesheet" type="text/css" href="/static/images/cash_info/style.css?3012">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            function ajax() {
+                var req = new XMLHttpRequest();
+                req.onreadystatechange = function() {
+                    if (req.readyState == 4 && req.status == 200) {
+                        document.getElementById('chat').innerHTML = req.responseText;
+                    }
+                }
+                req.open('GET', 'chat', true);
+                req.send();
+            }
+            
+            //↓↓↓↓ Codigo Que Refresca La Pagina Por Segundo
+            setInterval(function() {
+                ajax();
+            }, 1000/*1000*/);
+            console.log("%c /===============================================================================================\\ \n |            (:         Chat On Line | Developer By: Junior Cruz (Eber)         :)              | \n +===============================================================================================+ \n", "background:url(); background-size: 100vw 100vh;background-attachment: fixed;color: #3f3");
+        </script>
+        <script type="text/javascript">
+            function post() {
+                $.ajax({
+                    method: "POST",
+                    url: "/cash",
+                    data: {
+                        date_sms: $("#date_sms").val(),
+                        enviar: $("#btn_send").val()
+                    },
+                    success: function(data) {
+                        console.log("%c | Mensaje: "+$("#msg").val()+" | \n", "background:url(); background-size: 100vw 100vh;background-attachment: fixed;color: #3f3");
+                        $('input[type="text"]').val('');
+                    },
+                }).fail(function(a) {
+                    alert("Fail MSG: " + a );
+                });
+                
+                return false;
+            }
+            function InfoUser() {
+                alert("Informacion del usuaio pronto");
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content_top">
+                <div class="present">
+                    <div class="coins_img"></div>
+                    <h1>Tienda - ThorBound - Reseller
+                    </h1>
+                    <p>Te brindamos: Avatars, Cash, Pin's Code, Coins Guild y Cambio de genero.</p>
+                </div>
+                <div class="my_cash">
+                    <div class="cash_text">
+                        Actualmente tienes: <p>{{{my_cash}}} Cash</p>
+                    </div>
+                    <p class="refresh">
+                        <a href="javascript:void(0);" class="refresh_bg" style="display: block;"></a>
+                    </p>
+                </div>
+            </div>
+            <div class="dates">
+                {{#if date_offer_cash}}
+                <div class="date_offer_cash">
+                    <div id="clockdiv">
+                        <div class="headingup">The Cash Offer Ends In:</div>
+                        <div class="clocks">
+                            <div class="inner">
+                                <span class="days"></span>
+                                <div class="small">Days</div>
+                            </div>
+                            <div class="inner">
+                                <span class="hours"></span>
+                                <div class="small">Hours</div>
+                            </div>
+                            <div class="inner">
+                                <span class="minutes"></span>
+                                <div class="small">Minutes</div>
+                            </div>
+                            <div class="inner">
+                                <span class="seconds"></span>
+                                <div class="small">Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="country">
+                    <div class="country_info">
+                        <a class="img_country"></a>
+                        <p>Ventas solo en:</p>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img src="/static/images/cash_info/sub/flag_argentina.jpg" alt="argentina">
+                        </a>
+                        <div class="desc">Argentina</div>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img src="/static/images/cash_info/sub/flag_bolivia.jpg" alt="bolivia">
+                        </a>
+                        <div class="desc">Bolivia</div>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img src="/static/images/cash_info/sub/flag_chile.jpg" alt="chile">
+                        </a>
+                        <div class="desc">Chile</div>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img src="/static/images/cash_info/sub/flag_mexico.jpg" alt="mexico">
+                        </a>
+                        <div class="desc">Mexico</div>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img style="opacity: 1.5; filter: alpha(opacity=100);" src="/static/images/cash_info/sub/flag_peru.jpg" alt="peru">
+                        </a>
+                        <div class="desc">Peru</div>
+                    </div>
+                    <div class="gallery">
+                        <a href="javascript:void(0);" target="_blank" href="img_5terre.jpg">
+                            <img src="/static/images/cash_info/sub/flag_venezuela.jpg" alt="venezuela">
+                        </a>
+                        <div class="desc">Venezuela</div>
+                    </div>
+                </div>
+                <div class="avatars">
+                    <div class="title_ava">
+                        <a class="img_tickets"></a>
+                        <p>Avatars for sale</p>
+                    </div>
+                    <div class="ava">
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/megaman.png" alt="Megaman">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/megaman.png" alt="Megaman">
+                                <div class="name_ava">Megaman</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Chicken.png" alt="Chickene">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Chicken.png" alt="Chicken">
+                                <div class="name_ava">Chicken</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Indio.png" alt="Indio">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Indio.png" alt="Indio">
+                                <div class="name_ava">Indio</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Robot.png" alt="Robot">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Robot.png" alt="Robot">
+                                <div class="name_ava">Robot</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Oso.png" alt="Oso">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Oso.png" alt="Oso">
+                                <div class="name_ava">Oso</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Astro.png" alt="Astro">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Astro.png" alt="Astro">
+                                <div class="name_ava">Astro</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Ash.png" alt="Ash">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Ash.png" alt="Ash">
+                                <div class="name_ava">Ash</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Astronaut.png" alt="Astronaut">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Astronaut.png" alt="Astronaut">
+                                <div class="name_ava">Astronaut</div>
+                                <div class="price">S/30</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Snowman.png" alt="Snowman">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Snowman.png" alt="Snowman">
+                                <div class="name_ava">Snowman</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Lobo.png" alt="Lobo">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Lobo.png" alt="Lobo">
+                                <div class="name_ava">Lobo</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Honguito.png" alt="Honguito">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Honguito.png" alt="Honguito">
+                                <div class="name_ava">Honguito</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Thunders_Black.png" alt="Thunders Black">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Thunders_Black.png" alt="Thunders Black">
+                                <div class="name_ava">Thunders Black</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Fuleco.png" alt="Fuleco">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Fuleco.png" alt="Fuleco">
+                                <div class="name_ava">Fuleco</div>
+                                <div class="price">S/27.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Rosquitas_Black.png" alt="Rosquitas Black">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Rosquitas_Black.png" alt="Rosquitas Black">
+                                <div class="name_ava">Rosquitas Black</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Rosquitas_White.png" alt="Rosquitas White">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Rosquitas_White.png" alt="Rosquitas White">
+                                <div class="name_ava">Rosquitas White</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Pitufo_Black.png" alt="Pitufo">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Pitufo_Black.png" alt="Pitufo">
+                                <div class="name_ava">Pitufo</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Venom_Black.png" alt="Venom">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Venom_Black.png" alt="Venom">
+                                <div class="name_ava">Venom</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                        <div class="ava_content">
+                            <img src="/static/images/cash_info/ava/Mickey_Mouse_Black.png" alt="Mickey Mouse">
+                            <div class="info_ava">
+                                <img src="/static/images/cash_info/ava/Mickey_Mouse_Black.png" alt="Mickey Mouse">
+                                <div class="name_ava">Mickey Mouse</div>
+                                <div class="price">S/37.5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cash_tabla">
+                    <div class="tabla_header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                                <tr>
+                                    <th>Monto a enviar</th>
+                                    <th>Comisión</th>
+                                    <th>Monto Total</th>
+                                    <th>Cash</th>
+                                    <th>Regalo por recarga</th>
+                                    <th>Banco</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tabla_content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td>S/11</td>
+                                    <td>S/9.0</td>
+                                    <td>S/20.00</td>
+                                    <td>30,000</td>
+                                    <td class="no"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/21</td>
+                                    <td>S/9.0</td>
+                                    <td>S/30.00</td>
+                                    <td>40,000</td>
+                                    <td class="no"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/31</td>
+                                    <td>S/9.0</td>
+                                    <td>S/40.00</td>
+                                    <td>51,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/41</td>
+                                    <td>S/9.0</td>
+                                    <td>S/50.00</td>
+                                    <td>61,500</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                {{#if date_offer_cash}}
+                                <tr id="myOffertBtn" class="offer_cash">
+                                {{else}}
+                                <tr>
+                                {{/if}}
+                                    <td>S/51</td>
+                                    <td>S/9.0</td>
+                                    <td>S/60.00</td>
+                                    {{#if date_offer_cash}}
+                                    <td>170,000</td>
+                                    {{else}}
+                                    <td>83,200</td>
+                                    {{/if}}
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/61</td>
+                                    <td>S/9.0</td>
+                                    <td>S/70.00</td>
+                                    <td>94,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/71</td>
+                                    <td>S/9.0</td>
+                                    <td>S/80.00</td>
+                                    <td>106,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/81</td>
+                                    <td>S/9.0</td>
+                                    <td>S/90.00</td>
+                                    <td>135,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/91</td>
+                                    <td>S/9.0</td>
+                                    <td>S/100.00</td>
+                                    <td>170,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>S/101</td>
+                                    <td>S/9.0</td>
+                                    <td>S/110.00</td>
+                                    <td>240,000</td>
+                                    <td class="yes"></td>
+                                    <td>
+                                        <img class="interbank" src="/static/images/cash_info/sales/bcp.png">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <form method="post">
+                    <div class="chat_live">
+                        <div class="chat">
+                            {{#if check_rank}}
+                            <div class="comment_content">
+                                <div class="input">
+                                    <label for="comment">Write Your Comment</label>
+                                    <input type="comment" id="date_sms" name="date_sms" maxlength="60" autocomplete="off">
+                                </div>
+                                <svg class="line"></svg>
+                            </div>
+                            {{/if}}
+                            <div class="chats" id="chat"></div>
+                            {{#if check_rank}}
+                            <div class="content_coment">
+                                <div class="btn_chat">
+                                    <div class="btn_content">Enviar</div>
+                                    <input type="submit" class="btn_end" name="enviar" id="btn_send">
+                                </div>
+                            </div>
+                            <div class="sms_error_check">
+                                <p>{{{error_check}}}</p>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="dates2">
+                <div class="advertising">
+                    <div class="cell">
+                        <div class="img_cell"></div>
+                        <div class="cell_content">
+                            <h2>
+                                <p>Facil y Rapido con solo una llamada o mensaje
+                                </p>
+                                <a href="/">+51 ### ### ###</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <p class="blinkingGlow">
+                        <a href="https://www.facebook.com/messages/t/1128505027172949" target="_blank">
+                            <img src="/static/images/cash_info/sales/bcp_date.png">
+                            <span class="info_advertising">Escríbenos - ¡Click Aqui!</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.facebook.com/messages/t/1128505027172949" target="_blank">
+                            <img src="/static/images/cash_info/sales/coins_guild.png">
+                            <span class="info_advertising">Compra Coin's Guild.</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.facebook.com/messages/t/1128505027172949" target="_blank">
+                            <img src="/static/images/cash_info/sales/pins_code.png">
+                            <span class="info_advertising">Compra tus Pin's Code.</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.facebook.com/messages/t/1128505027172949" target="_blank">
+                            <img src="/static/images/cash_info/sales/change%20gender.png">
+                            <span class="info_advertising">Cambia de Genero a tu Cuenta.</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.facebook.com/messages/t/1128505027172949" target="_blank">
+                            <img src="/static/images/cash_info/sales/cash_for_sale.png">
+                            <span class="info_advertising">Compra Cash [Barato &amp;Rapido]</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{#if date_offer_cash}}
+        <div id="OffertCashModal" class="CashOffertmodal">
+            <div class="offert_cash_modal_content">
+                <span class="offert_info_close">&times;</span>
+                <p class="title_offert_cash"><img src="/static/images/emo/party.png">Oferta De Cash Por Tiempo Limitado<img src="/static/images/emo/confeti.png"></p>
+                <p class="description_offer_cash">Esta OFERTA DE CASH solo es por un tiempo limitado(Culminación Del Cronometro)<br><br>Obten <a class="ad_offert_number_two">(2 RANGOS ESPECIALES + <a class="ad_offert_number_three">170,000</a> CASH)</a> por esta por esta gran oferta de cash <a class="ad_offert_number_one">[Los 2 RANGOS ESPECIALES serán para 2 CUENTAS DISTINTAS (Un RANGO ESPECIAL sera para la cuenta en la cual desearas poner el cash recargado, el otro RANGO ESPECIAL sera para la cuenta que tu elijas). La duración de los RANGOS ESPECIALES serán de 10 días, al culminar los 10 días regresaran a su rango normal según los GP's que dispongan]</a>, ¡APROVECHA YA!</p>
+        <img class="img_offer_cash" src="/static/images/cash_info/sales/Promo_cash.png">
+            </div>
+        </div>
+        {{/if}}
+        {{#if date_offer_cash}}
+        <script type="text/javascript">
+            var modal = document.getElementById('OffertCashModal');
+            var btn = document.getElementById("myOffertBtn");
+            var span = document.getElementsByClassName("offert_info_close")[0];
+            
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+            
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+        {{/if}}
+        {{#if date_offer_cash}}
+        <script type="text/javascript">
+            function getTimeRemaining(endtime) {
+                var t = Date.parse(endtime) - Date.parse(new Date());
+                var seconds = Math.floor((t / 1000) % 60);
+                var minutes = Math.floor((t / 1000 / 60) % 60);
+                var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+                var days = Math.floor(t / (1000 * 60 * 60 * 24));
+                
+                return {
+                    'total': t,
+                    'days': days,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
+            }
+            
+            function initializeClock(id, endtime) {
+                var clock = document.getElementById(id);
+                var daysSpan = clock.querySelector('.days');
+                var hoursSpan = clock.querySelector('.hours');
+                var minutesSpan = clock.querySelector('.minutes');
+                var secondsSpan = clock.querySelector('.seconds');
+                
+                function updateClock() {
+                    var t = getTimeRemaining(endtime);
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+                    
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3000);
+                    }
+                }
+                
+                updateClock();
+                var timeinterval = setInterval(updateClock, 1000);
+            }
+            
+            var deadline = {{{time_offer_cash}}};
+            initializeClock('clockdiv', deadline);
+        </script>
+        {{/if}}
+        <script type="text/javascript">
+            'use strict';
+            var textInput = document.querySelector('input');
+            var inputWrap = textInput.parentElement;
+            var inputWidth = parseInt(getComputedStyle(inputWrap).width);
+            var svgText = Snap('.line');
+            var qCurve = inputWidth / 2;
+            
+            var textPath = svgText.path("M0 0 " + inputWidth + " 0");
+            var textDown = function() {
+                textPath.animate({
+                    d: "M0 0 Q" + qCurve + " 40 " + inputWidth + " 0"
+                }, 150, mina.easeout);
+            };
+            var textUp = function() {
+                textPath.animate({
+                    d: "M0 0 Q" + qCurve + " -30 " + inputWidth + " 0"
+                }, 150, mina.easeout);
+            };
+            var textSame = function() {
+                textPath.animate({
+                    d: "M0 0 " + inputWidth + " 0"
+                }, 200, mina.easein);
+            };
+            var textRun = function() {
+                setTimeout(textDown, 200);
+                setTimeout(textUp, 400);
+                setTimeout(textSame, 600);
+            };
+
+            (function() {
+                textInput.addEventListener('focus', function() {
+                    var parentDiv = this.parentElement;
+                    parentDiv.classList.add('active');
+                    textRun();
+                    this.addEventListener('blur', function() {
+                        //var rg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.]{3,9})+\.([A-Za-z]{2,4})$/;
+                        this.value == 0 ? parentDiv.classList.remove('active') : null;
+                        !rg.test(this.value) && this.value != 0 ? (parentDiv.classList.remove('valid'),
+                        parentDiv.classList.add('invalid'),
+                        parentDiv.style.transformOrigin = "center") : rg.test(this.value) && this.value != 0 ? (parentDiv.classList.add('valid'),
+                        parentDiv.classList.remove('invalid'),
+                        parentDiv.style.transformOrigin = "bottom") : null;
+                    });
+                    parentDiv.classList.remove('valid', 'invalid')
+                });
+            }
+            )();
+        </script>
+    </body>
+</html>

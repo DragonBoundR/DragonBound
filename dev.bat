@@ -1,0 +1,2 @@
+npm dev
+pause

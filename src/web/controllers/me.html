@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DragonBound - Buy Cash with BitCoin</title>
+        <script src="/static/js/-CrYjdewzV_aGydZJDcyGB1DItw.js"></script>
+        <script src="/static/js/jquery-2.0.3.min.js"></script>
+        <style>
+            body {
+                background: #1e407f url(/static/images/dragonoffers_bg.jpg) center center fixed;
+                background-size: cover;
+                font-family: arial, helvetica, sans-serif;
+                -webkit-text-size-adjust: 100%;
+                color: white;
+            }
+
+            textarea {
+                background-color: transparent;
+                width: 100%;
+                height: 100px;
+            }
+
+            .styleTable {
+                color: white;
+                background: rgba(50,50,50,0.85);
+            }
+
+            .styleTable td {
+                padding: 3px;
+            }
+
+            h1 {
+                color: lightsalmon;
+                margin: 20px 0 10px 5px
+            }
+
+            a {
+                color: yellow;
+            }
+
+            .priceTable {
+                border: 1px solid black;
+                border-spacing: 0;
+                background: rgba(255,255,255,0.1);
+            }
+
+            .priceTable td {
+                border: 1px solid black;
+                padding: 4px;
+            }
+
+            .blackShadow {
+                text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+            }
+
+            thead {
+                font-weight: bold;
+                color: #ff6;
+            }
+
+            .currency {
+                background-image: url(/static/images/currencies.png);
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .bch {
+                background-position: -32px 0;
+            }
+
+            .xmr {
+                background-position: -64px 0;
+            }
+
+            .yellow {
+                color: yellow;
+            }
+
+            .EN,.ES {
+                display: none
+            }
+        </style>
+        <script>
+            function round8(a) {
+                return Math.round(a * 100000000) / 100000000
+            }
+
+            $(function() {
+                window.L = new DragonLanguage(STRINGS,window.localStorage && window.localStorage.lang)
+                window.T = L.t.bind(L)
+                SetLang()
+
+                // fix emails
+                $('.email').each(function(i, e) {
+                    e = $(e)
+                    var email = e.html().replace(' ', '@')
+                    e.attr('href', 'mailto:' + email)
+                    e.html(email)
+                })
+
+                /*setInterval(function() {    // Blink Color
+                $('h1').last().toggleClass('a')
+            },500)*/
+
+                //            if(top==self) $('body').css({background:'rgb(0,50,100)'})
+
+                $.get('https://min-api.cryptocompare.com/data/price?fsym=USD&tsyms=BTC,BCH,XMR', function(data) {
+                    var currencies = ['btc', 'bch', 'xmr']
+                    var amounts = [5, 10, 20, 30, 50, 100]
+                    var rates = [data.BTC, data.BCH, data.XMR]
+                    console.log('currencies:', currencies)
+                    console.log('rates:', rates)
+                    for (var i = 0; i < currencies.length; i++) {
+                        for (var j = 0; j < amounts.length; j++) {
+                            $('#' + currencies[i] + amounts[j]).text(round8(amounts[j] * rates[i]))
+                        }
+                        $('#' + currencies[i] + 'Rate').text('1 ' + currencies[i].toUpperCase() + ' = $' + Math.round(1 / rates[i]))
+                    }
+                }, 'json').error(function() {
+                    $('#btcRate').text('Error Loading Rates')
+                })
+            })
+
+            /////////////////// DragonLanguage ////////////////////
+            var LANGUAGE = {
+                EN: -1,
+                ES: 0
+            }
+            function DragonLanguage(strings, lang) {
+                this.lang = LANGUAGE.EN
+                if (lang == LANGUAGE.ES)
+                    this.lang = LANGUAGE.ES
+                else if (navigator.language && navigator.language.indexOf('es') == 0)
+                    this.lang = LANGUAGE.ES
+                this.strings = strings
+            }
+            DragonLanguage.prototype.GetCurrentLang = function() {
+                return this.lang
+            }
+            DragonLanguage.prototype.t = function(q) {
+                // translate
+                if (this.lang === LANGUAGE.EN)
+                    return q
+                // no translate for english
+
+                var s = this.strings[q]
+                // find word in the list
+                if (s === undefined)
+                    return q
+                // unknown word - return original (en)
+
+                // if we have only 1 entry string
+                if (typeof s === 'string') {
+                    if (this.lang === LANGUAGE.ES)
+                        return s || q
+                        // we need the first language (ES)
+                    else
+                        return q
+                    // we need other non-available language, return the original (EN)
+                } else {
+                    // we have an array - get translation in the chosen lang (can be undefined or '')
+                    return s[this.lang] || q
+                    // if no translation available, return the original (english)
+                }
+            }
+            var STRINGS = {
+                'Prices': 'Precios',
+                'Addresses / Payment Methods': 'Direcciones / Métodos de pago',
+                'Promotion': 'Promoción',
+                'very high transfer fees, not recommended': 'tarifas de transferencia muy altas, no recomendadas',
+                'no fees': 'no comisiones',
+                '': '',
+                '#': '#'
+            }
+            function SetLang() {
+                $('#textPrices').text(T('Prices'))
+                $('#textAddresses').text(T('Addresses / Payment Methods'))
+                $('#textPromotion').text(T('Promotion') + '!')
+                $('#textHighFees').text(T('very high transfer fees, not recommended'))
+                $('.textNoFees').text(T('no fees'))
+                $('.EN').toggle(L.GetCurrentLang() == LANGUAGE.EN)
+                $('.ES').toggle(L.GetCurrentLang() == LANGUAGE.ES)
+            }
+
+            ///////////////////////////////////////
+        </script>
+    </head>
+    <body class="blackShadow">
+        <h1 id="textPrices">Precios: (Prices)</h1>
+        <table class="priceTable">
+            <thead>
+                <tr>
+                    <td>DragonBound Cash</td>
+                    <td>USD (soles)</td>
+                    <td style="white-space: nowrap">
+                        <span class="currency btc"></span>
+                        Bitcoin (BTC)
+                    </td>
+                    <td style="white-space: nowrap">
+                        <span class="currency bch"></span>
+                        Bitcoin-Cash (BCH)
+                    </td>
+                    <td style="white-space: nowrap">
+                        <span class="currency xmr"></span>
+                        Monero (XMR)
+                    </td>
+                </tr>
+            </thead>
+            <tr style="font-style: italic;color:lightgoldenrodyellow">
+                <td></td>
+                <td></td>
+                <td id="btcRate">Loading Rates...</td>
+                <td id="bchRate"></td>
+                <td id="xmrRate"></td>
+            </tr>
+            <tr>
+                <td>21,000 Cash</td>
+                <td>$10 (32 soles)</td>
+                <td id="btc10"></td>
+                <td id="bch10"></td>
+                <td id="xmr10"></td>
+            </tr>
+            <tr>
+                <td>43,000 Cash</td>
+                <td>$20 (65 soles)</td>
+                <td id="btc20"></td>
+                <td id="bch20"></td>
+                <td id="xmr20"></td>
+            </tr>
+            <tr>
+                <td>66,000 Cash</td>
+                <td>$30 (98 soles)</td>
+                <td id="btc30"></td>
+                <td id="bch30"></td>
+                <td id="xmr30"></td>
+            </tr>
+            <tr>
+                <td>115,000 Cash</td>
+                <td>$50 (163 soles)</td>
+                <td id="btc50"></td>
+                <td id="bch50"></td>
+                <td id="xmr50"></td>
+            </tr>
+            <tr>
+                <td>240,000 Cash</td>
+                <td style="white-space: nowrap">$100 (327 soles)</td>
+                <td id="btc100"></td>
+                <td id="bch100"></td>
+                <td id="xmr100"></td>
+            </tr>
+        </table>
+        <h1 id="textAddresses">Addresses / Payment Methods:</h1>
+        Bitcoin (BTC): <b>1Dragon3zZerBJW6JBG3DKFMzZXoViFe3J</b>
+        (<span id="textHighFees">very high transfer fees, not recommended</span>
+        )<br>
+        <br>
+        Bitcoin-Cash (BCH): <b>1Dragon3zZerBJW6JBG3DKFMzZXoViFe3J</b>
+        (<span class="textNoFees">no fees</span>
+        )<br>
+        <br>
+        Monero (XMR): <b style="word-wrap: break-word">4448Cp9qMrUdQEsJvRU9JMHvf8rzzBCtJdmUAuMAKkUtgUUcELm38yS8y1AphnEiF3gCCXweU1Z2FKkA1oyHWwXtK9UutDd</b>
+        (<span class="textNoFees">no fees</span>
+        )<br>
+        <div class="ES">
+            <h1>¿Cómo comprar?</h1>
+            1. Realiza el pago - Envía el monto correcto que está en la tabla de arriba a la dirección correspondiente.<br>
+            2. Envía un correo al email <a class="email">business dragonbound.net</a>
+            con:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;A. Tu UserID: <span class="yellow">3314999 - JulioGamonal!
+</a></span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B. ¿Cuánto Cash de DragonBound has comprado? ( Por ejemplo: <span class="yellow">240k cash</span>
+)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C. <span class="yellow">Prueba de pago:</span>
+Una imagen de la confirmación de pago o el URL donde muestra la información de la transacción realizada en blockchain.<br>
+</div>
+<div class="EN">
+    <h1>How to buy?</h1>
+    1. Make the payment - Send the right amount from the table above to the right address.<br>
+    2. Send an email to <a class="email">business dragonbound.net</a>
+    with:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;A. Your UserID: <span class="yellow">3314999 - JulioGamonal!
+</a></span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;B. How much DragonBound Cash did you buy? ( For example: <span class="yellow">240k cash</span>
+)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C. <span class="yellow">Proof of payment:</span>
+A screenshot of the payment confirmation or a URL to the transaction information on the blockchain.<br>
+</div><h1 id="textPromotion">Promoción!</h1>
+<table class="styleTable">
+    <tr>
+        <td>
+            <img src="/static/images/bitcoinAvatar.gif">
+        </td>
+        <td>
+            1. (RARE) Bitcoin [Flag]<br>
+            2. (RARE) Bitcoin [Body]<br>
+            3. (RARE) Bitcoin [Head]<br>
+            <br>
+            <i>+ (RARE) Cash Charger</i>
+        </td>
+    </tr>
+</table>
+<div class="ES">Compra DragonBound Cash y recibe 1 avatar gratis de Bitcoin para mostrarle a todos que eres un experto en Criptomonedas! (+Cash Charger background)</div>
+<div class="EN">Buy DragonBound Cash and receive 1 free Bitcoin avatar to show everyone that you are an expert in CryptoCurrencies! (+Cash Charger background)</div>
+<br>
+<br>
+<br>
+<br>
+</body></html>

@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="same-origin">
+<title>Change Email - FunnyBound</title>
+<script src="/cdn-cgi/apps/head/iR8OSjNSfwcexYD8YdkF6QmafNg.js"></script><script src="/static/js/jquery-3.5.0.min.js?2"></script>
+<script src="/static/js/QTransform.js"></script>
+<script src="/static/js/Filter.js?9"></script>
+<link rel="stylesheet" href="/static/DragonBook/DragonBook.min.css?25" />
+<script src="/static/DragonBook/DragonBook.min.js?56"></script>
+
+
+<meta name="viewport" content="width=device-width">
+<style>
+        html {
+            height: 100%;
+        }
+        body {
+            background: #3364a6 url('/static/images/aqua_bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            -webkit-text-size-adjust: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="titleTable" class="blackShadow">
+<div id="titleTableLeft" class="cell">
+<span id="icon"></span> <span id="titleText"><a href="/">FunnyBound</a> > Change Email</span>
+</div>
+<div id="titleTableRight" class="cell right">
+<a href="/user/{{game_id}}">{{game_id}}</a> | <a href="/settings">Settings</a> | <a href="/logout?next=/change_email">Logout</a>
+</div>
+</div>
+<div id="body">
+<style>
+    #mainBox {
+        width: 850px;
+        margin: 0 auto;
+        /*background-color: rgba(255,255,255,0.5);*/
+    }
+    .boxTitle {
+        color: #6a7480;
+        height: 36px;
+        /*background: #f6f7f8;*/
+        border-bottom: 1px solid #e9eaed;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 38px;
+        padding-left: 15px;
+        background-color: rgba(255,255,255,0.5);
+        /*margin-bottom: 15px;*/
+    }
+
+    .Box {
+        border: 1px solid #dde;
+        background-color: rgba(255,255,255,0.5);
+        margin-bottom: 15px;
+        border-radius: 3px;
+        /*padding-bottom: 15px;*/
+        color: #000;
+    }
+
+    .boxBody {
+        padding: 15px;
+        color: #37404e;
+        text-align: left;
+    }
+
+    table {
+        /*color: white;*/
+        /*background: rgba(0,0,0,0.5);*/
+        width: 100%;
+    }
+    td {
+        padding: 3px;
+    }
+    a {
+        color:inherit;
+    }
+    a:hover {
+        background-color: rgba(255,255,255,0.5);
+        text-decoration: underline;
+    }
+
+    input {
+        width: 400px;
+    }
+
+    @media (max-width: 900px) {
+        #mainBox {
+            width: 500px;
+        }
+        .boxBody {
+            font-size: 12px;
+        }
+        input {
+            width: 250px;
+        }
+    }
+    /*#id_old_email_code {*/
+        /*width: 150px;*/
+    /*}*/
+    /*#id_new_email {*/
+        /*width: 245px;*/
+    /*}*/
+    /*#id_new_email_code {*/
+        /*width: 150px;*/
+    /*}*/
+</style>
+<script>
+function getCookie(key) {
+    var keyValue = document.cookie.match(new RegExp('(^|;) ?' + key + '=([^;]*)(;|$)'))
+    return keyValue ? keyValue[2] : null
+}
+
+$(document).ajaxSend(function(event, xhr, settings) {
+    function sameOrigin(url) {
+        // url could be relative or scheme relative or absolute
+        var host = document.location.host; // host + port
+        var protocol = document.location.protocol;
+        var sr_origin = '//' + host;
+        var origin = protocol + sr_origin;
+        // Allow absolute or scheme relative URLs to same origin
+        return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+            (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+            // or any other URL that isn't scheme relative or absolute i.e relative.
+            !(/^(\/\/|http:|https:).*/.test(url))
+    }
+    function safeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method))
+    }
+
+    if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+        xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'))
+    }
+})
+
+$(function() {
+    var current_email = ''
+    $('#sendCodeOld').click(function(e) {
+        var div = $(this).text('Sending...').prop('disabled',1)
+        $.post('/send_email_verify_code', {email:current_email}, function(res) {
+            div.text(res)
+        })
+    })
+    $('#sendCodeNew').click(function(e) {
+        var email = $('#id_new_email').val()
+        var email_regex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+        if(!email_regex.test(email)) return alert('Invalid email')
+        var div = $(this).text('Sending...').prop('disabled',1)
+        $.post('/send_email_verify_code', {email:email}, function(res) {
+            div.text(res)
+        })
+    })
+
+    $('form[autocomplete="off"] input, input[autocomplete="off"]').each(function () {
+        var input = this;
+        var name = $(input).attr('name');
+        var id = $(input).attr('id');
+
+        $(input).removeAttr('name');
+        $(input).removeAttr('id');
+
+        setTimeout(function () {
+            $(input).attr('name', name);
+            $(input).attr('id', id);
+        }, 1000)
+    });
+})
+</script>
+<div id="mainBox">
+<div class="Box">
+<div class="boxTitle">Change Email</div>
+<div class="boxBody">
+<form method="post" autocomplete="off">
+<input type='hidden' name='csrfmiddlewaretoken' value='RA13qmhV-Leftzy4fkREthh78FGvT8yi5g58' />
+<table>
+<tbody>
+<tr>
+<th><label for="id_old_email_code">Current Email:</label></th>
+<td>{{correo}}</td>
+</tr>
+<tr>
+<th><br><label for="id_new_email">New Email:</label></th>
+<td><br>
+<input class="email" id="id_new_email" maxlength="100" name="new_email" placeholder="New Email" autocomplete="off" type="email" style="width: 245px;">
+<!--<button type=button id="sendCodeNew">Send verification code</button>-->
+</td>
+</tr>
+<tr>
+<!--<th><label for="id_new_email_code">New Email - Verification Code:</label></th>-->
+<!--<td>
+<input id="id_new_email_code" maxlength="10" name="new_email_code" placeholder="Verification Code" type="text" autocomplete="offdsfa">
+</td>-->
+</tr>
+<tr>
+<th><br><label for="id_password">FunnyBound Account Password:</label></th>
+<td><br>
+<input id="id_password" maxlength="200" name="password" placeholder="Password" type="password" autocomplete="new-password">
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="submit" value="Save" style="padding: 10px 80px">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+</div>
+</body>
+</html>
+
+<script>setTimeout(()=>{setTimeout=setInterval=()=>{}},9781)</script>

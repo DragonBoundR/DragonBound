@@ -1,0 +1,1582 @@
+#dbtemail {
+    width: 270px;
+}
+/*BOX LOGIN*/
+#LoginWindow {
+    width: 700px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    margin: auto;
+    transform-origin: 0 center;
+    border: #00486b 5px solid;
+    border-radius: 5px;
+    box-shadow: black 10px 10px 50px 10px;
+    background-image: -ms-linear-gradient(top left,#03ffff 0,#05008f 100%);
+    background-image: -moz-linear-gradient(top left,#03ffff 0,#05008f 100%);
+    background-image: -o-linear-gradient(top left,#03ffff 0,#05008f 100%);
+    /* background-image: -webkit-gradient(linear,left top,right bottom,color-stop(0,#03ffff),color-stop(1,#05008f)); */
+    /* background-image: -webkit-linear-gradient(top left,#03ffff 0,#05008f 100%); */
+    background-image: linear-gradient(to bottom right,#008ac6 0,#001923 100%);
+}
+#LoginWindowBG {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    z-index: 99;
+}
+/*SERVERLIST*/
+#BrokerWindow {
+    position: absolute;
+    left: 0px !important;
+    top: 0px !important;
+    width: 800px !important;
+    height: 600px !important;
+    /*border: black solid 2px;
+    border-radius: 20px;*/
+    color: white;
+    z-index: 999;
+    /*background: rgba(20,20,140,0.6);*/
+    background-image: url("../images/season4/server_bg.jpg?10");
+    background-size: 800px 600px;
+    /*box-shadow: 5px 5px 30px 10px #000,inset 1px 2px 4px #7394b5*/
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+#BrokerLogout {
+    display: block;
+    position: absolute;
+    right: initial;
+    bottom: 5px;
+    width: 55px;
+    height: 51px;
+    background-position: -56px -303px;
+    left: 12px;
+}
+.BrokerChannel {
+    position: absolute;
+    width: 324px;
+    height: 80px;
+    background: url(/static/images/season4/servers_s1.png?10) no-repeat 0 -80px;
+    background-size: 348px 800px;
+}
+#BrokerChannel0 {
+    left: 50px;
+    top: 78px;
+}
+#BrokerChannel1 {
+    left: initial;
+    top: 78px;
+    right: 50px;
+}
+#BrokerChannel2 {
+    left: 50px;
+    top: 160px;
+}
+#BrokerChannel3 {
+    left: initial;
+    top: 160px;
+    right: 50px;
+}
+#BrokerChannel4 {
+    left: 50px;
+    top: 243px;
+}
+#BrokerChannel5 {
+    left: initial;
+    top: 243px;
+    right: 50px;
+}
+#BrokerChannel6 {
+    left: 50px;
+    top: 271px;
+}
+#BrokerChannel7 {
+    left: initial;
+    top: 271px;
+    right: 50px;
+}
+#BrokerChannel8 {
+    left: 50px;
+    top: 353px;
+}
+#BrokerChannel9 {
+    left: initial;
+    top: 353px;
+    right: 50px;
+}
+#BrokerChannel10 {
+    left: 50px;
+    top: 435px;
+}
+#BrokerChannel11 {
+    left: initial;
+    top: 435px;
+    right: 50px;
+}
+/*DIFERENTES SERVERS*/
+.XmasServer {
+    background-position: 0 -160px !important;
+}
+.XmasServerOff {
+    /*background-position: 0 -240px;*/
+    background-position: 0 -160px !important;
+}
+.FastLobbyServer {
+    background-position: 0 -480px !important;
+}
+.FastLobbyServerOff {
+    /*background-position: 0 -560px;*/
+    background-position: 0 -480px !important;
+}
+.PrixServer {
+    background-position: 0 -320px !important;
+}
+.PrixServerOff {
+    /*background-position: 0 -400px;*/
+    background-position: 0 -320px !important;
+}
+.LoveLobbyServer {
+    background-position: 0 -640px !important;
+}
+.LoveLobbyServerOff {
+    background-position: 0 -640px !important;
+}
+
+.PrixTimer {
+    position: absolute;
+    left: 220px;
+    top: 49px;
+    font-size: 12px;
+}
+.rank-min {
+    width: 25px;
+    height: 15px;
+    background-image: url("../images/rank_min.png") !important;
+    background-repeat: no-repeat;
+    display:block;
+}
+.rank-max {
+    width: 25px;
+    height: 15px;
+    background-image: url("../images/rank_max.png") !important;
+    background-repeat: no-repeat;
+    display:block;
+}
+.rankava-on{
+    width: 25px;
+    height: 15px;
+    background-image: url("../images/avatar_on.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 25px 15px;
+}
+.rankava-off{
+    width: 25px;
+    height: 15px;
+    background-image: url("../images/avatar_off.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: 25px 15px;
+}
+/*FIN DIFERENTES SERVERS*/
+.BrokerRanks {
+    position: absolute;
+    left: 199px;
+    top: 6px;
+    color: black;
+    font-size: 0px;/*22px*/
+    background: #000;
+    padding: 1px;
+}
+.BrokerMaxPlayers2 {
+    position: absolute;
+    left: 20px;
+    top: 62px;
+    height: 7px;
+    background: #3b70ad7a;
+    border: 1px solid black;
+    width: 74px;
+}
+.BrokerNumPlayers2 {
+    position: absolute;
+    left: 21px;
+    top: 63px;
+    height: 7px;
+    background: #0f0;
+    width: 0;
+}
+.numserver{
+    color: #d8953b;
+}
+.BrokerChannelName {
+    position: absolute;
+    left: 17px;
+    top: 6px;
+    color: white;
+    font-size: 13px;
+}
+.svsubtitle{
+    position: absolute;
+    left: 17px;
+    top: 31px;
+    color: #fff;
+    font-size: 11px;
+}
+/*Item Pala*/
+#itemPala {
+    /*background-image: url("../images/themes/classic/items.png");
+    position: absolute;
+    left: 111px;
+    top: 159px;
+    background-size: unset;*/
+}
+.itemPala {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    left: 111px;
+    top: 159px;
+    background-size: unset  !important;
+    background-position: -275px 0;
+    width: 34px;
+    height: 31px;
+}
+.itemNone {
+    width: 35px;
+    height: 31px;
+    background: none;
+}
+/*Mobiles*/
+#roomMobileSelect{
+    top: 24px;
+    background: url("../images/season4/ready_mobile.png?10") no-repeat;
+    width:552px;
+    height:560px;
+    border-radius: 0px;
+    padding: 78px 0px 0px 20px;
+    z-index: 1000;
+}
+.mobileSelectBtn{
+    background: url("../images/season4/box_mobile.png?10") no-repeat;
+    width: 85px;
+    height:80px;
+    border-radius: 0px;
+    border:unset;
+    margin: 8px;
+}
+.mobileSelectBtn:hover{
+    background: url("../images/season4/box_mobile.png?10") no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px #ebedf0 !important;
+}
+#roomMobileSelectCancel{
+    right: 46px !important;
+    bottom: 104px !important;
+}
+.mobileName{
+    top:61px;
+    left:0px;
+    width:85px;
+    font-size: 10px;
+    color:#294d84;
+    text-shadow: 1px 1px #FFF;
+    font-weight: bold;
+}
+/*Tabs*/
+#room_item_buddy_tab1{
+    filter: brightness(1) !important;
+}
+#room_item_buddy_tab2{
+    filter: brightness(1) !important;
+}
+#room_item_buddy_tab3{
+    filter: brightness(1) !important;
+}
+#friendsList{
+    /*background-color: rgb(57 99 156);*/
+    background:none;
+}
+#friendsListExtra{
+    display: none !important;
+}
+#guildMembersList{
+    background: none;
+}
+
+/*Items*/
+#itemDual {
+    left: 38px;
+    top: 20px;
+}
+#itemDualP {
+    left: 120px;
+    top: 20px;
+}
+#itemTeleport {
+    position: absolute;
+    left: 202px;
+    top: 20px;
+}
+#itemPala {
+    left: 202px;
+    top: 106px;
+}
+#itemBlood{
+    left: 22px;
+    top: 106px;
+}
+.itemBlood {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    background-size: unset  !important;
+    background-position: -241px 0;
+    width: 34px;
+    height: 31px;
+}
+
+#itemPowerup{
+    left: 254px;
+    top: 106px;
+}
+.itemPowerup {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    background-size: unset  !important;
+    background-position: -138px 0;
+    width: 34px;
+    height: 31px;
+}
+
+#itemViento{
+    left: 144px;
+    top: 106px;
+}
+.itemViento {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    background-size: unset  !important;
+    background-position: -481px 0;
+    width: 34px;
+    height: 31px;
+}
+
+#itemEnergy1{
+    left: 87px;
+    top: 106px;
+}
+.itemEnergy1 {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    background-size: unset  !important;
+    background-position: -309px 0;
+    width: 34px;
+    height: 31px;
+}
+
+#itemEnergy2{
+    left: 38px;
+    top: 64px;
+}
+.itemEnergy2 {
+    background-image: url("../images/season4/items.png?10") !important;
+    position: absolute;
+    background-size: unset  !important;
+    background-position: -515px 0;
+    width: 69px;
+    height: 31px;
+}
+/*Nuevos Botones*/
+.newbgimg{
+    background-image: url(/static/images/season4/botones/botones_HD.png?10) !important;
+    background-repeat: no-repeat;
+    background-size: 1000px 1500px !important;
+}
+.buttonItem {
+    position: absolute;
+    left: 1075px;
+    top: 835px;
+    width: 190px;
+    height: 107px;
+    background: url(/static/images/season4/botones/boton_item.jpg) no-repeat !important;
+    zoom: 60%;
+}
+#roomButtonItem {
+    background-position: -1px -1px;
+}
+#roomButtonItem:hover{
+    background-position: -30px -1px;
+}
+#roomButtonItem:active{
+    background-position: -59px -1px;
+}
+#lobbyButtonItem {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 530px;
+    top: 205px;
+    background-position: -1px -1px;
+}
+#lobbyButtonItem:hover {
+    background-position: -30px -1px;
+}
+#lobbyButtonItem:active {
+    background-position: -59px -1px;
+}
+#roomItemSelect {
+    position: absolute;
+    left: 184px;
+    top: 109px;
+    z-index: 99;
+    background-position: 0px -29px;
+    width: 397.5px;
+    height: 303.5px;
+    border-radius: 0px;
+    padding: 78px 0px 0px 20px;
+}
+#roomItemSelectCancel{
+    position: absolute;
+    left: 240px;
+    bottom: -2px
+}
+#itemsSelection.InRoom {
+    top: 40px;
+    left: 20px;
+    width: 207px;
+    height: 330px;
+}
+#itemSlot0{
+    top:unset;
+    bottom:3px;
+}
+#itemSlot1{
+    top:unset;
+    bottom:3px;
+}
+#itemSlot2{
+    top:unset;
+    bottom:3px;
+}
+#itemSlot3{
+    top:unset;
+    bottom:3px;
+}
+#itemSlot4{
+    top:unset;
+    bottom:3px;
+}
+#itemSlot5{
+    top:unset;
+    bottom:3px;
+}
+#itemsSelectText{
+    display:none;
+}
+#itemSelectName{
+    color: #ffd77b;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    position: absolute;
+    width: 200px;
+    height: 18px;
+    bottom: 94px;
+    font-size: 12px !important;
+}
+#itemSelectDesc{
+    position: absolute;
+    width: 370px;
+    height: 46px;
+    bottom: 44px;
+    font-size: 12px;
+}
+
+.buttonBuddy {
+    position: absolute;
+    left: 107px;
+    bottom: 16px;
+    width: 28px;
+    height: 32px;
+}
+#roomButtonBuddy {
+    position: absolute;
+    left: 150px;
+    bottom: 610px;
+    width: 66px;
+    height: 60px;
+    background-position: -1px -452px;
+    zoom: 88%;
+}
+#roomButtonBuddy:hover{
+    opacity: 1;
+    background-position: -69px -452px;
+}
+#roomButtonBuddy:active{
+    opacity: 1;
+    background-position: -136px -452px;
+}
+
+
+#buttonBuddylist {
+    position: absolute;
+    left: 105px;
+    bottom: 170px;
+    width: 66px;
+    height: 60px;
+    background-position: -1px -452px;
+    margin: 0px !important;
+}
+#buttonBuddylist:hover {
+    opacity: 1;
+    background-position: -69px -452px;
+}
+#buttonBuddylist:active {
+    opacity: 1;
+    background-position: -136px -452px;
+}
+
+#buddydiv{
+    position: absolute;
+    left: 2%;
+    /* top: 5%; */
+    bottom: 5%;
+    width: 274px;
+    height: 307px;
+    display: none;
+    background-position: 0 -755px;
+    box-shadow: 5px 5px 20px 5px #000;
+    border-radius: 5px;
+    border: 0.5px solid #000;
+    z-index: 1;
+    background-position: -418px -29px;
+    /*background-size: 1000px 1500px;*/
+}
+#buddydivCancel{
+    position: absolute;
+    left: 90px;
+    bottom: -6px
+}
+#friendsList{
+    left:12px;
+    top:0px;
+    width: 246px;
+}
+#friendsList .viewport{
+    top: 31px;
+}
+#refresh_friends_button {
+    padding: 4px;
+    font-size: 9px;
+    width: 85px;
+    right: 19px;
+    position: absolute;
+    top: 5px;
+}
+#friends_list_dnd_btn {
+    position: absolute;
+    left: 228px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+}
+.friendListItem.odd{
+    background:none;
+}
+
+
+#roomButtonGuild {
+    position: absolute;
+    left: 260px;
+    bottom: 610px;
+    width: 66px;
+    height: 60px;
+    background-position: -1px -514px;
+    zoom: 88%;
+}
+#roomButtonGuild:hover{
+    opacity: 1;
+    background-position: -69px -514px;
+}
+#roomButtonGuild:active{
+    opacity: 1;
+    background-position: -136px -514px;
+}
+#guildRoomTabExtra{
+    display: none !important;
+}
+#guilddiv{
+    position: absolute;
+    left: 2%;
+    /* top: 5%; */
+    bottom: 5%;
+    width: 274px;
+    height: 307px;
+    display: none;
+    background-position: 0 -755px;
+    box-shadow: 5px 5px 20px 5px #000;
+    border-radius: 5px;
+    border: 0.5px solid #000;
+    z-index: 1;
+    background-position: -693px -29px;
+    /*background-size: 1000px 1500px;*/
+}
+#guilddivCancel{
+    position: absolute;
+    left: 90px;
+    bottom: -6px
+}
+#guildMembersList{
+    left:12px;
+    top:0px;
+    width: 246px;
+}
+#guild_leave{
+    position: absolute;
+    bottom: -78px;
+    left: -4px;
+}
+#open_guild_chat{
+    position: absolute;
+    font-size: 10px;
+    padding: 3px;
+    top: 5px;
+    right: 2px;
+}
+#refresh_button_guildies{
+    position: absolute;
+    font-size: 10px;
+    padding: 3px;
+    top: 5px;
+    right: 82px;
+}
+#guildMembersList .viewport{
+    top:31px;
+}
+.guildMemberListItem.odd{
+    background:none;
+}
+
+#buttonGuildlist {
+    position: absolute;
+    left: 40px;
+    bottom: 170px;
+    width: 66px;
+    height: 60px;
+    background-position: -1px -514px;
+    margin:0px !important;
+}
+#buttonGuildlist:hover {
+    opacity: 1;
+    background-position: -69px -514px;
+}
+#buttonGuildlist:active {
+    background-position: -136px -514px;
+}
+/*Zonas deshabilitadas para interfase S1*/
+#buttonAllBuddyList1{
+    display:none;
+}
+#buttonAllBuddyList2{
+    display:none;
+}
+#buttonAllBuddyList3{
+    display: none;
+}
+#room_item_buddy_tab1{
+    display: none;
+}
+#room_item_buddy_tab2{
+    display: none;
+}
+#room_item_buddy_tab3{
+    display: none;
+}
+/*Ready*/
+#roomScreen{
+    background-image: url(/static/images/season4/ready_back.png?10) !important;
+}
+#room_map {
+    position: absolute;
+    left: 293px;
+    top: 132px;
+    width: 213px;
+    height: 49px;
+}
+#room_game_mode {
+    position: absolute;
+    top: 190px;
+    left: 325px;
+    text-align: center;
+    width: 145px;
+    color: #c1e0da;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    font-size: 20px;
+    /* -webkit-text-stroke: 0.5px black; */
+    font-weight: bold;
+    /* font-style: italic; */
+}
+#room_players {
+    position: absolute;
+    left: 325px;
+    top: 215px;
+    /* text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black; */
+    width: 145px;
+    color: #e1ce84;
+    text-align: center;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    font-size: 20px;
+    /* -webkit-text-stroke: 1px black; */
+    font-weight: bolder;
+    /* font-style: italic; */
+    /* transform: scale(1.5); */
+    text-transform: uppercase;
+}
+#room_avatars {
+    position: absolute;
+    left: 325px;
+    top: 240px;
+    width: 145px;
+    color: #c1e0da !important;
+    font-size: 20px;
+    text-align: center;
+    /* font-weight: 600; */
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    /* -webkit-text-stroke: 0.5px black; */
+    font-weight: bold;
+    /* font-style: italic; */
+}
+#room_wind {
+    position: absolute;
+    left: 325px;
+    top: 265px;
+    width: 145px;
+    color: #e1ce84 !important;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
+    /* -webkit-text-stroke: 0.5px black; */
+    font-weight: bold;
+    /* font-style: italic; */
+    font-style: upp;
+    text-transform: uppercase;
+}
+#room_turn_time_text {
+    position: absolute;
+    right: 405px;
+    top: 290px;
+    font-weight: bold;
+    font-size: 11px;
+}
+#room_turn_time {
+    position: absolute;
+    left: 400px;
+    top: 290px;
+    width: 100px;
+    color: white;
+    font-size: 11px;
+    text-align: left;
+    font-weight: bold;
+}
+#roomButtonChangeTeam {
+    position: absolute;
+    left: 420px;
+    top: 480px;
+    width: 189px;
+    height: 128px;
+    background: url(/static/images/season4/botones/boton_change.jpg) no-repeat !important;
+    background-position: 0 0;
+    zoom: 65%;
+}
+#roomButtonMobile {
+    position: absolute;
+    left: 880px;
+    top: 835px;
+    width: 192px;
+    height: 106px;
+    background: url(/static/images/season4/botones/boton_mobile.jpg) no-repeat !important;
+    zoom: 60%;
+}
+#roomChat {
+    position: absolute;
+    left: 35px;
+    top: 490px;
+    width: 405px;
+    height: 55px;
+}
+#roomChat .overview {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    word-wrap: break-word;
+    width: 394px;
+}
+#roomChatHtml {
+    font-size: 10px;
+    color: #b5efd6;
+}
+#roomInput {
+    position: absolute;
+    left: 118px;
+    top: 558px;
+    width: 378px;
+    height: 20px;
+    background-color: transparent;
+    border: 0;
+    font-size: 12px;
+    color: #adf7f7;
+    z-index: 111;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+}
+#roomBcm {
+    position: absolute;
+    left: 500px;
+    top: 560px;
+}
+#roomEmojiBtn {
+    position: absolute;
+    left: 375px;
+    top: 499px;
+    width: 24px;
+    height: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+#room_change_title_button {
+    position: absolute;
+    left: 299px;
+    top: 82px;
+    width: 15px;
+    height: 15px;
+    background-position: -85px -9px;
+}
+#roomNumber {
+    position: absolute;
+    left: 327px;
+    top: 83px;
+    width: 30px;
+}
+#roomTitle {
+    position: absolute;
+    left: 347px;
+    top: 83px;
+    width: 450px;
+    height: 15px;
+}
+#RoomWatchers {
+    top: 475px;
+    right: 384px;
+    z-index: 1;
+    bottom:unset;
+}
+#roomButtonBack {
+    position: absolute;
+    right: unset;
+    left: 690px;
+    bottom: 542px;
+    width: 57px;
+    height: 54px;
+    background-position: 0 -66px;
+}
+#roomInput:focus {
+    border: orange solid 0px;
+    background:unset
+    /*background-color: #001839*/
+}
+
+#playerInRoom0 {
+    position: absolute;
+    left: 40px;
+    top: 70px !important;
+}
+#playerInRoom2 {
+    position: absolute;
+    left: 40px;
+    top: 175px !important;
+}
+
+#playerInRoom4 {
+    position: absolute;
+    left: 40px;
+    top: 280px !important;
+}
+
+#playerInRoom6 {
+    position: absolute;
+    left: 40px;
+    top: 385px !important;
+}
+
+#playerInRoom1 {
+    position: absolute;
+    right: 13px;
+    top: 70px !important;
+    left: 533px;
+}
+#playerInRoom3 {
+    position: absolute;
+    right: 56px;
+    top: 175px !important;
+    left: 533px;
+}
+
+#playerInRoom5 {
+    position: absolute;
+    right: 13px;
+    top: 280px !important;
+    left: 533px;
+}
+
+#playerInRoom7 {
+    position: absolute;
+    right: 56px;
+    top: 385px !important;
+    left: 533px;
+}
+#add_bot_button {
+    position: absolute;
+    left: 610px;
+    width: 82px;
+    height: 19px;
+    background-position: -83px -279px;
+}
+#select_bot_div {
+    position: absolute;
+    left: 228px;
+    width: 340px;
+    top: 102px;
+    background: #001839 url(/static/images/bg_blue.jpg);
+    opacity: .9;
+    padding: 10px;
+    display: none;
+    z-index: 112;
+    display: none;
+    border: solid 2px black;
+    border-radius: 3px;
+}
+#roomButtonReady {
+    position: absolute;
+    left: 210px;
+    top: unset;
+    width: 198px;
+    height: 47px;
+    background: url(/static/images/boton_ready.png) no-repeat !important;
+    z-index: 10;
+    bottom: 100px;
+    right: 8px;
+    zoom: 130%;
+}
+#roomButtonReady:hover {
+    opacity: 1;
+    background-position: -69px -639px !important;
+}
+#roomButtonReady:active {
+    opacity: 1;
+    background-position: -136px -639px !important;
+}
+
+#roomButtonStart {
+    position: absolute;
+    left: 418px;
+    top: 610px;
+    width: 392px;
+    height: 138px;
+    background: url(/static/images/boton_start.jpg) no-repeat !important;
+    z-index: 10;
+    bottom: 4px;
+    right: 8px;
+    zoom: 65%;
+}
+#roomButtonStart:active {
+    opacity: 1;
+    background-position: -136px -577px !important;
+}
+#buttonShopFromRoom {
+    position: absolute;
+    left: 340px !important;
+    top: -2px !important;
+    width: 91px !important;
+    height: 83px !important;
+    bottom: -3px !important;
+    background: url(/static/images/season4/botones/avatar.png) no-repeat;
+    zoom: 120%;
+}
+#buttonOptionsRoom {
+    position: absolute;
+    left: 590px;
+    top: 12px;
+    width: 55px;
+    height: 51px;
+    background-position: 0 -303px;
+}
+#gp_team_a{
+    display:none;
+}
+#gp_team_b{
+    display:none;
+}
+#gp_rate{
+    display:none;
+}
+/*Stats Mobile en room*/
+#contstatatk{
+    position: absolute;
+    width: 108px;
+    height: 6px;
+    bottom: 137px;
+    right: 198px;
+}
+#statatk{
+    width: 80px;
+    height: 6px;
+    background: #ee755a;
+}
+
+#contstatdef{
+    position: absolute;
+    width: 108px;
+    height: 6px;
+    bottom: 117px;
+    right: 208px;
+}
+#statdef{
+    width: 80px;
+    height: 6px;
+    background: #73d26a;
+}
+
+#contstatmov{
+    position: absolute;
+    width: 108px;
+    height: 6px;
+    bottom: 97px;
+    right: 218px;
+}
+#statmov{
+    width: 80px;
+    height: 6px;
+    background: #8399d5;
+}
+#imgmobileselected{
+    background: url(/static/images/season4/ready_mobile_selected.png?10) no-repeat;
+    background-size: 600px 600px;
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    bottom: 85px;
+    right: 11px;
+}
+/*Armor*/
+#imgmobileselected.mobile0{
+    background-position: -10px -5px;
+}
+/*ICE*/
+#imgmobileselected.mobile1{
+    background-position: -10px -181px;
+}
+#imgmobileselected.mobile2{
+    background-position: -25px 0px;
+}
+/*Lighting*/
+#imgmobileselected.mobile3{
+    background-position: -228px -93px;
+}
+/*Bigfot*/
+#imgmobileselected.mobile4{
+    background-position: -446px -5px;
+}
+/*JD*/
+#imgmobileselected.mobile5{
+    background-position: -337px -93px;
+}
+/*A SATE*/
+#imgmobileselected.mobile6{
+    background-position: -446px -93px;
+}
+/*Random*/
+#imgmobileselected.mobile7{
+    background-position: -337px -269px;
+}
+#imgmobileselected.mobile8{
+    background-position: -25px 0px;
+}
+#imgmobileselected.mobile9{
+    background-position: -25px 0px;
+}
+#imgmobileselected.mobile10{
+    background-position: -25px 0px;
+}
+/*Nak*/
+#imgmobileselected.mobile11{
+    background-position: -228px -5px;
+}
+/*Trico*/
+#imgmobileselected.mobile12{
+    background-position: -337px -5px;
+}
+/*Mage*/
+#imgmobileselected.mobile13{
+    background-position: -119px -5px;
+}
+/*TURTLE*/
+#imgmobileselected.mobile14{
+    background-position: -119px -181px;
+}
+/*Boomer*/
+#imgmobileselected.mobile15{
+    background-position: -10px -93px;
+}
+#imgmobileselected.mobile16{
+    background-position: -25px 0px;
+}
+/*GRUB*/
+#imgmobileselected.mobile17{
+    background-position: -228px -181px;
+}
+#imgmobileselected.mobile18{
+    background-position: -25px 0px;
+}
+/*Raon*/
+#imgmobileselected.mobile19{
+    background-position: -119px -93px;
+}
+#imgmobileselected.mobile20{
+    background-position: -25px 0px;
+}
+/*Maya*/
+#imgmobileselected.mobile21{
+    background-position: -228px -269px;
+}
+#imgmobileselected.mobile22{
+    background-position: -25px 0px;
+}
+/*Randomizer*/
+#imgmobileselected.mobile23{
+    background-position: -337px -269px;
+}
+#imgmobileselected.mobile24{
+    background-position: -25px 0px;
+}
+/*Phoenyx*/
+#imgmobileselected.mobile25{
+    background-position: -119px -269px;
+}
+/*Frog SAPITO*/
+#imgmobileselected.mobile26{
+    background-position: -10px -269px;
+}
+/*BEE*/
+#imgmobileselected.mobile27{
+    background-position: -337px -269px;
+}
+/*SHOP*/
+#shopScreen {
+    background-image: url(/static/images/season4/shop_bg.png?10) !important;
+    background-size: 800px 600px;
+}
+/*CHANNEL*/
+#channelScreen {
+    /*background-image: url(/static/images/season4/lobby_bg.png) !important;*/
+    background-image: url(/static/images/season4/gamelist_back.jpg?10) !important;
+    background-size: 800px 600px;
+}
+#buttonRoomsListUp {
+    position: absolute;
+    left: 538px;
+    top: 150px;
+    width: 34px;
+    height: 43px;
+    background-position: -223px -355px !important;
+}
+#buttonRoomsListDown {
+    position: absolute;
+    left: 538px;
+    top: 260px;
+    width: 34px;
+    height: 43px;
+    background-position: -223px -355px;
+    transform: scaleY(-1)
+}
+#playersList {
+    position: absolute;
+    left: 546px;
+    top: 342px;
+    width: 223px;
+    height: 162px;
+}
+/*#channel {
+    position: absolute;
+    left: 22px;
+    top: 344px;
+    width: 488px;
+    height: 133px;
+    font-size: 12px;
+    color: #acf2f6;
+}*/
+#channel {
+    position: absolute;
+    left: 34px;
+    top: 430px;
+    width: 496px;
+    height: 137px;
+    font-size: 12px;
+    color: #acf2f6;
+}
+#channel .overview {
+    /*width: 472px;*/
+    width: 478px;
+    padding: 4px;
+}
+#lobby_channel {
+    position: absolute;
+    left: 675px;
+    bottom: 263px;
+    width: 90px;
+    background: #438ae9;
+    border: none;
+    color: #fff;
+}
+#channelInput {
+    position: absolute;
+    left: 100px;
+    top: 557px;
+    width: 400px;
+    height: 16px;
+}
+#filter_normal {
+    position: absolute;
+    left: 180px;
+    top: 20px;
+}
+#filter_boss {
+    position: absolute;
+    left: 220px;
+    top: 20px;
+}
+#filter_same {
+    position: absolute;
+    left: 260px;
+    top: 20px;
+}
+#filter_score {
+    position: absolute;
+    left: 300px;
+    top: 20px;
+}
+#filter_friends {
+    position: absolute;
+    left: 480px;
+    top: 376px;
+}
+#filter_all {
+    position: absolute;
+    left: 401px;
+    top: 243px;
+    width: 44px !important;
+    height: 42px !important;
+    background-position: -624px -189.5px !important;
+}
+#filter_waiting {
+    position: absolute;
+    left: 454px;
+    top: 243px;
+    width: 44px !important;
+    height: 42px !important;
+    background-position: -670px -189.5px !important;
+}
+#filter_guild {
+    display: none !important;
+    position: absolute;
+    left: 550px;
+    top: 244px;
+}
+#buttonCreateRoom {
+    position: absolute;
+    left: 185px;
+    top: 374px;
+    width: 62px !important;
+    height: 62px !important;
+}
+#buttonMyInfo {
+    position: absolute;
+    left: 625px !important;
+    top: 7px !important;
+    width: 62px !important;
+    height: 62px !important;
+    bottom: 3px !important;
+    right: 83px !important;
+}
+#buttonShop {
+    position: absolute;
+    left: 430px !important;
+    top: 378px !important;
+    width: 91px !important;
+    height: 83px !important;
+    bottom: -3px !important;
+    background: url(/static/images/season4/botones/avatar.png) no-repeat;
+}
+#buttonJoin {
+    position: absolute;
+    left: 340px;
+    top: 376px;
+    width: 62px;
+    height: 62px;
+}
+#buttonQuickJoin {
+    position: absolute;
+    left: 260px;
+    top: 377px;
+    width: 62px;
+    height: 62px;
+}
+#buttonCharge2 {
+    position: absolute;
+    left: 372px;
+    top: 7px;
+    width: 62px;
+    height: 62px;
+    bottom: 3px;
+}
+#lobbyBcm {
+    position: absolute;
+    left: 515px;
+    top: 557px;
+}
+/*#channelName {
+    position: absolute;
+    left: 112px;
+    top: 317px;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+}*/
+#channelName {
+    position: absolute;
+    left: 640px;
+    top: 558px;
+    color: white;
+    font-size: 12px;
+    padding: 0px;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+}
+#buttonOptions {
+    position: absolute;
+    left: 120px;
+    top: 5px;
+    width: 62px !important;
+    height: 62px !important;
+    background-position: 0 -295px;
+}
+#room_options_button {
+    position: absolute;
+    left: 617px;
+    top: 476px;
+    width: 194px;
+    height: 132px;
+    background: url(/static/images/season4/botones/boton_options.jpg) no-repeat !important;
+    zoom: 65%;
+}
+#lobbyinfochar{
+    display: none;
+    z-index: 200;
+    position: relative;
+}
+/*Desactivamos info pj*/
+/*#myName2{
+    display: none;
+}
+#myPhotoDiv{
+    display: none;
+}
+#channel_player{
+    display: none;
+}
+#myGP2{
+    display: none;
+}
+#myGold2{
+    display: none;
+}
+#myCash2{
+    display: none;
+}
+#myPUG{
+    display: none;
+}
+#myPlusGP{
+    display: none !important;
+}*/
+/*FIX DE ROOMS EN CHANNEL*/
+#roomsList {
+    position: absolute;
+    /*left: 15px;*/
+    left:8px;
+    top: 24px;
+    width: 540px;
+    color: white;
+    font-size: 11px
+}
+#room2 {
+    left: 30px;
+    top: 130px;
+}
+#room3 {
+    left: 286px;
+    top: 130px;
+}
+#room4 {
+    left: 30px;
+    top: 200px;
+}
+#room5 {
+    left: 286px;
+    top: 200px;
+}
+
+#room6 {
+    left: 30px;
+    top: 270px;
+}
+#room7 {
+    left: 286px;
+    top: 270px;
+}
+#room8 {
+    left: 530px;
+    top: 150px;
+}
+/*LOBBYS NUEVOS*/
+#buttonStart1v1 {
+    position: absolute;
+    left: 140px;
+    top: 120px;
+    text-align: center;
+    min-width: 275px;
+}
+#buttonStart1v1.Only1v1Btn {
+    margin-top: 70px;
+    margin-left: -15px;
+}
+#buttonCreateTeam {
+    position: absolute;
+    left: 155px;
+    top: 170px;
+    min-width: 244px;
+    text-align: center;
+}
+#buttonJoinTeam {
+    position: absolute;
+    left: 167px;
+    top: 220px;
+    min-width: 222px;
+    text-align: center;
+}
+#tournament_info {
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    padding: 5px;
+    color: #ff6;
+    display: none;
+    font-size: 9px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+}
+#facebook_post {
+    position: absolute;
+    left: 460px;
+    top: 7px;
+    width: 62px;
+    height: 62px;
+    background-position: -126px -240px;
+    color: #ffd273;
+    font-size: 9px;
+    text-align: center;
+    bottom: 1px;
+    transform: scale(0.8);
+}
+#event_button {
+    position: absolute;
+    left: 530px;
+    top: 7px;
+    width: 62px;
+    height: 62px;
+    background-position: -63px -240px;
+    color: #ffd273;
+    font-size: 9px;
+    text-align: center;
+    bottom: 1px;
+    transform: scale(0.8);
+}
+#tournament_timer_header {
+    position: absolute;
+    left: 250px;
+    top: 61px;
+    text-align: center;
+    width: 330px;
+    color: #ff0;
+    display: none;
+    font-size: 18px;
+}
+#tournament_info2 {
+    position: absolute;
+    left: 7px;
+    bottom: 313px;
+    padding: 5px;
+    color: #ff6;
+    display: none;
+    font-size: 9px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+}
+.TBGnBorder {
+    background: rgba(0,0,0,0.5) !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}
+.BGChannelprix {
+    background: rgba(0,0,0,0.5) !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}
+#channel.BGChannelprix {
+    background-image: url(/static/images/season4/bg_games/gamelist_prix.png?10) !important;
+    background-repeat: no-repeat;
+    background-size: 496px 139px !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}
+#channel.BGChannelvip {
+    background-image: url(/static/images/season4/bg_games/gamelist_vip.png?10) !important;
+    background-repeat: no-repeat;
+    background-size: 496px 139px !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}
+#channel.BGChannelbunge {
+    background-image: url(/static/images/season4/bg_games/gamelist_bunge.png?10) !important;
+    background-repeat: no-repeat;
+    background-size: 496px 139px !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}
+#channel.BGChannelgm {
+    background-image: url(/static/images/season4/bg_games/gamelist_gm.png?10) !important;
+    background-repeat: no-repeat;
+    background-size: 496px 139px !important;
+    border: 2px solid #000 !important;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #f80;
+}

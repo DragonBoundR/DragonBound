@@ -1,0 +1,111 @@
+{{#if session_login}}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="referrer" content="same-origin">
+<title>{{game_id}} - ClassicBound User Avatars</title>
+<script src="/cdn-cgi/apps/head/iR8OSjNSfwcexYD8YdkF6QmafNg.js"></script><script src="/static/js/jquery-2.1.4.min.js"></script>
+<script src="/static/js/QTransform.js"></script>
+<script src="/static/js/Filter.js?7"></script>
+<link rel="stylesheet" href="/static/DragonBook/DragonBook.min.css?23" />
+<script src="/static/DragonBook/DragonBook.min.js?53"></script>
+
+
+<style>
+        html {
+            height: 100%;
+        }
+        body {
+            background: #3364a6 url({{background}}) no-repeat center center fixed;
+            background-size: cover;
+            -webkit-text-size-adjust: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="titleTable" class="blackShadow">
+<div id="titleTableLeft" class="cell">
+<span id="icon"></span> <span id="titleText"><a href="/">ClassicBound</a> > <a href="/user">User</a> > <a href="/user/{{game_id}}">{{game_id}}</a> > <a href="/u/{{user_id}}/avatars">Avatars</a></span>
+</div>
+<div id="titleTableRight" class="cell right">
+{{#if login}}
+<a href="/user/{{login_id}}">{{login_id}}</a> | 
+<a href="/settings">Settings</a> | 
+<a href="/logout?next=/u/{{user_id}}/avatars">Logout</a>
+{{else}}
+<a href="/login?next=/user/{{game_id}}">Login</a>
+{{/if}}
+</div>
+</div>
+<div id="body">
+<style>
+    table {
+        color: white;
+        background: rgba(0,0,0,0.6);
+        width: 100%;
+    }
+    td {
+        padding: 3px;
+    }
+    .yes {
+        background: url(/static/images/lobby_stuff.png) -102px -695px;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+    }
+    .avatarsView {
+        color: #000;
+        font-size: 11px;
+    }
+    .Expired {
+        color: gray;
+    }
+    #mainBox {
+        width: 1000px;
+    }
+</style>
+<div id="mainBox">
+<div id="topBar">
+<div id="photoDiv" class="PhotoDiv"></div> <script>Img2Div2($('#photoDiv'), atob('{{{user_img}}}'))</script>
+<div class="pageCoverTitle">
+<span id="profileName"><a class="noUnderline" href="/user/{{game_id}}">{{game_id}}</a> <span class="span_rank rank rank{{rank}}"></span></span>
+</div>
+</div>
+
+<div class="Box">
+<div class="boxTitle">Avatars</div>
+<div class="boxBody">
+<div class="avatarsView">
+<table border="1">
+<tr>
+<td>Item</td>
+<td>Equip?</td>
+<td>Purchase Date</td>
+<td>Expire Date</td>
+<td>Cash?</td>
+<td>Gift?</td>
+<td>Paid</td>
+<td>Deleted?</td>
+<td>Info</td>
+</tr>
+    
+{{{avatars}}}
+    
+</table>
+</div>
+</div>
+</div>
+
+<div class="clearFloat"></div>
+</div>
+<br>
+<br>
+<br>
+</div>
+</body>
+</html>
+{{else}}
+Private
+{{/if}}

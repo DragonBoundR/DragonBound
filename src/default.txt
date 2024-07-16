@@ -1,0 +1,12 @@
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Pin User: 2313
+[ LOG    ]: 'amskdmas' m
+[ INFO   ]: Pin User: 2381
+[ LOG    ]: 'kmmksdakd' m
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Pin User: 1234
+[ LOG    ]: 'Jesus' m
+[ INFO   ]: Pin User: 1234
+[ LOG    ]: '--J' m
+[ LOG    ]: '--J' 0
+[ LOG    ]: Login: --J

@@ -1,0 +1,89 @@
+﻿<!--
+Author: Berny Chavez
+Author URL: https://www.facebook.com/berny.chavezz
+-->
+{{#if state_user}}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>DangerBound - Avatars</title>
+        <link rel="stylesheet" type="text/css" href="/static/AvaStyle/style.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="/static/AvaStyle/avas.min.js?89"></script>
+    </head>
+    <body>
+        <div class="contenedor">
+            <div class="buscador">
+                <input type="text" class="seeker" placeholder="¿Qué estás buscando?">
+            </div>
+            <span class="items buscador"></span>
+            <table class="table results">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>IMG</th>
+                    </tr>
+                    <tr class="warning any_result">
+                        <td colspan="4">Ningun Resultado</td>
+                    </tr>
+                </thead>
+                <tbody class="scroll_reults">
+                    {{{avatars}}}
+                </tbody>
+            </table>
+            <div class="autor">© 2018 Avatas DangerBound. All Rights Reserved | Design By <i>♥</i> <a target="_blank" href="https://www.facebook.com/berny.chavezz">Berny Chavez</a> <i>♥</i></div>
+            <a href="javascript:void(0)" id="above"><img src="/static/AvaStyle/arrow_up.png"></a>
+        </div>
+        {{{scrip_ava}}}
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#above').click(function() {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 'slow');
+                    return false;
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $(".seeker").keyup(function () {
+                    var searchTerm = $(".seeker").val();
+                    var listItem = $('.results tbody').children('tr');
+                    var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+                    
+                    $.extend($.expr[':'], {
+                        'containsi': function(elem, i, match, array) {
+                            return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                        }
+                    });
+                    
+                    $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e) {
+                        $(this).attr('visible','false');
+                    });
+                    
+                    $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e) {
+                        $(this).attr('visible','true');
+                    });
+                    
+                    var jobCount = $('.results tbody tr[visible="true"]').length;
+                    $('.items').text(jobCount + ' item');
+                    
+                    if (jobCount == '0') {
+                        $('.any_result').show();
+                    } else {
+                        $('.any_result').hide();
+                    }
+                });
+            });
+        </script>
+        <script>
+            console.log("%c /===============================================================================================\\ \n |         (:         Avatars DangerBound | Developer By: Berny Chavez         :)         | \n +===============================================================================================+ \n", "background:url(https://i.imgur.com/KFXfrgH.jpg); background-size: 100vw 100vh;background-attachment: fixed;color: #3f3");
+        </script>
+    </body>
+</html>
+{{else}}
+Sorry, the current account is not a GM. Please login to a GM account.
+{{/if}}

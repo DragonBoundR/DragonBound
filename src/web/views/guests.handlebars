@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Huéspedes - ThorBound</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/guests.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:900' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="caer_ventana"></div>
+        {{{estrellas}}}
+            <div id="info">
+                 <p id="descripcion"><img src="/static/images/heraldica/angel.png"></p>
+             </div>
+        </div>
+        
+        <div class="contenido_modal">
+            <a id="open_modal" href="javascript:void(0)" class="boton">Generar Link</a>
+            <div class="modal_contenido">
+                <a href="/bid?invite={{{user_id}}}" target="_blank">Generate Link</a>
+            </div>
+        </div>
+        {{#if players}}
+        <div class="guests">
+            {{{guests}}}
+        </div>
+        {{else}}
+        <div class="backg">
+            <div class="sand">
+            </div>
+            <div class="tower">
+                <div class="s1"></div>
+                <div class="s2"></div>
+                <div class="door1"></div>
+                <div class="door2"></div>
+                <div class="balcony">
+                    <div class="b1"></div>
+                    <div class="b2"></div>
+                    <div class="b3"></div>
+                    <div class="b4"></div>
+                    <div class="b5"></div>
+                    <div class="b6"></div>
+                    <div class="b7"></div>
+                    <div class="b8"></div>
+                    <div class="b9"></div>
+                </div>
+                <div class="s3"></div>
+                <div class="s4"></div>
+                <div class="dome"></div>
+                <div class="glass"></div>
+                <div class="s5"></div>
+                <div class="light"></div>
+                <div class="sand1"></div>
+                <div class="sand2"></div>
+            </div>
+        </div>
+        {{/if}}
+        <script>
+            window.addEventListener('load', function() {
+
+                let closeModalBtn = this.document.getElementById('close_modal');
+                let openModalBtn = this.document.getElementById('open_modal');
+                let dropback = this.document.getElementsByClassName('caer_ventana')[0];
+                let modal = this.document.getElementsByClassName('modal_contenido')[0];
+
+                openModalBtn.addEventListener('click', showModalxD);
+
+                function showModalxD() {
+                    dropback.classList.add('showDropbackxD');
+                    modal.classList.add('showModalxD');
+                }
+
+                dropback.addEventListener('click', hideModalxD);
+
+                function hideModalxD() {
+                    dropback.classList.remove('showDropbackxD');
+                    modal.classList.remove('showModalxD');
+                }
+            });
+        </script>
+        <script>
+            $(window).ready(function() {
+                $(".boton").wrapInner('<div class=botontext></div>');
+
+                $(".botontext").clone().appendTo($(".boton"));
+
+                $(".boton").append('<span class="twist"></span><span class="twist"></span><span class="twist"></span><span class="twist"></span>');
+
+                $(".twist").css("width", "25%").css("width", "+=3px");
+            });
+        </script>
+    <div class="autor">© 2018 Guests ThorBound. All Rights Reserved | Design By <i>♥</i> <a target="_blank" href="#">J Y S</a> <i>♥</i></div>
+    </body>
+</html>

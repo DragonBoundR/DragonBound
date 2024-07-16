@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Reset Password</title>
+        <script src="/static/js/jquery-2.1.4.min.js?1"></script>
+        <script src="/static/js/QTransform.js?1"></script>
+        <link rel="stylesheet" href="/static/DragonBook/DragonBook.min.css?1"/>
+        <script src="/static/js/Filter.js?1"></script>
+        <script src="/static/DragonBook/DragonBook.min.js?1"></script>
+        <style>
+            body {
+                background: #3364a6 url('/static/images/aqua_bg.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <div id="titleTable" class="blackShadow">
+            <div id="titleTableLeft" class="cell">
+                <span id="icon"></span>
+                <span id="titleText">
+                    <a href="/">DB CHEATVIP</a>
+                    > Reset Password
+                </span>
+            </div>
+            <div id="titleTableRight" class="cell right">
+                <a href="/login">Login</a>
+            </div>
+        </div>
+        <div id="body">
+            <style>
+                /*.es {color:#fc0}*/
+                p, .blackShadow {
+                    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+                    filter: progid:DXImageTransform.Microsoft.Glow(Strength=1, Color=#000000);
+                }
+
+                .glow_button_anim {
+                    -webkit-transition: box-shadow 0.15s ease-in-out;
+                    -moz-transition: box-shadow 0.15s ease-in-out;
+                    transition: box-shadow 0.15s ease-in-out;
+                }
+
+                .glow_button_anim:hover {
+                    box-shadow: 0 0 10px 10px #ff0 !important;
+                }
+
+                .glow_button_anim:active {
+                    box-shadow: 0 0 10px 10px #9f9 !important;
+                }
+
+                .NoSelect {
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+
+                #LoginLang {
+                    width: 25px;
+                    height: 21px;
+                    border: 3px solid black;
+                    background-color: blue;
+                    text-align: center;
+                    color: white;
+                    padding-top: 4px;
+                    cursor: pointer;
+                }
+
+                .hide {
+                    display: none
+                }
+            </style>
+            <script>
+                $(function() {
+                    var div = $('#LoginLang')
+                    div.click(function() {
+                        lang = div.html()
+                        lang = (lang == 'ES') ? 'EN' : 'ES'
+                        div.html(lang)
+
+                        if (lang == 'ES') {
+                            $('.EN').hide()
+                            $('.ES').show()
+                        } else {
+                            $('.ES').hide()
+                            $('.EN').show()
+                        }
+                    })
+                })
+            </script>
+            <div id="LoginLang" class="glow_button_anim blackShadow NoSelect">ES</div>
+            <br>
+            <div class="ES">
+                <span class="en blackShadow">
+                    1. Te vamos a enviar un link a tu correo electrónico.<br>
+                    2. Ingresa a tu correo electrónico y dale click al link para crear una nueva contraseña de DB CHEATVIP.<br>
+                    Si te has registrado con Facebook, coloca tu correo electrónico de Facebook (El correo que tenías en tu Facebook la última vez que fuiste capaz de ingresar desde Facebook a DB CHEATVIP).<br>
+                </span>
+                <br>
+                <span class="es blackShadow">
+                    ADVERTENCIA: NO ingreses un correo electrónico del cual no tengas acceso.<br>
+                    Primero verifica que tengas realmente acceso a ese correo electrónico y puedas recibir correos ahí.<br>
+                    Si no podemos enviarte un mensaje a ese correo electrónico, vamos a colocarlo en la LISTA NEGRA y no podrás restablecer tu contraseña NUNCA MÁS.<br>
+                </span>
+            </div>
+            <div class="EN hide">
+                <span class="en blackShadow">
+                    1. We will send you a link to your email address.<br>
+                    2. Go to your email account and click the link to create a new DB CHEATVIP password.<br>
+                    If you registered with Facebook, enter your Facebook email address (the one that you had at the last time that you were able to log with Facebook to DB CHEATVIP).<br>
+                </span>
+                <br>
+                <span class="en blackShadow">
+                    WARNING: Do NOT enter an email address that you can not access.<br>
+                    First verify that you can really login to that email account and receive emails there.<br>
+                    If we can not send an email to this address it will be BLACKLISTED and you will not be able to use the reset password feature anymore EVER.<br>
+                </span>
+            </div>
+            <form action="" method="post">
+                <label class="blackShadow">
+                    <input type="checkbox" name="ok" value="ok">
+                    <span class="EN hide">I checked and yes, I have access to this email address.</span>
+                    <span class="ES">He revisado y sí, tengo acceso a ese correo electrónico.</span>
+                </label>
+                <br>
+                <input type="hidden" value="X9x9nt3FmCxz6euhYGVlaLAblTpJtxI4" name="csrfmiddlewaretoken">
+                <table>
+                    <tr>
+                        <td>
+                            <p>
+                                <label for="id_email" class="en">
+                                    <span class="EN hide">E-mail address (or Facebook E-mail address):</span>
+                                    <span class="ES">Correo electrónico (o tu correo electrónico de Facebook):</span>
+                                </label>
+                                <br>
+                        </td>
+                        <td>
+                            <input id="id_email" maxlength="254" name="email" type="email"/>
+                            <input type="submit" value="Reset password"/>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+</p></form></div></body></html>
