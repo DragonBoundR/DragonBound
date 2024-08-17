@@ -8,8 +8,8 @@ module.exports = class DataBase {
         this.connection = null;
         this.host = 'localhost';
         this.user = 'root';
-        this.password = '';
-        this.database = 'funnybound';
+        this.password = 'root';
+        this.database = 'dragonbound';
         this.connection = mysql.createPool({
             connectionLimit: 500,
             host: self.host,
@@ -23,6 +23,7 @@ module.exports = class DataBase {
     }
 
     getConnection() {
+        console.log('ga')
         return this.connection;
     }
 
