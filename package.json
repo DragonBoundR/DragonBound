@@ -1,57 +1,56 @@
 {
-    "name": "dragonbound",
-    "version": "1.0.0",
-    "description": "DragonBoundRe - Remake of the original DragonBound game",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "dragonbound",
+  "version": "1.0.0",
+  "description": "DragonBoundRe - Remake of the original DragonBound game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DragonBoundR/DragonBound.git"
+  },
+  "keywords": [],
+  "author": "xfs-team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DragonBoundR/DragonBound/issues"
+  },
+  "homepage": "https://github.com/DragonBoundR/DragonBound#readme",
+  "devTeam": [
+    {
+      "name": "lnferno",
+      "github": "https://github.com/Ox18"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/DragonBoundR/DragonBound.git"
-    },
-    "keywords": [],
-    "author": "xfs-team",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/DragonBoundR/DragonBound/issues"
-    },
-    "homepage": "https://github.com/DragonBoundR/DragonBound#readme",
-    "devTeam": [
-        "lnferno",
-        {
-            "name": "lnferno",
-            "github": "https://github.com/Ox18"
-        },
-        {
-            "name": "Rafael",
-            "github": "https://github.com/JesusRafaelAreva"
-        }
-    ],
-    "dependencies": {
-        "body-parser": "^1.20.2",
-        "cookie-parser": "^1.4.6",
-        "csurf": "^1.11.0",
-        "express": "^4.19.2",
-        "express-handlebars": "^8.0.1",
-        "express-mysql-session": "^3.0.3",
-        "express-session": "^1.18.0",
-        "fbgraph": "^1.4.4",
-        "geoip-lite": "^1.4.10",
-        "helmet": "^7.1.0",
-        "ignore-case": "^0.1.0",
-        "md5": "^2.3.0",
-        "moment": "^2.30.1",
-        "mysql": "^2.18.1",
-        "mysql2": "^3.11.0",
-        "pngjs": "^7.0.0",
-        "promise": "^8.3.0",
-        "setimmediate": "^1.0.5",
-        "underscore": "^1.13.7",
-        "xmlhttprequest": "^1.8.0"
-    },
-    "devDependencies": {
-        "nodemailer": "^6.9.14",
-        "ws": "^8.18.0"
+    {
+      "name": "Rafael",
+      "github": "https://github.com/JesusRafaelAreva"
     }
+  ],
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.1",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.0",
+    "fbgraph": "^1.4.4",
+    "geoip-lite": "^1.4.10",
+    "helmet": "^7.1.0",
+    "ignore-case": "^0.1.0",
+    "md5": "^2.3.0",
+    "moment": "^2.30.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.0",
+    "pngjs": "^7.0.0",
+    "promise": "^8.3.0",
+    "setimmediate": "^1.0.5",
+    "underscore": "^1.13.7",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemailer": "^6.9.14",
+    "ws": "^8.18.0"
+  }
 }
