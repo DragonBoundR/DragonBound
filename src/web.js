@@ -1,14 +1,9 @@
 var fs = require('fs');
 var path = require('path');
-var constants = require('constants');
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var exphbs = require('express-handlebars');
-var mysql = require('mysql');
-var md5 = require('md5');
-var helmet = require('helmet');
-var ignoreCase = require('ignore-case');
 var Logger = require('./game/lib/logger');
 var DataBase = require('./game/database');
 var session = require('express-session');
@@ -44,10 +39,6 @@ this._app = express();
 this._app.engine('handlebars', hbs.engine);
 this._app.set('view engine', 'handlebars');
 this._app.set('views', path.join(__dirname, "/web/views"));
-this._app.set('env', 'production');
-this._app.disable('x-powered-by');
-this._app.use(helmet());
-this._app.set('trust proxy', 1);
 this._app.use(session({
     key: 'sessionid',
     secret: 'abc-xgamedev',
@@ -85,7 +76,7 @@ this._app.use(require('./web/controllers'));
 http.on('request', this._app);
 
 
-http.listen(8080, function() {
+http.listen(3000, function() {
     var st = process.env.vps == '1' ? 'VPS' : 'LOCAL';
     //Logger.normal('Listening on ' + st + " " + http.address().port);
 });
