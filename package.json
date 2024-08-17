@@ -1,0 +1,31 @@
+{
+  "name": "dragonbound",
+  "version": "1.0.0",
+  "description": "DragonBoundRe - Remake of the original DragonBound game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DragonBoundR/DragonBound.git"
+  },
+  "keywords": [],
+  "author": "xfs-team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DragonBoundR/DragonBound/issues"
+  },
+  "homepage": "https://github.com/DragonBoundR/DragonBound#readme",
+  "devTeam": [
+    "lnferno",
+    {
+      "name": "lnferno",
+      "github": "https://github.com/Ox18"
+    },
+    {
+      "name": "Rafael",
+      "github": "https://github.com/JesusRafaelAreva"
+    }
+  ]
+}
