@@ -5,8 +5,6 @@ var Logger = require('./game/lib/logger');
 var GameServer = require('./game/gameserver');
 var Account = require('./game/account');
 var MapController = require('./game/lib/mapController');
-const Configuration = require("../config/index");
-const configController = Configuration.getInstance();
 
 var loadx = process.env.vps === '1' ? false : true;
 var self = this;

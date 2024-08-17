@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: dragonbound
+    environment:
+      MYSQL_ROOT_PASSWORD: root           # Contraseña para el usuario root
+      MYSQL_DATABASE: dragonbound         # Nombre de la base de datos
+      # Elimina estas dos líneas si no necesitas crear un usuario adicional
+      # MYSQL_USER: user                  # Nombre de un usuario regular
+      # MYSQL_PASSWORD: userpassword      # Contraseña para el usuario regular
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+    driver: bridge
