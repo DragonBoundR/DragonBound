@@ -575,3 +575,10 @@
 [ NORMAL ]: 11 created (capacity: 900 players).
 [ NORMAL ]: 12 created (capacity: 900 players).
 [ NORMAL ]: Listening on LOCAL 9001
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: testestset
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: testetset
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: tes

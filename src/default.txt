@@ -181,3 +181,5 @@
 [ LOG    ]: 'lulubot' 0
 [ LOG    ]: Login: Lulubot
 [ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'lulubot' 0
+[ LOG    ]: Login: Lulubot
