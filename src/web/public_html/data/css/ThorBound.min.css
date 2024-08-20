@@ -369,7 +369,7 @@ a:active {
 .zotata-chat-type17 {
     color: #9ff;
     text-shadow: #00f -1px 0 1px,#00f 0 1px 1px,#00f 1px 0 1px,#00f 0 -1px 1px;
-    filter: progid:DXImageTransform.Microsoft.Glow(Strength=1,Color=#0000f)
+    filter: progid:DXImageTransform.Microsoft.Glow(Strength=1,Color=#0000ff);
 }
 
 .zotata-chat-icon {
@@ -511,7 +511,7 @@ a:active {
 }
 
 #playersList .viewport {
-    left: 50px;
+    left: 0px;
     width: 170px !important;
     height: 212px !important;
     overflow: hidden;
@@ -1140,15 +1140,15 @@ a:active {
 
 #myName2,#myName3 {
     position: absolute;
-    left: 590px;
-    top: 95px;
+    left: 592px;
+    top: 97px;
     pointer-events: none
 }
 
 #myGP,#myGP2 {
     position: absolute;
-    right: 123px;
-    top: 250px;
+    right: 84px;
+    top: 221px;
     color: #fff;
     font-size: 11px;
     font-weight: bold;
@@ -1184,8 +1184,8 @@ a:active {
 
 #myPlusGP {
     position: absolute;
-    right: 90px;
-    top: 250px;
+    right: 43px;
+    top: 221px;
     color: #fff;
     font-size: 8px;
     background: #ff6;
@@ -1197,31 +1197,33 @@ a:active {
 
 #myCash,#myCash2 {
     position: absolute;
-    right: 90px;
-    top: 270px;
+    right: 70px;
+    top: 235px;
     color: #8bc2ee;
     text-align: right;
     font-size: 11px;
     font-weight: bold;
-    pointer-events: none
+    pointer-events: none;
+    z-index: 12
 }
 
 #myGold,#myGold2 {
     position: absolute;
-    right: 90px;
-    top: 290px;
+    right: 70px;
+    top: 250px;
     color: #ffea4a;
     text-align: right;
     font-size: 11px;
     font-weight: bold;
-    pointer-events: none
+    pointer-events: none;
+    z-index: 12
 }
 
 #channel_player {
     position: absolute;
     pointer-events: none;
-    left: 665px;
-    top: 195px
+    left: 679px;
+    top: 218px
 }
 
 #roomsList {
@@ -1603,7 +1605,7 @@ a:active {
 
 #buttonCreateRoom {
     position: absolute;
-    left: 226px;
+    left: 144px;
     top: 7px;
     width: 62px;
     height: 62px;
@@ -1616,7 +1618,7 @@ a:active {
 
 #buttonJoin {
     position: absolute;
-    left: 308px;
+    left: 226px;
     top: 7px;
     width: 62px;
     height: 62px;
@@ -1625,6 +1627,19 @@ a:active {
 
 .HD #buttonJoin {
     background-position: -125px 0
+}
+
+#buttonQuickJoin {
+    position: absolute;
+    left: 308px;
+    top: 7px;
+    width: 62px;
+    height: 62px;
+    background-position: -63px -177px
+}
+
+.HD #buttonQuickJoin {
+    background-position: 0 0
 }
 
 #buttonMyInfo {
@@ -1736,7 +1751,7 @@ a:active {
 #buttonQuickJoin {
     position: absolute;
     left: 308px;
-    top: 84px;
+    top: 7px;
     width: 62px;
     height: 62px;
     background-position: -63px -177px
@@ -2137,9 +2152,10 @@ a:active {
 
 #roomNumber {
     position: absolute;
-    left: 55px;
+    left: 50px;
     top: 5px;
-    width: 30px
+    width: 30px;
+    height: 12px
 }
 
 #roomTitle {
@@ -2148,6 +2164,13 @@ a:active {
     top: 5px;
     width: 450px;
     height: 15px
+}
+
+#roomOwner {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    white-space: nowrap
 }
 
 #roomButtonBack {
@@ -2247,7 +2270,21 @@ a:active {
 #roomButtonMobile {
     position: absolute;
     left: 241px;
-    top: 345px
+    top: 345px;
+}
+
+#roomPlayersA {
+    position: absolute;
+    left: 229px;
+    top: 308px;
+    font-size: 20px
+}
+
+#roomPlayersB {
+    position: absolute;
+    right: 467px;
+    top: 308px;
+    font-size: 23px
 }
 
 #roomButtonReady {
@@ -2290,7 +2327,7 @@ a:active {
     top: 0;
     width: 235px;
     height: 15px;
-    z-index: 10
+    z-index: 25
 }
 
 .SideA .roomPlayerInfo {
@@ -2300,7 +2337,7 @@ a:active {
     width: 43px;
     height: 30px;
     background-position: -260px -216px;
-    z-index: 8;
+    z-index: 21;
     transform: scale(0.65) rotate(270deg)
 }
 
@@ -2320,7 +2357,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: 0 -121px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideA .roomPlayerNotReady {
@@ -2334,7 +2371,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: -78px -121px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideA .roomPlayerReady {
@@ -2368,8 +2405,7 @@ a:active {
     position: absolute;
     left: -3px;
     top: 67px;
-    display: none;
-    z-index: 8
+    display: none
 }
 
 .SideA .roomPlayerMobile {
@@ -2401,7 +2437,7 @@ a:active {
     top: 0;
     width: 235px;
     height: 15px;
-    z-index: 10
+    z-index: 25
 }
 
 .SideB .roomPlayerInfo {
@@ -2411,7 +2447,7 @@ a:active {
     width: 43px;
     height: 30px;
     background-position: -260px -216px;
-    z-index: 8;
+    z-index: 21;
     transform: scale(0.65) rotate(90deg)
 }
 
@@ -2426,7 +2462,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: 0 -200px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideB .roomPlayerNotReady {
@@ -2440,7 +2476,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: -78px -200px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideB .roomPlayerReady {
@@ -2479,7 +2515,6 @@ a:active {
     right: -3px;
     top: 67px;
     display: none;
-    z-index: 8;
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
@@ -2491,7 +2526,8 @@ a:active {
 .roomPlayerMyself {
     width: 28px;
     height: 19px;
-    background: url(data:image/gif;base64,R0lGODlhHAATANUpAAAAALWlUrWmUrWqWrWtWrWqY7WtY7WuY7Wqa7Wta7Wua7Wqc7Wtc7Wuc7Wqe7Wte7Wue//ve7WqhLWthLWuhLWyhLW1hP/vjP/zhP/3hP/3jP/zlP/3lP/3nP/3pf/zrf/3rf/7rf//rf/3tf/3vf/7vf//vf/7xv//xgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJDwApACwAAAAAHAATAAAGs0CAcEgsClPIpDJlbBaXSyFqOhmiqlIsAJqUTq9eLHXIZQJIaHQ1vVaToUKTfG4B0O3y+jEKGPn/Iw99foJ/gntdACCLjIuCjI+Ob0hCIpaXlwwAmZuWmohCHqKjpJqjpqKfW2Ydra6uCQCwsq2xoAAcubq5sbq9vJNmF8PEFwYAxMfJwWYazs/H0ADSiIkZ19cEANja3MyU297h2uPf4BHoAUMR6kLs5uBOTmXx8k/0KUEAACH5BAkPACkALAAAAAAcABMAAAa4QIBwCEgRj8WUcrlEOpHMqBBFnRBR1mk2GTUCqNVh+Isddr2kdDqrtrbNUoBpTrfI63eTXRgf+f8jDwCAgn+CfE0AIIuMi4KNj45wXiKVlpYMAJeZmHBCHqChopmjAKGZfEIdq6ysCQCtr66eABy2t7avuLq5k0IXwMEXBgDCxMHEiEpCGs3OxM4a0M3JXMsAGdnZBELa3N6TidoZ3N3k5uXWiRHsAUQR7kLw4UxP9spdTl5PZ0tBAAAh+QQJDwApACwAAAAAHAATAAAGwkCAcAhIEYvHlHK5PAqNziSzCUChJscrUfucQq1coRUrDnuFpDSJDFCT3cOp0ESnW+b1e9107yqFI4GCDwCCgYSGhH5CII2OIISPkACPikVQIpmamQwAmyKdm51PQh6mp6edqB6qqUcdsLGwCQCyHbSytKQAHL2+HLS/wLy+updCF8nKBgDKyczOzIsAGtXV0tYazNnSl38AGeEZBEPi5ODh597f5kTp5eNxcgAREQFH9kT5fkxRUFHyzkhJIsVLiiAAACH5BAkPACkALAAAAAAcABMAAAa8QIBwSBSmUsWjcllsGptLJgA1KVKtVWMUOb0OUV4hOAvYCkloMpqkTg+jQpPcZInP64A5/a0Ujv5/DwCAgYOEglpcIIuMgoyLjo+IZVwilpciDACYmZuYmk8AHqOko5qlHqeloEMdrq8dCQCwsbOwsqEcuruyu7q9vriUQhfFxQYAxsfJysiJQhrRGs7S09DSzpRHQhndBEPdGd/c3nx9AOXg4kTp2ucRAUXw8vGJUkRc+FBb+VpJ/e6iBAEAIfkECQ8AKQAsAAAAABwAEwAABrpAgHBIBKRSxaNyiSw6m0TmUoiaEKtFrFB6pGoBqC/4yxWSzlbAmZRWo4dSoWlusgDodTndvp0CRoCAD3+Bg4GCcEpCIIyNg40gj5CDfU0il5giDACZm5maiUIeo6Sjm6WnqHBCHa2uHQkAr7GvsKEAHLm6sbocvL2xlUIXxMQGAMUXx8nKiV0AGtEax9LTQtXHlc8Z3ARC3Bne393OigDk4+Lp5eYRAUTuRfHafk5RT1xQW0n6RvkpQQAAIfkEBQ8AKQAsAAAAABwAEwAABrxAgHBIBKSKqaRyeSw6nUym8HSSDKtErDCqnFKtgO9Va+QKSWgSBZBes9HushRQqtcr9Htev52P/oAOAIGDhH1dAB+Kix8QiYqOjI6HTSGWl5YLAJeamJqHQh6io6MNAKWnqH1CHa2urQgArrGvsaAAG7m6Gwq4ub27vZRCF8XGBQDHycqUTRrPzwcA0NLQGtLNTRjbGAMA3N7f2+FyS0IZ6OHpQ+vZSUIREQJD8kT17u9P+vj5+01DXJYEAQA7) no-repeat
+    background: url(data:image/gif;base64,R0lGODlhHAATANUpAAAAALWlUrWmUrWqWrWtWrWqY7WtY7WuY7Wqa7Wta7Wua7Wqc7Wtc7Wuc7Wqe7Wte7Wue//ve7WqhLWthLWuhLWyhLW1hP/vjP/zhP/3hP/3jP/zlP/3lP/3nP/3pf/zrf/3rf/7rf//rf/3tf/3vf/7vf//vf/7xv//xgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJDwApACwAAAAAHAATAAAGs0CAcEgsClPIpDJlbBaXSyFqOhmiqlIsAJqUTq9eLHXIZQJIaHQ1vVaToUKTfG4B0O3y+jEKGPn/Iw99foJ/gntdACCLjIuCjI+Ob0hCIpaXlwwAmZuWmohCHqKjpJqjpqKfW2Ydra6uCQCwsq2xoAAcubq5sbq9vJNmF8PEFwYAxMfJwWYazs/H0ADSiIkZ19cEANja3MyU297h2uPf4BHoAUMR6kLs5uBOTmXx8k/0KUEAACH5BAkPACkALAAAAAAcABMAAAa4QIBwCEgRj8WUcrlEOpHMqBBFnRBR1mk2GTUCqNVh+Isddr2kdDqrtrbNUoBpTrfI63eTXRgf+f8jDwCAgn+CfE0AIIuMi4KNj45wXiKVlpYMAJeZmHBCHqChopmjAKGZfEIdq6ysCQCtr66eABy2t7avuLq5k0IXwMEXBgDCxMHEiEpCGs3OxM4a0M3JXMsAGdnZBELa3N6TidoZ3N3k5uXWiRHsAUQR7kLw4UxP9spdTl5PZ0tBAAAh+QQJDwApACwAAAAAHAATAAAGwkCAcAhIEYvHlHK5PAqNziSzCUChJscrUfucQq1coRUrDnuFpDSJDFCT3cOp0ESnW+b1e9107yqFI4GCDwCCgYSGhH5CII2OIISPkACPikVQIpmamQwAmyKdm51PQh6mp6edqB6qqUcdsLGwCQCyHbSytKQAHL2+HLS/wLy+updCF8nKBgDKyczOzIsAGtXV0tYazNnSl38AGeEZBEPi5ODh597f5kTp5eNxcgAREQFH9kT5fkxRUFHyzkhJIsVLiiAAACH5BAkPACkALAAAAAAcABMAAAa8QIBwSBSmUsWjcllsGptLJgA1KVKtVWMUOb0OUV4hOAvYCkloMpqkTg+jQpPcZInP64A5/a0Ujv5/DwCAgYOEglpcIIuMgoyLjo+IZVwilpciDACYmZuYmk8AHqOko5qlHqeloEMdrq8dCQCwsbOwsqEcuruyu7q9vriUQhfFxQYAxsfJysiJQhrRGs7S09DSzpRHQhndBEPdGd/c3nx9AOXg4kTp2ucRAUXw8vGJUkRc+FBb+VpJ/e6iBAEAIfkECQ8AKQAsAAAAABwAEwAABrpAgHBIBKRSxaNyiSw6m0TmUoiaEKtFrFB6pGoBqC/4yxWSzlbAmZRWo4dSoWlusgDodTndvp0CRoCAD3+Bg4GCcEpCIIyNg40gj5CDfU0il5giDACZm5maiUIeo6Sjm6WnqHBCHa2uHQkAr7GvsKEAHLm6sbocvL2xlUIXxMQGAMUXx8nKiV0AGtEax9LTQtXHlc8Z3ARC3Bne393OigDk4+Lp5eYRAUTuRfHafk5RT1xQW0n6RvkpQQAAIfkEBQ8AKQAsAAAAABwAEwAABrxAgHBIBKSKqaRyeSw6nUym8HSSDKtErDCqnFKtgO9Va+QKSWgSBZBes9HushRQqtcr9Htev52P/oAOAIGDhH1dAB+Kix8QiYqOjI6HTSGWl5YLAJeamJqHQh6io6MNAKWnqH1CHa2urQgArrGvsaAAG7m6Gwq4ub27vZRCF8XGBQDHycqUTRrPzwcA0NLQGtLNTRjbGAMA3N7f2+FyS0IZ6OHpQ+vZSUIREQJD8kT17u9P+vj5+01DXJYEAQA7) no-repeat;
+    z-index: 20
 }
 
 .SideB .roomPlayerMobile {
@@ -2509,7 +2545,7 @@ a:active {
     border: 1px solid black;
     text-shadow: none;
     color: black;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 5px;
     max-width: 300px;
     word-wrap: break-word;
@@ -2519,12 +2555,8 @@ a:active {
 }
 
 .bg1 {
-    /* background-color: #ffd !important;
-    box-shadow: 0 0 8px 4px #f04 */
-    border-radius: 3px;
-    box-shadow: rgb(255 193 7) 0px 0px 4px 2px inset;
-    border: 1px solid #8c772e;
-    opacity: 1;
+    background-color: #ffd !important;
+    box-shadow: 0 0 8px 4px #f04
 }
 
 .bg2 {
@@ -2541,7 +2573,7 @@ a:active {
     border: 1px solid black;
     text-shadow: none;
     color: black;
-    border-radius: 3px;
+    border-radius: 8px;
     padding: 5px;
     max-width: 300px;
     word-wrap: break-word;
@@ -2558,7 +2590,7 @@ a:active {
     height: 19px;
     background-position: 0 -279px;
     display: none;
-    z-index: 11
+    z-index: 26
 }
 
 .HD .roomBotSelect {
@@ -2573,7 +2605,7 @@ a:active {
     height: 19px;
     background-position: 0 -299px;
     display: none;
-    z-index: 11
+    z-index: 26
 }
 
 .HD .roomBotRemove {
@@ -2721,8 +2753,8 @@ a:active {
 }
 
 #roomChat .viewport {
-    width: 480px !important;
-    height: 60px !important;
+    width: 538px;
+    height: 75px;
     overflow: hidden;
     position: relative
 }
@@ -2798,13 +2830,13 @@ a:active {
 }
 
 .ItemBtn:hover {
-    opacity: .5;
+    filter: brightness(1.3);
     cursor: pointer
 }
 
 .ItemBtn:active {
     margin: 1px 0 0 1px;
-    opacity: .5;
+    filter: brightness(1.3);
     cursor: pointer
 }
 
@@ -3346,7 +3378,8 @@ a:active {
     position: absolute;
     display: none;
     width: 160px;
-    -webkit-transform: translate3d(0,0,0)
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 .ColorTeamA {
@@ -4137,6 +4170,7 @@ a:active {
     height: 600px;
     display: none;
     -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
     background-repeat: no-repeat;
     background-size: cover
 }
@@ -7121,7 +7155,7 @@ a:active {
 
 #add_bot_button {
     position: absolute;
-    left: 417px;
+    left: 430px;
     width: 82px;
     height: 19px;
     background-position: -83px -279px
@@ -7267,8 +7301,8 @@ a:active {
 
 #buttonChannels {
     position: absolute;
-    left: 695px;
-    top: 12px;
+    left: 725px;
+    top: 542px;
     width: 55px;
     height: 51px;
     background-position: -112px -303px;
@@ -8428,16 +8462,17 @@ a:active {
 
 #myPhotoDiv {
     position: absolute;
-    left: 725px;
-    top: 230px;
-    width: 48px;
-    height: 48px;
+    left: 588px;
+    top: 116px;
+    width: 35px;
+    height: 35px;
+    background-size: 100% 100%;
     z-index: 10;
     overflow: hidden
 }
 
 #myPhotoDiv.glow_button_anim {
-    height: 48px;
+    height: 35px;
     cursor: pointer
 }
 
@@ -8713,14 +8748,14 @@ a:active {
     position: absolute;
     left: 82px;
     top: 104px;
-    width: 636px;
+    width: 690px;
     height: 388px;
     border: black solid 2px;
     border-radius: 20px;
     color: white;
     z-index: 999;
     background: rgba(20,20,140,0.6);
-    background-size: cover;
+    background-size: 100% 100%;
     box-shadow: 5px 10px 30px 10px #000,inset 1px 2px 4px #7394b5
 }
 
@@ -13842,7 +13877,7 @@ body .ui-tooltip {
 }
 
 @keyframes AnimEnterFadeOut {
-    0 {
+    0% {
         opacity: 1
     }
 
@@ -13852,7 +13887,7 @@ body .ui-tooltip {
 }
 
 @-webkit-keyframes AnimEnterFadeOut {
-    0 {
+    0% {
         opacity: 1
     }
 
@@ -13862,7 +13897,8 @@ body .ui-tooltip {
 }
 
 .ForceHW {
-    -webkit-transform: translateZ(0)
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 #notificationBtn {
@@ -14158,22 +14194,32 @@ body .ui-tooltip {
 }
 
 @-webkit-keyframes move_stripes {
-    0 {
-        background-position: 0 0
+    0% {
+        background-position: 0 0;
     }
 
     100% {
-        background-position: 50px 50px
+        background-position: 50px 50px;
     }
 }
 
 @-moz-keyframes move_stripes {
-    0 {
-        background-position: 0 0
+    0% {
+        background-position: 0 0;
     }
 
     100% {
-        background-position: 50px 50px
+        background-position: 50px 50px;
+    }
+}
+
+@keyframes move_stripes {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
     }
 }
 
@@ -14194,6 +14240,7 @@ body .ui-tooltip {
 .nostripes>span>span,.nostripes>span:after {
     -webkit-animation: none;
     -moz-animation: none;
+    animation: none;
     background-image: none
 }
 

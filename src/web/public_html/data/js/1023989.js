@@ -20547,8 +20547,8 @@
         };
         Object.freeze(DragonLanguage.prototype);
         var ThemeClassic = {
-            //stuff_HD: "/static/images/themes/classicHD/stuff_HD.png?8",
-            lobby_bg: "/static/images/themes/classic/lobby_bg.png",
+            stuff_HD: "/static/images/themes/classicHD/stuff_HD1.png?2",
+            lobby_bg: "/static/images/themes/classic/lobby_bg.png?2",
             room_bg: "/static/images/themes/classic/room_bg.png?2",
             shop_bg: "/static/images/themes/classic/shop_bg.png?2",
             ranks: "/static/images/ranks3.png",
@@ -20572,8 +20572,8 @@
             css: ""
         }
           , ThemeClassicHD = {
-            stuff_HD: "/static/images/themes/classicHD/stuff_HD.png?8",
-            scores_bg: "/static/images/themes/classicHD/scores_bg.png",
+            stuff_HD: "/static/images/themes/classicHD/stuff_HD1.png?2",
+            scores_bg: "/static/images/themes/classicHD/scores_bg.png?8",
             css: ""
         };
         CopyMissingProps(ThemeClassic, ThemeClassicHD);
@@ -20582,18 +20582,38 @@
             room_bg: ".",
             shop_bg: ".",
             ranks: "",
-            lobby_stuff: "/static/images/themes/dragonbound/lobby_stuff.png?2",
-            room_stuff: "/static/images/themes/dragonbound/room_stuff.png",
-            game_stuff: "/static/images/themes/dragonbound/game_stuff.png",
-            scores_stuff: "/static/images/themes/dragonbound/scores_stuff.png",
-            shop_stuff: "/static/images/themes/dragonbound/shop_stuff.png",
-            bg_full: "/static/images/themes/dragonbound/bg_full.jpg",
+            lobby_stuff: "/static/images/themes/dragonbound/lobby_stuff.png?1",
+            room_stuff: "/static/images/themes/dragonbound/room_stuff.png?1",
+            game_stuff: "/static/images/themes/dragonbound/game_stuff.png?1",
+            scores_stuff: "/static/images/themes/dragonbound/scores_stuff.png?1",
+            shop_stuff: "/static/images/themes/dragonbound/shop_stuff.png?1",
+            bg_full: "/static/images/themes/dragonbound/bg_full.jpg?1",
             maps: ".",
             map_bg: ".",
-            items: "/static/images/themes/classic/items.png",
-            servers_bg: "/static/images/themes/classic/servers_bg.jpg",
-            bg_tour: "/static/images/themes/dragonbound/bg_tour.jpg",
-            cursor: "/static/images/arrow.png",
+            items: "/static/images/themes/classic/items.png?1",
+            servers_bg: "/static/images/themes/classic/servers_bg.jpg?1",
+            bg_tour: "/static/images/themes/dragonbound/bg_tour.jpg?1",
+            cursor: "/static/images/arrow.png?1",
+            vortex: 0,
+            snow: 0
+        }
+          , ThemeThorsHammer = {
+            lobby_bg: "/static/images/themes/thorshammer/lobby_bg.png?2",
+            room_bg: "/static/images/themes/thorshammer/room_bg.png?2",
+            shop_bg: "/static/images/themes/thorshammer/shop_bg.png?2",
+            ranks: "",
+            lobby_stuff: "/static/images/themes/thorshammer/lobby_stuff.png?2",
+            room_stuff: "/static/images/themes/thorshammer/room_stuff.png?2",
+            game_stuff: "/static/images/themes/thorshammer/game_stuff.png?2",
+            scores_stuff: "/static/images/themes/dragonbound/scores_stuff.png?2",
+            shop_stuff: "/static/images/themes/thorshammer/shop_stuff.png?2",   
+            bg_full: "/static/images/themes/thorshammer/bg_full5.png?2",
+            maps: ".",
+            map_bg: ".",
+            items: "/static/images/themes/classic/items.png?2",
+            servers_bg: "/static/images/themes/thorshammer/servers_bg.png?2",
+            bg_tour: "/static/images/themes/dragonbound/bg_tour.jpg?2",
+            cursor: "/static/images/arrow.png?2",
             vortex: 0,
             snow: 0
         }
@@ -20671,7 +20691,7 @@
         };
         CopyMissingProps(ThemeVal2018, ThemeVal2019);
         var ThemeVal2020 = {
-            stuff_HD: "/static/images/themes/val2020/stuff_HD.png",
+            stuff_HD: "/static/images/themes/val2020/stuff_HD1.png",
             scores_bg: "/static/images/themes/val2020/scores_bg.png",
             lobby_bg: "/static/images/themes/val2020/lobby_bg.jpg",
             room_bg: "/static/images/themes/val2020/room_bg.jpg",
@@ -20683,7 +20703,7 @@
             base: "classicHD"
         }
           , ThemeVal2020b = {
-            stuff_HD: "/static/images/themes/val2020b/stuff_HD.png",
+            stuff_HD: "/static/images/themes/val2020b/stuff_HD1.png",
             scores_bg: "/static/images/themes/val2020b/scores_bg.png",
             lobby_bg: "/static/images/themes/val2020b/lobby_bg.jpg",
             room_bg: "/static/images/themes/val2020b/room_bg.jpg",
@@ -20695,7 +20715,7 @@
             base: "classicHD"
         }
           , ThemeVal2021 = {
-            stuff_HD: "/static/images/themes/val2021/stuff_HD.png",
+            stuff_HD: "/static/images/themes/val2021/stuff_HD1.png",
             scores_bg: "/static/images/themes/val2021/scores_bg.png",
             lobby_bg: "/static/images/themes/val2021/lobby_bg.jpg",
             room_bg: "/static/images/themes/val2021/room_bg.jpg",
@@ -20906,7 +20926,7 @@
         };
         CopyMissingProps(ThemeXMAS2017, ThemeXMAS2018);
         var ThemeXMAS2019 = {
-            stuff_HD: "/static/images/themes/xmas2019/stuff_HD.png?3",
+            stuff_HD: "/static/images/themes/xmas2019/stuff_HD1.png?3",
             scores_bg: "/static/images/themes/xmas2019/scores_bg.png",
             lobby_bg: "/static/images/themes/xmas2019/lobby_bg.jpg",
             room_bg: "/static/images/themes/xmas2019/room_bg.jpg",
@@ -20948,7 +20968,7 @@
         };
         CopyMissingProps(ThemeClassic, ThemeMundial2018);
         var ThemeEaster2020 = {
-            stuff_HD: "/static/images/themes/easter2020/stuff_HD.png?3",
+            stuff_HD: "/static/images/themes/easter2020/stuff_HD1.png?3",
             scores_bg: "/static/images/themes/easter2020/scores_bg.png?2",
             lobby_bg: "/static/images/themes/easter2020/lobby_bg.jpg?3",
             room_bg: "/static/images/themes/easter2020/room_bg.jpg",
@@ -20958,7 +20978,7 @@
             base: "classicHD"
         }
           , ThemeBirthday2020 = {
-            stuff_HD: "/static/images/themes/birthday2020/stuff_HD.png",
+            stuff_HD: "/static/images/themes/birthday2020/stuff_HD1.png",
             scores_bg: "/static/images/themes/birthday2020/scores_bg.png",
             lobby_bg: "/static/images/themes/birthday2020/lobby_bg.png",
             room_bg: "/static/images/themes/birthday2020/room_bg.jpg",
@@ -20969,7 +20989,7 @@
             css: "#buttonStart1v1,#buttonCreateTeam,#buttonJoinTeam {margin-top: 30px}"
         }
           , ThemeHalloween2020 = {
-            stuff_HD: "/static/images/themes/halloween2020/stuff_HD.png?2",
+            stuff_HD: "/static/images/themes/halloween2020/stuff_HD1.png?2",
             scores_bg: "/static/images/themes/halloween2020/scores_bg.png?2",
             lobby_bg: "/static/images/themes/halloween2020/lobby_bg.jpg?2",
             room_bg: "/static/images/themes/halloween2020/room_bg.jpg?2",
@@ -20982,7 +21002,7 @@
             snow: 2
         }
           , ThemeXMAS2020 = {
-            stuff_HD: "/static/images/themes/xmas2020/stuff_HD.png",
+            stuff_HD: "/static/images/themes/xmas2020/stuff_HD1.png",
             scores_bg: "/static/images/themes/xmas2020/scores_bg.png",
             lobby_bg: "/static/images/themes/xmas2020/lobby_bg.jpg",
             room_bg: "/static/images/themes/xmas2020/room_bg.jpg",
@@ -20999,6 +21019,7 @@
             auto: ThemeClassic,
             classic: ThemeClassic,
             classicHD: ThemeClassicHD,
+            thorshammer: ThemeThorsHammer,
             dragonbound: ThemeDB,
             halloween2015: ThemeHalloween2015,
             halloween2016: ThemeHalloween2016,
@@ -23807,7 +23828,7 @@
             document.getElementsByTagName("head")[0].appendChild(e),
             $("#LoginSubmit").click(function() {
             if (!$("#LoginSubmit").hasClass("grayspin") && !$("#RegisterSubmit").hasClass("grayspin")) {
-            //    $.getJSON('https://freegeoip.app/json/', function(api_info){
+                $.getJSON('https://api.ipbase.com/v1/json/', function(api_info){
                     var b = $("#LoginUsername").val(),
                         c = $("#LoginPass").val(),
                         d = $("#LoginRemember").is(":checked") ? 1 : 0;
@@ -23819,8 +23840,8 @@
                             u: b,
                             p: c,
                             r: d,
-                          //  computer_ip: api_info.ip,
-                        //    my_player_country: api_info.country_code
+                            computer_ip: api_info.ip,
+                            my_player_country: api_info.country_code
                         },
                     success: function(b) {
                        $("#LoginSubmit").removeClass("grayspin");
@@ -23839,7 +23860,7 @@
                     $("#LoginSubmit").removeClass("grayspin");
                     alertify.error("Network Error. Try Again.")
                 })) : alertify.alert(l.t("Please fill password.")) : alertify.alert(l.t("Please fill Email / UserID / Username."))
-              //  });
+                });
             }
         }),
         $("#RegisterSubmit").click(function() {
@@ -23851,14 +23872,14 @@
                     if (!b || !c)
                         return alertify.alert(l.t("Please fill all fields"));
                     $("#RegisterSubmit").addClass("grayspin");
-                    //$.getJSON('https://freegeoip.app/json/', function(api_info) {
+                    $.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
                     $.post("/ajaxRegister", {
                         name: b,
                         password: c,
                         pinuser: e,
                         gender: d,
-                      //  computer_ip: api_info.ip,
-                      //  my_player_country: api_info.country_code
+                        computer_ip: api_info.ip,
+                        my_player_country: api_info.country_code
   
                     }, function(b) {
                         $("#RegisterSubmit").removeClass("grayspin");
@@ -23874,7 +23895,7 @@
                         $("#RegisterSubmit").removeClass("grayspin");
                         alertify.error("Network Error. Try Again.")
                         })
-             //         });
+                      });
                   }
               }),
             $("#LoginUsername").keydown(function(a) {
@@ -23999,7 +24020,7 @@
                 this.LoginMessage(l.t("A Facebook pop-up has opened, please follow the instructions to sign in."));
                 var b = this;
                 console.log(" >> Calling FB.getLoginStatus...");
-                $.getJSON('https://freegeoip.app/json/', function(api_info) {
+                $.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
                     FB.getLoginStatus(function(a) {
                         console.log(" >> FB.getLoginStatus:", a);
                         a && "connected" == a.status ? b.Login({
@@ -26516,8 +26537,8 @@
                     "." == q.slice(-1) && (q = q.slice(0, -1));
                     r = v && v > h ? '<div class="PrixTimer blackShadow"></div>' : "";
                     //console.log("QQQQ",q);//TEST Onfroy
-                    //p.html('<div class="BrokerChannelName blackShadow">' + l.t("Server") + " " + n + " - " + l.t(q) + "</div> " + r + '<div class="BrokerMaxPlayers2"></div> <div class="BrokerNumPlayers2" style="width:' + t + 'px"></div><div class="BrokerChannelFullIcon"></div>' + m + '<div class="Alt">' + n.toString(16).toUpperCase() + "</div>");
-                    p.html('<div class="BrokerChannelName blackShadow"><font class="numserver">' + n + ".</font> " + l.t(q) + "</div> " + r + '<div class="BrokerMaxPlayers2"></div> <div class="BrokerNumPlayers2" style="width:' + t + 'px"></div><div class="BrokerChannelFullIcon"></div>' + m + '<div class="Alt">' + n.toString(16).toUpperCase() + "</div> <div class=\"svsubtitle blackShadow\">"+svsubtitle+"</div>");
+                    p.html('<div class="BrokerChannelName blackShadow">' + l.t("Server") + " " + n + " - " + l.t(q) + "</div> " + r + '<div class="BrokerMaxPlayers2"></div> <div class="BrokerNumPlayers2" style="width:' + t + 'px"></div><div class="BrokerChannelFullIcon"></div>' + m + '<div class="Alt">' + n.toString(16).toUpperCase() + "</div>");
+                    //p.html('<div class="BrokerChannelName blackShadow"><font class="numserver">' + n + ".</font> " + l.t(q) + "</div> " + r + '<div class="BrokerMaxPlayers2"></div> <div class="BrokerNumPlayers2" style="width:' + t + 'px"></div><div class="BrokerChannelFullIcon"></div>' + m + '<div class="Alt">' + n.toString(16).toUpperCase() + "</div> <div class=\"svsubtitle blackShadow\">"+svsubtitle+"</div>");
                     r && new DragonTimer(".PrixTimer",v - h)
                 } else{
                     //p.html('<div class="BrokerChannelName blackShadow">' + l.t("Server") + " " + n + " - Offline</div>");
@@ -28795,12 +28816,12 @@
                 n = "#playerInRoom" + m,
                 p = $(n),
                 n = 0 == m % 2 ? c : k,
-                r = (q ? 257 - 48 * (Math.floor(n) - 1) : 10) + 97 * Math.floor(m / 2),
+                r = (q ? 257 - 48 * (Math.floor(n) - 1) : 113) + 97 * Math.floor(m / 2),
                 p.css("top", r),
                 p = $("#vortex" + m),
                 p.css("top", r - 50),
                 b ? p.hide() : (Math.floor(m / 2) < n && (0 == m % 2 || 1 != g_server_type) && q ? p.show() : p.hide(),
-                g_game_mode == GAME_MODE_BOSS && m == 2 * k - 1 && 0 < a.unlock && a.is_master && ($("#add_bot_button").css("top", r + 90).show(),
+                g_game_mode == GAME_MODE_BOSS && m == 2 * k - 1 && 0 < a.unlock && a.is_master && ($("#add_bot_button").css("top", r + 40).show(),
                 g_add_bot_to_slot = m));
             a = a.is_master && h && (g_game_mode == GAME_MODE_BOSS || d == e || 1 == g_server_type);
             $("#roomButtonStart").toggleClass("grayscale", !a);

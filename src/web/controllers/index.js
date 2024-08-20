@@ -851,11 +851,11 @@ router.post('/ajaxRegister', function (req, res) {
 
 router.get('/w2', function (req, res) {
     res.setHeader('Content-Type', 'application/json');	
-    var data = [86, 0, 0, [["All","+200%Gps",false,"normal"],0,"",2,35,0,27,""],
-	[["Battle Off","Avatar Cerrado",true,"Holliday"],1,9003,20,100,26,27,""],
-	[["Betting","Servidor Especial",true,"gm"],4,9003,20,100,26,27,26,27,""],
+    var data = [86, 0, 0, [["All","",false,"normal"],0,"",2,35,0,27,""], /*200%gps*/
+	/*[["Battle Off","Avatar Off",true,"Holliday"],1,9003,20,100,26,27,""],
+	[["Betting","Special Server",true,"gm"],4,9003,20,100,26,27,26,27,""],
 	[["Prix BigFoot","Avatar On",false,"bunge"],2,9003,20,100, 26, 27,""],0,
-	[["ZONA BUNGE","",true,"prix"],6,9003,20,100, 26, 27,1621573680000],0,0,0,0,0,0,1623339720117,parseInt(Date.now())
+	[["ZONA BUNGE","",true,"prix"],6,9003,20,100, 26, 27,1621573680000]*/,0,0,0,0,0,0,1623339720117,parseInt(Date.now())
     ];
     req.session.touch();
     res.send(JSON.stringify(data));

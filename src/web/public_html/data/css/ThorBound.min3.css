@@ -125,10 +125,9 @@ a:active {
     background-size: cover
 }
 
-.DialogLayer {
-    position: absolute;
-    width: 100%;
-    height: 100%
+#myDialog {
+    z-index: 9999;
+    display: none
 }
 
 #channelInput {
@@ -156,81 +155,17 @@ a:active {
     top: 578px
 }
 
-#channelEmojiBtn {
-    position: absolute;
-    left: 530px;
-    top: 577px;
-    width: 24px;
-    height: 20px;
-    text-align: center
-}
-
-#roomEmojiBtn {
-    position: absolute;
-    left: 537px;
-    top: 580px;
-    width: 24px;
-    height: 20px;
-    text-align: center;
-    font-size: 16px
-}
-
-#gameEmojiBtn {
-    position: absolute;
-    left: 283px;
-    top: 487px;
-    width: 24px;
-    height: 20px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 20px
-}
-
-.EmojiBtn {
-    display: none
+.BigInput {
+    z-index: 999 !important;
+    bottom: 11px;
+    top: auto !important;
+    background-color: rgba(0,0,200,0.5) !important
 }
 
 .emoji,.emojione {
     width: 12px;
     height: 12px;
     vertical-align: bottom
-}
-
-.chatEmojiBtn {
-    position: absolute;
-    left: 339px;
-    top: 252px;
-    width: 24px;
-    height: 20px;
-    text-align: center;
-    font-size: 16px;
-    line-height: 20px
-}
-
-#EmojiSelectWindow {
-    position: absolute;
-    width: 216px;
-    height: 212px;
-    background: white;
-    color: black;
-    z-index: 20;
-    border: 0;
-    border-radius: 6px 6px 6px 0;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.1),0 1px 10px rgba(0,0,0,.35);
-    display: none;
-    padding: 2px
-}
-
-#EmojiSelectWindow2 {
-    display: none
-}
-
-.EmoB {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px
 }
 
 #myInfoBox {
@@ -372,12 +307,6 @@ a:active {
     filter: progid:DXImageTransform.Microsoft.Glow(Strength=1,Color=#0000f)
 }
 
-.zotata-chat-type18 {
-    color: #ffffff;
-    text-shadow: -1px -1px 1px #7900fd, -1px 1px 1px #7900fd, 1px -1px 1px #7900fd, 1px 1px 1px #7900fd;
-    filter: progid:DXImageTransform.Microsoft.Glow(Strength=1,Color=#03FCFC)
-}
-
 .zotata-chat-icon {
     float: left;
     width: 12px;
@@ -508,6 +437,11 @@ a:active {
     filter: progid:DXImageTransform.Microsoft.Chroma(Color=#083863) progid:DXImageTransform.Microsoft.Glow(Strength=1,Color=#083863)
 }
 
+.cashText {
+    color: #8bc2ee;
+    text-shadow: #083863 -1px 0 1px,#083863 0 1px 1px,#083863 1px 0 1px,#083863 0 -1px 1px,-1px 0 2px black,0 1px 2px black,1px 0 2px black,0 -1px 2px black
+}
+
 #playersList {
     position: absolute;
     left: 584px;
@@ -560,20 +494,21 @@ a:active {
 
 .playerListName {
     position: absolute;
-    left: 28px;
-    top: 2px;
+    left: 25px;
+    top: 0;
     font-size: 11px;
     color: white;
     white-space: nowrap;
     overflow: hidden;
-    height: 15px
+    height: 15px;
+    padding: 2px
 }
 
 #itemsSelection {
     position: absolute;
     left: 585px;
     top: 306px;
-    width: 207px;
+    width: 209px;
     height: 220px;
     z-index: 13;
     background-color: rgba(0,0,60,0.5)
@@ -705,7 +640,7 @@ a:active {
 
 .friendListItem {
     position: relative;
-    height: 30px
+    height: 31px
 }
 
 .friendListItem.odd {
@@ -951,70 +886,6 @@ a:active {
     background-position: -130px 0
 }
 
-.rank32 {
-    background-position: -156px 0
-}
-
-.rank33 {
-    background-position: -182px 0
-}
-
-.rank34 {
-    background-position: -208px 0
-}
-
-.rank35 {
-    background-position: -234px 0
-}
-
-.rank36 {
-    background-position: -260px 0
-}
-
-.rank37 {
-    background-position: -286px 0
-}
-
-.rank38 {
-    background-position: -312px 0
-}
-
-.rank39 {
-    background-position: 0 -16px
-}
-
-.rank40 {
-    background-position: -26px -16px
-}
-
-.rank41 {
-    background-position: -52px -16px
-}
-
-.rank42 {
-    background-position: -78px -16px
-}
-
-.rank43 {
-    background-position: -104px -16px
-}
-
-.rank44 {
-    background-position: -130px -16px
-}
-
-.rank45 {
-    background-position: -156px -16px
-}
-
-.rank46 {
-    background-position: -182px -16px
-}
-
-.rank47 {
-    background-position: -208px -16px
-}
-
 .HD .rank0 {
     background-position: -878px -1015px
 }
@@ -1143,18 +1014,6 @@ a:active {
     background-position: -954.5px -1123.5px
 }
 
-.HD .rank32 {
-    background: url(/static/images/ranks_mobiles/rank32.gif) !important;
-    width: 25px;
-    height: 15px;
-}
-
-.HD .rank33 {
-    background: url(/static/images/ranks_mobiles/rank33.gif) !important;
-    width: 25px;
-    height: 15px;
-}
-
 #myName2,#myName3 {
     position: absolute;
     left: 592px;
@@ -1220,7 +1079,8 @@ a:active {
     text-align: right;
     font-size: 11px;
     font-weight: bold;
-    pointer-events: none
+    pointer-events: none;
+    z-index: 12
 }
 
 #myGold,#myGold2 {
@@ -1231,7 +1091,8 @@ a:active {
     text-align: right;
     font-size: 11px;
     font-weight: bold;
-    pointer-events: none
+    pointer-events: none;
+    z-index: 12
 }
 
 #channel_player {
@@ -1244,7 +1105,7 @@ a:active {
 #roomsList {
     position: absolute;
     left: 15px;
-    top: 168px;
+    top: 130px;
     width: 540px;
     color: white;
     font-size: 11px
@@ -1293,7 +1154,8 @@ a:active {
 
 .roomExtraInfoSlot {
     position: absolute;
-    color: #000
+    color: #000;
+    transform: scale(0.8)
 }
 
 .roomExtraInfoSlot0 {
@@ -1366,16 +1228,30 @@ a:active {
     top: 150px
 }
 
-.room:hover {
-    opacity: .7
+#room6 {
+    left: 0;
+    top: 225px
 }
 
-.room:active {
-    opacity: .7;
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-right: 12px;
-    margin-bottom: 11px
+#room7 {
+    left: 265px;
+    top: 225px
+}
+
+#roomsList.rooms8 {
+    top: 156px
+}
+
+.rooms8 #room2,.rooms8 #room3 {
+    top: 70px
+}
+
+.rooms8 #room4,.rooms8 #room5 {
+    top: 140px
+}
+
+.rooms8 #room6,.rooms8 #room7 {
+    top: 210px
 }
 
 .roomNumber {
@@ -1383,7 +1259,7 @@ a:active {
     left: 2px;
     top: 7px;
     width: 30px;
-    text-align: right
+    height: 12px
 }
 
 .roomTitle {
@@ -1419,7 +1295,8 @@ a:active {
 .status {
     position: absolute;
     left: 8px;
-    top: 33px
+    top: 33px;
+    pointer-events: none
 }
 
 .status-waiting {
@@ -1463,7 +1340,8 @@ a:active {
 .gameMode {
     position: absolute;
     left: 208px;
-    top: 17px
+    top: 17px;
+    pointer-events: none
 }
 
 .roomMap {
@@ -1473,6 +1351,14 @@ a:active {
     width: 213px;
     height: 49px;
     transform: scale(0.6)
+}
+
+.roomMap canvas {
+    filter: brightness(0)
+}
+
+.room:hover .roomMap canvas {
+    filter: brightness(1)
 }
 
 .roomLock {
@@ -1500,15 +1386,14 @@ a:active {
 
 #dialogCreateRoom {
     position: absolute;
-    left: 40%;
-    top: 20%;
+    top: 120px;
+    left: 222px;
     width: 341px;
     height: 258px;
     background-position: 0 -755px;
-    box-shadow: 5px 5px 20px 5px #000;
-    display: none;
+    box-shadow: 3px 3px 10px 0 #000;
     border-radius: 6px;
-    z-index: 1
+    display: none
 }
 
 .HD #dialogCreateRoom {
@@ -1520,7 +1405,7 @@ a:active {
     position: absolute;
     left: 114px;
     top: 41px;
-    width: 192px;
+    width: 190px;
     background-color: transparent;
     color: #acf2f6;
     border: 0;
@@ -1620,7 +1505,7 @@ a:active {
 
 #buttonCreateRoom {
     position: absolute;
-    left: 226px;
+    left: 144px;
     top: 7px;
     width: 62px;
     height: 62px;
@@ -1633,7 +1518,7 @@ a:active {
 
 #buttonJoin {
     position: absolute;
-    left: 308px;
+    left: 226px;
     top: 7px;
     width: 62px;
     height: 62px;
@@ -1642,6 +1527,19 @@ a:active {
 
 .HD #buttonJoin {
     background-position: -125px 0
+}
+
+#buttonQuickJoin {
+    position: absolute;
+    left: 308px;
+    top: 7px;
+    width: 62px;
+    height: 62px;
+    background-position: -63px -177px
+}
+
+.HD #buttonQuickJoin {
+    background-position: 0 0
 }
 
 #buttonMyInfo {
@@ -1748,19 +1646,6 @@ a:active {
 
 .HD #event_button {
     background-position: -375px 0
-}
-
-#buttonQuickJoin {
-    position: absolute;
-    left: 308px;
-    top: 84px;
-    width: 62px;
-    height: 62px;
-    background-position: -63px -177px
-}
-
-.HD #buttonQuickJoin {
-    background-position: 0 0
 }
 
 .buttonGlow {
@@ -1958,7 +1843,8 @@ a:active {
 }
 
 .HD .iconMode0 {
-    background-position: -166px -63.5px
+    background-position: -166.5px -63.5px;
+    width: 43px
 }
 
 .HD .iconMode1 {
@@ -1966,7 +1852,8 @@ a:active {
 }
 
 .HD .iconMode2 {
-    background-position: -257px -63.5px
+    background-position: -257.5px -63.5px;
+    width: 43px
 }
 
 .HD .iconMode3 {
@@ -1979,18 +1866,18 @@ a:active {
     left: 33px;
     top: 85px;
     background-position: 0 -677px;
-    width: 280px;
+    width: 277px;
     height: 17px
 }
 
 .HD #CreateRoomPassword {
-    background-position: -342.5px -327.5px
+    background-position: -342px -328px
 }
 
 #createRoomPasswordInput {
     position: absolute;
     left: 81px;
-    width: 193px;
+    width: 190px;
     background-color: transparent;
     color: #acf2f6;
     border: 0;
@@ -2085,11 +1972,11 @@ a:active {
 .checkboxOff {
     background-position: 0 -695px;
     width: 101px;
-    height: 14px
+    height: 13px
 }
 
 .HD .checkboxOff {
-    background-position: -504px -277px
+    background-position: -504px -278px
 }
 
 .checkboxOn {
@@ -2099,7 +1986,7 @@ a:active {
 }
 
 .HD .checkboxOn {
-    background-position: -504px -261.5px
+    background-position: -504px -262px
 }
 
 .CheckboxOff {
@@ -2120,7 +2007,7 @@ a:active {
 
 #buttonRoomsListUp {
     position: absolute;
-    left: 538px;
+    left: 540px;
     top: 205px;
     width: 34px;
     height: 43px;
@@ -2128,12 +2015,13 @@ a:active {
 }
 
 .HD #buttonRoomsListUp {
-    background-position: -95px -63.5px
+    background-position: -95.5px -63.5px;
+    width: 33px
 }
 
 #buttonRoomsListDown {
     position: absolute;
-    left: 538px;
+    left: 540px;
     top: 310px;
     width: 34px;
     height: 43px;
@@ -2154,9 +2042,10 @@ a:active {
 
 #roomNumber {
     position: absolute;
-    left: 55px;
+    left: 50px;
     top: 5px;
-    width: 30px
+    width: 30px;
+    height: 12px
 }
 
 #roomTitle {
@@ -2165,6 +2054,13 @@ a:active {
     top: 5px;
     width: 450px;
     height: 15px
+}
+
+#roomOwner {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    white-space: nowrap
 }
 
 #roomButtonBack {
@@ -2267,6 +2163,20 @@ a:active {
     top: 345px
 }
 
+#roomPlayersA {
+    position: absolute;
+    left: 229px;
+    top: 308px;
+    font-size: 20px
+}
+
+#roomPlayersB {
+    position: absolute;
+    right: 467px;
+    top: 308px;
+    font-size: 23px
+}
+
 #roomButtonReady {
     position: absolute;
     left: 234px;
@@ -2307,7 +2217,7 @@ a:active {
     top: 0;
     width: 235px;
     height: 15px;
-    z-index: 10
+    z-index: 25
 }
 
 .SideA .roomPlayerInfo {
@@ -2317,7 +2227,7 @@ a:active {
     width: 43px;
     height: 30px;
     background-position: -260px -216px;
-    z-index: 8;
+    z-index: 21;
     transform: scale(0.65) rotate(270deg)
 }
 
@@ -2337,7 +2247,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: 0 -121px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideA .roomPlayerNotReady {
@@ -2351,7 +2261,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: -78px -121px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideA .roomPlayerReady {
@@ -2385,8 +2295,7 @@ a:active {
     position: absolute;
     left: -3px;
     top: 67px;
-    display: none;
-    z-index: 8
+    display: none
 }
 
 .SideA .roomPlayerMobile {
@@ -2418,7 +2327,7 @@ a:active {
     top: 0;
     width: 235px;
     height: 15px;
-    z-index: 10
+    z-index: 25
 }
 
 .SideB .roomPlayerInfo {
@@ -2428,7 +2337,7 @@ a:active {
     width: 43px;
     height: 30px;
     background-position: -260px -216px;
-    z-index: 8;
+    z-index: 21;
     transform: scale(0.65) rotate(90deg)
 }
 
@@ -2443,7 +2352,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: 0 -200px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideB .roomPlayerNotReady {
@@ -2457,7 +2366,7 @@ a:active {
     width: 77px;
     height: 78px;
     background-position: -78px -200px;
-    z-index: 6
+    z-index: 2
 }
 
 .HD .SideB .roomPlayerReady {
@@ -2496,7 +2405,6 @@ a:active {
     right: -3px;
     top: 67px;
     display: none;
-    z-index: 8;
     -moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
@@ -2508,7 +2416,8 @@ a:active {
 .roomPlayerMyself {
     width: 28px;
     height: 19px;
-    background: url(data:image/gif;base64,R0lGODlhHAATANUpAAAAALWlUrWmUrWqWrWtWrWqY7WtY7WuY7Wqa7Wta7Wua7Wqc7Wtc7Wuc7Wqe7Wte7Wue//ve7WqhLWthLWuhLWyhLW1hP/vjP/zhP/3hP/3jP/zlP/3lP/3nP/3pf/zrf/3rf/7rf//rf/3tf/3vf/7vf//vf/7xv//xgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJDwApACwAAAAAHAATAAAGs0CAcEgsClPIpDJlbBaXSyFqOhmiqlIsAJqUTq9eLHXIZQJIaHQ1vVaToUKTfG4B0O3y+jEKGPn/Iw99foJ/gntdACCLjIuCjI+Ob0hCIpaXlwwAmZuWmohCHqKjpJqjpqKfW2Ydra6uCQCwsq2xoAAcubq5sbq9vJNmF8PEFwYAxMfJwWYazs/H0ADSiIkZ19cEANja3MyU297h2uPf4BHoAUMR6kLs5uBOTmXx8k/0KUEAACH5BAkPACkALAAAAAAcABMAAAa4QIBwCEgRj8WUcrlEOpHMqBBFnRBR1mk2GTUCqNVh+Isddr2kdDqrtrbNUoBpTrfI63eTXRgf+f8jDwCAgn+CfE0AIIuMi4KNj45wXiKVlpYMAJeZmHBCHqChopmjAKGZfEIdq6ysCQCtr66eABy2t7avuLq5k0IXwMEXBgDCxMHEiEpCGs3OxM4a0M3JXMsAGdnZBELa3N6TidoZ3N3k5uXWiRHsAUQR7kLw4UxP9spdTl5PZ0tBAAAh+QQJDwApACwAAAAAHAATAAAGwkCAcAhIEYvHlHK5PAqNziSzCUChJscrUfucQq1coRUrDnuFpDSJDFCT3cOp0ESnW+b1e9107yqFI4GCDwCCgYSGhH5CII2OIISPkACPikVQIpmamQwAmyKdm51PQh6mp6edqB6qqUcdsLGwCQCyHbSytKQAHL2+HLS/wLy+updCF8nKBgDKyczOzIsAGtXV0tYazNnSl38AGeEZBEPi5ODh597f5kTp5eNxcgAREQFH9kT5fkxRUFHyzkhJIsVLiiAAACH5BAkPACkALAAAAAAcABMAAAa8QIBwSBSmUsWjcllsGptLJgA1KVKtVWMUOb0OUV4hOAvYCkloMpqkTg+jQpPcZInP64A5/a0Ujv5/DwCAgYOEglpcIIuMgoyLjo+IZVwilpciDACYmZuYmk8AHqOko5qlHqeloEMdrq8dCQCwsbOwsqEcuruyu7q9vriUQhfFxQYAxsfJysiJQhrRGs7S09DSzpRHQhndBEPdGd/c3nx9AOXg4kTp2ucRAUXw8vGJUkRc+FBb+VpJ/e6iBAEAIfkECQ8AKQAsAAAAABwAEwAABrpAgHBIBKRSxaNyiSw6m0TmUoiaEKtFrFB6pGoBqC/4yxWSzlbAmZRWo4dSoWlusgDodTndvp0CRoCAD3+Bg4GCcEpCIIyNg40gj5CDfU0il5giDACZm5maiUIeo6Sjm6WnqHBCHa2uHQkAr7GvsKEAHLm6sbocvL2xlUIXxMQGAMUXx8nKiV0AGtEax9LTQtXHlc8Z3ARC3Bne393OigDk4+Lp5eYRAUTuRfHafk5RT1xQW0n6RvkpQQAAIfkEBQ8AKQAsAAAAABwAEwAABrxAgHBIBKSKqaRyeSw6nUym8HSSDKtErDCqnFKtgO9Va+QKSWgSBZBes9HushRQqtcr9Htev52P/oAOAIGDhH1dAB+Kix8QiYqOjI6HTSGWl5YLAJeamJqHQh6io6MNAKWnqH1CHa2urQgArrGvsaAAG7m6Gwq4ub27vZRCF8XGBQDHycqUTRrPzwcA0NLQGtLNTRjbGAMA3N7f2+FyS0IZ6OHpQ+vZSUIREQJD8kT17u9P+vj5+01DXJYEAQA7) no-repeat
+    background: url(data:image/gif;base64,R0lGODlhHAATANUpAAAAALWlUrWmUrWqWrWtWrWqY7WtY7WuY7Wqa7Wta7Wua7Wqc7Wtc7Wuc7Wqe7Wte7Wue//ve7WqhLWthLWuhLWyhLW1hP/vjP/zhP/3hP/3jP/zlP/3lP/3nP/3pf/zrf/3rf/7rf//rf/3tf/3vf/7vf//vf/7xv//xgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQJDwApACwAAAAAHAATAAAGs0CAcEgsClPIpDJlbBaXSyFqOhmiqlIsAJqUTq9eLHXIZQJIaHQ1vVaToUKTfG4B0O3y+jEKGPn/Iw99foJ/gntdACCLjIuCjI+Ob0hCIpaXlwwAmZuWmohCHqKjpJqjpqKfW2Ydra6uCQCwsq2xoAAcubq5sbq9vJNmF8PEFwYAxMfJwWYazs/H0ADSiIkZ19cEANja3MyU297h2uPf4BHoAUMR6kLs5uBOTmXx8k/0KUEAACH5BAkPACkALAAAAAAcABMAAAa4QIBwCEgRj8WUcrlEOpHMqBBFnRBR1mk2GTUCqNVh+Isddr2kdDqrtrbNUoBpTrfI63eTXRgf+f8jDwCAgn+CfE0AIIuMi4KNj45wXiKVlpYMAJeZmHBCHqChopmjAKGZfEIdq6ysCQCtr66eABy2t7avuLq5k0IXwMEXBgDCxMHEiEpCGs3OxM4a0M3JXMsAGdnZBELa3N6TidoZ3N3k5uXWiRHsAUQR7kLw4UxP9spdTl5PZ0tBAAAh+QQJDwApACwAAAAAHAATAAAGwkCAcAhIEYvHlHK5PAqNziSzCUChJscrUfucQq1coRUrDnuFpDSJDFCT3cOp0ESnW+b1e9107yqFI4GCDwCCgYSGhH5CII2OIISPkACPikVQIpmamQwAmyKdm51PQh6mp6edqB6qqUcdsLGwCQCyHbSytKQAHL2+HLS/wLy+updCF8nKBgDKyczOzIsAGtXV0tYazNnSl38AGeEZBEPi5ODh597f5kTp5eNxcgAREQFH9kT5fkxRUFHyzkhJIsVLiiAAACH5BAkPACkALAAAAAAcABMAAAa8QIBwSBSmUsWjcllsGptLJgA1KVKtVWMUOb0OUV4hOAvYCkloMpqkTg+jQpPcZInP64A5/a0Ujv5/DwCAgYOEglpcIIuMgoyLjo+IZVwilpciDACYmZuYmk8AHqOko5qlHqeloEMdrq8dCQCwsbOwsqEcuruyu7q9vriUQhfFxQYAxsfJysiJQhrRGs7S09DSzpRHQhndBEPdGd/c3nx9AOXg4kTp2ucRAUXw8vGJUkRc+FBb+VpJ/e6iBAEAIfkECQ8AKQAsAAAAABwAEwAABrpAgHBIBKRSxaNyiSw6m0TmUoiaEKtFrFB6pGoBqC/4yxWSzlbAmZRWo4dSoWlusgDodTndvp0CRoCAD3+Bg4GCcEpCIIyNg40gj5CDfU0il5giDACZm5maiUIeo6Sjm6WnqHBCHa2uHQkAr7GvsKEAHLm6sbocvL2xlUIXxMQGAMUXx8nKiV0AGtEax9LTQtXHlc8Z3ARC3Bne393OigDk4+Lp5eYRAUTuRfHafk5RT1xQW0n6RvkpQQAAIfkEBQ8AKQAsAAAAABwAEwAABrxAgHBIBKSKqaRyeSw6nUym8HSSDKtErDCqnFKtgO9Va+QKSWgSBZBes9HushRQqtcr9Htev52P/oAOAIGDhH1dAB+Kix8QiYqOjI6HTSGWl5YLAJeamJqHQh6io6MNAKWnqH1CHa2urQgArrGvsaAAG7m6Gwq4ub27vZRCF8XGBQDHycqUTRrPzwcA0NLQGtLNTRjbGAMA3N7f2+FyS0IZ6OHpQ+vZSUIREQJD8kT17u9P+vj5+01DXJYEAQA7) no-repeat;
+    z-index: 20
 }
 
 .SideB .roomPlayerMobile {
@@ -2571,7 +2480,7 @@ a:active {
     height: 19px;
     background-position: 0 -279px;
     display: none;
-    z-index: 11
+    z-index: 26
 }
 
 .HD .roomBotSelect {
@@ -2586,7 +2495,7 @@ a:active {
     height: 19px;
     background-position: 0 -299px;
     display: none;
-    z-index: 11
+    z-index: 26
 }
 
 .HD .roomBotRemove {
@@ -2811,13 +2720,13 @@ a:active {
 }
 
 .ItemBtn:hover {
-    opacity: .5;
+    filter: brightness(1.3);
     cursor: pointer
 }
 
 .ItemBtn:active {
     margin: 1px 0 0 1px;
-    opacity: .5;
+    filter: brightness(1.3);
     cursor: pointer
 }
 
@@ -3982,21 +3891,11 @@ a:active {
     top: -29px;
     width: 31px;
     height: 25px;
-    background-position: -265px -197px;
-    -webkit-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out
+    background-position: -265px -197px
 }
 
 .HD #all_chat {
     background-position: -199px -1360px
-}
-
-#all_chat:hover {
-    box-shadow: 0 0 10px 10px #ff0
-}
-
-#all_chat:active {
-    box-shadow: 0 0 10px 10px #0f0
 }
 
 #team_chat {
@@ -4029,21 +3928,11 @@ a:active {
     top: -31px;
     width: 25px;
     height: 25px;
-    -webkit-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out;
     text-align: center;
     border-radius: 15px;
     font-size: 24px;
     background: rgba(255,255,0,0.3);
     display: none
-}
-
-#help_btn:hover {
-    box-shadow: 0 0 10px 10px #ff0
-}
-
-#help_btn:active {
-    box-shadow: 0 0 10px 10px #0f0
 }
 
 #game_dnd_btn {
@@ -4061,22 +3950,12 @@ a:active {
 .dnd_btn {
     width: 25px;
     height: 25px;
-    -webkit-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out;
     text-align: center;
     border-radius: 15px;
     font-size: 14px;
     background: rgba(0,255,0,0.3);
     color: #0f0;
     line-height: 24px
-}
-
-.dnd_btn:hover {
-    box-shadow: 0 0 10px 10px #ff0
-}
-
-.dnd_btn:active {
-    box-shadow: 0 0 10px 10px red
 }
 
 .dnd_btn.on {
@@ -4107,6 +3986,10 @@ a:active {
     top: 0
 }
 
+.glow_button {
+    cursor: pointer
+}
+
 .glow_button:hover {
     box-shadow: 0 0 10px 10px #ff0 !important
 }
@@ -4118,7 +4001,8 @@ a:active {
 .glow_button_anim {
     -webkit-transition: box-shadow .15s ease-in-out;
     -moz-transition: box-shadow .15s ease-in-out;
-    transition: box-shadow .15s ease-in-out
+    transition: box-shadow .15s ease-in-out;
+    cursor: pointer
 }
 
 .glow_button_anim:hover {
@@ -4127,6 +4011,21 @@ a:active {
 
 .glow_button_anim:active {
     box-shadow: 0 0 10px 10px #9f9 !important
+}
+
+.GlowTextButtonAnim {
+    -webkit-transition: text-shadow .15s ease-in-out;
+    -moz-transition: text-shadow .15s ease-in-out;
+    transition: text-shadow .15s ease-in-out;
+    cursor: pointer
+}
+
+.GlowTextButtonAnim:hover {
+    text-shadow: 0 0 10px #ff0,0 0 10px #ff0,0 0 10px #ff0
+}
+
+.GlowTextButtonAnim:active {
+    text-shadow: 0 0 10px #9f9,0 0 10px #9f9
 }
 
 .glow_button2 {
@@ -4582,7 +4481,7 @@ a:active {
     left: 0;
     top: 45px;
     padding-left: 30px;
-    padding-right: 45px;
+    padding-right: 42px;
     font-size: 12px;
     color: white;
     z-index: 2
@@ -4635,20 +4534,8 @@ a:active {
 
 #ConnectWithFacebook {
     position: absolute;
-    left: 58px;
-    top: 62px;
-    width: 194px;
-    height: 25px
-}
-
-.HD #ConnectWithFacebook {
-    background-position: -620.5px -292.5px
-}
-
-.FBLoginBtn {
-    background-position: 0 -418px;
-    border-radius: 2px;
-    left: 75px !important
+    left: 51px;
+    top: 232px
 }
 
 #ConnectWithPassword {
@@ -4779,13 +4666,18 @@ a:active {
     text-align: center
 }
 
+#ranking_btns {
+    padding-left: 3px
+}
+
 .ranking_btn {
     display: inline-block;
     background-color: #495d7b;
-    padding: 3px;
+    padding: 3px 6px;
     margin: 3px 0;
     border-radius: 5px;
-    font-size: 11px
+    font-size: 12px;
+    border: 1px solid black
 }
 
 .ranking_btn:hover {
@@ -4794,15 +4686,13 @@ a:active {
 }
 
 .ranking_btn:active {
-    padding: 3px;
     border: 1px solid white;
     background-color: #8dc
 }
 
 .ranking_btn.selected {
-    padding: 3px;
     border: 1px solid white;
-    background-color: #49c
+    background-color: lime
 }
 
 .ranking_me {
@@ -4829,7 +4719,7 @@ a:active {
 
 #ranking_data2 {
     clear: both;
-    height: calc(100% - 66px);
+    height: calc(100% - 89px);
     overflow: auto;
     direction: rtl;
     text-align: left
@@ -4838,6 +4728,12 @@ a:active {
 #ranking_data {
     direction: ltr;
     text-align: left
+}
+
+#ranking_home {
+    direction: ltr;
+    text-align: left;
+    height: 100%
 }
 
 #ranking_data table {
@@ -4907,6 +4803,11 @@ a:active {
     }
 }
 
+#ranking_panel_open:active {
+    margin-left: 0;
+    filter: brightness(1.6)
+}
+
 #dialog_change_name_div {
     display: none
 }
@@ -4953,6 +4854,18 @@ a:active {
     bottom: -7px
 }
 
+#dialog_security_lock_ok {
+    position: absolute;
+    right: 8px;
+    bottom: 5px
+}
+
+#dialog_security_lock_cancel {
+    position: absolute;
+    left: 8px;
+    bottom: 5px
+}
+
 #join_room_input {
     margin-left: 8px;
     width: 125px
@@ -4975,7 +4888,7 @@ a:active {
 }
 
 #dialogGift .AlertBox {
-    top: 150px;
+    top: 130px;
     left: 307px
 }
 
@@ -5103,7 +5016,7 @@ a:active {
 
 #room_game_mode {
     position: absolute;
-    top: 28px;
+    top: 30px;
     left: 389px;
     text-align: center;
     width: 100px
@@ -5112,7 +5025,7 @@ a:active {
 #room_players {
     position: absolute;
     left: 381px;
-    top: 41px;
+    top: 44px;
     text-shadow: -1px 0 2px black,0 1px 2px black,1px 0 2px black,0 -1px 2px black;
     color: #ff6;
     width: 115px;
@@ -5123,7 +5036,7 @@ a:active {
 #room_avatars {
     position: absolute;
     left: 390px;
-    top: 55px;
+    top: 58px;
     width: 100px;
     color: red;
     font-size: 12px;
@@ -5134,7 +5047,7 @@ a:active {
 #room_wind {
     position: absolute;
     left: 390px;
-    top: 69px;
+    top: 72px;
     width: 100px;
     color: red;
     font-size: 12px;
@@ -5152,7 +5065,7 @@ a:active {
 #room_turn_time {
     position: absolute;
     left: 390px;
-    top: 83px;
+    top: 86px;
     width: 100px;
     color: white;
     font-size: 12px;
@@ -5215,19 +5128,23 @@ a:active {
     bottom: -7px
 }
 
-.light_button {
-    transition: filter .25s
-}
-
 .light_button:hover {
-    filter: brightness(1.4);
+    filter: brightness(1.3);
     cursor: pointer
 }
 
 .light_button:active {
-    margin: 1px 0 0 1px;
-    filter: brightness(1);
+    margin: 1px 0 0 0;
+    filter: brightness(1.3);
     cursor: pointer
+}
+
+.light_button.roomExtraInfo {
+    filter: brightness(1)
+}
+
+.light_button.grayscale:hover,.light_button.grayscale:active {
+    filter: grayscale(100%) brightness(1.3)
 }
 
 .opacity_button:hover {
@@ -6011,7 +5928,7 @@ a:active {
     top: 495px
 }
 
-#buttonShopEyes {
+#buttonShopGlass {
     left: 407px;
     top: 495px;
     width: 33px;
@@ -6019,7 +5936,7 @@ a:active {
     background-position: -72px -204px
 }
 
-.HD #buttonShopEyes {
+.HD #buttonShopGlass {
     background-position: -670.5px -52.5px;
     width: 37px;
     height: 33px
@@ -6113,47 +6030,47 @@ a:active {
     height: 33px
 }
 
-#shop_item0 {
+.shop_item0 {
     left: 259px;
     top: 26px
 }
 
-#shop_item1 {
+.shop_item1 {
     left: 434px;
     top: 26px
 }
 
-#shop_item2 {
+.shop_item2 {
     left: 609px;
     top: 26px
 }
 
-#shop_item3 {
+.shop_item3 {
     left: 259px;
     top: 178px
 }
 
-#shop_item4 {
+.shop_item4 {
     left: 434px;
     top: 178px
 }
 
-#shop_item5 {
+.shop_item5 {
     left: 609px;
     top: 178px
 }
 
-#shop_item6 {
+.shop_item6 {
     left: 259px;
     top: 330px
 }
 
-#shop_item7 {
+.shop_item7 {
     left: 434px;
     top: 330px
 }
 
-#shop_item8 {
+.shop_item8 {
     left: 609px;
     top: 330px
 }
@@ -6166,10 +6083,6 @@ a:active {
 
 .HD .shop_item {
     background-position: -341.5px -346px
-}
-
-.shop_item:hover {
-    opacity: .7
 }
 
 .shop_item:active {
@@ -6675,6 +6588,32 @@ a:active {
     background-position: -969.5px -991px
 }
 
+.ShopSetSave {
+    position: absolute;
+    font-size: 10px;
+    left: 45px;
+    top: 18px
+}
+
+.ShopSetInfo {
+    position: absolute;
+    font-size: 10px;
+    left: 95px;
+    top: 18px
+}
+
+.ShopSetLoad {
+    position: absolute;
+    font-size: 10px;
+    left: 150px;
+    top: 18px
+}
+
+.ShopSetLoad.Disabled,.ShopSetInfo.Disabled {
+    display: none;
+    opacity: .2
+}
+
 .shop_item_cash {
     position: absolute;
     top: 117px;
@@ -6747,6 +6686,7 @@ a:active {
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAKAQMAAABVIEaHAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAACBJREFUCNdjaOBg+P8DRO5/wTD/BEN/B0M7B0MTB0QcAKO0CsWeIfXOAAAAAElFTkSuQmCC)
 }
 
+/*# sourceMappingURL=/jquery-3.6.3.min.map*/
 .DragonScroll .viewport::-webkit-scrollbar-button:vertical:decrement {
     height: 10px;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAKAQMAAABVIEaHAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAACFJREFUCNdj+P+DoYGDoYmDoZ2Dob+DYf4Jhv0vgCIQcQChpArF4r18lgAAAABJRU5ErkJggg==)
@@ -6792,7 +6732,8 @@ a:active {
     position: relative;
     width: 204px;
     height: 31px;
-    background-position: -204px -327px
+    background-position: -204px -327px;
+    overflow: hidden
 }
 
 .shop_my_item.selected {
@@ -6867,6 +6808,28 @@ a:active {
     color: white
 }
 
+.shopSetNameInput {
+    position: absolute;
+    left: 36px;
+    top: 4px;
+    font-size: 10px;
+    width: 126px
+}
+
+.shopSetNameOK {
+    position: absolute;
+    left: 175px;
+    top: 5px;
+    font-size: 16px
+}
+
+.shopSetNameCancel {
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    font-size: 16px
+}
+
 .shop_my_item_equip.equipped {
     position: absolute;
     left: -1px;
@@ -6924,9 +6887,13 @@ a:active {
     top: 1px
 }
 
+.SortBy {
+    filter: drop-shadow(0 0 5px yellow)
+}
+
 #shop_my_cash {
     position: absolute;
-    right: 605px;
+    right: 612px;
     top: 143px;
     width: 150px;
     height: 12px;
@@ -6938,7 +6905,7 @@ a:active {
 
 #shop_my_gold {
     position: absolute;
-    right: 605px;
+    right: 612px;
     top: 157px;
     width: 150px;
     height: 12px;
@@ -6948,9 +6915,24 @@ a:active {
     font-weight: bold
 }
 
+#shop_security_lock {
+    position: absolute;
+    right: 586px;
+    top: 145px;
+    font-size: 20px
+}
+
+.SecurityLock.Unlocked {
+    opacity: .2
+}
+
+.SecurityLock.Unset {
+    opacity: .1
+}
+
 #shop_buy_dialog {
     position: absolute;
-    left: 210px;
+    left: 243px;
     top: 127px;
     width: 386px;
     height: 353px;
@@ -6976,8 +6958,8 @@ a:active {
 }
 
 #shop_buy_dialog .shop_item_image {
-    left: 234px;
-    top: 140px
+    left: 235px;
+    top: 138px
 }
 
 .buy_option {
@@ -7049,14 +7031,14 @@ a:active {
 
 #select_bot_div {
     position: absolute;
-    left: 228px;
+    left: 220px;
     width: 340px;
     top: 204px;
     background: #001839 url(/static/images/bg_blue.jpg);
     opacity: .9;
     padding: 10px;
     display: none;
-    z-index: 12;
+    z-index: 30;
     display: none;
     border: solid 2px black;
     border-radius: 3px
@@ -7189,19 +7171,6 @@ a:active {
     top: 110px
 }
 
-#buttonRanking {
-    position: absolute;
-    left: 14px;
-    top: 26px;
-    width: 96px;
-    height: 52px;
-    background-position: 0 -1468px
-}
-
-#buttonRanking.open {
-    background-position: -97px -1468px
-}
-
 #dialogCreateMessage {
     position: absolute;
     left: 104px;
@@ -7303,7 +7272,8 @@ a:active {
     font-size: 10px;
     color: #cecece;
     border: 1px solid black;
-    box-shadow: 5px 5px 30px 10px #000,inset 0 2px 1px #7394b5
+    box-shadow: 5px 5px 30px 10px #000,inset 0 2px 1px #7394b5;
+    transform-origin: 0 0
 }
 
 .OptionsDialogTitle {
@@ -7703,7 +7673,7 @@ a:active {
     height: 327px;
     background-position: 0 -319px;
     display: none;
-    z-index: 20
+    z-index: 30
 }
 
 .HD #playerInfoDialog {
@@ -7779,7 +7749,9 @@ a:active {
 }
 
 #LoginSubmit {
-    height: 34px
+    height: 20px;
+    width: 45px;
+    text-align: center
 }
 
 #infoName {
@@ -7917,48 +7889,6 @@ a:active {
     position: absolute;
     left: 322px;
     top: 154px
-}
-
-#effectSupershot {
-    position: absolute;
-    background: url(/static/images/Effects_GB/LLGW5UH.png);
-    width: 500px;
-    height: 500px;
-    display: none;
-    top: -25px;
-    left: 180px;
-    opacity: 0;
-    animation: bonus_msg_anim 2s linear;
-    -moz-animation: bonus_msg_anim 2s linear;
-    -webkit-animation: bonus_msg_anim 2s linear
-}
-
-#effectGreat {
-    position: absolute;
-    background: url(/static/images/Effects_GB/lHtJG0q.png);
-    width: 500px;
-    height: 500px;
-    display: none;
-    top: -25px;
-    left: 205px;
-    opacity: 0;
-    animation: bonus_msg_anim 2s linear;
-    -moz-animation: bonus_msg_anim 2s linear;
-    -webkit-animation: bonus_msg_anim 2s linear
-}
-
-#effectFantastic {
-    position: absolute;
-    background: url(/static/images/Effects_GB/G3ZSCAO.png);
-    width: 500px;
-    height: 500px;
-    display: none;
-    top: -25px;
-    left: 205px;
-    opacity: 0;
-    animation: bonus_msg_anim 2s linear;
-    -moz-animation: bonus_msg_anim 2s linear;
-    -webkit-animation: bonus_msg_anim 2s linear
 }
 
 .ChatDialog {
@@ -8102,7 +8032,7 @@ a:active {
     width: 375px;
     height: 383px;
     background-position: 0 -972px;
-    z-index: 11
+    z-index: 31
 }
 
 .HD #dialog_room_options {
@@ -8144,7 +8074,7 @@ a:active {
 #RoomOptionsModeIcon {
     position: absolute;
     left: 233px;
-    top: 48px
+    top: 44px
 }
 
 #RoomOptionsNumPlayersPrev {
@@ -8223,7 +8153,7 @@ a:active {
 #RoomOptionsAvatars {
     position: absolute;
     left: 100px;
-    top: 262px;
+    top: 261.5px;
     width: 110px;
     text-align: center
 }
@@ -8250,7 +8180,7 @@ a:active {
 #RoomOptionsWind {
     position: absolute;
     left: 100px;
-    top: 309px;
+    top: 309.5px;
     width: 110px;
     text-align: center
 }
@@ -8286,27 +8216,6 @@ a:active {
     bottom: -6px
 }
 
-#RoomOptionsRandomTeams {
-    position: absolute;
-    left: 239px;
-    top: 105px;
-    background-color: #07f;
-    padding: 2px;
-    border-radius: 9px
-}
-
-#RoomOptionsRandomTeamsLock {
-    position: absolute;
-    left: 239px;
-    top: 101px
-}
-
-#RoomOptionsRandomTeamsRank {
-    position: absolute;
-    left: 237px;
-    top: 117px
-}
-
 #RoomOptionsTele {
     position: absolute;
     left: 284px;
@@ -8334,51 +8243,129 @@ a:active {
 #RoomOptionsS1Lock {
     position: absolute;
     left: 238px;
-    top: 283px
+    top: 285px
 }
 
 #RoomOptionsS1Rank {
     position: absolute;
     left: 238px;
-    top: 303px
+    top: 302px
 }
 
 #RoomOptionsDualP {
     position: absolute;
     left: 284px;
-    top: 287px
+    top: 285px
 }
 
 #RoomOptionsDualPLock {
     position: absolute;
     left: 284px;
-    top: 287px
+    top: 285px
 }
 
 #RoomOptionsDualPRank {
     position: absolute;
     left: 282px;
-    top: 304px
+    top: 302px
 }
 
-#RoomOptionsTurnTime {
+#RoomOptionsWindLock {
     position: absolute;
-    left: 250px;
+    left: 174px;
+    top: 298px
+}
+
+#RoomOptionsWindRank {
+    position: absolute;
+    left: 172px;
+    top: 316px
+}
+
+#RoomOptionsRandomTeamsText {
+    position: absolute;
+    left: 255px;
+    top: 90px;
+    width: 110px;
+    text-align: center
+}
+
+#RoomOptionsRandomTeamsValue {
+    position: absolute;
+    left: 255px;
+    top: 106px;
+    width: 110px;
+    text-align: center;
+    color: red
+}
+
+#RoomOptionsRandomTeamsLock {
+    position: absolute;
+    left: 287px;
+    top: 114px
+}
+
+#RoomOptionsRandomTeamsRank {
+    position: absolute;
+    left: 304px;
+    top: 118px
+}
+
+#RoomOptionsRandomTeamsPrev {
+    position: absolute;
+    left: 267px;
+    top: 108px
+}
+
+#RoomOptionsRandomTeamsNext {
+    position: absolute;
+    left: 341px;
+    top: 108px
+}
+
+#RoomOptionsTurnTimeText {
+    position: absolute;
+    left: 255px;
     top: 135px;
-    padding: 2px 10px;
-    font-size: 9px
+    width: 110px;
+    text-align: center
+}
+
+#RoomOptionsTurnTimeValue {
+    position: absolute;
+    left: 255px;
+    top: 151.5px;
+    width: 110px;
+    text-align: center;
+    color: #6f9
 }
 
 #RoomOptionsTurnTimeLock {
     position: absolute;
-    left: 240px;
-    top: 133px
+    left: 287px;
+    top: 161px
 }
 
 #RoomOptionsTurnTimeRank {
     position: absolute;
-    left: 238px;
-    top: 151px
+    left: 304px;
+    top: 165px
+}
+
+#RoomOptionsTurnTimePrev {
+    position: absolute;
+    left: 267px;
+    top: 153px
+}
+
+#RoomOptionsTurnTimeNext {
+    position: absolute;
+    left: 341px;
+    top: 153px
+}
+
+.grayText {
+    color: #aaa !important
 }
 
 #PlayCustomMap {
@@ -8399,8 +8386,8 @@ a:active {
 
 #RoomS1Disabled {
     position: absolute;
-    left: 270px;
-    top: 45px
+    left: 267px;
+    top: 48px
 }
 
 #RoomRandomTeams {
@@ -8415,7 +8402,8 @@ a:active {
     top: 33px;
     width: 64px;
     height: 46px;
-    background-position: -94px -355px
+    background-position: -94px -355px;
+    pointer-events: none
 }
 
 .HD .roomBuddy {
@@ -8426,11 +8414,12 @@ a:active {
 
 .roomGuildMember {
     position: absolute;
-    left: 124px;
+    left: 136px;
     top: 33px;
     width: 63px;
     height: 46px;
-    background-position: -159px -355px
+    background-position: -159px -355px;
+    pointer-events: none
 }
 
 .HD .roomGuildMember {
@@ -8443,14 +8432,14 @@ a:active {
     position: absolute;
     left: 588px;
     top: 116px;
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
     z-index: 10;
     overflow: hidden
 }
 
 #myPhotoDiv.glow_button_anim {
-    height: 48px;
+    height: 35px;
     cursor: pointer
 }
 
@@ -8458,29 +8447,30 @@ a:active {
     position: absolute;
     right: 10px;
     top: 116px;
-    width: 48px;
-    height: 48px;
+    width: 35px;
+    height: 35px;
     z-index: 10;
     overflow: hidden
 }
 
 #myGFPhotoDiv.glow_button_anim {
-    height: 48px;
+    height: 35px;
     cursor: pointer
 }
 
 #myGFStatus {
     position: absolute;
-    right: -6px;
-    top: 100px;
+    right: 10px;
+    top: 104px;
     z-index: 11
 }
 
 #myGFName {
     position: absolute;
-    right: -8px;
-    top: 166px;
-    z-index: 11
+    right: 10px;
+    top: 153px;
+    z-index: 11;
+    text-align: right
 }
 
 #infoGFPhotoDiv {
@@ -8500,13 +8490,17 @@ a:active {
 #infoGFStatus {
     position: absolute;
     right: 11px;
-    top: 53px
+    top: 53px;
+    text-align: center;
+    width: 100px
 }
 
 #infoGFName {
     position: absolute;
     right: 9px;
-    top: 123px
+    top: 123px;
+    text-align: center;
+    width: 100px
 }
 
 .roomPlayerPhoto {
@@ -8515,7 +8509,7 @@ a:active {
     top: 16px;
     width: 62px;
     height: 53px;
-    z-index: 9
+    z-index: 22
 }
 
 .roomPlayerPhoto .glow_button_anim {
@@ -8539,11 +8533,9 @@ a:active {
 .myInfoRelText {
     font-size: 8px;
     font-style: italic;
-    text-align: center;
+    text-align: right;
     color: white;
-    white-space: nowrap;
-    margin-left: -20px;
-    width: 100px
+    white-space: nowrap
 }
 
 .myInfoRelText1 {
@@ -8554,6 +8546,10 @@ a:active {
 .myInfoRelText2 {
     position: absolute;
     top: 52px
+}
+
+.myInfoRelText .relationshipIcon,.relationshipIconE,.relationshipIconM {
+    vertical-align: sub
 }
 
 .relationshipIcon {
@@ -8757,8 +8753,8 @@ a:active {
 
 .UsernameAboveDialog {
     position: absolute;
-    left: -20px;
-    top: -35px;
+    left: -19px;
+    top: -34px;
     width: 290px;
     height: 22px;
     border: black solid 2px;
@@ -8793,7 +8789,7 @@ a:active {
     position: absolute;
     width: 190px;
     height: 70px;
-    background: url(/static/images/servers.png?9) no-repeat 0 -71px
+    background-position: 0 -71px
 }
 
 #BrokerChannel0 {
@@ -8875,6 +8871,14 @@ a:active {
     background-position: 0 0
 }
 
+.BrokerChannel.FastLobbyServer {
+    background-position: 0 -142px /*!important;*/
+}
+
+.BrokerChannel.PrixServer {
+    background-position: 0 -213px /*!important;*/
+}
+
 .BrokerChannel.BrokerChannelFull {
     color: #9cf
 }
@@ -8891,15 +8895,16 @@ a:active {
 .BrokerChannelName {
     position: absolute;
     left: 5px;
-    top: 8px;
+    top: 0;
     color: white;
-    font-size: 14px
+    font-size: 12px;
+    height: 28px;
+    display: grid;
+    align-items: center
 }
 
 .BrokerNumPlayers2 {
     position: absolute;
-    left: 110px;
-    top: 31px;
     height: 7px;
     background: #0f0;
     width: 0
@@ -8951,8 +8956,8 @@ a:active {
 
 #filter_all {
     position: absolute;
-    left: 10px;
-    top: 26px;
+    left: 20px;
+    top: 28px;
     background-position: 0 -355px;
     width: 46px;
     height: 46px
@@ -8960,8 +8965,8 @@ a:active {
 
 #filter_waiting {
     position: absolute;
-    left: 60px;
-    top: 26px;
+    left: 70px;
+    top: 28px;
     background-position: -47px -355px;
     width: 46px;
     height: 46px
@@ -8969,32 +8974,32 @@ a:active {
 
 #filter_normal {
     position: absolute;
-    left: 10px;
-    top: 120px
+    left: 137px;
+    top: 78px
 }
 
 #filter_boss {
     position: absolute;
-    left: 50px;
-    top: 120px
+    left: 187px;
+    top: 78px
 }
 
 #filter_same {
     position: absolute;
-    left: 90px;
-    top: 120px
+    left: 237px;
+    top: 78px
 }
 
 #filter_score {
     position: absolute;
-    left: 130px;
-    top: 120px
+    left: 287px;
+    top: 78px
 }
 
 #filter_friends {
     position: absolute;
-    left: 10px;
-    top: 74px;
+    left: 20px;
+    top: 78px;
     background-position: -94px -355px;
     width: 64px;
     height: 46px
@@ -9002,8 +9007,8 @@ a:active {
 
 #filter_guild {
     position: absolute;
-    left: 60px;
-    top: 74px;
+    left: 70px;
+    top: 78px;
     background-position: -159px -355px;
     width: 63px;
     height: 46px
@@ -9011,7 +9016,7 @@ a:active {
 
 .HD #filter_all {
     background-position: 0 -63.5px;
-    width: 46px;
+    width: 45.5px;
     height: 45px
 }
 
@@ -9022,8 +9027,8 @@ a:active {
 }
 
 .HD #filter_friends {
-    background-position: -348px -63.5px;
-    width: 44px;
+    background-position: -348.5px -63.5px;
+    width: 43px;
     height: 41px
 }
 
@@ -9031,6 +9036,26 @@ a:active {
     background-position: -393.5px -63.5px;
     width: 44px;
     height: 41px
+}
+
+#roomsPage {
+    position: absolute;
+    left: 536px;
+    top: 270px;
+    text-align: center;
+    min-width: 40px
+}
+
+.iconMode3.selectedFilter {
+    filter: hue-rotate(165deg) drop-shadow(0 0 4px yellow) drop-shadow(0 0 4px yellow)
+}
+
+.selectedFilter,.HD .iconMode3.selectedFilter {
+    filter: drop-shadow(0 0 4px yellow) drop-shadow(0 0 4px yellow)
+}
+
+.selectedFilter.light_button:hover {
+    filter: brightness(1.3) drop-shadow(0 0 4px yellow) drop-shadow(0 0 4px yellow)
 }
 
 #dialogCharge {
@@ -9070,6 +9095,26 @@ a:active {
     color: white;
     font-size: 15px;
     padding: 5px
+}
+
+#prixPoints {
+    position: absolute;
+    right: 243px;
+    top: 430px;
+    height: 22px;
+    line-height: 22px;
+    color: #fe0;
+    font-size: 15px;
+    padding: 0 0 0 6px;
+    border: black solid 2px;
+    border-radius: 5px;
+    background-color: rgba(0,40,120,0.7);
+    display: none
+}
+
+#resetPrixPoints {
+    height: 22px;
+    padding: 0 6px
 }
 
 .TBGnBorder {
@@ -9324,6 +9369,13 @@ a:active {
     background: url(/static/images/payment_options.png?7) no-repeat 0 -140px
 }
 
+#charge_home_btn {
+    top: 55px;
+    left: 650px;
+    width: 40px;
+    font-size: 30px
+}
+
 #new_charge {
     display: block;
     left: 144px;
@@ -9334,11 +9386,6 @@ a:active {
     -ms-transfcharge_pin_btnorm: rotate(15deg);
     -o-transform: rotate(15deg);
     transform: rotate(15deg)
-}
-
-.ChargeFrame {
-    width: 100%;
-    height: 807px
 }
 
 #ChargeWelcomeMsg {
@@ -9439,21 +9486,35 @@ a:active {
 
 .ContactTitle {
     margin-top: 8px;
-    color: #ff0;
+    color: lightyellow;
     font-weight: bold;
-    text-align: center
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #aaa
 }
 
 .ContactName {
     margin-top: 8px;
-    color: #f33;
-    font-weight: bold
+    color: yellow;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center
 }
 
 .ContactLang {
     color: white;
     font-weight: normal;
-    font-style: italic
+    font-style: italic;
+    font-size: 11px;
+    text-align: center
+}
+
+.ContactFB {
+    text-align: center
+}
+
+.ContactFB a {
+    padding: 5px
 }
 
 .TermsArea {
@@ -9883,7 +9944,7 @@ a:active {
     font-weight: bold;
     opacity: 0;
     animation: bonus_msg_anim 2s linear;
-    text-shadow: black -20px 0 40px,black 0 20px 40px,black 20px 0 40px,black 0 -20px 40px,black -1px 0 1px,black 0 1px 1px,black 1px 0 1px,black 0 -1px 1px;
+    text-shadow: black -10px 0 10px,black 0 10px 10px,black 10px 0 10px,black 0 -10px 10px,black -1px 0 1px,black 0 1px 1px,black 1px 0 1px,black 0 -1px 1px;
     pointer-events: none
 }
 
@@ -10364,13 +10425,28 @@ a:active {
 }
 
 #hourglass {
-    background-image: url(/static/images/hourglass.png);
-    width: 133px;
-    height: 200px;
+    width: 800px;
+    height: 404px;
     margin: 20px auto 20px auto;
-    animation: spiner 1s linear infinite;
-    -moz-animation: spiner 1s linear infinite;
-    -webkit-animation: spiner 1s linear infinite
+    transform: scale(0.5);
+    transform-origin: 0 0
+}
+
+#hourglass.AVIF {
+    background-image: url(/static/images/hourglass.avif?2)
+}
+
+#hourglass.WEBP {
+    background-image: url(/static/images/hourglass.webp?2)
+}
+
+#hourglass.GIF {
+    background-image: url(/static/images/hourglass.gif?2)
+}
+
+#hourglass.ROOM {
+    transform: scale(0.4);
+    margin-left: -62px
 }
 
 .Spin75 {
@@ -10419,7 +10495,7 @@ a:active {
     padding: 5px;
     color: #ff6;
     display: none;
-    font-size: 9px;
+    font-size: 7px;
     background: rgba(0,0,0,0.4);
     border-radius: 10px
 }
@@ -10517,49 +10593,12 @@ a:active {
     top: 316px
 }
 
-#DragonLoginUsername {
-    width: 100px
-}
-
-#DragonLoginPassword {
-    width: 100px;
-    margin-left: 3px
-}
-
-#DragonLoginSecret {
-    width: 65px;
-    background: #ccc
-}
-
-#DragonC0de {
-    position: absolute;
-    top: -27px;
-    left: 238px;
-    width: 140px;
-    border: 2px solid black;
-    background: #333
-}
-
-#DragonC0de>button {
-    width: 35px;
-    height: 35px;
-    font-size: 22px;
-    font-weight: 800;
-    color: red
-}
-
 #changeNameDiv {
     width: 265px
 }
 
 #display_name {
     width: 130px
-}
-
-#MyDragonLoginUsername {
-    color: #ff0;
-    z-index: 1;
-    position: relative
 }
 
 #team_search {
@@ -10569,50 +10608,19 @@ a:active {
     display: none
 }
 
-.FastLobbyServer {
-    background-position: 0 -142px !important
-}
-
-.LoveLobbyServer {
-    background-position: 0 -284px !important
-}
-
-.PrixServer {
-    background-position: 0 -213px !important
-}
-
-.HalloweenServer {
-    background-position: 0 -355px !important
-}
-
-.XmasServer {
-    background-position: 0 -426px !important
-}
-
-.EasterServer {
-    background-position: 0 -497px !important
-}
-
-.BirthdayServer {
-    background-position: 0 -568px !important
-}
-
-.MedicServer {
-    background-position: 0 -639px !important
-}
-
 .emo {
-    width: 10px;
-    height: 10px;
-    transform: scale(1.2)
+    width: 9px;
+    height: 9px;
+    transform: scale(1.3);
+    margin: 0 1px
 }
 
 #roomMobileSelect {
     position: absolute;
     left: 25px;
-    top: 55px;
+    top: 105px;
     width: 515px;
-    height: 515px;
+    height: 408px;
     background: rgba(0,30,50,0.75);
     z-index: 99;
     display: none;
@@ -10773,16 +10781,43 @@ a:active {
     left: 185px;
     top: 210px;
     width: 20px;
-    height: 14px;
+    height: 14px
+}
+
+#FilterBtnAll .AvNotif {
+    top: -6px;
+    right: -5px
+}
+
+.AvatarsIcon {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOBAMAAADd6iHDAAAAKlBMVEUAAAAAAAD////e3t7GxsbWpUr/xkrGxs6cnJze3uf/xkLn3t7OxsrepUplJs/zAAAAAXRSTlMAQObYZgAAAHNJREFUCNdjYGAQBAIBBhBgVJLoEHYEM4WUFBuVjwiABZWUhJTFC8GCRkpKymDVQspOSkqKQiWCQP0mQkAVSsYuAkC22LJAJSXN6SBDxNIuAlVvgTADgUywqBSIqW1yEGSyoFhoaCDEbsaloYFABhhAnAMAv0kURDrmDiQAAAAASUVORK5CYII=)
 }
 
-.HD #FilterBtnAll {
+.HD .AvatarsIcon {
     background-position: -976px -988px
 }
 
 .FilterActive,.SortActive {
     box-shadow: inset 0 0 4px 0 rgba(255,255,0,.7),0 0 2px 2px rgba(255,255,0,.7)
+}
+
+.abs {
+    position: absolute;
+    z-index: 9
+}
+
+.ShopSetBtn {
+    position: absolute;
+    left: 12px;
+    top: 23px;
+    width: 20px;
+    height: 14px;
+    cursor: pointer
+}
+
+.ShopSetBtn.row2 {
+    left: 12px;
+    top: 38px
 }
 
 #howtoplay {
@@ -10937,15 +10972,19 @@ a:active {
 
 .CopyBtn {
     font-size: 7px;
-    margin-right: 16px
+    margin-right: 2px
+}
+
+#Tipsy {
+    position: absolute;
+    z-index: 100000;
+    pointer-events: none
 }
 
 .tipsy {
     font-size: 14px;
     position: absolute;
-    padding: 5px;
-    z-index: 100000;
-    pointer-events: none
+    padding: 5px
 }
 
 .tipsy-inner {
@@ -11441,6 +11480,66 @@ a:active {
     color: #333
 }
 
+.greenBtn {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 18px;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #12fd12;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top,#bfb,#12fd12);
+    background-image: linear-gradient(top,#bfb,#12fd12);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fee94f',endColorstr='#fd9a0f',GradientType=0);
+    border-color: #4f4;
+    font-family: Arial,sans-serif;
+    text-decoration: none;
+    color: #333
+}
+
+.greenBtn:hover {
+    background-color: #12fd12;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top,#12fd12,#bfb);
+    background-image: linear-gradient(top,#12fd12,#bfb);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fedc4d',endColorstr='#d80',GradientType=0);
+    border-color: #4f4
+}
+
+.greenBtn:link,.greenBtn:visited {
+    color: #333
+}
+
+.yellowBtnMini {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 10px;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #fd9a0f;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top,#fee94f,#fd9a0f);
+    background-image: linear-gradient(top,#fee94f,#fd9a0f);
+    border: 1px solid black;
+    font-family: Arial,sans-serif;
+    text-decoration: none;
+    color: #333
+}
+
+.yellowBtnMini:hover {
+    background-color: #fd9512;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(top,#fedc4d,#d80);
+    background-image: linear-gradient(top,#fedc4d,#d80);
+    border: 1px solid yellow
+}
+
 #changePassLink {
     position: absolute;
     white-space: nowrap;
@@ -11468,13 +11567,10 @@ a:active {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 16px;
-    margin: auto;
-    transform-origin: 0 center;
-    border: black 5px solid;
+    transform-origin: 0 0;
     border-radius: 20px;
     box-shadow: black 10px 10px 50px 10px;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
     background-image: -ms-linear-gradient(top left,#03ffff 0,#05008f 100%);
     background-image: -moz-linear-gradient(top left,#03ffff 0,#05008f 100%);
     background-image: -o-linear-gradient(top left,#03ffff 0,#05008f 100%);
@@ -11491,8 +11587,8 @@ a:active {
 
 #LoginMute {
     position: absolute;
-    left: -3px;
-    top: 47px;
+    left: 400px;
+    top: -30px;
     border: 3px solid black;
     background-color: yellow;
     cursor: pointer
@@ -11500,8 +11596,8 @@ a:active {
 
 #LoginLang {
     position: absolute;
-    left: -3px;
-    top: 93px;
+    left: 266px;
+    top: -30px;
     width: 25px;
     height: 21px;
     border: 3px solid black;
@@ -11538,7 +11634,7 @@ a:active {
 #LoginPart {
     position: absolute;
     left: 30px;
-    top: 168px
+    top: 62px
 }
 
 .inputField {
@@ -11561,8 +11657,24 @@ a:active {
     width: 270px
 }
 
-#LoginWindow {
-    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif
+#name {
+    margin-top: 17px
+}
+
+#pplink3 {
+    position: absolute;
+    right: 37px;
+    bottom: -30px;
+    font-size: 12px;
+    color: #0cf
+}
+
+#toslink3 {
+    position: absolute;
+    left: 37px;
+    bottom: -30px;
+    font-size: 12px;
+    color: #0cf
 }
 
 .blueBtn {
@@ -11641,16 +11753,20 @@ a:active {
     border-color: #ec8b11
 }
 
-.remember {
-    font-size: 11px;
-    color: #cc5;
-    margin-left: 2px
+.yellowBtn:active {
+    background-color: #fedc4d;
+    background-repeat: repeat-x;
+    background-image: -webkit-linear-gradient(#d80,#fedc4d);
+    background-image: linear-gradient(#d80,#fedc4d);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0271bf',endColorstr='#2daddc',GradientType=0);
+    border-color: #ec8b11
 }
 
 .resetPass a {
-    font-size: 14px;
+    font-size: 16px;
     color: #0cf;
-    padding-left: 8px
+    padding-left: 8px;
+    line-height: 40px
 }
 
 #LoginWindowBG {
@@ -11658,14 +11774,14 @@ a:active {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.25);
     z-index: 99
 }
 
 #LoginOR1 {
     position: absolute;
     left: 0;
-    top: 122px;
+    top: 208px;
     font-size: 18px;
     font-style: italic;
     width: 347px;
@@ -11677,6 +11793,14 @@ a:active {
     left: 347px;
     width: 5px;
     height: 300px;
+    background: black
+}
+
+#LoginSapH {
+    position: absolute;
+    top: 200px;
+    width: 350px;
+    height: 5px;
     background: black
 }
 
@@ -11854,10 +11978,6 @@ a:active {
     transform-origin: left 50%
 }
 
-/*! jQuery UI - v1.10.3 - 2013-05-03
-* http://jqueryui.com
-* Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css, jquery.ui.theme.css
-* Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
 .ui-helper-hidden {
     display: none
 }
@@ -13612,6 +13732,22 @@ body .ui-tooltip {
     color: yellow
 }
 
+.AvNotif {
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    color: white;
+    font-size: 9px;
+    font-family: Arial,sans-serif;
+    background: red;
+    display: none;
+    text-align: center;
+    border-radius: 20px;
+    min-width: 7px;
+    line-height: 8px;
+    padding: 2px
+}
+
 #ranking_panel_open .Alt {
     transform: rotate(-90deg)
 }
@@ -13715,7 +13851,6 @@ body .ui-tooltip {
 
 .zotata-chat-line {
     min-height: 14px;
-    overflow: hidden;
     margin-top: -2px;
     line-height: 12px
 }
@@ -13801,6 +13936,32 @@ body .ui-tooltip {
     }
 }
 
+.AnimEnterScaleIn15 {
+    animation: AnimEnterScaleIn15 .4s;
+    transform-origin: 50% 50% !important;
+    animation-fill-mode: forwards
+}
+
+@keyframes AnimEnterScaleIn15 {
+    from {
+        transform: scale(0) rotate(45deg)
+    }
+
+    to {
+        transform: scale(1.5) rotate(0)
+    }
+}
+
+@-webkit-keyframes AnimEnterScaleIn15 {
+    from {
+        transform: scale(0) rotate(45deg)
+    }
+
+    to {
+        transform: scale(1.5) rotate(0)
+    }
+}
+
 .AnimScaleOut {
     animation: AnimScaleOut .2s;
     transform-origin: 50% 50% !important;
@@ -13819,18 +13980,15 @@ body .ui-tooltip {
 }
 
 .AnimEnterFadeIn {
-    animation: AnimEnterFadeIn .2s;
-    animation-fill-mode: forwards
+    animation: AnimEnterFadeIn .2s
 }
 
 .AnimEnterFadeIn4 {
-    animation: AnimEnterFadeIn .4s;
-    animation-fill-mode: forwards
+    animation: AnimEnterFadeIn .4s
 }
 
 .AnimEnterFadeInLong {
-    animation: AnimEnterFadeIn 2s;
-    animation-fill-mode: forwards
+    animation: AnimEnterFadeIn 2s
 }
 
 @-webkit-keyframes AnimEnterFadeIn {
@@ -13950,8 +14108,8 @@ body .ui-tooltip {
 
 #shopPages {
     position: absolute;
-    left: 657px;
-    top: 503px;
+    left: 661px;
+    top: 505px;
     font-size: 12px;
     color: black;
     text-align: center;
@@ -13997,7 +14155,7 @@ body .ui-tooltip {
 #LoginFBStatus {
     position: absolute;
     left: 0;
-    top: 66px;
+    top: 240px;
     width: 347px;
     font-size: 16px;
     text-align: center;
@@ -14031,20 +14189,6 @@ body .ui-tooltip {
 
 .Bold {
     font-weight: bold
-}
-
-#toslink {
-    position: absolute;
-    top: 320px;
-    right: 0;
-    font-size: 10px
-}
-
-#pplink {
-    position: absolute;
-    top: 332px;
-    right: 0;
-    font-size: 10px
 }
 
 #male:focus,#female:focus,#GenderM:focus,#GenderF:focus {
@@ -14104,7 +14248,8 @@ body .ui-tooltip {
     display: none;
     width: 500px;
     left: 82px;
-    top: 100px
+    top: 100px;
+    z-index: 111
 }
 
 #freecashWindow thead {
@@ -14303,7 +14448,8 @@ body .ui-tooltip {
 .PrixTimer {
     position: absolute;
     left: 3px;
-    top: 47px
+    top: 47px;
+    z-index: 1
 }
 
 .BrokerRanksSize {
@@ -14440,28 +14586,16 @@ body .ui-tooltip {
     top: -3px
 }
 
-#OptionWebGL {
-    margin-left: 77px
-}
-
-#OptionRenderer {
-    font-size: 10px;
-    margin-top: 5px;
-    vertical-align: bottom
-}
-
-#OptionRenderer {
-    font-size: 10px;
-    margin-top: 5px;
-    vertical-align: bottom
-}
-
 #OptionRendererLabel {
     margin-left: 20px
 }
 
 #OptionRenderer {
-    margin-left: 7px
+    font-size: 10px;
+    margin-top: 5px;
+    vertical-align: bottom;
+    margin-left: 7px;
+    width: 112px
 }
 
 #dialogGiftBuyRoom {
@@ -14478,23 +14612,41 @@ body .ui-tooltip {
 }
 
 #itemTimer {
+    top: 98px
+}
+
+#itemTimer2 {
+    top: 196px
+}
+
+.itemTimer {
     position: absolute;
     right: 10px;
-    top: 98px;
     background: white;
     border-radius: 50px;
     width: 59px;
     height: 59px;
-    z-index: 1
+    z-index: 1;
+    display: none
 }
 
 .itemTimerImg {
     position: absolute;
     left: 16px;
     top: 14px;
-    width: 27px;
-    height: 32px;
-    background-image: url(/static/images/luckyegg32.png)
+    height: 64px;
+    transform: scale(0.5);
+    transform-origin: 0 0
+}
+
+.itemTimerImg.egg {
+    background-image: url(/static/images/luckyegg64.png);
+    width: 55px
+}
+
+.itemTimerImg.power {
+    background-image: url(/static/images/powerpotion64.png);
+    width: 55px
 }
 
 .itemTimerText {
@@ -15041,7 +15193,7 @@ img.emoji {
 
 #chargeMyUserID {
     position: absolute;
-    top: 35px;
+    top: 28px;
     right: 0;
     text-align: center;
     width: 172px;
@@ -15111,12 +15263,14 @@ img.emoji {
 
 #ReplayRestartBtn {
     font-size: 30px;
-    height: 50px
+    height: 50px;
+    width: 62px
 }
 
 #ReplayPauseBtn {
     font-size: 30px;
-    height: 50px
+    height: 50px;
+    width: 62px
 }
 
 #ReplaySlider {
@@ -15149,11 +15303,11 @@ img.emoji {
 }
 
 #formLineGender {
-    margin: 5px
+    margin: 21px 28px 5px 28px
 }
 
 #formLineSubmit {
-    margin: 15px;
+    margin: 30px;
     text-align: center
 }
 
@@ -15204,4 +15358,737 @@ img.emoji {
     top: 0;
     padding: 6px 10px;
     color: white
+}
+
+#gameguidelink {
+    font-size: 2em
+}
+
+#tosDiv {
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    font-size: 20px;
+    padding: 5px;
+    line-height: 30px
+}
+
+.Guide {
+    background: url(/static/images/help.svg) no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px
+}
+
+#GuideMain {
+    display: inline-block;
+    padding-left: 60px;
+    margin-left: 15px;
+    width: 192px;
+    line-height: 50px;
+    font-size: 22px;
+    text-align: left;
+    margin-top: 40px
+}
+
+#GuideRanks {
+    display: inline-block;
+    padding-left: 60px;
+    margin-left: 15px;
+    width: 192px;
+    line-height: 50px;
+    font-size: 20px
+}
+
+#GuideLogin {
+    position: absolute;
+    left: 324px;
+    top: -25px
+}
+
+#GuideServers {
+    position: absolute;
+    left: 40px;
+    top: -25px
+}
+
+#GuideLobby {
+    position: absolute;
+    right: 84px;
+    bottom: 7px
+}
+
+#GuideShop {
+    position: absolute;
+    left: 78px;
+    bottom: 11px
+}
+
+#fps {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 8px;
+    left: 1px;
+    display: none;
+    z-index: 999;
+    pointer-events: none
+}
+
+#fps.canvas {
+    color: #ff0
+}
+
+#fps.webgl {
+    color: #9f9
+}
+
+#infoVipBadge {
+    position: absolute;
+    left: 175px;
+    top: 72px;
+    display: none
+}
+
+.vipicon {
+    position: relative;
+    background-size: cover;
+    width: 30px;
+    height: 30px
+}
+
+.vip1 {
+    background-image: url(/static/images/vip1.png)
+}
+
+.vip2 {
+    background-image: url(/static/images/vip2.png)
+}
+
+.vip3 {
+    background-image: url(/static/images/vip3.png)
+}
+
+.vip4 {
+    background-image: url(/static/images/vip4.png)
+}
+
+.vip5 {
+    background-image: url(/static/images/vip5.png)
+}
+
+.vip6 {
+    background-image: url(/static/images/vip6.png)
+}
+
+.vip7 {
+    background-image: url(/static/images/vip7.png)
+}
+
+.vip8 {
+    background-image: url(/static/images/vip8.png)
+}
+
+.vip9 {
+    background-image: url(/static/images/vip9.png)
+}
+
+.vip10 {
+    background-image: url(/static/images/vip10.png)
+}
+
+.viptext {
+    position: absolute;
+    bottom: -5px;
+    font-size: 8px;
+    text-align: center;
+    width: 100%;
+    text-shadow: -2px 0 4px black,0 2px 4px black,2px 0 4px black,0 -2px 4px black,0 -1px 4px black,1px 0 4px black;
+    filter: drop-shadow(0 0 2px magenta)
+}
+
+#myInfoBox {
+    box-shadow: white 0 0 15px,white 0 0 15px inset;
+    border: 2px solid white
+}
+
+#container.Lobby.Auto #itemsSelection,#container.Lobby.Auto #friendsList,#container.Lobby.Auto #guildMembersList {
+    box-shadow: white 0 0 15px,white 0 0 15px inset;
+    border: 2px solid white;
+    left: 582px
+}
+
+#container.Lobby #itemsSelection #MissionsBtnRoom {
+    display: none !important
+}
+
+#SelectMap {
+    position: absolute;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 800px;
+    height: 600px;
+    background: rgba(0,0,0,0.4);
+    display: none
+}
+
+#SelectMap.nobg {
+    background: 0
+}
+
+.selectMap {
+    position: absolute;
+    left: 142px;
+    top: 282px;
+    width: 213px;
+    height: 49px;
+    transform: scale(0.9);
+    transition: left .5s ease-out,top .5s ease-out;
+    cursor: pointer
+}
+
+.selectMap:hover {
+    z-index: 111 !important
+}
+
+.mapSelectLock {
+    position: absolute;
+    left: 98px;
+    top: 15px
+}
+
+#sc {
+    display: none
+}
+
+#slidersection2 .volume.Loading,#LoginMute.Loading {
+    background-image: url(/static/images/loader124.gif) !important;
+    background-position: 0 0 !important;
+    background-size: contain !important
+}
+
+#mobileInput {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: darkblue;
+    border: 1px solid black;
+    height: 20px;
+    width: 100%;
+    color: white;
+    z-index: 99999
+}
+
+#shopSetName {
+    position: absolute;
+    top: 7px;
+    left: 260px;
+    display: none;
+    font-size: 12px;
+    white-space: nowrap
+}
+
+.shopSetBack {
+    width: 20px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+#SetBroadcastURL {
+    height: 11px;
+    font-size: 10px;
+    padding: 0;
+    width: 120px
+}
+
+.RankingVideoBtn {
+    height: 15px;
+    vertical-align: bottom;
+    cursor: pointer
+}
+
+.RankingVideoBtn.FB {
+    filter: hue-rotate(220deg) brightness(1.5)
+}
+
+#shopMaxStats {
+    position: absolute;
+    left: -11px;
+    top: 90px;
+    font-size: 9px;
+    color: #fac;
+    text-align: center;
+    z-index: 12
+}
+
+#shopPowerIcon {
+    position: absolute;
+    display: none;
+    left: 142px;
+    top: 67px;
+    background-image: url(/static/images/powerpotion64.png);
+    width: 55px;
+    height: 64px;
+    transform: scale(0.3);
+    z-index: 12
+}
+
+.setBonusTitle {
+    background-color: #b3b;
+    border: 2px solid #fcf;
+    border-radius: 5px;
+    padding: 2px 9px;
+    color: #fe7
+}
+
+#buttonShopBack {
+    position: absolute;
+    left: 628.5px;
+    top: 496px;
+    width: 134px;
+    height: 133px;
+    background-image: url(/static/images/backBtn.png);
+    transform: scale(0.4)
+}
+
+.ItemHelpBtn {
+    position: absolute;
+    left: 12px;
+    top: 120px
+}
+
+.hasSetBonus {
+    filter: hue-rotate(225deg) drop-shadow(0 0 5px rgba(255,0,255,1))
+}
+
+.stat_icon_set_bonus {
+    position: initial;
+    display: inline-block;
+    vertical-align: text-top
+}
+
+.SetBonusPopup {
+    color: pink;
+    font-size: 10px;
+    background: black;
+    padding: 2px;
+    border-radius: 3px;
+    position: absolute;
+    white-space: nowrap;
+    top: -1px;
+    left: 18px;
+    display: none
+}
+
+.ShopSetBtn:hover .SetBonusPopup {
+    display: block
+}
+
+#shopSetBonusActive {
+    display: none;
+    position: absolute;
+    left: 192px;
+    top: 12px;
+    width: 20px;
+    height: 14px;
+    z-index: 12
+}
+
+.MissionsBtn {
+    position: absolute;
+    left: 664px;
+    background-image: url(/static/images/starBtn.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 55px;
+    height: 51px
+}
+
+#MissionsBtnLobby {
+    top: 542px
+}
+
+#MissionsBtnRoom {
+    left: 75px;
+    top: 214px;
+    display: none
+}
+
+#itemsSelection.InRoom #MissionsBtnRoom {
+    display: block
+}
+
+#MissionsCenterWindow {
+    display: none;
+    width: 500px;
+    left: 82px;
+    top: 100px;
+    z-index: 111
+}
+
+#MissionsChests {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 25px
+}
+
+#MissionsProgressBar {
+    position: absolute;
+    left: 50px;
+    top: 16px;
+    width: 84%
+}
+
+#MissionsPointsIcon {
+    position: absolute;
+    left: 12px;
+    top: 9px;
+    width: 32px;
+    height: 32px;
+    background-image: url(/static/images/starBtn.png);
+    background-size: contain;
+    background-repeat: no-repeat
+}
+
+#MissionsPointsText {
+    position: absolute;
+    top: 20px;
+    font-size: 16px;
+    text-align: center;
+    width: 31px
+}
+
+#MissionsChest1 {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 112px
+}
+
+#MissionsChest2 {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 194px
+}
+
+#MissionsChest3 {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 276px
+}
+
+#MissionsChest4 {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 358px
+}
+
+#MissionsChest5 {
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    left: 440px
+}
+
+.Chest {
+    position: absolute;
+    background-image: url(/static/images/chest.png);
+    background-position: 0 0;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 120px 40px;
+    line-height: 70px;
+    text-align: center
+}
+
+.Chest.Open {
+    background-position: -40px 0;
+    cursor: pointer;
+    animation: spiner2 1s infinite alternate ease-in-out
+}
+
+.Chest.Empty {
+    background-position: -80px 0
+}
+
+.Glowing {
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 26px;
+    animation: glowingShrinking 1s infinite alternate ease-in-out
+}
+
+@keyframes glowingShrinking {
+    0 {
+        box-shadow: 0 0 10px #f1c40f,0 0 20px #f1c40f,0 0 30px #f1c40f,0 0 10px #f1c40f,0 0 20px #f1c40f,0 0 30px #f1c40f
+    }
+
+    100% {
+        box-shadow: 0 0 20px #f1c40f,0 0 40px #f1c40f,0 0 60px #f1c40f,0 0 20px #f1c40f,0 0 40px #f1c40f,0 0 60px #f1c40f
+    }
+}
+
+@keyframes spiner2 {
+    from {
+        transform: rotate(-30deg)
+    }
+
+    100% {
+        transform: rotate(30deg)
+    }
+}
+
+#MissionsTimeLeft {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0
+}
+
+.MissionsView {
+    background: rgba(255,255,255,0.5);
+    width: 100%;
+    height: 307px;
+    border-radius: 3px;
+    overflow-y: auto
+}
+
+.Mission {
+    position: relative;
+    width: 95%;
+    height: 50px;
+    margin: 5px auto;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid black;
+    border-radius: 8px
+}
+
+.MissionStar {
+    position: absolute;
+    left: 12px;
+    top: 9px;
+    width: 32px;
+    height: 32px;
+    background-image: url(/static/images/starBtn.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    line-height: 56px;
+    text-align: center
+}
+
+.MissionName {
+    position: absolute;
+    left: 60px;
+    top: 5px;
+    font-size: 16px
+}
+
+.MissionBar {
+    position: absolute;
+    left: 60px;
+    top: 25px;
+    width: 300px
+}
+
+.MissionCollectBtn {
+    position: absolute;
+    left: 376px;
+    top: 11px;
+    width: 47px;
+    text-align: center;
+    font-size: 9px
+}
+
+.MissionCheck {
+    position: absolute;
+    left: 393px;
+    top: 12px
+}
+
+#WindowBG {
+    position: absolute;
+    left: -4000px;
+    width: 10000px;
+    top: -4000px;
+    height: 10000px;
+    background: rgba(0,0,0,0.25);
+    z-index: 14;
+    display: none
+}
+
+#Rewards {
+    position: absolute;
+    z-index: 120;
+    display: none
+}
+
+#RewardsBG {
+    position: absolute;
+    left: -4000px;
+    width: 10000px;
+    top: -4000px;
+    height: 10000px;
+    background: rgba(0,0,0,0.92);
+    cursor: pointer
+}
+
+#RewardsTitle {
+    position: absolute;
+    top: 150px;
+    width: 800px;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none
+}
+
+#RewardsFooter {
+    position: absolute;
+    top: 450px;
+    width: 800px;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none
+}
+
+#RewardsBody {
+    position: absolute;
+    top: 200px;
+    width: 800px;
+    height: 200px;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none
+}
+
+.Reward {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 27px;
+    border: 3px solid #888;
+    border-radius: 8px;
+    margin: 3px;
+    background: yellow;
+    animation: AnimEnterScaleDown .15s ease-out
+}
+
+@keyframes AnimEnterScaleDown {
+    from {
+        transform: scale(7);
+        opacity: .1
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}
+
+.RewardStar {
+    background: rebeccapurple url(/static/images/starBtn.png) no-repeat;
+    background-size: contain;
+    background-position-y: 2px
+}
+
+.RewardGold {
+    background: #46f url(/static/images/goldIcon.png) no-repeat;
+    background-size: contain
+}
+
+.RewardCash {
+    background: yellow url(/static/images/cashIcon.png) no-repeat;
+    background-size: contain
+}
+
+#androidProm {
+    margin: 10px;
+    font-size: 15px
+}
+
+#InstallAppBanner {
+    display: none;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 0 10px;
+    padding: 10px;
+    background: rgba(100,150,255,0.3)
+}
+
+.center {
+    text-align: center
+}
+
+.gold {
+    color: #ffea4a;
+    text-shadow: -1px 0 2px #634910,0 1px 2px #634910,1px 0 2px #634910,0 -1px 2px #634910
+}
+
+.cash {
+    color: #8bc2ee;
+    text-shadow: #083863 -1px 0 1px,#083863 0 1px 1px,#083863 1px 0 1px,#083863 0 -1px 1px
+}
+
+#debug {
+    display: none;
+    white-space: pre
+}
+
+#ShowSC {
+    font-size: 13px;
+    padding: 0 4px
+}
+
+.ConnectEmailWithFBDialog .AlertBoxTitle {
+    left: 20px;
+    font-size: 15px
+}
+
+.ConnectEmailWithFBDialog .AlertBoxContent {
+    padding: 0 10px;
+    top: 35px
+}
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0
+}
+
+input[type=number] {
+    -moz-appearance: textfield
+}
+
+#FBWarn {
+    position: absolute;
+    left: 12px;
+    top: 103px;
+    font-family: Emoji,Arial,sans-serif;
+    text-decoration: underline
+}
+
+#InstallAppBanner {
+    margin-top: 40px
+}
+
+#MiniBanner {
+    margin-top: 40px
+}
+
+#TOSLinks {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px
+}
+
+.SetNameCat {
+    color: lightgreen
 }
