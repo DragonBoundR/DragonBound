@@ -2233,34 +2233,6 @@ a:active {
     background-position: -809px -495.5px
 }
 
-.buttonMobile {
-    width: 33px;
-    height: 37px;
-    background-position: 0 -28px
-}
-
-.HD .buttonMobile {
-    background-position: -752px -524px;
-    width: 35px;
-    height: 36px
-}
-
-.buttonMobile:hover {
-    background-position: -34px -28px
-}
-
-.buttonMobile:active {
-    background-position: -68px -28px
-}
-
-.HD .buttonMobile:hover {
-    background-position: -788.5px -524px
-}
-
-.HD .buttonMobile:active {
-    background-position: -825px -524px
-}
-
 #lobbyButtonMobile {
     position: absolute;
     left: 530px;
@@ -2269,8 +2241,33 @@ a:active {
 
 #roomButtonMobile {
     position: absolute;
-    left: 241px;
-    top: 345px;
+    left: 240px;
+    top: 346px;
+    width: 35px;
+    height: 36px;
+    background-position: 0 0;
+}
+
+.HD #roomButtonMobile {
+    background-position: -752px -524px;
+    width: 35px;
+    height: 36px;
+}
+
+#roomButtonMobile:hover {
+    background-position: -34px -28px;
+}
+
+#roomButtonMobile:active {
+    background-position: -68px -28px;
+}
+
+.HD #roomButtonMobile:hover {
+    background-position: -788.5px -524px;
+}
+
+.HD #roomButtonMobile:active {
+    background-position: -825px -524px;
 }
 
 #roomPlayersA {

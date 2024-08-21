@@ -582,3 +582,83 @@
 [ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
 [ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: test
 [ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: tes
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Server:1 Map And DB loaded
+[ INFO   ]: Server:2 Map And DB loaded
+[ INFO   ]: Server:3 Map And DB loaded
+[ INFO   ]: Server:4 Map And DB loaded
+[ INFO   ]: Server:5 Map And DB loaded
+[ INFO   ]: Server:6 Map And DB loaded
+[ INFO   ]: Server:7 Map And DB loaded
+[ INFO   ]: Server:8 Map And DB loaded
+[ INFO   ]: Server:9 Map And DB loaded
+[ INFO   ]: Server:10 Map And DB loaded
+[ INFO   ]: Server:11 Map And DB loaded
+[ INFO   ]: Server:12 Map And DB loaded
+[ NORMAL ]: 1 created (capacity: 900 players).
+[ NORMAL ]: 2 created (capacity: 900 players).
+[ NORMAL ]: 3 created (capacity: 900 players).
+[ NORMAL ]: 4 created (capacity: 900 players).
+[ NORMAL ]: 5 created (capacity: 900 players).
+[ NORMAL ]: 6 created (capacity: 900 players).
+[ NORMAL ]: 7 created (capacity: 900 players).
+[ NORMAL ]: 8 created (capacity: 900 players).
+[ NORMAL ]: 9 created (capacity: 900 players).
+[ NORMAL ]: 10 created (capacity: 900 players).
+[ NORMAL ]: 11 created (capacity: 900 players).
+[ NORMAL ]: 12 created (capacity: 900 players).
+[ NORMAL ]: Listening on LOCAL 9001
+[ INFO   ]: Opcode: UNKNOWN data: undefined
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Server:1 Map And DB loaded
+[ INFO   ]: Server:2 Map And DB loaded
+[ INFO   ]: Server:3 Map And DB loaded
+[ INFO   ]: Server:4 Map And DB loaded
+[ INFO   ]: Server:5 Map And DB loaded
+[ INFO   ]: Server:6 Map And DB loaded
+[ INFO   ]: Server:7 Map And DB loaded
+[ INFO   ]: Server:8 Map And DB loaded
+[ INFO   ]: Server:9 Map And DB loaded
+[ INFO   ]: Server:10 Map And DB loaded
+[ INFO   ]: Server:11 Map And DB loaded
+[ INFO   ]: Server:12 Map And DB loaded
+[ NORMAL ]: 1 created (capacity: 900 players).
+[ NORMAL ]: 2 created (capacity: 900 players).
+[ NORMAL ]: 3 created (capacity: 900 players).
+[ NORMAL ]: 4 created (capacity: 900 players).
+[ NORMAL ]: 5 created (capacity: 900 players).
+[ NORMAL ]: 6 created (capacity: 900 players).
+[ NORMAL ]: 7 created (capacity: 900 players).
+[ NORMAL ]: 8 created (capacity: 900 players).
+[ NORMAL ]: 9 created (capacity: 900 players).
+[ NORMAL ]: 10 created (capacity: 900 players).
+[ NORMAL ]: 11 created (capacity: 900 players).
+[ NORMAL ]: 12 created (capacity: 900 players).
+[ NORMAL ]: Listening on LOCAL 9001
+[ INFO   ]: Chat Room: 1 - User: Lulubot - MSG: Lulubot
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Server:1 Map And DB loaded
+[ INFO   ]: Server:2 Map And DB loaded
+[ INFO   ]: Server:3 Map And DB loaded
+[ INFO   ]: Server:4 Map And DB loaded
+[ INFO   ]: Server:5 Map And DB loaded
+[ INFO   ]: Server:6 Map And DB loaded
+[ INFO   ]: Server:7 Map And DB loaded
+[ INFO   ]: Server:8 Map And DB loaded
+[ INFO   ]: Server:9 Map And DB loaded
+[ INFO   ]: Server:10 Map And DB loaded
+[ INFO   ]: Server:11 Map And DB loaded
+[ INFO   ]: Server:12 Map And DB loaded
+[ NORMAL ]: 1 created (capacity: 900 players).
+[ NORMAL ]: 2 created (capacity: 900 players).
+[ NORMAL ]: 3 created (capacity: 900 players).
+[ NORMAL ]: 4 created (capacity: 900 players).
+[ NORMAL ]: 5 created (capacity: 900 players).
+[ NORMAL ]: 6 created (capacity: 900 players).
+[ NORMAL ]: 7 created (capacity: 900 players).
+[ NORMAL ]: 8 created (capacity: 900 players).
+[ NORMAL ]: 9 created (capacity: 900 players).
+[ NORMAL ]: 10 created (capacity: 900 players).
+[ NORMAL ]: 11 created (capacity: 900 players).
+[ NORMAL ]: 12 created (capacity: 900 players).
+[ NORMAL ]: Listening on LOCAL 9001
