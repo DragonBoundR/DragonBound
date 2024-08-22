@@ -968,7 +968,7 @@ Types.MOBILES = [
 		maxang: 70,
 		ax: 62.5,
 		ay: 0.625,
-		bx: 0,      /* fricción */
+		bx: 0,      /* fricciï¿½n */
 		by: 384,    /* peso */
 		aim: [
 			[58, 50],

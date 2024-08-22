@@ -35,7 +35,7 @@
     "express-handlebars": "^8.0.1",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.18.0",
-    "fbgraph": "^1.4.4",
+    "fbgraph": "^0.1.0",
     "geoip-lite": "^1.4.10",
     "helmet": "^7.1.0",
     "ignore-case": "^0.1.0",

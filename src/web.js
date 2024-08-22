@@ -76,7 +76,7 @@ this._app.use(require('./web/controllers'));
 http.on('request', this._app);
 
 
-http.listen(3000, function() {
+http.listen(80, function() {
     var st = process.env.vps == '1' ? 'VPS' : 'LOCAL';
-    //Logger.normal('Listening on ' + st + " " + http.address().port);
+    Logger.normal('Listening on ' + st + " " + http.address().port);
 });

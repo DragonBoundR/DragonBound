@@ -105,8 +105,8 @@
         }
       })()
     </script>
-    <link rel="stylesheet" id="DragonStyle" href="/static/css/ThorBound.min.css?13211" />
-    <link rel="stylesheet" href="/static/css/season4.css?10">
+    <!--<link rel="stylesheet" id="DragonStyle" href="/static/css/ThorBound.min.css?13211" />!-->
+    <link rel="stylesheet" href="/static/css/ThorBound.min.css?10">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -435,6 +435,7 @@
           <select id="theme_select">
             <option value="auto" class="CurAutoTheme">Auto (Default)</option>
             <option value="classicHD" class="MainTheme">Classic (HD)</option>
+            <option value="thorshammer">ThorsHammer</option>
             <option value="dragonbound">ThorBound</option>
             <option value="halloween2015">Halloween 2015</option>
             <option value="halloween2016">Halloween 2016</option>
@@ -658,11 +659,11 @@
           <div id="BrokerHelp" class="NoSelect"></div>
         </div>
       </div>
-      <!--<div id="itemsSelection" class="NoSelect hide"><div id="itemSlot0" class="ItemBtn itemDual"></div><div id="itemSlot1"></div><div id="itemSlot2" class="ItemBtn itemDualP"></div><div id="itemSlot3"></div><div id="itemSlot4" class="ItemBtn itemTeleport"></div><div id="itemSlot5"></div><div id="itemDual" class="ItemBtn itemDual"></div><div id="itemDualP" class="ItemBtn itemDualP"></div><div id="itemPala" class="ItemBtn itemPala"></div><div id="itemBlood" class="ItemBtn itemBlood"></div><div id="itemPowerup" class="ItemBtn itemPowerup"></div><div id="itemViento" class="ItemBtn itemViento"></div><div id="itemEnergy1" class="ItemBtn itemEnergy1"></div><div id="itemEnergy2" class="ItemBtn itemEnergy2"></div><div id="itemTeleport" class="ItemBtn itemTeleport"></div><div id="itemsSelectText" class="blackShadow"></div></div>-->
+      <div id="itemsSelection" class="NoSelect hide"><div id="itemSlot0" class="ItemBtn itemDual"></div><div id="itemSlot1"></div><div id="itemSlot2" class="ItemBtn itemDualP"></div><div id="itemSlot3"></div><div id="itemSlot4" class="ItemBtn itemTeleport"></div><div id="itemSlot5"></div><div id="itemDual" class="ItemBtn itemDual"></div><div id="itemDualP" class="ItemBtn itemDualP"></div><div id="itemPala" class="ItemBtn itemPala"></div><div id="itemBlood" class="ItemBtn itemBlood"></div><div id="itemPowerup" class="ItemBtn itemPowerup"></div><div id="itemViento" class="ItemBtn itemViento"></div><div id="itemEnergy1" class="ItemBtn itemEnergy1"></div><div id="itemEnergy2" class="ItemBtn itemEnergy2"></div><div id="itemTeleport" class="ItemBtn itemTeleport"></div><div id="itemsSelectText" class="blackShadow"></div></div>
       <div id="roomItemSelect" class="newbgimg" style="display: none;">
         <div id="itemsSelection" class="NoSelect hide">
           <div id="itemSlot0" class="ItemBtn itemDual"></div>
-          <!--<div id="itemSlot1"></div>-->
+          <div id="itemSlot1"></div>
           <div id="itemSlot2" class="ItemBtn itemDualP"></div>
           <div id="itemSlot3"></div>
           <div id="itemSlot4" class="ItemBtn itemTeleport"></div>
@@ -700,7 +701,7 @@
             <div class="overview" id="friendsListHtml"></div>
           </div>
         </div>
-        <div id="buddydivCancel" class="buttonCancel"></div>
+        <!--<div id="buddydivCancel" class="buttonCancel"></div>!-->
       </div>
       <div id="guilddiv" class="NoSelect newbgimg">
         <div id="guildMembersList" class="NoSelect hide">
@@ -716,7 +717,7 @@
             <div class="overview" id="guildMembersListHtml"></div>
           </div>
         </div>
-        <div id="guilddivCancel" class="buttonCancel"></div>
+        <!--<div id="guilddivCancel" class="buttonCancel"></div>!-->
       </div>
       <div id="itemTimer" class="NoSelect hide">
         <div class="progress-circle p10">
@@ -996,7 +997,8 @@
         <div class="NoSelect light_button buttonAllBuddyList3" id="buttonAllBuddyList3">
           <div class="Alt">G / F10</div>
         </div>
-        <!--<div class="NoSelect opacity_button LobbyButton Tip" id="filter_all"><div class="Alt">L</div></div><div class="NoSelect opacity_button LobbyButton Tip" id="filter_waiting"><div class="Alt">T</div></div>-->
+        <div class="NoSelect opacity_button LobbyButton Tip" id="filter_all"><div class="Alt">L</div></div>
+        <div class="NoSelect opacity_button LobbyButton Tip" id="filter_waiting"><div class="Alt">T</div></div>
         <div class="NoSelect opacity_button iconMode0 Tip" id="filter_normal"></div>
         <div class="NoSelect opacity_button iconMode1 Tip" id="filter_boss"></div>
         <div class="NoSelect opacity_button iconMode2 Tip" id="filter_same"></div>
@@ -1015,9 +1017,9 @@
           <div class="Text"></div>
           <div class="Alt">J</div>
         </div>
-        <div id="lobbyButtonMobile" class="NoSelect buttonMobile hide glow_button">
+        <!--<div id="lobbyButtonMobile" class="NoSelect buttonMobile hide glow_button">
           <div class="Alt">M</div>
-        </div>
+        </div>!-->
         <div id="lobbyButtonItem" class="newbgimg NoSelect ButtonItem hide glow_button">
           <div class="Alt">I</div>
         </div>
@@ -1045,7 +1047,7 @@
         <div id="roomButtonChangeTeam" class="opacity_button">
           <div class="Alt">T</div>
         </div>
-        <div id="roomButtonMobile" class="opacity_button" class="buttonMobile">
+        <div id="roomButtonMobile" class="roomButtonMobile">
           <div class="Alt">M</div>
         </div>
         <div id="roomButtonItem" class="newbgimg buttonItem">
@@ -1060,8 +1062,8 @@
         <div id="roomMobileSelect">
           <div id="roomMobileSelectCancel" class="buttonCancel"></div>
         </div>
-        <!--<div id="roomItemSelect" class="newbgimg" style="display: none;"><div id="itemsSelection" class="NoSelect hide"><div id="itemSlot0" class="ItemBtn itemDual"></div><div id="itemSlot1"></div><div id="itemSlot2" class="ItemBtn itemDualP"></div><div id="itemSlot3"></div><div id="itemSlot4" class="ItemBtn itemTeleport"></div><div id="itemSlot5"></div><div id="itemDual" class="ItemBtn itemDual"></div><div id="itemDualP" class="ItemBtn itemDualP"></div><div id="itemPala" class="ItemBtn itemPala"></div><div id="itemBlood" class="ItemBtn itemBlood"></div><div id="itemPowerup" class="ItemBtn itemPowerup"></div><div id="itemViento" class="ItemBtn itemViento"></div><div id="itemEnergy1" class="ItemBtn itemEnergy1"></div><div id="itemEnergy2" class="ItemBtn itemEnergy2"></div><div id="itemTeleport" class="ItemBtn itemTeleport"></div><div id="itemsSelectText" class="blackShadow"></div><div id="itemSelectName"></div><div id="itemSelectDesc"></div></div><div id="roomItemSelectCancel" class="buttonCancel"></div></div>-->
-        <!--<div id="contstatatk"><div id="statatk"></div></div><div id="contstatdef"><div id="statdef"></div></div><div id="contstatmov"><div id="statmov"></div></div><div id="imgmobileselected" class=""></div>-->
+        <div id="roomItemSelect" class="newbgimg" style="display: none;"><div id="itemsSelection" class="NoSelect hide"><div id="itemSlot0" class="ItemBtn itemDual"></div><div id="itemSlot1"></div><div id="itemSlot2" class="ItemBtn itemDualP"></div><div id="itemSlot3"></div><div id="itemSlot4" class="ItemBtn itemTeleport"></div><div id="itemSlot5"></div><div id="itemDual" class="ItemBtn itemDual"></div><div id="itemDualP" class="ItemBtn itemDualP"></div><div id="itemPala" class="ItemBtn itemPala"></div><div id="itemBlood" class="ItemBtn itemBlood"></div><div id="itemPowerup" class="ItemBtn itemPowerup"></div><div id="itemViento" class="ItemBtn itemViento"></div><div id="itemEnergy1" class="ItemBtn itemEnergy1"></div><div id="itemEnergy2" class="ItemBtn itemEnergy2"></div><div id="itemTeleport" class="ItemBtn itemTeleport"></div><div id="itemsSelectText" class="blackShadow"></div><div id="itemSelectName"></div><div id="itemSelectDesc"></div></div><div id="roomItemSelectCancel" class="buttonCancel"></div></div>
+        <div id="contstatatk"><div id="statatk"></div></div><div id="contstatdef"><div id="statdef"></div></div><div id="contstatmov"><div id="statmov"></div></div><div id="imgmobileselected" class=""></div>
         <div class="playerInRoom SideA" id="playerInRoom0">
           <div class="roomPlayerName blackShadow"></div>
           <div class="roomPlayerInfo opacity_button"></div>

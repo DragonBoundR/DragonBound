@@ -315,7 +315,7 @@ a:active {
 .zotata-chat-type17 {
     color: #9ff;
     text-shadow: #00f -1px 0 1px, #00f 0 1px 1px, #00f 1px 0 1px, #00f 0 -1px 1px;
-    filter: progid: DXImageTransform.Microsoft.Glow(Strength=1, Color=#0000f)
+    filter: progid: DXImageTransform.Microsoft.Glow(Strength=1, Color=#0000ff)
 }
 .zotata-chat-icon {
     float: left;
@@ -2260,7 +2260,8 @@ a:active {
     position: absolute;
     display: none;
     width: 160px;
-    -webkit-transform: translate3d(0, 0, 0)
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 .ColorTeamA {
     color: #ff9e6b;
@@ -2869,7 +2870,8 @@ a:active {
     width: 800px;
     height: 600px;
     display: none;
-    -webkit-transform: translate3d(0, 0, 0)
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 #scores_lose_a {
     position: absolute;
@@ -10096,7 +10098,8 @@ body .ui-tooltip {
     }
 }
 .ForceHW {
-    -webkit-transform: translateZ(0)
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 #notificationBtn {
     position: absolute;
@@ -10325,19 +10328,27 @@ body .ui-tooltip {
     display: none
 }
 @-webkit-keyframes move_stripes {
-    0 {
-        background-position: 0 0
+    0% {
+        background-position: 0 0;
     }
     100% {
-        background-position: 50px 50px
+        background-position: 50px 50px;
     }
 }
 @-moz-keyframes move_stripes {
-    0 {
-        background-position: 0 0
+    0% {
+        background-position: 0 0;
     }
     100% {
-        background-position: 50px 50px
+        background-position: 50px 50px;
+    }
+}
+@keyframes move_stripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
     }
 }
 .orange>span {
@@ -10356,6 +10367,7 @@ body .ui-tooltip {
 .nostripes>span:after {
     -webkit-animation: none;
     -moz-animation: none;
+    animation: none;
     background-image: none
 }
 .meterText {
