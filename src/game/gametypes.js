@@ -706,15 +706,15 @@ Types = {
 		TAG: 4,
 
     },
-    RANDOMIZER: [0, 1, 2, 3, 4, 12, 13, 14],
+    RANDOMIZER: [0, 1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 15],
     GAME_ID: ["GM", "DN"],
     MAPS_PLAY: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49],
 //    MAPS_PLAY_BOSS: [0, 1, 2, 3, 4, 5], //, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49],
     MAPS_PLAY_BOSS: [1, 6, 8, 9],
-    MOBILE_R: [0, 1, 2, 3, 4, 12, 13, 14, 15],
+    MOBILE_R: [0, 1, 2, 3, 4, 5, 6, 8, 10, 11, 12, 13, 14, 15],
     COMPUTER_PLAYER : [
-        { rank: 1, game_id: "Clown Stripe", gp: 1, atk: 5, def: 0, life: 10, dig: 0, gender: "m", ahead: 17, abody: 31, aflag: 0, aeyes: 0, mobile: 0,guild: ''}, 
-        { rank: 2, game_id: "Haris Pilton", gp: 2, atk: 7, def: 4, life: 15, dig: 0, gender: "f", ahead: 42, abody: 45, aflag: 0, aeyes: 0, mobile: 15,guild: ''}, 
+        { rank: 0, game_id: "Clown Stripe", gp: 1, atk: 5, def: 0, life: 10, dig: 0, gender: "m", ahead: 17, abody: 31, aflag: 0, aeyes: 0, mobile: 0,guild: ''}, 
+        { rank: 1, game_id: "Haris Pilton", gp: 2, atk: 7, def: 4, life: 15, dig: 0, gender: "f", ahead: 42, abody: 45, aflag: 0, aeyes: 0, mobile: 15,guild: ''}, 
         { rank: 3, game_id: "Harly Potler", gp: 3, atk: 10, def: 8, life: 20, dig: 5, gender: "m", ahead: 10, abody: 26, aflag: 0, aeyes: 0, mobile: 3,guild: ''}, 
         { rank: 5, game_id: "Angie Jelly", gp: 4, atk: 12, def: 12, life: 25, dig: 9, gender: "f", ahead: 36, abody: 51, aflag: 0, aeyes: 0, mobile: 6,guild: ''}, 
         { rank: 7, game_id: "Floyd Pinkus", gp: 5, atk: 17, def: 18, life: 30, dig: 14, gender: "m", ahead: 8, abody: 24, aflag: 0, aeyes: 0, mobile: 4,guild: ''}, 
@@ -3045,22 +3045,12 @@ Types.MOBILES = [
 				{
 					delay		: 250,
 					addtime		: 0,
-					damage		: null,
+					damage		: 150,
 					pala_bunge	: [58,58],
 					image		: Types.BULLETS.RAON1,
-					explode		: null,
+					explode		: Types.EXPLODE.RAON1,
 					weight		: 398,
 					friccion	: 0,
-					addAtEnd	: ["mine"],
-					mine		: {
-						damage		: 150,
-						pala_bunge	: [58,58],
-						walk		: true,
-						walk_max	: 30,
-						image		: Types.BULLETS.RAON1,
-						explode		: Types.EXPLODE.RAON1,
-						is_alive	: true
-					}
 				}
 			],
 			[
@@ -3068,11 +3058,39 @@ Types.MOBILES = [
 					delay		: 400,
 					addtime		: 0,
 					damage		: 240,
-					pala_bunge	: [58,58],
+					pala_bunge	: [0],
 					image		: Types.BULLETS.RAON2,
-					explode		: Types.EXPLODE.RAON2,
+					explode		: null,
 					weight		: 398,
 					friccion	: 0,
+					addAtEnd: ["walk"],
+					walk: {
+						damage: 240,
+						walk: true,
+						walk_max: 30,
+						is_alive: true,
+						image: Types.BULLETS.RAONMINE,
+						explode: Types.EXPLODE.RAONMINE,
+					}
+				},
+				{
+					delay		: 0,
+					addtime		: 100,
+					damage		: 240,
+					pala_bunge	: [0],
+					image		: Types.BULLETS.RAON2,
+					explode		: null,
+					weight		: 398,
+					friccion	: 0,
+					addAtEnd: ["walk"],
+					walk: {
+						damage: 240,
+						walk: true,
+						walk_max: 30,
+						is_alive: true,
+						image: Types.BULLETS.RAONMINE,
+						explode: Types.EXPLODE.RAONMINE,
+					}
 				}
 			],
 			[
@@ -3080,18 +3098,23 @@ Types.MOBILES = [
 					delay		: 800,
 					addtime		: 0,
 					damage		: 400,
-					pala_bunge	: [58,58],
+					pala_bunge	: [0,0],
 					image		: Types.BULLETS.RAONSS,
-					explode		: Types.EXPLODE.RAONSS,
+					explode		: null,
 					weight		: 398,
 					friccion	: 0,
-					addAtMaxT	:  ["change"],
-					modifiers	: {
-						ss		: true
-					},
-					change	: {
-						image:	Types.BULLETS.ARMORSS2
-					}
+					ss			: true,
+					addAtEnd	: ["walk"],
+					walk: [
+						{
+							damage		: 75,
+							pala_bunge	: [38,38],
+							addtime		: 200,
+							dir			: "auto",
+							image		: Types.BULLETS.RAONSS_WALKER,
+							explode		: Types.EXPLODE.RAONSS_WALKER
+						}
+					]
 				}
 			]
 		],
