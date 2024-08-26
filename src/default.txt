@@ -864,3 +864,440 @@
 [ LOG    ]: Login: test3
 [ INFO   ]: Pin User: 2011
 [ LOG    ]: 'test4' m
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ LOG    ]: 'testinho' 0
+[ LOG    ]: Login: testinho
+[ LOG    ]: 'testinho' 0
+[ LOG    ]: Login: testinho
+[ LOG    ]: 'luluzera' 0
+[ LOG    ]: Login: Luluzera
+[ LOG    ]: 'lulubot' 0
+[ LOG    ]: Login: Lulubot
+[ LOG    ]: user: [Test786]
+[ INFO   ]: It has just added a point of view to the user: Test786
+[ DEBUG  ]: Error, no posts were found
+[ LOG    ]: user: [mnakito01]
+[ INFO   ]: It has just added a point of view to the user: mnakito01
+[ DEBUG  ]: Error, no posts were found
+[ LOG    ]: user: [testinho]
+[ INFO   ]: It has just added a point of view to the user: testinho
+[ DEBUG  ]: Error, no posts were found
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'lulubot ' 0
+[ LOG    ]: Login: Lulubot
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'lulubot' 0
+[ LOG    ]: Login: Lulubot
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'testinha' 0
+[ LOG    ]: Login: testinha
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'lulubot' 0
+[ LOG    ]: Login: Lulubot
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: user: [FerCamac]
+[ INFO   ]: It has just added a point of view to the user: FerCamac
+[ DEBUG  ]: Error, no posts were found
+[ LOG    ]: user: [testera]
+[ INFO   ]: It has just added a point of view to the user: testera
+[ DEBUG  ]: Error, no posts were found
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!

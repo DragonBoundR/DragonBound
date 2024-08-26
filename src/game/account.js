@@ -204,7 +204,7 @@ module.exports = class Account {
                                     else if (self.player.gp >= 4200 && self.player.gp <= 5099) { next_rank = 8; gift_rank = 9340; cash = 3000}
                                     else if (self.player.gp >= 5100 && self.player.gp <= 5999) { next_rank = 9; gift_rank = 9341; cash = 3000}
                                     else if (self.player.gp >= 6000 && self.player.gp <= 6899) { next_rank = 10; gift_rank = 9342; cash = 3000}
-                                    else if (self.player.gp >= 6900 && self.player.rank < 12) { next_rank = 11; gift_rank = 9343; cash = 3000}
+                                    else if (self.player.gp >= 6900 && self.player.gp <= 8764) { next_rank = 11; gift_rank = 9343; cash = 3000}
 									else if (self.player.rank == 12) { next_rank = 12; gift_rank = 9344; cash = 3000 }
 									else if (self.player.rank == 13) { next_rank = 13; gift_rank = 9345; cash = 3000 }
 									else if (self.player.rank == 14) { next_rank = 14; gift_rank = 9346; cash = 3000 }
@@ -3441,7 +3441,7 @@ module.exports = class Account {
 		else if (self.player.gp >= 4200 && self.player.gp <= 5099) { next_rank = 8; gift_rank = 9340; cash = 3000; }
 		else if (self.player.gp >= 5100 && self.player.gp <= 5999) { next_rank = 9; gift_rank = 9341; cash = 3000; }
 		else if (self.player.gp >= 6000 && self.player.gp <= 6899) { next_rank = 10; gift_rank = 9342; cash = 3000; }
-		else if (self.player.gp >= 6900 && self.player.rank <= 11) { next_rank = 11; gift_rank = 9343; cash = 3000; }
+		else if (self.player.gp >= 6900 && self.player.gp <= 8764) { next_rank = 11; gift_rank = 9343; cash = 3000; }
 		else if (self.player.rank === 12) { next_rank = 12; gift_rank = 9344; cash = 3000; }
 		else if (self.player.rank === 13) { next_rank = 13; gift_rank = 9345; cash = 3000; }
 		else if (self.player.rank === 14) { next_rank = 14; gift_rank = 9346; cash = 3000; }
