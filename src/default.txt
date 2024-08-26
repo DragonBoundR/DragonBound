@@ -1301,3 +1301,24 @@
 [ NORMAL ]: MYSQL Connect!
 [ NORMAL ]: MYSQL Connect!
 [ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ LOG    ]: 'luluzera' 0
+[ LOG    ]: Login: Luluzera
+[ INFO   ]: Pin User: 2011
+[ LOG    ]: 'testzerinho' m
+[ NORMAL ]: MYSQL Connect!
+[ INFO   ]: Pin User: 2011
+[ LOG    ]: 'testinhho' m
+[ LOG    ]: 'testinhho' 0
+[ LOG    ]: Login: testinhho
+[ INFO   ]: Pin User: 2011
+[ LOG    ]: 'rolada' m
+[ LOG    ]: 'rolada' 0
+[ LOG    ]: Login: rolada
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: Listening on LOCAL 80
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!
+[ NORMAL ]: MYSQL Connect!

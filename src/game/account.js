@@ -193,7 +193,24 @@ module.exports = class Account {
 										self.sendMessage(new Message.loginResponse(self));
                                     } else {}
                                     let next_rank = 0; let tmpgender = 0; let cash = 0; let gift_rank = 0; let self2 = self.gameserver.getAccountById(parseInt(self.player.user_id)); let check_ranks = JSON.parse(self.player.first_important_ranks);
-                                    if (self.player.gp <= 1099) { next_rank = 0; }
+                                    let current_rank;
+									let previous_rank;
+									
+									async function getCurrentRank() {
+										try {
+											current_rank = await self.gameserver.db.getPlayerCurrentRank(self.player.user_id);
+											previous_rank = await self.gameserver.db.getPlayerPreviousRank(self.player.user_id);
+											processRanks();
+										} catch (error) {
+											console.error('Error fetching ranks:', error);
+										}
+									}
+									
+									// Call the async function
+									getCurrentRank();
+
+								function processRanks() {
+									if (self.player.gp <= 1099) { next_rank = 0; }
                                     else if (self.player.gp >= 1100 && self.player.gp <= 1199) { next_rank = 1; gift_rank = 9333; cash = 3000}
                                     else if (self.player.gp >= 1200 && self.player.gp <= 1499) { next_rank = 2; gift_rank = 9334; cash = 3000}
                                     else if (self.player.gp >= 1500 && self.player.gp <= 1799) { next_rank = 3; gift_rank = 9335; cash = 3000}
@@ -205,19 +222,20 @@ module.exports = class Account {
                                     else if (self.player.gp >= 5100 && self.player.gp <= 5999) { next_rank = 9; gift_rank = 9341; cash = 3000}
                                     else if (self.player.gp >= 6000 && self.player.gp <= 6899) { next_rank = 10; gift_rank = 9342; cash = 3000}
                                     else if (self.player.gp >= 6900 && self.player.gp <= 8764) { next_rank = 11; gift_rank = 9343; cash = 3000}
-									else if (self.player.rank == 12) { next_rank = 12; gift_rank = 9344; cash = 3000 }
-									else if (self.player.rank == 13) { next_rank = 13; gift_rank = 9345; cash = 3000 }
-									else if (self.player.rank == 14) { next_rank = 14; gift_rank = 9346; cash = 3000 }
-									else if (self.player.rank == 15) { next_rank = 15; gift_rank = 9347; cash = 3000 }
-									else if (self.player.rank == 16) { next_rank = 16; gift_rank = 9348; cash = 3000 }
-									else if (self.player.rank == 17) { next_rank = 17; gift_rank = 9349; cash = 3000 }
-									else if (self.player.rank == 18) { next_rank = 18; gift_rank = 9350; cash = 3000 }
-									else if (self.player.rank == 19) { next_rank = 19; gift_rank = 9351; cash = 3000 }
-									else if (self.player.rank == 20) { next_rank = 20; gift_rank = 9352; cash = 3000 }
-									else if (self.player.rank == 21) { next_rank = 21; gift_rank = 9353; cash = 3000 }
-									else if (self.player.rank == 22) { next_rank = 22; gift_rank = 9354; cash = 3000 }
-									else if (self.player.rank == 23) { next_rank = 23; gift_rank = 9355; cash = 3000 }
-									else if (self.player.rank == 24) { next_rank = 24; gift_rank = 9356; cash = 3000 } else {}
+									else if (self.player.gp >= 8764 && current_rank == 11) {next_rank = 11}
+									else if (current_rank == 12) { next_rank = 12; gift_rank = 9344; cash = 3000 }
+									else if (current_rank == 13) { next_rank = 13; gift_rank = 9345; cash = 3000 }
+									else if (current_rank == 14) { next_rank = 14; gift_rank = 9346; cash = 3000 }
+									else if (current_rank == 15) { next_rank = 15; gift_rank = 9347; cash = 3000 }
+									else if (current_rank == 16) { next_rank = 16; gift_rank = 9348; cash = 3000 }
+									else if (current_rank == 17) { next_rank = 17; gift_rank = 9349; cash = 3000 }
+									else if (current_rank == 18) { next_rank = 18; gift_rank = 9350; cash = 3000 }
+									else if (current_rank == 19) { next_rank = 19; gift_rank = 9351; cash = 3000 }
+									else if (current_rank == 20) { next_rank = 20; gift_rank = 9352; cash = 3000 }
+									else if (current_rank == 21) { next_rank = 21; gift_rank = 9353; cash = 3000 }
+									else if (current_rank == 22) { next_rank = 22; gift_rank = 9354; cash = 3000 }
+									else if (current_rank == 23) { next_rank = 23; gift_rank = 9355; cash = 3000 }
+									else if (current_rank == 24) { next_rank = 24; gift_rank = 9356; cash = 3000 } else {}
 									
 									self.gameserver.db.getPlayerPreviousRank(self.player.user_id)
 										.then(previous_rank => {
@@ -286,7 +304,7 @@ module.exports = class Account {
 											self.gameserver.sendAccountsOnline();
 										});
 									}
-								}
+								}}
 								self.gameserver.db.updateServerByUserId(self.gameserver.id, self.player.user_id);
 								self.gameserver.last_account_info[self.user_id] = {
 									user_id: self.user_id,
@@ -3429,70 +3447,56 @@ module.exports = class Account {
 		let self2 = self.gameserver.getAccountById(parseInt(self.player.user_id));
 		let check_ranks = JSON.parse(self.player.first_important_ranks);
 
-		// Determine next_rank, gift_rank, and cash
-		if (self.player.gp <= 1099) { next_rank = 0; }
-		else if (self.player.gp >= 1100 && self.player.gp <= 1199) { next_rank = 1; gift_rank = 9333; cash = 3000; }
-		else if (self.player.gp >= 1200 && self.player.gp <= 1499) { next_rank = 2; gift_rank = 9334; cash = 3000; }
-		else if (self.player.gp >= 1500 && self.player.gp <= 1799) { next_rank = 3; gift_rank = 9335; cash = 3000; }
-		else if (self.player.gp >= 1800 && self.player.gp <= 2299) { next_rank = 4; gift_rank = 9336; cash = 3000; }
-		else if (self.player.gp >= 2300 && self.player.gp <= 2799) { next_rank = 5; gift_rank = 9337; cash = 3000; }
-		else if (self.player.gp >= 2800 && self.player.gp <= 3499) { next_rank = 6; gift_rank = 9338; cash = 3000; }
-		else if (self.player.gp >= 3500 && self.player.gp <= 4199) { next_rank = 7; gift_rank = 9339; cash = 3000; }
-		else if (self.player.gp >= 4200 && self.player.gp <= 5099) { next_rank = 8; gift_rank = 9340; cash = 3000; }
-		else if (self.player.gp >= 5100 && self.player.gp <= 5999) { next_rank = 9; gift_rank = 9341; cash = 3000; }
-		else if (self.player.gp >= 6000 && self.player.gp <= 6899) { next_rank = 10; gift_rank = 9342; cash = 3000; }
-		else if (self.player.gp >= 6900 && self.player.gp <= 8764) { next_rank = 11; gift_rank = 9343; cash = 3000; }
-		else if (self.player.rank === 12) { next_rank = 12; gift_rank = 9344; cash = 3000; }
-		else if (self.player.rank === 13) { next_rank = 13; gift_rank = 9345; cash = 3000; }
-		else if (self.player.rank === 14) { next_rank = 14; gift_rank = 9346; cash = 3000; }
-		else if (self.player.rank === 15) { next_rank = 15; gift_rank = 9347; cash = 3000; }
-		else if (self.player.rank === 16) { next_rank = 16; gift_rank = 9348; cash = 3000; }
-		else if (self.player.rank === 17) { next_rank = 17; gift_rank = 9349; cash = 3000; }
-		else if (self.player.rank === 18) { next_rank = 18; gift_rank = 9350; cash = 3000; }
-		else if (self.player.rank === 19) { next_rank = 19; gift_rank = 9351; cash = 3000; }
-		else if (self.player.rank === 20) { next_rank = 20; gift_rank = 9352; cash = 3000; }
-		else if (self.player.rank === 21) { next_rank = 21; gift_rank = 9353; cash = 3000; }
-		else if (self.player.rank === 22) { next_rank = 22; gift_rank = 9354; cash = 3000; }
-		else if (self.player.rank === 23) { next_rank = 23; gift_rank = 9355; cash = 3000; }
-		else if (self.player.rank === 24) { next_rank = 24; gift_rank = 9356; cash = 3000; }
-	
-		self.gameserver.db.getPlayerPreviousRank(self.player.user_id)
-		.then(previous_rank => {
-			if (self.player.rank > 11 && (previous_rank != self.player.rank)) {
-				previous_rank = self.player.rank;
-				self.gameserver.db.updatePreviousRank(previous_rank, self.player.user_id)
-				self.gameserver.db.getBoy(parseInt(self.player.user_id), parseInt(gift_rank)).then(function (acc) {}).catch(function (err) {
-				let datasendgift = {
-					UserId: self.player.user_id,
-					aId: gift_rank,
-					type: 0,
-					expire_time: 0,
-					is_cash: 0,
-					is_gift: 1,
-					gift_sent_by: self.player.user_id,
-					amount: 0,
-					date_ava_time: Date.now()
-				};
-				self.gameserver.db.putUserAvatars(datasendgift)
-				var name_ava_gift = self.gameserver.avatars.getAvatagift(gift_rank);
-				self.sendMessage(new Message.alert2Response(Types.ALERT2_TYPES.RECEIVED_AVATAR, ["FunnyBound", gift_rank, 0, "Congratulations you have leveled up and thanks to your effort we will reward you with this avatar", "forever", name_ava_gift]));
-				self.gameserver.db.sendCash(cash, self.player.user_id);
-				self2.send([17, "Received Cash! :)", "You just received <font color='yellow'>"+cash+"</font> Cash from<br><font color='yellow'>"+self.player.game_id+"</font>.<br><br>And cash for Rank up <font color='cyan'><span class='span_rank rank rank"+next_rank+"'></span></font>.<br><br>Thank You!"]);
-				self2.player.cash += cash;
-				});
-				self.sendMessage(new Message.loginResponse(self));
-				self.gameserver.sendAccountsOnline();
+		let current_rank;
+		let previous_rank;
+									
+		async function getCurrentRank() {
+			try {
+				current_rank = await self.gameserver.db.getPlayerCurrentRank(self.player.user_id);
+				previous_rank = await self.gameserver.db.getPlayerPreviousRank(self.player.user_id);
+				processRanks();
+			} catch (error) {
+				console.error('Error fetching ranks:', error);
 			}
-		})
-		if (self.player.rank != next_rank) {
-			if (self.player.gender === 'f')
-				tmpgender = 1;
-            if (self.player.rank <= 24) {
-                self.player.scores_lose = 3;
-                self.gameserver.db.updateRankByIdAcc(next_rank, self.player.user_id);
-                self.player.rank = next_rank;
-				//self.gameserver.db.sendGift(self.player.user_id, gift_rank);
-				self.gameserver.db.getBoy(parseInt(self.player.user_id), parseInt(gift_rank)).then(function (acc) {}).catch(function (err) {
+		}
+		
+		// Call the async function
+		getCurrentRank();
+
+		function processRanks() {
+			if (self.player.gp <= 1099) { next_rank = 0; }
+			else if (self.player.gp >= 1100 && self.player.gp <= 1199) { next_rank = 1; gift_rank = 9333; cash = 3000}
+			else if (self.player.gp >= 1200 && self.player.gp <= 1499) { next_rank = 2; gift_rank = 9334; cash = 3000}
+			else if (self.player.gp >= 1500 && self.player.gp <= 1799) { next_rank = 3; gift_rank = 9335; cash = 3000}
+			else if (self.player.gp >= 1800 && self.player.gp <= 2299) { next_rank = 4; gift_rank = 9336; cash = 3000}
+			else if (self.player.gp >= 2300 && self.player.gp <= 2799) { next_rank = 5; gift_rank = 9337; cash = 3000}
+			else if (self.player.gp >= 2800 && self.player.gp <= 3499) { next_rank = 6; gift_rank = 9338; cash = 3000}
+			else if (self.player.gp >= 3500 && self.player.gp <= 4199) { next_rank = 7; gift_rank = 9339; cash = 3000}
+			else if (self.player.gp >= 4200 && self.player.gp <= 5099) { next_rank = 8; gift_rank = 9340; cash = 3000}
+			else if (self.player.gp >= 5100 && self.player.gp <= 5999) { next_rank = 9; gift_rank = 9341; cash = 3000}
+			else if (self.player.gp >= 6000 && self.player.gp <= 6899) { next_rank = 10; gift_rank = 9342; cash = 3000}
+			else if (self.player.gp >= 6900 && self.player.gp <= 8764) { next_rank = 11; gift_rank = 9343; cash = 3000}
+			else if (self.player.gp >= 8764 && current_rank == 11) {next_rank = 11}
+			else if (current_rank == 12) { next_rank = 12; gift_rank = 9344; cash = 3000 }
+			else if (current_rank == 13) { next_rank = 13; gift_rank = 9345; cash = 3000 }
+			else if (current_rank == 14) { next_rank = 14; gift_rank = 9346; cash = 3000 }
+			else if (current_rank == 15) { next_rank = 15; gift_rank = 9347; cash = 3000 }
+			else if (current_rank == 16) { next_rank = 16; gift_rank = 9348; cash = 3000 }
+			else if (current_rank == 17) { next_rank = 17; gift_rank = 9349; cash = 3000 }
+			else if (current_rank == 18) { next_rank = 18; gift_rank = 9350; cash = 3000 }
+			else if (current_rank == 19) { next_rank = 19; gift_rank = 9351; cash = 3000 }
+			else if (current_rank == 20) { next_rank = 20; gift_rank = 9352; cash = 3000 }
+			else if (current_rank == 21) { next_rank = 21; gift_rank = 9353; cash = 3000 }
+			else if (current_rank == 22) { next_rank = 22; gift_rank = 9354; cash = 3000 }
+			else if (current_rank == 23) { next_rank = 23; gift_rank = 9355; cash = 3000 }
+			else if (current_rank == 24) { next_rank = 24; gift_rank = 9356; cash = 3000 } else {}
+		
+			self.gameserver.db.getPlayerPreviousRank(self.player.user_id)
+			.then(previous_rank => {
+				if (self.player.rank > 11 && (previous_rank != self.player.rank)) {
+					previous_rank = self.player.rank;
+					self.gameserver.db.updatePreviousRank(previous_rank, self.player.user_id)
+					self.gameserver.db.getBoy(parseInt(self.player.user_id), parseInt(gift_rank)).then(function (acc) {}).catch(function (err) {
 					let datasendgift = {
 						UserId: self.player.user_id,
 						aId: gift_rank,
@@ -3505,23 +3509,55 @@ module.exports = class Account {
 						date_ava_time: Date.now()
 					};
 					self.gameserver.db.putUserAvatars(datasendgift)
-				    var name_ava_gift = self.gameserver.avatars.getAvatagift(gift_rank);
-				    self.sendMessage(new Message.alert2Response(Types.ALERT2_TYPES.RECEIVED_AVATAR, ["FunnyBound", gift_rank, 0, "Congratulations you have leveled up and thanks to your effort we will reward you with this avatar", "forever", name_ava_gift]));
-				    self.gameserver.db.sendCash(cash, self.player.user_id);
-				    self2.send([17, "Received Cash! :)", "You just received <font color='yellow'>"+cash+"</font> Cash from<br><font color='yellow'>"+self.player.game_id+"</font>.<br><br>And cash for Rank up <font color='cyan'><span class='span_rank rank rank"+next_rank+"'></span></font>.<br><br>Thank You!"]);
-				    self2.player.cash += cash;
-				});
-                self.sendMessage(new Message.loginResponse(self));
-                self.gameserver.sendAccountsOnline();
+					var name_ava_gift = self.gameserver.avatars.getAvatagift(gift_rank);
+					self.sendMessage(new Message.alert2Response(Types.ALERT2_TYPES.RECEIVED_AVATAR, ["FunnyBound", gift_rank, 0, "Congratulations you have leveled up and thanks to your effort we will reward you with this avatar", "forever", name_ava_gift]));
+					self.gameserver.db.sendCash(cash, self.player.user_id);
+					self2.send([17, "Received Cash! :)", "You just received <font color='yellow'>"+cash+"</font> Cash from<br><font color='yellow'>"+self.player.game_id+"</font>.<br><br>And cash for Rank up <font color='cyan'><span class='span_rank rank rank"+next_rank+"'></span></font>.<br><br>Thank You!"]);
+					self2.player.cash += cash;
+					});
+					self.sendMessage(new Message.loginResponse(self));
+					self.gameserver.sendAccountsOnline();
+				}
+			})
+			if (self.player.rank != next_rank) {
+				if (self.player.gender === 'f')
+					tmpgender = 1;
+				if (self.player.rank <= 24) {
+					self.player.scores_lose = 3;
+					self.gameserver.db.updateRankByIdAcc(next_rank, self.player.user_id);
+					self.player.rank = next_rank;
+					//self.gameserver.db.sendGift(self.player.user_id, gift_rank);
+					self.gameserver.db.getBoy(parseInt(self.player.user_id), parseInt(gift_rank)).then(function (acc) {}).catch(function (err) {
+						let datasendgift = {
+							UserId: self.player.user_id,
+							aId: gift_rank,
+							type: 0,
+							expire_time: 0,
+							is_cash: 0,
+							is_gift: 1,
+							gift_sent_by: self.player.user_id,
+							amount: 0,
+							date_ava_time: Date.now()
+						};
+						self.gameserver.db.putUserAvatars(datasendgift)
+						var name_ava_gift = self.gameserver.avatars.getAvatagift(gift_rank);
+						self.sendMessage(new Message.alert2Response(Types.ALERT2_TYPES.RECEIVED_AVATAR, ["FunnyBound", gift_rank, 0, "Congratulations you have leveled up and thanks to your effort we will reward you with this avatar", "forever", name_ava_gift]));
+						self.gameserver.db.sendCash(cash, self.player.user_id);
+						self2.send([17, "Received Cash! :)", "You just received <font color='yellow'>"+cash+"</font> Cash from<br><font color='yellow'>"+self.player.game_id+"</font>.<br><br>And cash for Rank up <font color='cyan'><span class='span_rank rank rank"+next_rank+"'></span></font>.<br><br>Thank You!"]);
+						self2.player.cash += cash;
+					});
+					self.sendMessage(new Message.loginResponse(self));
+					self.gameserver.sendAccountsOnline();
+				} else {
+					self.player.scores_lose = 0;
+					self.sendMessage(new Message.loginResponse(self));
+					self.gameserver.sendAccountsOnline();
+				}
 			} else {
 				self.player.scores_lose = 0;
 				self.sendMessage(new Message.loginResponse(self));
 				self.gameserver.sendAccountsOnline();
 			}
-		} else {
-			self.player.scores_lose = 0;
-			self.sendMessage(new Message.loginResponse(self));
-			self.gameserver.sendAccountsOnline();
 		}
 		
 		var gp_power = 0;
