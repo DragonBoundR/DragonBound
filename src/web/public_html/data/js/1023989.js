@@ -15355,7 +15355,7 @@
         PHOENIX: 25,
         BEE: 27
         }
-          , SELECTABLE_MOBILES = [MOBILE.ARMOR, MOBILE.ICE, MOBILE.ADUKA, MOBILE.LIGHTNING, MOBILE.BIGFOOT, MOBILE.JD, MOBILE.ASATE, MOBILE.NAK, MOBILE.TRICO, MOBILE.MAGE, MOBILE.TURTLE, MOBILE.BOOMER, MOBILE.RAON, MOBILE.RANDOM];
+          , SELECTABLE_MOBILES = [MOBILE.ARMOR, MOBILE.ICE, MOBILE.ADUKA, MOBILE.LIGHTNING, MOBILE.BIGFOOT, MOBILE.JD, MOBILE.ASATE, MOBILE.NAK, MOBILE.TRICO, MOBILE.MAGE, MOBILE.TURTLE, MOBILE.BOOMER, MOBILE.RANDOM];
       
     function GetMobileAfter(a) {
         return SELECTABLE_MOBILES[(SELECTABLE_MOBILES.indexOf(a) + 1) % SELECTABLE_MOBILES.length]
@@ -29282,11 +29282,24 @@
             }
             k += "</table>";
             a = "";
+            // Update the HTML with the calculated last update time
             if (r.last_update) {
                 var v = r.last_update + r.refresh_time * TIME_MINUTE - u;
-                a += '<div class="Center blackShadow" style="background: rgba(80,255,80,0.5)"><span class="Bold">' + l.t("Updated") + ":</span> " + MsToString(r.last_update) + "</div>";
-                a += '<div class="Center blackShadow" style="background: rgba(255,80,80,0.5)"><span class="Bold">' + l.t("Next Update") + ':</span> <span id="NextUpdateTimer"></span></div>';
-                r.reset_time && (a += '<div class="Center blackShadow" style="background: rgba(255,255,80,0.5)"><span class="Bold">Reset Rankings:</span> <span id="NextResetTimer"></span></div>')
+                a += `
+                    <div class="Center blackShadow" style="background: rgba(80,255,80,0.5)">
+                        <span class="Bold">${l.t("Updated")}:</span> 
+                        <span id="LastUpdateTime"></span>
+                    </div>
+                    <div class="Center blackShadow" style="background: rgba(255,80,80,0.5)">
+                        <span class="Bold">${l.t("Next Update")}:</span> 
+                        <span id="NextUpdateTimer"></span>
+                    </div>
+                    ${r.reset_time ? `
+                        <div class="Center blackShadow" style="background: rgba(255,255,80,0.5)">
+                            <span class="Bold">Reset Rankings:</span> 
+                            <span id="NextResetTimer"></span>
+                        </div>` : ''}
+                `;
             }
             if (b == RANKING_TOTAL || StartsWith(b, "c")) {
                 w = "";
@@ -29302,9 +29315,43 @@
                 a += '<div class="Nav"><button id="btnRPrev">&lt;-</button><button id="btnTop">TOP</button> ' + "</button>" + l.t("Search") + ': <input id="rankingOffset" value="' + f + '"><button id="btnRNext">-&gt;</button><br>' + c + "</div>"
             } else if (b == RANKING_GUILDS || b == RANKING_GUILDS_TOURNAMENT || b == RANKING_PERSONAL_TOURNAMENT)
                 a += '<div class="Nav"><button id="btnRPrev">&lt;-</button><button id="btnTop">TOP</button> ' + "</button>" + l.t("Search") + ': <input id="rankingOffset" value="' + f + '"><button id="btnRNext">-&gt;</button></div>';
-            $("#ranking_data").html(a + k);
-            new DragonTimer("#NextUpdateTimer",v);
-            r.reset_time && new DragonTimer("#NextResetTimer",r.reset_time - u);
+                $("#ranking_data").html(a + k);
+
+                async function fetchTimes() {
+                    const response = await fetch('/remaining-time');
+                    const data = await response.json();
+                    return {
+                        remainingTime: data.remainingTime,
+                        lastUpdateTime: data.lastUpdateTime
+                    };
+                }
+                
+                fetchTimes().then(({ remainingTime, lastUpdateTime }) => {
+                    // Initialize the Next Update Timer
+                    new DragonTimer("#NextUpdateTimer", remainingTime);
+                
+                    // Initialize the Reset Timer if available
+                    if (r.reset_time) {
+                        new DragonTimer("#NextResetTimer", r.reset_time - u);
+                    }
+                
+                    // Convert last update time to a readable format
+                    const lastUpdateDate = new Date(lastUpdateTime);
+                    
+                    // Extract and format date components
+                    const day = String(lastUpdateDate.getDate()).padStart(2, '0');
+                    const month = String(lastUpdateDate.getMonth() + 1).padStart(2, '0');
+                    const year = lastUpdateDate.getFullYear();
+                    const hours = String(lastUpdateDate.getHours()).padStart(2, '0');
+                    const minutes = String(lastUpdateDate.getMinutes()).padStart(2, '0');
+                    
+                    // Format the date as dd/mm/yyyy hh:mm
+                    const formattedLastUpdateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
+                    
+                    // Update the HTML with the formatted last update time
+                    document.querySelector("#LastUpdateTime").textContent = formattedLastUpdateTime;
+                });
+
             $("#btnRPrev").click(function(a) {
                 a.stopPropagation();
                 b == RANKING_FRIENDS ? ShowFriendsRanking(d, Math.max(1, f - RANKING_PAGE_SIZE)) : LoadRanking(b, Math.max(1, f - RANKING_PAGE_SIZE), d, $("#rankingsCountrySelect").val())

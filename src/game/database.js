@@ -69,7 +69,19 @@ module.exports = class DataBase {
             });
         });
     }
-    
+
+    getAllPlayersGP() {
+        return new Promise((resolve, reject) => {
+            const query = 'SELECT IdAcc, gp FROM users';
+            this.connection.query(query, (error, results) => {
+                if (error) {
+                    console.error('Database error:', error);
+                    return reject(error);
+                }
+                resolve(results);  // Return the array of objects with IdAcc and gp
+            });
+        });
+    }
     getUserByBannedTest(id) {
         var self = this;
         return new Promise(function (resolve, reject) {
@@ -407,6 +419,79 @@ conn.release();
                             return reject();
                     });
             });
+        });
+    }
+
+    updatePreviousRank(rank, user_id) {
+        var self = this;
+        return new Promise(function (resolve, reject) {
+            self.connection.getConnection().then(conn => {
+                conn.query('UPDATE users SET previous_rank = ? WHERE IdAcc = ?', [rank, user_id])
+                    .then(rows => {
+                        conn.release();
+                        if (rows.affectedRows > 0 || rows.changedRows > 0) {
+                            resolve(rows);
+                        } else {
+                            reject(new Error('No rows affected'));
+                        }
+                    })
+                    .catch(err => {
+                        conn.release();
+                        reject(err);
+                    });
+            }).catch(err => {
+                reject(err);
+            });
+        });
+    }
+
+    getPlayerCurrentRank(user_id) {
+        var self = this;
+        return new Promise(function (resolve, reject) {
+            self.connection.getConnection()
+                .then(conn => {
+                    conn.query('SELECT rank FROM users WHERE IdAcc = ?', [user_id])
+                        .then(result => {
+                            conn.release();
+                            if (result.length > 0 && result[0].length > 0) {
+                                resolve(result[0][0].rank);
+                            } else {
+                                reject(new Error('No current rank found for user ID ' + user_id));
+                            }
+                        })
+                        .catch(err => {
+                            conn.release();
+                            reject(err);
+                        });
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        });
+    }
+
+    getPlayerPreviousRank(user_id) {
+        var self = this;
+        return new Promise(function (resolve, reject) {
+            self.connection.getConnection()
+                .then(conn => {
+                    conn.query('SELECT previous_rank FROM users WHERE IdAcc = ?', [user_id])
+                        .then(result => {
+                            conn.release();
+                            if (result.length > 0 && result[0].length > 0) {
+                                resolve(result[0][0].previous_rank);
+                            } else {
+                                reject(new Error('No previous rank found for user ID ' + user_id));
+                            }
+                        })
+                        .catch(err => {
+                            conn.release();
+                            reject(err);
+                        });
+                })
+                .catch(err => {
+                    reject(err);
+                });
         });
     }
     
