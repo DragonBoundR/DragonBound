@@ -6,7 +6,6 @@
   "scripts": {
     "start:web": "node src/web/main/server.js",
     "dev:web": "nodemon src/web/main/server.js"
-
   },
   "repository": {
     "type": "git",
@@ -35,6 +34,7 @@
   ],
   "dependencies": {
     "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
     "cookie-parser": "^1.4.6",
     "csurf": "^1.11.0",
     "dotenv": "^16.4.5",
@@ -47,6 +47,7 @@
     "helmet": "^7.1.0",
     "ignore-case": "^0.1.0",
     "md5": "^2.3.0",
+    "module-alias": "^2.2.3",
     "moment": "^2.30.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.0",
@@ -57,8 +58,13 @@
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
+    "log4js": "^6.9.1",
     "nodemailer": "^6.9.14",
     "nodemon": "^3.1.4",
     "ws": "^8.18.0"
+  },
+  "_moduleAliases": {
+    "@web": "src/web",
+    "@shared": "src/shared"
   }
 }

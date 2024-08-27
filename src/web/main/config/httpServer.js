@@ -1,11 +1,9 @@
-const config = require("./env");
+const config = require("@web/main/config/env");
 
 const setupHttpServer = (app) => {
   const http = require("http").createServer();
   http.on("request", app);
-  http.listen(config.PORT, function () {
-    console.log("Server is running on port " + config.PORT);
-  });
+  http.listen(config.PORT);
   return http;
 };
 

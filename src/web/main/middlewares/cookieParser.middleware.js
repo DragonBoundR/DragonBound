@@ -1,5 +1,4 @@
-var cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
+const config = require("@web/main/config/env");
 
-const SECRET = "xgamedev";
-
-module.exports = () => cookieParser(SECRET);
+module.exports = () => cookieParser(config.COOKIE.SECRET);
