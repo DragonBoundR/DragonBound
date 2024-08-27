@@ -1,5 +1,11 @@
-(() => {
-  const setupApp = require("./config/app");
-  setupApp();
-  console.log("Express app is running");
+require("module-alias/register");
+
+const setupApp = require("./config/app");
+
+const logStarted = require("@web/main/config/logStarted");
+
+(async function () {
+  await setupApp();
+  logStarted();
+  
 })();

@@ -1,13 +1,14 @@
-const DataBase = require("../../../game/database");
 const session = require("express-session");
-const db = new DataBase();
+const expressMysqlSession = require("express-mysql-session");
+
+const config = require("@web/main/config/env");
 
 var options = {
-  host: db.host,
-  port: 3306,
-  user: db.user,
-  password: db.password,
-  database: db.database,
+  host: config.DB.HOST,
+  port: config.DB.PORT,
+  user: config.DB.USER,
+  password: config.DB.PASSWORD,
+  database: config.DB.DATABASE,
   schema: {
     tableName: "account_sessions",
     columnNames: {
@@ -18,13 +19,13 @@ var options = {
   },
 };
 
-var MySQLStore = require("express-mysql-session")(session);
+var MySQLStore = expressMysqlSession(session);
 var sessionStore = new MySQLStore(options);
 
 module.exports = () =>
   session({
     key: "sessionid",
-    secret: "abc-xgamedev",
+    secret: config.SESSION.SECRET,
     store: sessionStore,
     resave: true,
     saveUninitialized: true,

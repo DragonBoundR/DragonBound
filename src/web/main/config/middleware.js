@@ -1,10 +1,10 @@
-const bodyParser = require("../middlewares/bodyParser.middleware");
-const controllers = require("../middlewares/controllers.middleware");
-const cookieParser = require("../middlewares/cookieParser.middleware");
-const database = require("../middlewares/database.middleware");
-const json = require("../middlewares/json.middleware");
-const publicResources = require("../middlewares/publicResources.middleware");
-const session = require("../middlewares/session.midleware");
+const bodyParser = require("@web/main/middlewares/bodyParser.middleware");
+const controllers = require("@web/main/middlewares/controllers.middleware");
+const cookieParser = require("@web/main/middlewares/cookieParser.middleware");
+const database = require("@web/main/middlewares/database.middleware");
+const json = require("@web/main/middlewares/json.middleware");
+const publicResources = require("@web/main/middlewares/publicResources.middleware");
+const session = require("@web/main/middlewares/session.midleware");
 
 module.exports = (app) => {
   app.use(session());
