@@ -1228,11 +1228,11 @@ a:active {
 
 #roomsList {
     position: absolute;
-    left: 15px;
-    top: 168px;
+    left: -14px;
+    top: 108px;
     width: 540px;
     color: white;
-    font-size: 11px
+    font-size: 11px;
 }
 
 .room {
@@ -1240,7 +1240,7 @@ a:active {
     background-position: 0 -543px;
     width: 251px;
     height: 62px;
-    display: none
+    display: none;
 }
 
 .HD .room {
@@ -1327,28 +1327,28 @@ a:active {
 }
 
 #room1 {
-    left: 286px;
-    top: 60px
+    left: 295px;
+    top: 60px;
 }
 
 #room2 {
-    left: 0;
-    top: 75px
+    left: 30px;
+    top: 135px
 }
 
 #room3 {
-    left: 265px;
-    top: 75px
+    left: 295px;
+    top: 135px
 }
 
 #room4 {
-    left: 0;
-    top: 150px
+    left: 30px;
+    top: 210px
 }
 
 #room5 {
-    left: 265px;
-    top: 150px
+    left: 295px;
+    top: 210px
 }
 
 .room:hover {
