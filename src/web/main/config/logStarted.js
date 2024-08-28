@@ -4,9 +4,6 @@ const logger = loggerFactory.getLogger("DragonServer");
 const config = require("@web/main/config/env");
 
 module.exports = () => {
-  logger.break();
-  logger.green("Compiled successfully!");
-  logger.break();
   logger.white("The app is running at:");
   logger.break();
   logger.cyan(`  http://localhost:${config.PORT}`);
