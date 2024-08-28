@@ -9,7 +9,6 @@ var cookieParser = require('cookie-parser');
 var exphbs = require('express-handlebars');
 var mysql = require('mysql');
 var md5 = require('md5');
-var helmet = require('helmet');
 var constants = require('constants');
 var fs = require('fs');
 var tls = require('tls');
@@ -34,7 +33,6 @@ module.exports = class WS extends Server {
         this._app = express();
         this._app.set('env', 'production');
         this._app.disable('x-powered-by');
-        this._app.use(helmet());
         this._app.use(cookieParser('xgamedev'));
         this._app.use(bodyParser.urlencoded({
             extended: false
