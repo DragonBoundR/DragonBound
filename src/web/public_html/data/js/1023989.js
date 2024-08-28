@@ -18615,7 +18615,7 @@
             }).val(b);
             var m = 50
               , n = 50;
-            setTimeout(atob("aWYobG9jYXRpb24uaG9zdG5hbWUuaW5kZXhPZigndGhvcmJvdW5kJykgPT0gLTEpIGxvY2F0aW9uLmhyZWYgPSAnaHR0cDovL3Rob3Jib3VuZC5jb20n"), 49999 * n);
+            //setTimeout(atob("aWYobG9jYXRpb24uaG9zdG5hbWUuaW5kZXhPZigndGhvcmJvdW5kJykgPT0gLTEpIGxvY2F0aW9uLmhyZWYgPSAnaHR0cDovL3Rob3Jib3VuZC5jb20n"), 49999 * n);
             h.on("click touchstart", function(a) {
                 a.stopPropagation();
                 (a = Number(c.val())) ? (m = a,
@@ -23828,7 +23828,7 @@
             document.getElementsByTagName("head")[0].appendChild(e),
             $("#LoginSubmit").click(function() {
             if (!$("#LoginSubmit").hasClass("grayspin") && !$("#RegisterSubmit").hasClass("grayspin")) {
-                $.getJSON('https://api.ipbase.com/v1/json/', function(api_info){
+                //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info){
                     var b = $("#LoginUsername").val(),
                         c = $("#LoginPass").val(),
                         d = $("#LoginRemember").is(":checked") ? 1 : 0;
@@ -23840,8 +23840,8 @@
                             u: b,
                             p: c,
                             r: d,
-                            computer_ip: api_info.ip,
-                            my_player_country: api_info.country_code
+                            //computer_ip: api_info.ip,
+                            //my_player_country: api_info.country_code
                         },
                     success: function(b) {
                        $("#LoginSubmit").removeClass("grayspin");
@@ -23860,7 +23860,7 @@
                     $("#LoginSubmit").removeClass("grayspin");
                     alertify.error("Network Error. Try Again.")
                 })) : alertify.alert(l.t("Please fill password.")) : alertify.alert(l.t("Please fill Email / UserID / Username."))
-                });
+                //});
             }
         }),
         $("#RegisterSubmit").click(function() {
@@ -23872,14 +23872,14 @@
                     if (!b || !c)
                         return alertify.alert(l.t("Please fill all fields"));
                     $("#RegisterSubmit").addClass("grayspin");
-                    $.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
+                    //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
                     $.post("/ajaxRegister", {
                         name: b,
                         password: c,
                         pinuser: e,
                         gender: d,
-                        computer_ip: api_info.ip,
-                        my_player_country: api_info.country_code
+                        //computer_ip: api_info.ip,
+                        //my_player_country: api_info.country_code
   
                     }, function(b) {
                         $("#RegisterSubmit").removeClass("grayspin");
@@ -23895,7 +23895,7 @@
                         $("#RegisterSubmit").removeClass("grayspin");
                         alertify.error("Network Error. Try Again.")
                         })
-                      });
+                      //});
                   }
               }),
             $("#LoginUsername").keydown(function(a) {
@@ -24020,7 +24020,7 @@
                 this.LoginMessage(l.t("A Facebook pop-up has opened, please follow the instructions to sign in."));
                 var b = this;
                 console.log(" >> Calling FB.getLoginStatus...");
-                $.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
+                //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
                     FB.getLoginStatus(function(a) {
                         console.log(" >> FB.getLoginStatus:", a);
                         a && "connected" == a.status ? b.Login({
@@ -24034,14 +24034,14 @@
                                 t: 4,
                                 f: a.authResponse.userID,
                                 a: a.authResponse.accessToken,
-                                computer_ip: api_info.ip,
-                                my_player_country: api_info.country_code
+                                //computer_ip: api_info.ip,
+                                //my_player_country: api_info.country_code
                             }) : b.ShowConnectToFacebookButton()
                         }, {
                             scope: FB_PERMISSIONS
                         })
                     })
-                });
+                //});
             }
         }
         ;
@@ -31950,6 +31950,7 @@
                 b && this.dn.SendTabWatch(TAB_ITEMS);
             else if (a == TAB_FRIENDS)
                 this.buttons.removeClass("Guild").addClass("BuddyList"),
+                this.friendsDiv.show(),
                 $("#friendsList").show(),
                 this.guildsDiv.hide(),
                 this.allDiv.hide(),
