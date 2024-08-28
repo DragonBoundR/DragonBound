@@ -4,7 +4,6 @@ var SocketConnection = require('./socketconnection');
 
 var http = require('http').createServer();
 var express = require('express');
-var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var WebSocketServer = require('ws').Server;
 var Logger = require('./logger');
@@ -21,10 +20,6 @@ module.exports = class WS extends Server {
         this._app.set('env', 'production');
         this._app.disable('x-powered-by');
         this._app.use(cookieParser('xgamedev'));
-        this._app.use(bodyParser.urlencoded({
-            extended: false
-        }));
-        this._app.use(bodyParser.json());
         this._app.use("/", function(req, res) {
             res.send("hi");
         });
