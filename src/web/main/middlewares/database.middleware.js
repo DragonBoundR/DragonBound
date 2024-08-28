@@ -1,8 +1,7 @@
-const DataBase = require("../../../game/database");
+const DragonDataBase = require("@infra/db/connection");
 
 module.exports = (req, res, next) => {
-  var db = new DataBase();
-  req.db = db;
+  req.db = DragonDataBase.connection;
 
   try {
     next();
