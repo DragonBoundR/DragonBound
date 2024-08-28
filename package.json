@@ -56,10 +56,10 @@
     "promise": "^8.3.0",
     "setimmediate": "^1.0.5",
     "underscore": "^1.13.7",
+    "uninstall": "^0.0.0",
     "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
-    "glob": "^11.0.0",
     "log4js": "^6.9.1",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.14",
