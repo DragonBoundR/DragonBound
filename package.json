@@ -66,6 +66,8 @@
   },
   "_moduleAliases": {
     "@web": "src/web",
-    "@shared": "src/shared"
+    "@shared": "src/shared",
+    "@infra": "src/infra",
+    "@game": "src/game"
   }
 }
