@@ -6,22 +6,9 @@ var http = require('http').createServer();
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var exphbs = require('express-handlebars');
-var mysql = require('mysql');
-var md5 = require('md5');
-var constants = require('constants');
-var fs = require('fs');
-var tls = require('tls');
-var url = require('url');
 var WebSocketServer = require('ws').Server;
 var Logger = require('./logger');
 
-var hbs = exphbs.create({
-    defaultLayout: 'main',
-    partialsDir: [
-        'views/partials/'
-    ]
-});
 // WS
 module.exports = class WS extends Server {
     constructor(port) {
