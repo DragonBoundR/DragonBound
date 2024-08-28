@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:web": "node src/web/main/server.js",
-    "dev:web": "nodemon src/web/main/server.js"
+    "dev:web": "nodemon src/web/main/server.js",
+    "dev:game": "nodemon src/game.js"
   },
   "repository": {
     "type": "git",
