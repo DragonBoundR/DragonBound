@@ -6,7 +6,8 @@
   "scripts": {
     "start:web": "node src/web/main/server.js",
     "dev:web": "nodemon src/web/main/server.js",
-    "dev:game": "nodemon src/game.js"
+    "dev:game": "nodemon src/game.js",
+    "dev:ranking": "nodemon src/ranking/rankingscript.js"
   },
   "repository": {
     "type": "git",
