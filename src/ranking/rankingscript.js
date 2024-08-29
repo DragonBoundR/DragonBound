@@ -1,8 +1,6 @@
 require("module-alias/register");
 const DragonDataBase = require("@infra/db/connection");
 
-console.log('rankingscript.js started');
-
 async function updateRankings() {
     const db = DragonDataBase;
     const pool = await db.init(); // Initialize the pool
@@ -103,8 +101,6 @@ async function updateRankings() {
             await connection.execute(`UPDATE users SET rank = CASE Id ${ids.map((id, index) => `WHEN ${id} THEN ${ranks[index]}`).join(' ')} END WHERE Id IN (${ids.join(',')})`);
         }
         console.timeEnd('Update Ranks for GP <= 8746');
-
-        console.log('Rankings updated successfully.');
         console.timeEnd('Total Execution Time');
     } catch (error) {
         console.error('Error updating rankings:', error);
@@ -118,7 +114,7 @@ async function updateRankings() {
 }
 
 updateRankings().then(() => {
-    console.log('rankingscript.js completed');
+    console.log('Ranking Script Completed Successfully.');
 }).catch(error => {
     console.error('Error in rankingscript.js:', error);
 });

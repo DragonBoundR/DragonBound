@@ -133,3 +133,4 @@ dist
 .pnp.*
 
 mysql_data
+src/web/public_html/data/ranking_updated.json
