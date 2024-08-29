@@ -1,5 +1,4 @@
 const cron = require('node-cron');
-const { spawn } = require('child_process');
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -9,20 +8,15 @@ const scriptPath = path.join(__dirname, 'rankingscript.js');
 // Path to the JSON file that will store update times
 const jsonFilePath = path.join(__dirname, '../web/public_html/data/ranking_updated.json');
 
-// Function to execute the rankingscript.js and update the JSON file
+// Function to execute the rankingscript.js
 async function runRankingScript() {
     console.log('Running ranking script...');
 
-    // Run the rankingscript.js directly with node
-    const child = spawn('node', [scriptPath]);
-
-    child.on('close', (code) => {
-        if (code !== 0) {
-            console.error(`Ranking script exited with code ${code}`);
-        } else {
-            console.log('Ranking script completed successfully.');
-        }
-    });
+    try {
+        require(scriptPath);
+    } catch (error) {
+        console.error(`Ranking script exited with error: ${error.message}`);
+    }
 }
 
 // Function to update the JSON file with the last and next update times

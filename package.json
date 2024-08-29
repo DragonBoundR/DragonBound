@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start:web": "node src/web/main/server.js",
+    "start:game": "node src/game.js",
     "dev:web": "nodemon src/web/main/server.js",
     "dev:game": "nodemon src/game.js",
-    "dev:ranking": "nodemon src/ranking/rankingscript.js",
-    "dev:scheduler": "nodemon src/ranking/scheduler.js",
     "start:scheduler": "node src/ranking/scheduler.js"
   },
   "repository": {
