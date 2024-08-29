@@ -29317,40 +29317,37 @@
                 a += '<div class="Nav"><button id="btnRPrev">&lt;-</button><button id="btnTop">TOP</button> ' + "</button>" + l.t("Search") + ': <input id="rankingOffset" value="' + f + '"><button id="btnRNext">-&gt;</button></div>';
                 $("#ranking_data").html(a + k);
 
-                // async function fetchTimes() {
-                //     const response = await fetch('/remaining-time');
-                //     const data = await response.json();
-                //     return {
-                //         remainingTime: data.remainingTime,
-                //         lastUpdateTime: data.lastUpdateTime
-                //     };
-                // }
-                
-                // fetchTimes().then(({ remainingTime, lastUpdateTime }) => {
-                //     // Initialize the Next Update Timer
-                //     new DragonTimer("#NextUpdateTimer", remainingTime);
-                
-                //     // Initialize the Reset Timer if available
-                //     if (r.reset_time) {
-                //         new DragonTimer("#NextResetTimer", r.reset_time - u);
-                //     }
-                
-                //     // Convert last update time to a readable format
-                //     const lastUpdateDate = new Date(lastUpdateTime);
-                    
-                //     // Extract and format date components
-                //     const day = String(lastUpdateDate.getDate()).padStart(2, '0');
-                //     const month = String(lastUpdateDate.getMonth() + 1).padStart(2, '0');
-                //     const year = lastUpdateDate.getFullYear();
-                //     const hours = String(lastUpdateDate.getHours()).padStart(2, '0');
-                //     const minutes = String(lastUpdateDate.getMinutes()).padStart(2, '0');
-                    
-                //     // Format the date as dd/mm/yyyy hh:mm
-                //     const formattedLastUpdateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
-                    
-                //     // Update the HTML with the formatted last update time
-                //     document.querySelector("#LastUpdateTime").textContent = formattedLastUpdateTime;
-                // });
+                // Function to fetch the update times from the rankingData.json file
+                async function fetchTimes() {
+                    const response = await fetch('/static/ranking_updated.json'); // Update this path based on where rankingData.json is served from
+                    const data = await response.json();
+                    return {
+                        nextUpdateTime: new Date(data.nextUpdateTime),
+                        lastUpdateTime: new Date(data.lastUpdateTime)
+                    };
+                }
+
+                fetchTimes().then(({ nextUpdateTime, lastUpdateTime }) => {
+                    // Calculate remaining time until the next update
+                    const now = new Date();
+                    const remainingTime = nextUpdateTime - now;
+
+                    // Initialize the Next Update Timer with the remaining time
+                    new DragonTimer("#NextUpdateTimer", remainingTime);
+
+                    // Convert last update time to a readable format
+                    const day = String(lastUpdateTime.getDate()).padStart(2, '0');
+                    const month = String(lastUpdateTime.getMonth() + 1).padStart(2, '0');
+                    const year = lastUpdateTime.getFullYear();
+                    const hours = String(lastUpdateTime.getHours()).padStart(2, '0');
+                    const minutes = String(lastUpdateTime.getMinutes()).padStart(2, '0');
+
+                    // Format the date as dd/mm/yyyy hh:mm
+                    const formattedLastUpdateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
+
+                    // Update the HTML with the formatted last update time
+                    document.querySelector("#LastUpdateTime").textContent = formattedLastUpdateTime;
+                });
 
             $("#btnRPrev").click(function(a) {
                 a.stopPropagation();

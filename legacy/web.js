@@ -73,6 +73,7 @@ this._app.use(
   "/static",
   express.static(path.join(__dirname + "/web/public_html/data"))
 ); // middleware - OK
+
 this._app.use(require("../../web/controllers")); // middleware - OK
 
 http.on("request", this._app);
