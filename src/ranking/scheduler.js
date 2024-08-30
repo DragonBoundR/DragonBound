@@ -13,7 +13,9 @@ async function runRankingScript() {
     console.log('Running ranking script...');
 
     try {
+        delete require.cache[require.resolve(scriptPath)];
         require(scriptPath);
+        console.log('Ranking script completed successfully.');
     } catch (error) {
         console.error(`Ranking script exited with error: ${error.message}`);
     }
