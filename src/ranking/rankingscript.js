@@ -12,18 +12,18 @@ async function updateRankings() {
 
         console.time('Fetch All Users');
         // Get all users sorted by GP in descending order
-        const [allRows] = await connection.execute('SELECT Id, gp FROM users ORDER BY gp DESC');
+        const [allRows] = await connection.execute('SELECT Id, gp, gm FROM users ORDER BY gp DESC');
         console.timeEnd('Fetch All Users');
         
         const totalPlayers = allRows.length;
 
         console.time('Filter Users');
         // Get all users with GP greater than 8746, sorted by GP in descending order
-        const rowsGreater = allRows.filter(row => row.gp > 8746);
+        const rowsGreater = allRows.filter(row => row.gp > 8746 && row.gm !== 1);
         let totalPlayersGreater = rowsGreater.length;
 
         // Get all users with GP less than or equal to 8746, sorted by GP in descending order
-        const rowsLesser = allRows.filter(row => row.gp <= 8746);
+        const rowsLesser = allRows.filter(row => row.gp <= 8746 && row.gm !== 1);
         console.timeEnd('Filter Users');
 
         console.time('Update Previous Rank');
@@ -101,6 +101,15 @@ async function updateRankings() {
             await connection.execute(`UPDATE users SET rank = CASE Id ${ids.map((id, index) => `WHEN ${id} THEN ${ranks[index]}`).join(' ')} END WHERE Id IN (${ids.join(',')})`);
         }
         console.timeEnd('Update Ranks for GP <= 8746');
+
+        console.time('Update Ranks for GMs');
+        // Update ranks for GMs
+        const gmIds = allRows.filter(row => row.gm === 1).map(row => row.Id);
+        if (gmIds.length > 0) {
+            await connection.execute(`UPDATE users SET rank = 26 WHERE Id IN (${gmIds.join(',')})`);
+        }
+        console.timeEnd('Update Ranks for GMs');
+
         console.timeEnd('Total Execution Time');
     } catch (error) {
         console.error('Error updating rankings:', error);

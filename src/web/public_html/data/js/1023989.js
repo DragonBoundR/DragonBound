@@ -29187,17 +29187,21 @@
             }))
         }
         function DragonRankings_BuildRanks(a) {
-            var b = a[1]
-              , c = a[2];
+            var b = a[1],
+                c = a[2];
             a = a[3];
-            var d = '<table width=100%><tr style="font-weight: bold;"><td><strong>' + l.t("Rank") + '</strong></td><td style="text-align: center;">GP</td><td style="text-align: center;">' + l.t("Rule") + '<td style="text-align: center;">' + l.t("Players") + "</td></tr>", e, f, h, k, m = [46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 26, 27];
-            for (e = 0; e < m.length; e++)
-                f = m[e],
-                h = 46 == f ? "1" : 45 == f ? "4" : 44 == f ? "16" : 43 == f ? "18%" : 42 == f ? "20%" : 41 == f ? "23%" : 40 == f ? "25%" : 39 == f ? "28%" : 38 == f ? "30%" : 37 == f ? "33%" : 36 == f ? "36%" : 35 == f ? "38%" : 34 == f ? "42%" : 33 == f ? "44%" : 32 == f ? "46%" : 24 == f ? "52%" : 23 == f ? "56%" : 22 == f ? "58%" : 21 >= f && 12 <= f ? (a[f - 12] || 0) + "%" : 11 == f ? "100%" : "-",
-                k = 28 == f ? "Event #1" : 29 == f ? "Event #2" : 30 == f ? "Event #3" : 31 == f ? "VIP" : 26 == f ? "GM" : 27 == f ? "Mod" : b[f - 1] ? b[f - 1] : "-",
+            var d = '<table width=100%><tr style="font-weight: bold;"><td><strong>' + l.t("Rank") + '</strong></td><td style="text-align: center;">GP</td><td style="text-align: center;">' + l.t("Rule") + '<td style="text-align: center;">' + l.t("Players") + "</td></tr>",
+                e, f, h, k,
+                m = [24, 23, 22, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 26, 27];
+        
+            for (e = 0; e < m.length; e++) {
+                f = m[e];
+                h = 24 == f ? "1" : 23 == f ? "4" : 22 == f ? "16" : 20 == f ? "1%" : 19 == f ? "3%" : 18 == f ? "6%" : 17 == f ? "12%" : 16 == f ? "20%" : 15 == f ? "32%" : 14 == f ? "46%" : 13 == f ? "62%" : 12 == f ? "80%" : "-";
+                k = 26 == f ? "GM" : 27 == f ? "Mod" : b[f] ? b[f] : "-";
                 d += '<tr><td><div class="rank rank' + f + '"></div></td><td style="text-align: center;">' + k + '</td><td style="text-align: center;">' + h + '</td><td style="text-align: center;">' + (c[f] ? c[f] : "-") + "</td></tr>";
+            }
             d += "</table>";
-            $("#ranking_data").html(d)
+            $("#ranking_data").html(d);
         }
         function LoadRanking2(a, b) {
             $(".ranking_btn").removeClass("selected");
