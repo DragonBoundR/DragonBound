@@ -442,16 +442,30 @@ router.get('/rankings', function (req, res) {//"Please login first"
     }
 });
 
-router.get('/ri', function (req, res) {
+const fs = require('fs').promises;
+const path = require('path');
+
+router.get('/ri', async function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    var y;
-    y = new Date().getTime();
-    var level = [y, [1100, 1200, 1500, 1800, 2300, 2800, 3500, 4200, 5100, 6000, 6900, 8764, 17016, 27330, 38555, 42658, 56896, 64120, 72705, 87011, 105011, 200300, 300000, 427505, 0, 0, 0, 0, 0, 0, 0, 457505, 527866, 567895, 678906, 767569, 856789, 1456786, 1789674, 2098678, 2356789, 2639078, 3689678, 4786728, 5987292, 6896236],
-        ["!", "!", "!", "!", "!", 135302, 135077, 163494, 114707, 78796, 58187, 149628, 134666, 119702, 104740, 89776, 59852, 44888, 22444, 14963, 16098, 96783, 67898, 21868, 18647, 0, 0, 0, 0, 0, 0, 0, 17543, 7862, 5871, 2986, 1690, 8820, 5890, 4590, 4235, 3589, 2890, 979, 16, 4, 1],
-        [90, 86, 82, 78, 74, 72, 69, 65, 63, 60/*0.1*/]
-		//[80, 62, 46, 32, 20, 12, 6, 3, 1, 0.1]
-    ];
-    res.send(JSON.stringify(level));
+    const jsonFilePath = path.join(__dirname, '../public_html/data/ranking_data.json');
+
+    try {
+        const data = await fs.readFile(jsonFilePath, 'utf8');
+        const rankingData = JSON.parse(data);
+
+        // Ensure the data has the expected structure
+        if (Array.isArray(rankingData) && rankingData.length === 4) {
+            // Update the timestamp
+            rankingData[0] = new Date().getTime();
+            res.send(JSON.stringify(rankingData));
+        } else {
+            console.error('Bad ranks data', rankingData);
+            res.status(500).send(JSON.stringify({ error: 'Bad ranks data' }));
+        }
+    } catch (error) {
+        console.error('Error reading JSON file:', error);
+        res.status(500).send(JSON.stringify({ error: 'Internal Server Error' }));
+    }
 });
 
 router.get('/s', function (req, res) {
