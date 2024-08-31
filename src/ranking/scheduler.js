@@ -107,7 +107,7 @@ async function updateRankingData() {
         const [gmModResults] = await connection.query(gmModQuery);
 
         // Fixed GP values for ranks 0 to 11
-        const fixedGpValues = [1100, 1200, 1500, 1800, 2300, 2800, 3500, 4200, 5100, 6000, 6900, 8764];
+        const fixedGpValues = [1000, 1100, 1200, 1500, 1800, 2300, 2800, 3500, 4200, 5100, 6000, 6900, 8764];
 
         // Prepare the data in the required structure
         const gpValues = new Array(28).fill('-');
@@ -134,10 +134,10 @@ async function updateRankingData() {
         // Fill GM and Mod counts
         gmModResults.forEach(result => {
             if (result.gm === 1) {
-                gpValues[26] = 'GM';
+                gpValues[26] = '-';
                 playerCounts[26] = result.count;
             } else if (result.gm === 2) {
-                gpValues[27] = 'Mod';
+                gpValues[27] = '-';
                 playerCounts[27] = result.count;
             }
         });
