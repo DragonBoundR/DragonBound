@@ -88,7 +88,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT rank, game_id, gender, country, banned FROM users where IdAcc = ?",
+            "SELECT `rank`, game_id, gender, country, banned FROM users WHERE IdAcc = ?",
             [id]
           )
           .then((rows) => {
@@ -348,7 +348,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT Id, IdAcc, game_id, rank, prixw FROM users WHERE prixw >= ? ORDER BY prixw DESC",
+            "SELECT Id, IdAcc, game_id,`rank`, prixw FROM users WHERE prixw >= ? ORDER BY prixw DESC",
             [id]
           )
           .then((rows) => {
@@ -455,7 +455,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT Id, IdAcc, rank, time FROM rankspecial WHERE IdAcc = ?",
+            "SELECT Id, IdAcc, `rank`, time FROM rankspecial WHERE IdAcc = ?",
             [IdAcc]
           )
           .then((rows) => {
@@ -488,7 +488,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = ? WHERE IdAcc = ?", [rank, user_id])
+          .query("UPDATE users SET `rank` = ? WHERE IdAcc = ?", [rank, user_id])
           .then((rows) => {
             conn.release();
             if (rows[0].affectedRows > 0 || rows[0].changedRows > 0)
@@ -536,7 +536,7 @@ module.exports = class DataBase {
         .getConnection()
         .then((conn) => {
           conn
-            .query("SELECT rank FROM users WHERE IdAcc = ?", [user_id])
+            .query("SELECT `rank` FROM users WHERE IdAcc = ?", [user_id])
             .then((result) => {
               conn.release();
               if (result.length > 0 && result[0].length > 0) {
@@ -649,7 +649,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("SELECT game_id, rank, IdAcc, IP FROM users WHERE IP = ?", [
+          .query("SELECT game_id, `rank`, IdAcc, IP FROM users WHERE IP = ?", [
             IP,
           ])
           .then((rows) => {
@@ -702,7 +702,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, photo_url, bg_url, country, rank, gp, win, gender, loss FROM users WHERE IdAcc = ?",
+            "SELECT IdAcc, game_id, photo_url, bg_url, country, `rank`, gp, win, gender, loss FROM users WHERE IdAcc = ?",
             [id]
           )
           .then((rows) => {
@@ -1117,7 +1117,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 0, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 0, 1",
             [punts]
           )
           .then((rows) => {
@@ -1135,7 +1135,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 1, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 1, 1",
             [punts]
           )
           .then((rows) => {
@@ -1153,7 +1153,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 2, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 2, 1",
             [punts]
           )
           .then((rows) => {
@@ -1171,7 +1171,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != 0 ORDER BY prixw DESC limit ?, ?",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != 0 ORDER BY prixw DESC limit ?, ?",
             [starting, end]
           )
           .then((rows) => {
@@ -1846,7 +1846,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "INSERT INTO guild SET Name = ?, points = 0, members = 0, rank = 0, about = 'Bienvenidos'",
+            "INSERT INTO guild SET Name = ?, points = 0, members = 0, `rank` = 0, about = 'Bienvenidos'",
             [name]
           )
           .then((rows) => {
@@ -2699,7 +2699,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = rank + ? WHERE IdAcc = ?", [
+          .query("UPDATE users SET `rank` = `rank` + ? WHERE IdAcc = ?", [
             rank,
             user_id,
           ])
@@ -2756,7 +2756,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = ?, gm = ? WHERE IdAcc = ?", [
+          .query("UPDATE users SET `rank` = ?, gm = ? WHERE IdAcc = ?", [
             rank,
             gm,
             user_id,
@@ -2777,7 +2777,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "INSERT into rankspecial SET IdAcc = ?, game_id = ?, rank = ?, cash = ?, time = ?",
+            "INSERT into rankspecial SET IdAcc = ?, game_id = ?, `rank` = ?, cash = ?, time = ?",
             [UserId, game_id, rank, cash, time]
           )
           .then((rows) => {
@@ -3160,7 +3160,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("update users set rank = ? where IdAcc = ? AND rank < 25", [
+          .query("update users set `rank` = ? where IdAcc = ? AND rank < 25", [
             rank,
             id,
           ])
@@ -3179,7 +3179,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("select rank from users where IdAcc = ?", [a])
+          .query("select `rank` from users where IdAcc = ?", [a])
           .then((rows) => {
             conn.release();
             if (rows[0].length > 0) {
@@ -3322,7 +3322,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("update users set rank = ? where IdAcc = ? AND rank < 25", [
+          .query("update users set `rank` = ? where IdAcc = ? AND rank < 25", [
             rank,
             id,
           ])
@@ -3341,7 +3341,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("select rank from users where IdAcc = ?", [a])
+          .query("select `rank` from users where IdAcc = ?", [a])
           .then((rows) => {
             conn.release();
             if (rows[0].length > 0) {

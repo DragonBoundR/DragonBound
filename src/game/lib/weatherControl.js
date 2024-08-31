@@ -64,6 +64,7 @@ module.exports = class {
 		for (let i = 0; i < Types.WEATHERS.length; i++) {
 			let weather = {...Types.WEATHERS._base,...Types.WEATHERS.active[this._randomInt(0,Types.WEATHERS.active.length)]}
 			this.#list.push(weather)
+			console.log({weather})
 			this.client.list.push(weather.id)
 		}
 	}

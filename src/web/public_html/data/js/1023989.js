@@ -34622,6 +34622,21 @@
             });
             this.name_sprite.x = b;
             this.name_sprite.y = 16;
+            // Crear un nuevo objeto Graphics
+            const square = new PIXI.Graphics();
+
+            // Dibujar el borde del cuadrado
+            square.lineStyle(1, 0xFF0000, 1); // Grosor de 2, color blanco (0xFFFFFF), opacidad 1
+            square.beginFill(0x000000, 0); // Color de relleno negro (0x000000) pero con opacidad 0 (transparente)
+            square.drawRect(0, 0, 35, 35); // Dibuja un cuadrado de 100x100 píxeles
+            square.endFill();
+
+            // Posicionar el cuadrado en la escena
+            square.x = -20; // Posición X
+            square.y = -35; // Posición Y
+
+            // Añadir el cuadrado al contenedor principal
+            this.addChild(square);
             this.name_sprite.scale.x = this.name_sprite.scale.y = .5;
             this.addChild(this.name_sprite);
             this.name_x = b;

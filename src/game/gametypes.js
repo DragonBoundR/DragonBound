@@ -825,7 +825,7 @@ Types.WEATHERS = {
 }
 Types.WEATHERS.active = [
 	Types.WEATHERS.list.thor,
-	Types.WEATHERS.list.wind_change,
+	/* Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
@@ -838,7 +838,7 @@ Types.WEATHERS.active = [
 	Types.WEATHERS.list.black,
 	Types.WEATHERS.list.random,
 	Types.WEATHERS.list.mirror,
-	Types.WEATHERS.list.tornado
+	Types.WEATHERS.list.tornado*/
 ]
 Types.MOBILES = [
 	{
