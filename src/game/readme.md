@@ -119,18 +119,18 @@ the logic of the bullet may consist of the following diagram
 ```json
 [
   {
-    id: 0,
-    img: 0,
-    size: {
-      w: 0,
-      h: 0,
+    "id": 0,
+    "img": 0,
+    "size": {
+      "w": 0,
+      "h": 0,
     },
-    explode: null,
-    type: "?",
-    delay: 0,
-    damage: 0,
-    regeneration: 0,
-    on_shot: [],
+    "explode": null,
+    "type": "?",
+    "delay": 0,
+    "damage": 0,
+    "regeneration": 0,
+    "on_shot": [],
   },
 ];
 
