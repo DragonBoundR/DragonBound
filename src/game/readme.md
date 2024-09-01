@@ -9,7 +9,9 @@ The drawings or diagrams shown in this section can be modified through the follo
 ![alt text](../../crafts/image.png)
 
 ## Bullets
+
 the logic of the bullet may consist of the following diagram
+
 > **Why this logic?** <br />
 > The idea is to have a better bale structure to easily manage its lifecycle.
 
@@ -17,7 +19,7 @@ the logic of the bullet may consist of the following diagram
 
 > **Action Bullet?** <br />
 
-| First Header  | Second Header | Código |
-| ------------- | ------------- | ------ |
-| CHANGE_BULLET  | Switching from 1 bullet to another  | ```  { type: "CHANGE_BULLET", metadata: { bullet_id: 1 }, time: 3000 } ``` |
-| CREATE_MINE  | Content Cell  | ``` {	"type": "CREATE_MINE",	"metadata": {		position: "IN_EXPLODE_BULLET"	} } ``` |
+| First Header  | Second Header                      | Código                                                                 |
+| ------------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| CHANGE_BULLET | Switching from 1 bullet to another | `{ "type": "CHANGE_BULLET", "metadata": { "bullet_id": 1 }, "time": 3000 } `    |
+| CREATE_MINE   | Content Cell                       | `{ "type": "CREATE_MINE", "metadata": { "position": "IN_EXPLODE_BULLET" } }` |
