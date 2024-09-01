@@ -14,3 +14,8 @@ the logic of the bullet may consist of the following diagram
 > The idea is to have a better bale structure to easily manage its lifecycle.
 
 ![alt text](../../crafts/bullets.png)
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
