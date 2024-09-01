@@ -116,6 +116,8 @@ the logic of the bullet may consist of the following diagram
 
 > **S1**
 
+![alt text](../../crafts/armor_s1.png)
+
 ```json
 [
   {
