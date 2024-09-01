@@ -132,6 +132,6 @@ the logic of the bullet may consist of the following diagram
     "regeneration": 0,
     "on_shot": [],
   },
-];
+]
 
 ```
