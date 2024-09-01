@@ -15,7 +15,7 @@ the logic of the bullet may consist of the following diagram
 
 ![alt text](../../crafts/bullets.png)
 
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| First Header  | Second Header | Código |
+| ------------- | ------------- | ------ |
+| Content Cell  | Content Cell  | ``` { name: "ga" } ``` |
+| Content Cell  | Content Cell  | ``` { name: "ga" } ``` |
