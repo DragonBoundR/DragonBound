@@ -25,3 +25,18 @@ the logic of the bullet may consist of the following diagram
 | CREATE_MINE   | Create mine                                 | `{ "type": "CREATE_MINE", "metadata": { "position": "IN_EXPLODE_BULLET" } }`          | x                     |
 | FREEZE_ENEMY  | Freeze your enemies when the bullet strikes | `{ "type": "FREEZE_ENEMY", "metadata": { "radius": 33 } }`                            | x                     |
 | WALK          | walk when you come ashore                   | `{ "type": "WALK", "metadata": { "DIR": "LEFT", "DURATION": "STEPS", "STEPS": 20 } }` | FROG                  |
+
+### Use cases
+
+#### Armor
+
+> **S1**
+
+```json
+
+{
+    "name": "ga"
+}
+```
+
+sadf
