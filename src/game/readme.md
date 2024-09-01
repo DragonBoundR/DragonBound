@@ -17,9 +17,10 @@ the logic of the bullet may consist of the following diagram
 
 ![alt text](../../crafts/bullets.png)
 
-> **Action Bullet?** <br />
+> **How to describe Action Bullet?** <br />
 
-| First Header  | Second Header                      | Código                                                                 |
-| ------------- | ---------------------------------- | ---------------------------------------------------------------------- |
-| CHANGE_BULLET | Switching from 1 bullet to another | `{ "type": "CHANGE_BULLET", "metadata": { "bullet_id": 1 }, "time": 3000 } `    |
-| CREATE_MINE   | Content Cell                       | `{ "type": "CREATE_MINE", "metadata": { "position": "IN_EXPLODE_BULLET" } }` |
+| First Header  | Second Header                               | Código                                                                       | Mobile                            |
+| ------------- | ------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------- |
+| CHANGE_BULLET | Switching from 1 bullet to another          | `{ "type": "CHANGE_BULLET", "metadata": { "bullet_id": 1 }, "time": 3000 } ` | ARMOR_S3, TURTLE_S3, BOOMER_S2_S3 |
+| CREATE_MINE   | Content Cell                                | `{ "type": "CREATE_MINE", "metadata": { "position": "IN_EXPLODE_BULLET" } }` | x                                 |
+| freeze enemy  | Freeze your enemies when the bullet strikes | `{ "type": "FREEZE_ENEMY", "metadata": { "radius": 33 } }`                   | x                                 |
