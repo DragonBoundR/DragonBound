@@ -23828,7 +23828,7 @@
             document.getElementsByTagName("head")[0].appendChild(e),
             $("#LoginSubmit").click(function() {
             if (!$("#LoginSubmit").hasClass("grayspin") && !$("#RegisterSubmit").hasClass("grayspin")) {
-                //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info){
+                //$.getJSON('http://ip-api.com/json/', function(api_info){
                     var b = $("#LoginUsername").val(),
                         c = $("#LoginPass").val(),
                         d = $("#LoginRemember").is(":checked") ? 1 : 0;
@@ -23840,8 +23840,8 @@
                             u: b,
                             p: c,
                             r: d,
-                            //computer_ip: api_info.ip,
-                            //my_player_country: api_info.country_code
+                            //computer_ip: api_info.query,
+                            //my_player_country: api_info.countryCode
                         },
                     success: function(b) {
                        $("#LoginSubmit").removeClass("grayspin");
@@ -23872,14 +23872,14 @@
                     if (!b || !c)
                         return alertify.alert(l.t("Please fill all fields"));
                     $("#RegisterSubmit").addClass("grayspin");
-                    //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
+                    //$.getJSON('http://ip-api.com/json/', function(api_info) {
                     $.post("/ajaxRegister", {
                         name: b,
                         password: c,
                         pinuser: e,
                         gender: d,
-                        //computer_ip: api_info.ip,
-                        //my_player_country: api_info.country_code
+                        //computer_ip: api_info.query,
+                        //my_player_country: api_info.countryCode
   
                     }, function(b) {
                         $("#RegisterSubmit").removeClass("grayspin");
@@ -24020,22 +24020,22 @@
                 this.LoginMessage(l.t("A Facebook pop-up has opened, please follow the instructions to sign in."));
                 var b = this;
                 console.log(" >> Calling FB.getLoginStatus...");
-                //$.getJSON('https://api.ipbase.com/v1/json/', function(api_info) {
+                //$.getJSON('http://ip-api.com/json/', function(api_info) {
                     FB.getLoginStatus(function(a) {
                         console.log(" >> FB.getLoginStatus:", a);
                         a && "connected" == a.status ? b.Login({
                             t: 4,
                             f: a.authResponse.userID,
                             a: a.authResponse.accessToken,
-                            computer_ip: api_info.ip,
-                            my_player_country: api_info.country_code
+                            //computer_ip: api_info.ip,
+                            //my_player_country: api_info.country_code
                         }) : FB.login(function(a) {
                             a.authResponse || "unknown" == status ? b.Login({
                                 t: 4,
                                 f: a.authResponse.userID,
                                 a: a.authResponse.accessToken,
-                                //computer_ip: api_info.ip,
-                                //my_player_country: api_info.country_code
+                                computer_ip: api_info.query,
+                                my_player_country: api_info.countryCode
                             }) : b.ShowConnectToFacebookButton()
                         }, {
                             scope: FB_PERMISSIONS
@@ -29273,6 +29273,12 @@
                 n = a[m++];
                 p = a[m++];
                 q = "string" == typeof a[m] ? a[m++] : "";
+                
+                // Skip ranks 26 and 27
+                if (n == 26 || n == 27) {
+                    continue;
+                }
+        
                 k += "<tr";
                 if (p == w || p == c)
                     k += ' class="ranking_me"';
@@ -29320,7 +29326,7 @@
             } else if (b == RANKING_GUILDS || b == RANKING_GUILDS_TOURNAMENT || b == RANKING_PERSONAL_TOURNAMENT)
                 a += '<div class="Nav"><button id="btnRPrev">&lt;-</button><button id="btnTop">TOP</button> ' + "</button>" + l.t("Search") + ': <input id="rankingOffset" value="' + f + '"><button id="btnRNext">-&gt;</button></div>';
                 $("#ranking_data").html(a + k);
-
+        
                 // Function to fetch the update times from the rankingData.json file
                 async function fetchTimes() {
                     const response = await fetch('/static/ranking_updated.json'); // Update this path based on where rankingData.json is served from
@@ -29330,29 +29336,29 @@
                         lastUpdateTime: new Date(data.lastUpdateTime)
                     };
                 }
-
+        
                 fetchTimes().then(({ nextUpdateTime, lastUpdateTime }) => {
                     // Calculate remaining time until the next update
                     const now = new Date();
                     const remainingTime = nextUpdateTime - now;
-
+        
                     // Initialize the Next Update Timer with the remaining time
                     new DragonTimer("#NextUpdateTimer", remainingTime);
-
+        
                     // Convert last update time to a readable format
                     const day = String(lastUpdateTime.getDate()).padStart(2, '0');
                     const month = String(lastUpdateTime.getMonth() + 1).padStart(2, '0');
                     const year = lastUpdateTime.getFullYear();
                     const hours = String(lastUpdateTime.getHours()).padStart(2, '0');
                     const minutes = String(lastUpdateTime.getMinutes()).padStart(2, '0');
-
+        
                     // Format the date as dd/mm/yyyy hh:mm
                     const formattedLastUpdateTime = `${day}/${month}/${year} ${hours}:${minutes}`;
-
+        
                     // Update the HTML with the formatted last update time
                     document.querySelector("#LastUpdateTime").textContent = formattedLastUpdateTime;
                 });
-
+        
             $("#btnRPrev").click(function(a) {
                 a.stopPropagation();
                 b == RANKING_FRIENDS ? ShowFriendsRanking(d, Math.max(1, f - RANKING_PAGE_SIZE)) : LoadRanking(b, Math.max(1, f - RANKING_PAGE_SIZE), d, $("#rankingsCountrySelect").val())
