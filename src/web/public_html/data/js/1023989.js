@@ -29417,21 +29417,25 @@
         function ShowContact() {
             $(".ranking_btn").removeClass("selected");
             $("#ranking_btn_contact").addClass("selected");
-            var a = '<br><div class="ContactTitle">- ' + l.t("OFFICIAL CONTACTS") + ' -</div><div class="ContactName">' + l.t("Cash Charge Problems") + ':</div><div class="ContactFB"><a href="mailto:cash@ThorBound.net">cash@ThorBound.com</a></div><div class="ContactLang">(' + l.t("English / Spanish") + ')</div><br><div class="ContactName">' + l.t("Business Relations") + ':</div><div class="ContactFB"><a href="mailto:business@ThorBound.net">business@ThorBound.com</a></div><div class="ContactLang">(' + l.t("COMPANIES ONLY, IN ENGLISH") + ")</div><br><div>" + l.t("Para cualquier otro problema, póngase en contacto con uno de los GM en Facebook con su UserID y todos los detalles") + '</div><div class="ContactTitle">- ' + l.t("GM LIST") + " -</div>", 
-            b;
-        b = [
-            ["ThorBound", "102760348666818", "Spanish, English"],
-            ["Onfroy", "102760348666818", "Spanish, English"],
-            ["Jans", "GMJansOficial", "Spanish"],
-			["zMarcial", "GMzMarcial.GS", "Spanish"],
-        ];
-        for (var c = 0; c < b.length; c++) var d =
-            b[c][2],
-            a = a + ('<div class="ContactName">' + b[c][0] + (d ? '<span class="ContactLang"> (' + d + ")</span>" : "") + '</div><div class="fb-page" data-href="http://www.facebook.com/' + b[c][1] + '" data-width="300" data-height="72" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"></div>');
-        a += "<br><br><br><br><br><br>";
-        $("#ranking_data").html(a);
-        FB.XFBML.parse(document.getElementById("ranking_data"))
-    }
+        
+            var a = '<br><div class="ContactTitle">- ' + l.t("OFFICIAL CONTACTS") + ' -</div><div class="ContactName">' + l.t("Cash Charge Problems") + ':</div><div class="ContactFB"><a href="mailto:">...</a></div><div class="ContactLang">(' + l.t("English / Spanish") + ')</div><br><div class="ContactName">' + l.t("Business Relations") + ':</div><div class="ContactFB"><a href="mailto:">...</a></div><div class="ContactLang">(' + l.t("COMPANIES ONLY, IN ENGLISH") + ")</div><br><div>" + l.t("For any other issues, please contact one of the GMs with your UserID and all details") + '</div><div class="ContactTitle">- ' + l.t("GM LIST") + " -</div>",
+                b;
+        
+            b = [
+                ["Inferno", "https://github.com/Ox18", "Spanish, English"],
+                ["Rafael", "https://github.com/JesusRafaelAreva", "Spanish, English"],
+                ["Lulubot", "https://github.com/luizxd0", "English, Brazilian-Portuguese"],
+            ];
+        
+            for (var c = 0; c < b.length; c++) {
+                var d = b[c][2];
+                a += '<div class="ContactName">' + b[c][0] + (d ? '<span class="ContactLang"> (' + d + ")</span>" : "") + '</div>';
+                a += '<div class="ContactFB"><a href="' + b[c][1] + '" target="_blank">' + b[c][1] + '</a></div>';
+            }
+        
+            a += "<br><br><br><br><br><br>";
+            $("#ranking_data").html(a);
+        }
         var RANKING_SIZE = 300, g_previous_w, g_previous_h, g_previous_orientation, g_aspect_ratio = 1, g_no_aspect_left = 0, g_no_aspect_top = 0, g_after_resize_callback, g_space_on_right_side = 0;
         function Resize(a) {
             var b = window.innerWidth
