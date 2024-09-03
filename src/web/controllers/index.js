@@ -369,78 +369,69 @@ router.get('/avatars', function (req, res) {
     }
 });
 
-router.get('/rankings', function (req, res) {//"Please login first"
-    res.setHeader('Content-Type', 'application/json');
-    var data = [];
-    if (req.query.type === 'friends') {
-        if (req.session) {
-            if (req.session.account_id) {
-                var game_id = req.session.game_id;
-                var rank = req.session.rank;
-                var acc_id = req.session.account_id;
-                req.db.connection.getConnection().then(conn => {
-                    conn.query('SELECT u.IdAcc, u.gp, u.game_id, u.rank FROM users u INNER JOIN friends ds ON u.IdAcc = ds.id_amigo INNER JOIN accounts a ON u.IdAcc = a.Id ANd ds.id_yo = ? ORDER BY u.gp DESC', [acc_id])
-                        .then(rows => {
-                        conn.release();
-                        if (rows[0].length > 0) {
-                            let res0 = rows[0];
-                            data.push(5);
-                            data.push(1);
-                            for (var u in res0) {
-                                data.push(/*u, */res0[u].gp, res0[u].rank, res0[u].game_id);
-                            }
-                            res.send(JSON.stringify(data));
-                        } else {
-                            res.send(JSON.stringify([5, 1,/*1,*/ 1000, rank, game_id]));
-                        }
-                    });
-                });
-            } else {
-                res.send(JSON.stringify("Please login first"));
-            }
-        } else {
-            res.send(JSON.stringify("Please login first"));
-        }
-    } else if (req.query.type === 'guild') {
-        if (req.session) {
-            if (req.session.account_id) {
-                var acc_id = req.session.account_id;
-                req.db.connection.getConnection().then(conn => {
-                    conn.query('SELECT g.Id FROM users u INNER JOIN guild_member m ON m.UserId = u.IdAcc LEFT JOIN guild g ON g.Id = m.Id WHERE u.IdAcc = ?', [acc_id])
-                        .then(rowss => {
-                        conn.release();
-                        if (rowss[0].length > 0) {
-                            let res00 = rowss[0];
-                            conn.query('SELECT u.game_id, u.IdAcc, u.rank, u.gp from guild_member m INNER JOIN guild g ON m.Id = g.Id INNER JOIN users u ON m.UserId = u.IdAcc WHERE g.Id = ? ORDER BY u.gp DESC', [res00[0].Id])
-                                .then(rows => {
-                                conn.release();
-                                if (rows[0].length > 0) {
-                                    let res0 = rows[0];
-                                    data.push(6);
-                                    data.push(1);
-                                    for (var u in res0) {
-                                        data.push(/*u, */res0[u].gp, res0[u].rank, res0[u].game_id);
-                                    }
-                                    res.send(JSON.stringify(data));
-                                } else {
-                                    res.send(JSON.stringify("You are not in a guild"));
-                                }
-                            });
-                        } else {
-                            res.send(JSON.stringify("You are not in a guild"));
-                        }
-                    });
-                });
-            } else {
-                res.send(JSON.stringify("Please login first"));
-            }
-        } else {
-            res.send(JSON.stringify("Please login first"));
-        }
-    } else {
-        res.send(JSON.stringify("Unknown type"));
+router.get("/rankings", async (req, res) => {
+    if (!req.session || !req.session.account_id) {
+      return res.json("Please login first");
     }
-});
+  
+    const data = [];
+    const QUERY_TYPE = {
+      FRIENDS: "friends",
+      GUILD: "guild",
+    };
+  
+    const { type } = req.query;
+    const { game_id, rank, account_id } = req.session;
+    const connection = await req.db.connection.getConnection();
+  
+    try {
+      let query, params;
+  
+      if (type === QUERY_TYPE.FRIENDS) {
+        query = `
+          SELECT u.IdAcc, u.gp, u.game_id, u.rank 
+          FROM users u 
+          INNER JOIN friends ds ON u.IdAcc = ds.id_amigo 
+          WHERE ds.id_yo = ? 
+          ORDER BY u.gp DESC`;
+        params = [account_id];
+      } else if (type === QUERY_TYPE.GUILD) {
+        query = `
+          SELECT u.game_id, u.IdAcc, u.rank, u.gp 
+          FROM guild_member m 
+          INNER JOIN guild g ON m.Id = g.Id 
+          INNER JOIN users u ON m.UserId = u.IdAcc 
+          WHERE g.Id = (
+            SELECT g.Id 
+            FROM users u 
+            INNER JOIN guild_member m ON m.UserId = u.IdAcc 
+            LEFT JOIN guild g ON g.Id = m.Id 
+            WHERE u.IdAcc = ?
+          ) 
+          ORDER BY u.gp DESC`;
+        params = [account_id];
+      }
+  
+      const [rows] = await connection.query(query, params);
+      connection.release();
+  
+      if (rows.length > 0) {
+        data.push(type === QUERY_TYPE.FRIENDS ? 5 : 6, 1);
+        rows.forEach(u => data.push(u.gp, u.rank, u.game_id));
+        return res.json(data);
+      } else {
+        const fallbackData = type === QUERY_TYPE.FRIENDS
+          ? [5, 1, 1000, rank, game_id]
+          : "You are not in a guild";
+        return res.json(fallbackData);
+      }
+    } catch (error) {
+      connection.release();
+      console.error(error);
+      return res.json("An error occurred");
+    }
+  });
+  ;
 
 const fs = require('fs').promises;
 const path = require('path');
