@@ -183,7 +183,7 @@ Author URL: https://www.facebook.com/Eber.Junior.GM/
             </div>
             <div class="agileits_copyright">
                 <p>
-                    &copy;<?=date("Y")?> Accessible Profile. All Rights Reserved | Design by <a href="https://www.facebook.com/Eber.Junior.GM/">Junior Cruz</a>
+                    &copy;<?=date("Y")?> Accessible Profile. All Rights Reserved | Design by <a href="">Junior Cruz</a>
                 </p>
             </div>
         </div>
