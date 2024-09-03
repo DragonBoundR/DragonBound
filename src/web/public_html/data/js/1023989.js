@@ -13267,7 +13267,7 @@
                 a = c + a;
             return a
         }
-        ;var AUDIO_ARMOR_BLAST = "11blast", AUDIO_ARMOR_FIRE = "11fire", AUDIO_ARMOR_FIRE2 = "12fire", AUDIO_MAGE_FIRE = "21fire", AUDIO_MAGE_BLAST = "22blast", AUDIO_NAK_FIRE1 = "31fire", AUDIO_NAK_BLAST1 = "31blast", AUDIO_NAK_FIRE2 = "32fire", AUDIO_NAK_BLAST2 = "32blast", AUDIO_DINO_FIRE = "42fire", AUDIO_DINO_BLAST = "42blast", AUDIO_BIGFOOT_FIRE1 = "51fire", AUDIO_BIGFOOT_BLAST1 = "51blast", AUDIO_BIGFOOT_FIRE2 = "52fire", AUDIO_BIGFOOT_BLAST2 = "52blast", AUDIO_BOOMER_FIRE = "62fire", AUDIO_BOOMER_BLAST = "62blast", AUDIO_RAON1_FIRE = "71fire", AUDIO_RAON1_BLAST = "71blast", AUDIO_RAON2_FIRE = "72fire", AUDIO_RAON2_BLAST = "72blast", AUDIO_RAON_WALKER = "71move", AUDIO_LIGHTNING_FIRE = "82fire", AUDIO_LIGHTNING_BLAST = "82blast", AUDIO_JD_FIRE = "91fire", AUDIO_JD_BLAST1 = "91blast", AUDIO_JD_BLAST2 = "92blast", AUDIO_ASATE_FIRE = "10s1fire", AUDIO_ASATE_KNIGHT_BLAST = "10s1blast", AUDIO_ICE_BLAST = "111blast", AUDIO_ICE_FIRE = "111fire", AUDIO_ICE_BLAST2 = "112blast", AUDIO_TURTLE_FIRE = "121fire", AUDIO_TURTLE_BLAST = "121blast", AUDIO_GRUB_FIRE = "131fire", AUDIO_GRUB_BLAST = "132blast", AUDIO_DRAGON_FIRE = "141fire", AUDIO_DRAGON_BLAST = "142blast", AUDIO_KNIGHT_FIRE = "15s1fire", AUDIO_ADUKA_FIRE = "161fire", AUDIO_ADUKA_FIRE2 = "162fire", AUDIO_BUTTON_SELECT = "bpush1", AUDIO_BUTTON_SELECT2 = "bselect1", AUDIO_MY_TURN = "turn", AUDIO_TURN_TICK = "turntick1s", AUDIO_GOLD = "gold", AUDIO_WIND = "4moon", AUDIO_USE_ITEM = "dual_snd", AUDIO_NOTIFICATION = "noti.mp3", AUDIO_GAME_START = "start.mp3", AUDIO_LOGIN = "login.mp3", AUDIO_BROKER = "broker.mp3", AUDIO_DING = "ding.mp3", AUDIO_TOUCH = "touch2.mp3", AUDIO_WAIT = "wait.mp3", AUDIO_MUSIC_CHANNEL = "dbChannel2020.mp3", AUDIO_MUSIC_ROOM = "dbWaiting2020.ogg", AUDIO_STAGE_MUSICS = "stage1.mp3 stage2.mp3 stage3.mp3 stage4.mp3 stage5.mp3 stage6.mp3 Stage7.mp3 Stage8.mp3 Stage9.mp3 dbparty.mp3 Stage11.mp3 EventMusic0.mp3 EventMusic2.mp3 EventMusic3.mp3 EventMusic4.mp3 EventMusic5.mp3 EventMusic6.mp3 dbBattleMiramoTown.mp3 dbBattleMiramoTown.mp3".split(" "), AUDIO_MUSIC_SUDDEN = "sudden.mp3", AUDIO_WIN = "result_win.mp3", AUDIO_LOSE = "result_lose.mp3", AUDIO_SUPER_SHOT = "GBSuper.shot.mp3", AUDIO_GREAT_SHOT = "GBGreat.mp3", AUDIO_FANTASTIC_SHOT = "GBFantastic.mp3", AUDIO_UNVELIABLE_SHOT = "GBUnbelievable.mp3", AUDIO_FANTASTICUNVALI_SHOT = "Merged_GBFan_GBUnb.mp3", AUDIO_BBP_YES = "GBCritical.YES.mp3", AUDIO_BBP_OHYES = "GBCritical.OHYES.mp3", AUDIO_BBP_PETSKILL = "petskill.mp3", g_dragonAudio;
+        ;var AUDIO_ARMOR_BLAST = "11blast", AUDIO_ARMOR_FIRE = "11fire", AUDIO_ARMOR_FIRE2 = "12fire", AUDIO_MAGE_FIRE = "21fire", AUDIO_MAGE_BLAST = "22blast", AUDIO_NAK_FIRE1 = "31fire", AUDIO_NAK_BLAST1 = "31blast", AUDIO_NAK_FIRE2 = "32fire", AUDIO_NAK_BLAST2 = "32blast", AUDIO_DINO_FIRE = "42fire", AUDIO_DINO_BLAST = "42blast", AUDIO_BIGFOOT_FIRE1 = "51fire", AUDIO_BIGFOOT_BLAST1 = "51blast", AUDIO_BIGFOOT_FIRE2 = "52fire", AUDIO_BIGFOOT_BLAST2 = "52blast", AUDIO_BOOMER_FIRE = "62fire", AUDIO_BOOMER_BLAST = "62blast", AUDIO_RAON1_FIRE = "71fire", AUDIO_RAON1_BLAST = "71blast", AUDIO_RAON2_FIRE = "72fire", AUDIO_RAON2_BLAST = "72blast", AUDIO_RAON_WALKER = "71move", AUDIO_LIGHTNING_FIRE = "82fire", AUDIO_LIGHTNING_BLAST = "82blast", AUDIO_JD_FIRE = "91fire", AUDIO_JD_BLAST1 = "91blast", AUDIO_JD_BLAST2 = "92blast", AUDIO_ASATE_FIRE = "10s1fire", AUDIO_ASATE_KNIGHT_BLAST = "10s1blast", AUDIO_ICE_BLAST = "111blast", AUDIO_ICE_FIRE = "111fire", AUDIO_ICE_BLAST2 = "112blast", AUDIO_TURTLE_FIRE = "121fire", AUDIO_TURTLE_BLAST = "121blast", AUDIO_GRUB_FIRE = "131fire", AUDIO_GRUB_BLAST = "132blast", AUDIO_DRAGON_FIRE = "141fire", AUDIO_DRAGON_BLAST = "142blast", AUDIO_KNIGHT_FIRE = "15s1fire", AUDIO_ADUKA_FIRE = "161fire", AUDIO_ADUKA_FIRE2 = "162fire", AUDIO_BUTTON_SELECT = "bpush1", AUDIO_BUTTON_SELECT2 = "bselect1", AUDIO_MY_TURN = "turn", AUDIO_TURN_TICK = "turntick1s", AUDIO_GOLD = "gold", AUDIO_WIND = "4moon", AUDIO_USE_ITEM = "dual_snd", AUDIO_NOTIFICATION = "noti.mp3", AUDIO_GAME_START = "start.mp3", AUDIO_LOGIN = "login.mp3", AUDIO_BROKER = "intro.mp3", AUDIO_DING = "ding.mp3", AUDIO_TOUCH = "touch2.mp3", AUDIO_WAIT = "wait.mp3", AUDIO_MUSIC_CHANNEL = "thelobby.mp3", AUDIO_MUSIC_ROOM = "room_music.mp3", AUDIO_STAGE_MUSICS = "stage1.mp3 stage2.mp3 stage3.mp3 stage4.mp3 stage5.mp3 stage6.mp3 Stage7.mp3 Stage8.mp3 Stage9.mp3 dbparty.mp3 Stage11.mp3 EventMusic0.mp3 EventMusic2.mp3 EventMusic3.mp3 EventMusic4.mp3 EventMusic5.mp3 EventMusic6.mp3 dbBattleMiramoTown.mp3 dbBattleMiramoTown.mp3".split(" "), AUDIO_MUSIC_SUDDEN = "sudden.mp3", AUDIO_WIN = "result_win.mp3", AUDIO_LOSE = "result_lose.mp3", AUDIO_SUPER_SHOT = "GBSuper.shot.mp3", AUDIO_GREAT_SHOT = "GBGreat.mp3", AUDIO_FANTASTIC_SHOT = "GBFantastic.mp3", AUDIO_UNVELIABLE_SHOT = "GBUnbelievable.mp3", AUDIO_FANTASTICUNVALI_SHOT = "Merged_GBFan_GBUnb.mp3", AUDIO_BBP_YES = "GBCritical.YES.mp3", AUDIO_BBP_OHYES = "GBCritical.OHYES.mp3", AUDIO_BBP_PETSKILL = "petskill.mp3", g_dragonAudio;
         function AudioInit() {
             g_dragonAudio = new DragonAudio;
             g_dragonAudio.PreloadAudios([AUDIO_LOGIN, AUDIO_BROKER, AUDIO_BUTTON_SELECT, AUDIO_BUTTON_SELECT2, AUDIO_GAME_START, AUDIO_MY_TURN, AUDIO_TURN_TICK])
@@ -13280,6 +13280,9 @@
         }
         function AudioPlayMusic(a, b) {
             return g_dragonAudio.PlayMusic(a, b)
+        }
+        function AudioStopMusic() {
+            return g_dragonAudio.StopMusic();
         }
         var setInterval1 = window.setInterval;
         delete window.setInterval;
@@ -17780,7 +17783,7 @@
             bg: "secret_bg.jpg",
             bg_size: 1300
         };
-        var MAP_BACKGROUND_W = 1E3, MAP_BACKGROUND_H = 1E3, RENDERER_DOM = 0, RENDERER_CANVAS = 1, RENDERER_WEBGL = 2, RENDERER_NAME = ["CSS", "Canvas", "WebGL"], MIN_GOOD_FPS = 25, FB_APP_ID = "472566386573978", FB_API_VERSION = "v6.0", FB_PERMISSIONS = "public_profile,email", API_KEY = "", DNK = "d2=\"?iR3tHJE[abnF`xMBw.\\-1D+cS0W*A<h);X9C~gP,OfY4ry{#}!Ue&Qm'>s6(^L5/GlVv$%NZ7oquTj :kIK|pz@_8]", GAME_STUFF_SD = {
+        var MAP_BACKGROUND_W = 1E3, MAP_BACKGROUND_H = 1E3, RENDERER_DOM = 0, RENDERER_CANVAS = 1, RENDERER_WEBGL = 2, RENDERER_NAME = ["CSS", "Canvas", "WebGL"], MIN_GOOD_FPS = 25, FB_APP_ID = "", FB_API_VERSION = "", FB_PERMISSIONS = "public_profile,email", API_KEY = "", DNK = "d2=\"?iR3tHJE[abnF`xMBw.\\-1D+cS0W*A<h);X9C~gP,OfY4ry{#}!Ue&Qm'>s6(^L5/GlVv$%NZ7oquTj :kIK|pz@_8]", GAME_STUFF_SD = {
             windX: 177,
             windY: 159,
             windW: 54,
@@ -18021,6 +18024,14 @@
                 }
         }
         ;
+        DragonAudio.prototype.StopMusic = function() {
+            if (this.curPlayingMusic) {
+                this.curPlayingMusic.pause();
+                this.curPlayingMusic.currentTime = 0;
+                this.curPlayingMusic = null;
+                this.curPlayingMusicName = null;
+            }
+        };
         DragonAudio.prototype.SetSfxVolume = function(a) {
             0 <= a && 100 >= a && (a = Math.round(a),
             localStorage.volumeSounds = this.volumeSounds = a,
@@ -18294,7 +18305,7 @@
             ShopGUI(b);
             DragonDesigner_Init();
             ResellersGUI(b);
-            AudioPlayMusic(dragonTheme.Get("channel_music") || AUDIO_MUSIC_CHANNEL);
+            //AudioPlayMusic(dragonTheme.Get("channel_music") || AUDIO_MUSIC_CHANNEL);
             g_is_apk || ($("#DragonThemeDialog").draggable2(),
             $("#freecashWindow").draggable2(),
             $("#dialogCreateRoom").draggable2(),
@@ -18397,6 +18408,7 @@
                 g_tabsMenu.TabChangeTo(TAB_ALL);
                 $("#myName2,#myGP2,#myCash2,#myGold2,#myPhotoDiv,#myGFPhotoDiv,#myGFName,#myGFStatus,.event_button_text,#channelPlayersListHtml").html("");
                 $("#channelScreen").hide();
+                AudioStopMusic();
                 $("#loginScreen").show();
                 g_channel_player && (g_channel_player.remove(),
                 g_channel_player = void 0);
@@ -19507,6 +19519,7 @@
                     $("#itemsSelection").addClass("InRoom");
                     $("#roomScreen").show();
                     AudioPlayMusic(AUDIO_MUSIC_ROOM);
+
                     g_tabsMenu.curTab == TAB_ALL ? g_tabsMenu.TabChangeTo(TAB_ITEMS) : g_tabsMenu.show();
                     VortexStart();
                     RoomPlayerUpdateGUI(a.myPlayerInfo);
@@ -23824,7 +23837,7 @@
             document.getElementById("facebook-jssdk") || (e = document.createElement("script"),
             e.id = "facebook-jssdk",
             e.async = !0,
-            e.src = "https://connect.facebook.net/" + (l.lang == LANGUAGE.ES ? "es_LA" : "en_US") + "/sdk.js#xfbml=1&appId=" + FB_APP_ID + "&version=" + FB_API_VERSION,
+            //e.src = "" + (l.lang == LANGUAGE.ES ? "es_LA" : "en_US") + "/sdk.js#xfbml=1&appId=" + FB_APP_ID + "&version=" + FB_API_VERSION,
             document.getElementsByTagName("head")[0].appendChild(e),
             $("#LoginSubmit").click(function() {
             if (!$("#LoginSubmit").hasClass("grayspin") && !$("#RegisterSubmit").hasClass("grayspin")) {
@@ -25316,7 +25329,7 @@
                           , n = ArrayToObject(n, "text,name,type,rank,guild,poolID,poolType");
                         k = !1;
                         4 >= a[m].length && n.type == CHAT_TYPE_GM_BUGLE && "" == n.text && "" == n.name && (k = !0,
-                        n.text = 'ThorBound - <a href="https://m.facebook.com/ThorBound/" target="_blank">' + l.t("Forums") + '</a> | <a href="https://m.facebook.com/ThorBound/" target="_blank">' + l.t("GroupFB") + '</a> | <a href="https://ya.mba/" target="_blank">' + l.t("YouTube") + '</a> | <a href="/discord" target="_blank">Discord</a> | <a href="https://m.facebook.com/ThorBound/" target="_blank">Instagram</a> | <a href="https://twitter.com/" target="_blank">Twitter</a>');
+                        n.text = 'ThorBound - <a href="" target="_blank">' + l.t("Forums") + '</a> | <a href="" target="_blank">' + l.t("GroupFB") + '</a> | <a href="https://ya.mba/" target="_blank">' + l.t("YouTube") + '</a> | <a href="/discord" target="_blank">Discord</a> | <a href="" target="_blank">Instagram</a> | <a href="https://twitter.com/" target="_blank">Twitter</a>');
                         ChatReceived(n.text, n.name, n.type, n.guild, GUI_LOCATION_CHANNEL, e, k, n.poolID, n.poolType, n.rank)
                     }
                     void 0 != b && ($("#lobby_channel").val(b),
@@ -30622,6 +30635,7 @@
                 $("#roomItemSelect").fadeIn("fast");
             });
             $("#buttonChannels").click(function() {
+                AudioStopMusic();
                 $("#dialogCreateRoomButtonCancel").click();
                 $("#chargeWindowClose").click();
                 $("#freecashWindow .DragonWindowClose").click();

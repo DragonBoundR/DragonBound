@@ -60,7 +60,7 @@ Author URL: https://www.facebook.com/Eber.Junior.GM/
         <div class="footer">
             <p>
                 &copy;<?=date("Y")?> User Login Form. All rights reserved | Design by
-			<a href="https://www.facebook.com/Eber.Junior.GM/">Junior Cruz</a>
+			<a href="">Junior Cruz</a>
             </p>
         </div>
     </body>
