@@ -63,8 +63,8 @@ router.use('/event',require('./event.js'));
 //router.get('/bid', require('./invite'));
 //router.post('/bid', require('./invite'));
 
-//router.get('/login', require('./login'));
-//router.post('/login', require('./login'));
+/*router.get('/login', require('./login'));
+router.post('/login', require('./login'));*/
 //router.get('/rr', require('./ranking_rr'));
 router.get('/u/:user_id/avatars', require('./remove_ava.js'));
 router.post('/u/:user_id/avatars', require('./remove_ava.js'));
@@ -369,46 +369,31 @@ router.get('/avatars', function (req, res) {
     }
 });
 
-router.get('/rankings', function (req, res) {
+router.get('/rankings', function (req, res) {//"Please login first"
     res.setHeader('Content-Type', 'application/json');
     var data = [];
-
-    // Debugging: Log session data
-    console.log("Session data:", req.session);
-
     if (req.query.type === 'friends') {
         if (req.session) {
             if (req.session.account_id) {
                 var game_id = req.session.game_id;
                 var rank = req.session.rank;
                 var acc_id = req.session.account_id;
-
-                // Debugging: Log account ID
-                console.log("Account ID:", acc_id);
-
                 req.db.connection.getConnection().then(conn => {
-                    conn.query('SELECT u.IdAcc, u.gp, u.game_id, u.rank FROM users u INNER JOIN friends ds ON u.IdAcc = ds.id_amigo INNER JOIN accounts a ON u.IdAcc = a.Id AND ds.id_yo = ? ORDER BY u.gp DESC', [acc_id])
+                    conn.query('SELECT u.IdAcc, u.gp, u.game_id, u.rank FROM users u INNER JOIN friends ds ON u.IdAcc = ds.id_amigo INNER JOIN accounts a ON u.IdAcc = a.Id ANd ds.id_yo = ? ORDER BY u.gp DESC', [acc_id])
                         .then(rows => {
-                            conn.release();
-                            if (rows[0].length > 0) {
-                                let res0 = rows[0];
-                                data.push(5);
-                                data.push(1);
-                                for (var u in res0) {
-                                    data.push(res0[u].gp, res0[u].rank, res0[u].game_id);
-                                }
-                                res.send(JSON.stringify(data));
-                            } else {
-                                res.send(JSON.stringify([5, 1, 1000, rank, game_id]));
+                        conn.release();
+                        if (rows[0].length > 0) {
+                            let res0 = rows[0];
+                            data.push(5);
+                            data.push(1);
+                            for (var u in res0) {
+                                data.push(/*u, */res0[u].gp, res0[u].rank, res0[u].game_id);
                             }
-                        }).catch(err => {
-                            conn.release();
-                            console.error("Database query error:", err);
-                            res.status(500).send("Internal Server Error");
-                        });
-                }).catch(err => {
-                    console.error("Database connection error:", err);
-                    res.status(500).send("Internal Server Error");
+                            res.send(JSON.stringify(data));
+                        } else {
+                            res.send(JSON.stringify([5, 1,/*1,*/ 1000, rank, game_id]));
+                        }
+                    });
                 });
             } else {
                 res.send(JSON.stringify("Please login first"));
@@ -420,46 +405,31 @@ router.get('/rankings', function (req, res) {
         if (req.session) {
             if (req.session.account_id) {
                 var acc_id = req.session.account_id;
-
-                // Debugging: Log account ID
-                console.log("Account ID:", acc_id);
-
                 req.db.connection.getConnection().then(conn => {
                     conn.query('SELECT g.Id FROM users u INNER JOIN guild_member m ON m.UserId = u.IdAcc LEFT JOIN guild g ON g.Id = m.Id WHERE u.IdAcc = ?', [acc_id])
                         .then(rowss => {
-                            conn.release();
-                            if (rowss[0].length > 0) {
-                                let res00 = rowss[0];
-                                conn.query('SELECT u.game_id, u.IdAcc, u.rank, u.gp from guild_member m INNER JOIN guild g ON m.Id = g.Id INNER JOIN users u ON m.UserId = u.IdAcc WHERE g.Id = ? ORDER BY u.gp DESC', [res00[0].Id])
-                                    .then(rows => {
-                                        conn.release();
-                                        if (rows[0].length > 0) {
-                                            let res0 = rows[0];
-                                            data.push(6);
-                                            data.push(1);
-                                            for (var u in res0) {
-                                                data.push(res0[u].gp, res0[u].rank, res0[u].game_id);
-                                            }
-                                            res.send(JSON.stringify(data));
-                                        } else {
-                                            res.send(JSON.stringify("You are not in a guild"));
-                                        }
-                                    }).catch(err => {
-                                        conn.release();
-                                        console.error("Database query error:", err);
-                                        res.status(500).send("Internal Server Error");
-                                    });
-                            } else {
-                                res.send(JSON.stringify("You are not in a guild"));
-                            }
-                        }).catch(err => {
-                            conn.release();
-                            console.error("Database query error:", err);
-                            res.status(500).send("Internal Server Error");
-                        });
-                }).catch(err => {
-                    console.error("Database connection error:", err);
-                    res.status(500).send("Internal Server Error");
+                        conn.release();
+                        if (rowss[0].length > 0) {
+                            let res00 = rowss[0];
+                            conn.query('SELECT u.game_id, u.IdAcc, u.rank, u.gp from guild_member m INNER JOIN guild g ON m.Id = g.Id INNER JOIN users u ON m.UserId = u.IdAcc WHERE g.Id = ? ORDER BY u.gp DESC', [res00[0].Id])
+                                .then(rows => {
+                                conn.release();
+                                if (rows[0].length > 0) {
+                                    let res0 = rows[0];
+                                    data.push(6);
+                                    data.push(1);
+                                    for (var u in res0) {
+                                        data.push(/*u, */res0[u].gp, res0[u].rank, res0[u].game_id);
+                                    }
+                                    res.send(JSON.stringify(data));
+                                } else {
+                                    res.send(JSON.stringify("You are not in a guild"));
+                                }
+                            });
+                        } else {
+                            res.send(JSON.stringify("You are not in a guild"));
+                        }
+                    });
                 });
             } else {
                 res.send(JSON.stringify("Please login first"));
