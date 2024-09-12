@@ -34546,6 +34546,7 @@
                     this.hp = a;
                     this.shield = b;
                     this.player_sprite.player_info.ChangeHP(this.hp, this.maxhp, this.shield, this.maxshield);
+                    console.log("HP:"+this.hp, "SHIELD:"+this.shield, "MAXHP:"+this.maxhp, "MAXSHIELD:"+this.maxshield);
                     this.db.dragon2d.CreateDamageEffect(this.x, this.y - 15, -f, this.n, c, h, !1);
                     d && (a = "fdamage",
                     void 0 !== e && ("shock" == e || "ice" == e ? a = e : e != DIR_LEFT && e != DIR_RIGHT || e == this.look || (a = "bdamage")),

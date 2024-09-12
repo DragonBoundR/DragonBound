@@ -353,7 +353,7 @@ module.exports = class Player {
         const self = this;
         const selectedMobile = Types.MOBILES[self.mobile];
 
-        //Resets the avatar stats
+        // Resets the avatar stats
         this.avaDelayOne = 0;
         this.avaDelayTwo = 0;
         this.avaGold = 0;
@@ -384,15 +384,41 @@ module.exports = class Player {
     reloadHp() {
         const self = this;
         const selectedMobile = Types.MOBILES[self.mobile];
+
+        // Ensure clothes is an array
+        if (!Array.isArray(this.clothes)) {
+            this.clothes = [];
+        }
+
+        // Call updateAva with the necessary data
+        this.updateAva(this.clothes);
+
+        // Assign the avatar stats to their respective attributes
+        self.avaDelayOne = this.avaDelayOne;
+        self.avaDelayTwo = this.avaDelayTwo;
+        self.avaGold = this.avaGold;
+        self.avaScratch = this.avaScratch;
+        self.avaLife = this.avaLife;
+        self.avaGuard = this.avaGuard;
+        self.avaAttack = this.avaAttack;
+        self.avaShieldRegen = this.avaShieldRegen;
     
         if (selectedMobile) {
             self.hp = selectedMobile.hp || 1500; // Default HP
             self.shield = selectedMobile.shield || 0; // Default shield
             self.shield_regen = selectedMobile.shield_regen || 0; // Default shield regen
     
-            // Add avatar life and shield regen to player's HP and shield regen
-            self.hp += (self.avaLife * 10); // HP + 10%
-            self.shield += (self.avaShieldRegen * 10); // Shield + 10%
+            // Convert avaLife to a percentage and add it to the actual HP
+            const lifeRegenPercentage = self.avaLife / 100;
+            const additionalHp = self.hp * lifeRegenPercentage;
+            self.hp += additionalHp;
+    
+            // Convert avaShieldRegen to a percentage and add it to the actual shield
+            const shieldRegenPercentage = self.avaShieldRegen / 100;
+            const additionalShield = self.shield * shieldRegenPercentage;
+            self.shield += additionalShield;
+
+
         } else {
             self.hp = 1500; // Default HP
             self.shield = 0; // No shield
@@ -405,6 +431,7 @@ module.exports = class Player {
         self.win_gold = 0;
         self.is_win = 0;
         self.is_loss = 0;
+        console.log("HP:", self.hp, "Shield:", self.shield, "Shield Regen:", self.shield_regen);
     }
 
 	addDelay(delay) {
