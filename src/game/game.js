@@ -154,7 +154,7 @@ module.exports = class Game {
 			if (account !== null) {
 				let player = account.player;
 				var point = self.map.GetPoint();
-				if(typeof (point) !== 'undefined' && typeof (point.x) !== 'undefined') {
+				if (typeof (point) !== 'undefined' && typeof (point.x) !== 'undefined') {
 					player.x = point.x;
 					player.y = point.y;
 				}
@@ -164,7 +164,7 @@ module.exports = class Game {
 				}
 			}
 		});
-		self.checkRoom()
+		self.checkRoom();
 		callback();
 	}
 

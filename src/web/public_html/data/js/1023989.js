@@ -12882,9 +12882,10 @@
         function ArrayToObject(a, b) {
             "string" == typeof b && (b = b.split(","));
             var c, d = b.length, e = {};
-            for (c = 0; c < d; c++)
+            for (c = 0; c < d; c++) {
                 e[b[c]] = a[c];
-            return e
+            }
+            return e;
         }
         function ArrayToEnum(a) {
             var b, c = a.length, d = {};
@@ -33666,7 +33667,9 @@
             g_dragon2d ? g_dragon2d.ReInit() : (g_dragon2d = new Dragon2D,
             g_dragon2d.Init());
             this.dragon2d = g_dragon2d;
+            console.log("DangerBound2 Before Transform - Input b:", b);
             b = ArrayToObject(b, "players,first_turn,thor_x,thor_y,thor_a,thor_d,weather,wind_power,wind_angle,map,is_s1_disabled,event_game,game_mode,score,turn_time,guilds_info,wins_in_a_row,active_weathers,next_weather_pos,eventLetter");
+            console.log("DangerBound2 - Transformed b:", b);
             this.my_user_id = a;
             this.my_player_index = this.my_player_number = -1;
             this.queue = [];
@@ -34384,6 +34387,7 @@
             this.body = this.ground.GetAngle(this.x, this.y);
             this.maxhp = this.hp;
             this.maxshield = this.shield;
+            this.shield_regen = this.shield_regen;
             this.id == b.my_user_id ? (this.is_me = !0,
             this.selected_shot = b.selectedShot,
             this.ChangedShot(SHOT1),

@@ -47,7 +47,7 @@ module.exports = class DataBase {
   }
 
   getConnection() {
-    console.log("ga");
+    console.log("Connected!");
     return this.connection;
   }
 

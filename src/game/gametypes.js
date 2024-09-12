@@ -847,6 +847,7 @@ Types.MOBILES = [
 		file: "armor",
 		player_x: 17,
 		player_y: -28,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -922,6 +923,7 @@ Types.MOBILES = [
 		file: "ice",
 		player_x: -5,
 		player_y: -40,
+		hp: 1200,
 		shoots: [
 			[
 				{
@@ -982,6 +984,7 @@ Types.MOBILES = [
 		file: "aduka",
 		player_x: -7,
 		player_y: -24,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -1098,6 +1101,9 @@ Types.MOBILES = [
 		file: "lightning",
 		player_x: 3,
 		player_y: -37,
+		hp: 760,
+		shield: 220,
+		shield_regen: 20,
 		shoots: [
 			[
 				{
@@ -1198,6 +1204,7 @@ Types.MOBILES = [
 		file: "bigfoot",
 		player_x: 5,
 		player_y: -32,
+		hp: 1100,
 		shoots: [
 			[
 				{
@@ -1451,6 +1458,9 @@ Types.MOBILES = [
 		file: "jd",
 		player_x: 11,
 		player_y: -34,
+		hp: 750,
+		shield: 250,
+		shield_regen: 30,
 		shoots: [
 			[
 				{
@@ -1513,6 +1523,9 @@ Types.MOBILES = [
 		file: "asate",
 		player_x: 13,
 		player_y: -30,
+		hp: 760,
+		shield: 220,
+		shield_regen: 20,
 		shoots: [
 			[
 				{
@@ -1701,6 +1714,7 @@ Types.MOBILES = [
 		file: "knight",
 		player_x: -6,
 		player_y: -38,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -1914,6 +1928,7 @@ Types.MOBILES = [
 		file: "dragon",
 		player_x: 14,
 		player_y: -41,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -2167,6 +2182,7 @@ Types.MOBILES = [
 		file: "nak",
 		player_x: -5,
 		player_y: -26,
+		hp: 1100,
 		shoots: [
 			[
 				{
@@ -2243,6 +2259,7 @@ Types.MOBILES = [
 		file: "dino",
 		player_x: -5,
 		player_y: -41,
+		hp: 1100,
 		shoots: [
 			[
 				{
@@ -2323,6 +2340,9 @@ Types.MOBILES = [
 		file: "mage",
 		player_x: 4,
 		player_y: -36,
+		hp: 760,
+		shield: 220,
+		shield_regen: 20,
 		shoots: [
 			[
 				{
@@ -2394,6 +2414,7 @@ Types.MOBILES = [
 		file: "turtle",
 		player_x: -1,
 		player_y: -35,
+		hp: 950,
 		shoots: [
 			[
 				{
@@ -2524,6 +2545,7 @@ Types.MOBILES = [
 		file: "boomer",
 		player_x: 9,
 		player_y: -25,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -2784,6 +2806,7 @@ Types.MOBILES = [
 		file: "grub",
 		player_x: 5,
 		player_y: -33,
+		hp: 1000,
 		explodes: [Types.EXPLODE.GRUB1, Types.EXPLODE.GRUB2, Types.EXPLODE.GRUBSS],
 		bullets: [Types.BULLETS.GRUB1, Types.BULLETS.GRUB2, Types.BULLETS.GRUBSS],
 		graphics: [
@@ -2807,6 +2830,7 @@ Types.MOBILES = [
 		file: "dragon2",
 		player_x: 14,
 		player_y: -41,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -3040,6 +3064,7 @@ Types.MOBILES = [
 		file: "raon",
 		player_x: 15,
 		player_y: -27,
+		hp: 1000,
 		shoots: [
 			[
 				{
@@ -3254,6 +3279,7 @@ Types.MOBILES = [
 		file: "kals",
 		player_x: -2,
 		player_y: -31,
+		hp: 1100,
 		shoots: [
 			[
 				{

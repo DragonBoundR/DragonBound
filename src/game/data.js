@@ -15255,7 +15255,7 @@ var db = [[1, 0, 0, 0, "mh00000", "Default", {
         ],0
     ],
     [8181, 8181, 4, 2, "b208181", "Set Demon Red", {
-            "min_rank": 31,
+            "min_rank": 0,
             "note": 4,
             "gold_week": 0,
             "gold_month": 0,
@@ -15278,7 +15278,7 @@ var db = [[1, 0, 0, 0, "mh00000", "Default", {
         ],0
     ],
     [8182, 8182, 0, 0, "mh08182", "Set Demon Red", {
-            "min_rank": 31,
+            "min_rank": 0,
             "note": 4,
             "gold_week": 0,
             "gold_month": 0,
@@ -15307,7 +15307,7 @@ var db = [[1, 0, 0, 0, "mh00000", "Default", {
         ],0
     ],
     [8183, 8183, 1, 0, "mb08183", "Set Demon Red", {
-            "min_rank": 31,
+            "min_rank": 0,
             "note": 4,
             "gold_week": 0,
             "gold_month": 0,
@@ -15330,7 +15330,7 @@ var db = [[1, 0, 0, 0, "mh00000", "Default", {
         ],0
     ],
     [8184, 8184, 3, 2, "af08184", "Set Demon Red", {
-            "min_rank": 31,
+            "min_rank": 0,
             "note": 4,
             "gold_week": 0,
             "gold_month": 0,
@@ -15358,7 +15358,7 @@ var db = [[1, 0, 0, 0, "mh00000", "Default", {
         ],0
     ],
     [8185, 8185, 2, 2, "ag08185", "Set Demon Red", {
-            "min_rank": 31,
+            "min_rank": 0,
             "note": 4,
             "gold_week": 0,
             "gold_month": 0,
