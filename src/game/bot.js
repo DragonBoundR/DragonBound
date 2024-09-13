@@ -60,12 +60,24 @@ module.exports = class Bot {
         self.player.look = 0;
         self.player.ang = 60;
         self.objetivo = null;
+    
+        var closestDistance = Infinity;
+        var closestPlayer = null;
+    
         self.room.forPlayerA(function (account) {
             if (account.player.is_alive === 1) {
-                self.objetivo = account;
+                var distance = Math.sqrt(
+                    Math.pow(account.player.x - self.player.x, 2) +
+                    Math.pow(account.player.y - self.player.y, 2)
+                );
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestPlayer = account;
+                }
             }
         });
-
+    
+        self.objetivo = closestPlayer;
         if (self.room === null) {
             Logger.debug("room exist");
             return null;
