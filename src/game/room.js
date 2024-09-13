@@ -464,9 +464,23 @@ module.exports = class Room {
 								if (self.is_avatars_on === 0) {
                                     account.player.resetStatsToDefault();
 								} else {
-									{
+                                    {
+                                        const selectedMobile = Types.MOBILES[account.player.mobile];
                                         
-									}
+                                        if (selectedMobile) {
+                                            if (
+                                                selectedMobile.name !== 'Mage' &&
+                                                selectedMobile.name !== 'Lightning' &&
+                                                selectedMobile.name !== 'A.Sate' &&
+                                                selectedMobile.name !== 'J.D'
+                                            ) {
+                                                account.player.shield = 0;
+                                                account.player.shield_regen = 0;
+                                            } else {
+                                            }
+                                        } else {
+                                        }
+                                    }
 								}
 								self.win_team_gp = self.team_b_count==1 ? 34 :self.team_b_count==2 ? 56 : self.team_b_count==3 ? 68 : self.team_b_count==4 ? 70 : 0;
 								if (self.gameserver.evento200 === true || self.event_game_room === 1)

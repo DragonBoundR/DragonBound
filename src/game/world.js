@@ -792,34 +792,27 @@ jumps:[],
 			}
 		});
 	}
-	_castWeatherTornado(shoot,force,config) {
-		let side			= shoot.a.x>force.px? "R":"L"
-		shoot.lastTornado	= shoot.lastTornado	? shoot.lastTornado:null
+	_castWeatherTornado(shoot, force, config) {
+		let side = shoot.a.x > force.px ? "R" : "L";
+		shoot.lastTornado = shoot.lastTornado ? shoot.lastTornado : null;
+	
 		if (shoot.lastTornado !== force.px) {
-			shoot.lastTornado	= force.px
-			shoot.sideTornado	= side
-			shoot.countTornado	= Math.ceil(force.power/40)
-		//console.log("cast tornado",{
-			//	c1:!force.isCollide(shoot.a.x,-10),
-			//	c2:shoot.sideTornado!==side,
-			//	c3:shoot.countTornado>0,
-			//	side:side,
-			//	lastTornado:shoot.lastTornado,
-			//	ax:force.px,
-			//	forcePower:force.power
-		//	});
+			shoot.lastTornado = force.px;
+			shoot.sideTornado = side;
+			shoot.countTornado = 2; // Ensure only one bounce
 		}
-		if (!force.isCollide(shoot.a.x,-10)&&shoot.sideTornado!==side&&shoot.countTornado>0) {
-			shoot.countTornado--
-			shoot.countMirror	= 0
-			shoot.lastMirror	= null
-			config = {...config,...{
-				sideTornado	: side,
+	
+		if (!force.isCollide(shoot.a.x, -10) && shoot.sideTornado !== side && shoot.countTornado > 0) {
+			shoot.countTornado--;
+			shoot.countMirror = 0;
+			shoot.lastMirror = null;
+			config = {
+				...config,
+				sideTornado: side,
 				countTornado: shoot.countTornado,
-				lastTornado	: shoot.lastTornado
-			}}
-			//console.log("is true",{shoot:shoot})
-			this._castWeatherMirror(shoot,force,config)
+				lastTornado: shoot.lastTornado
+			};
+			this._castWeatherMirror(shoot, force, config);
 		}
 	}
 	_castWeatherMirror(shoot,force,config) {

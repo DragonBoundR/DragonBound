@@ -336,6 +336,7 @@ module.exports = class Player {
     }
 
     disHpShield(hp, sh) {
+    
         // Calculate the total guard value from avaGuard
         let total_guard = parseInt(Math.round(parseInt(this.avaGuard / 2)));
         if (total_guard > 50) {
@@ -349,6 +350,7 @@ module.exports = class Player {
         // Apply the reduced damage
         this.hp = this.hp - reducedHp;
         this.shield = this.shield - reducedShield;
+    
     }
 
     setAlive(alive) {
