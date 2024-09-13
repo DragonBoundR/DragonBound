@@ -453,6 +453,7 @@ module.exports = class Room {
 							if (typeof (account) !== 'undefined') {
 								if (account.player.mobile === Types.MOBILE.RANDOM) {
 									account.player.mobile = Types.MOBILE_R[getRndInteger(0, Types.MOBILE_R.length-1)];
+                                    account.player.reloadHp();
 								}
 								if (self.game_mode === Types.GAME_MODE.TAG) {
 									var random_number = parseInt(getRndInteger(0, 20));
