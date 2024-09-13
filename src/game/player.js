@@ -282,17 +282,19 @@ module.exports = class Player {
 
     updateAva(clothes) {
         let self = this;
-        clothes.forEach(clothingId => {
-            this.getAvatar(clothingId, function (clothingData) {
-                self.setAvatar(clothingData);
+        if (Array.isArray(clothes)) {
+            clothes.forEach(clothingId => {
+                this.getAvatar(clothingId, function (clothingData) {
+                    self.setAvatar(clothingData);
+                });
             });
-        });
+        }
     }
 
     setAvatar(itm) {
         if (itm !== null && itm.length > 0) {
             let stats = itm[6];
-
+    
             this.avaDelayOne = (this.avaDelayOne + stats.stat_time) > 50 ? 50 : this.avaDelayOne + stats.stat_time;
             this.avaDelayTwo = (this.avaDelayTwo + stats.stat_item) > 50 ? 50 : this.avaDelayTwo + stats.stat_item;
             this.avaGold = (this.avaGold + stats.stat_pop) > 50 ? 50 : this.avaGold + stats.stat_pop;
@@ -350,6 +352,7 @@ module.exports = class Player {
 
     // Method to reset stats to default values
     resetStatsToDefault() {
+        
         const self = this;
         const selectedMobile = Types.MOBILES[self.mobile];
 
@@ -382,26 +385,9 @@ module.exports = class Player {
     }
 
     reloadHp() {
+
         const self = this;
         const selectedMobile = Types.MOBILES[self.mobile];
-
-        // Ensure clothes is an array
-        if (!Array.isArray(this.clothes)) {
-            this.clothes = [];
-        }
-
-        // Call updateAva with the necessary data
-        this.updateAva(this.clothes);
-
-        // Assign the avatar stats to their respective attributes
-        self.avaDelayOne = this.avaDelayOne;
-        self.avaDelayTwo = this.avaDelayTwo;
-        self.avaGold = this.avaGold;
-        self.avaScratch = this.avaScratch;
-        self.avaLife = this.avaLife;
-        self.avaGuard = this.avaGuard;
-        self.avaAttack = this.avaAttack;
-        self.avaShieldRegen = this.avaShieldRegen;
     
         if (selectedMobile) {
             self.hp = selectedMobile.hp || 1500; // Default HP
@@ -431,7 +417,6 @@ module.exports = class Player {
         self.win_gold = 0;
         self.is_win = 0;
         self.is_loss = 0;
-        console.log("HP:", self.hp, "Shield:", self.shield, "Shield Regen:", self.shield_regen);
     }
 
 	addDelay(delay) {

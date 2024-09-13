@@ -464,9 +464,8 @@ module.exports = class Room {
 								if (self.is_avatars_on === 0) {
                                     account.player.resetStatsToDefault();
 								} else {
-									if (account.player.mobile !== Types.MOBILE.MAGE || account.player.mobile !== Types.MOBILE.LIGHTNING || account.player.mobile !== Types.MOBILE.ASATE || account.player.mobile !== Types.MOBILE.JD) {
-										//account.player.shield = 0;
-										//account.player.shield_regen = 0;
+									{
+                                        
 									}
 								}
 								self.win_team_gp = self.team_b_count==1 ? 34 :self.team_b_count==2 ? 56 : self.team_b_count==3 ? 68 : self.team_b_count==4 ? 70 : 0;

@@ -26469,7 +26469,6 @@
         ;
         var g_is_prix_server = !1;
         DragonNetwork.prototype.EnterServer = function(a) {
-            console.log("ENTER",a);
             var b = localStorage.select ? Number(localStorage.select) : random(1, 24)
               , b = "dev" == SERVER_TYPE ? location.hostname : "ll0" + PadTo2Digits(b) + ".localhost"
               , c = this.channels[a][2]
@@ -26519,7 +26518,7 @@
                       , y = !1;
                       /*Onfroy*/
                       p.data('tipo',tipotxt);
-                      console.log("TIPO",p.data('tipo'));
+                      //console.log("TIPO",p.data('tipo'));
                       if(r==6){p.addClass("XmasServerOff");}
                       if(r==1){p.addClass("FastLobbyServerOff");}
                       if(r==2){p.addClass("PrixServerOff");}
@@ -28750,7 +28749,6 @@
                         //TEST STATS Mobile
                         var idmobileagd=(b.mobile == -1) ? 0 : b.mobile;
                         var infomobileagd=MOBILES[idmobileagd];
-                        console.log("MODIFICANDO",b.mobile);
                         //Modificamos las imagenes de stats
                         if(idmobileagd>=0){
                             $("#statatk").css("width", infomobileagd.statatk);
@@ -34546,7 +34544,7 @@
                     this.hp = a;
                     this.shield = b;
                     this.player_sprite.player_info.ChangeHP(this.hp, this.maxhp, this.shield, this.maxshield);
-                    console.log("HP:"+this.hp, "SHIELD:"+this.shield, "MAXHP:"+this.maxhp, "MAXSHIELD:"+this.maxshield);
+                    //console.log("HP:"+this.hp, "SHIELD:"+this.shield, "MAXHP:"+this.maxhp, "MAXSHIELD:"+this.maxshield);
                     this.db.dragon2d.CreateDamageEffect(this.x, this.y - 15, -f, this.n, c, h, !1);
                     d && (a = "fdamage",
                     void 0 !== e && ("shock" == e || "ice" == e ? a = e : e != DIR_LEFT && e != DIR_RIGHT || e == this.look || (a = "bdamage")),
@@ -34950,7 +34948,6 @@
         }
         ;
         PlayerContainer.prototype.change_mobile = function(a) {
-            console.log("CH MOBILE",a);//Onfroy Cambio de mobiles
             this.avatar_x = (a = MOBILES[a]) ? a.player_x : 0;
             this.avatar_y = a ? a.player_y : -19;
             var b = this.flip ? -this.avatar_x : this.avatar_x
