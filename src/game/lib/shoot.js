@@ -118,7 +118,7 @@ module.exports = class Shoot {
 			let attack_my_ava = this.account.player.avaAttack;
 			if (this.account.player.check_my_ava === 0)
 				attack_my_ava = 0;
-			let total_attack = parseInt(Math.round(parseInt(attack_my_ava / 2.5)));
+			let total_attack = parseInt(Math.round(parseInt(attack_my_ava / 2)));
 			if (total_attack > 50) {
 				total_attack = 50;
 			}

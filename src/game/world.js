@@ -293,6 +293,7 @@ jumps:[],
 					var scratch_my_ava = shoot.account.player.avaScratch;
 					if (shoot.account.player.check_my_ava === 0)
 						scratch_my_ava = 0;
+					//Logger.log('Scratch: ' + scratch_my_ava);
 					/* |<-========================= [Stats Avatars] ===========================->| */
 					shoot.move(shoot.a.x, shoot.a.y, 0);
 					shoot.bunge_jc = [

@@ -336,8 +336,19 @@ module.exports = class Player {
     }
 
     disHpShield(hp, sh) {
-        this.hp = this.hp - hp;
-        this.shield = this.shield - sh;
+        // Calculate the total guard value from avaGuard
+        let total_guard = parseInt(Math.round(parseInt(this.avaGuard / 2)));
+        if (total_guard > 50) {
+            total_guard = 50;
+        }
+    
+        // Reduce the damage directly by the total_guard value
+        const reducedHp = hp - total_guard;
+        const reducedShield = sh - total_guard;
+    
+        // Apply the reduced damage
+        this.hp = this.hp - reducedHp;
+        this.shield = this.shield - reducedShield;
     }
 
     setAlive(alive) {
@@ -355,6 +366,11 @@ module.exports = class Player {
         
         const self = this;
         const selectedMobile = Types.MOBILES[self.mobile];
+
+        if (self.is_bot) {
+            // Skip avatar-based hp calculation for bots
+            return;
+        }
 
         // Resets the avatar stats
         this.avaDelayOne = 0;
