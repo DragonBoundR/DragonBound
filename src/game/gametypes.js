@@ -825,17 +825,17 @@ Types.WEATHERS = {
 }
 Types.WEATHERS.active = [
 	Types.WEATHERS.list.thor,
+	//Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.wind_change,
-	//Types.WEATHERS.list.wind_change,
-	//Types.WEATHERS.list.wind_change,
-	//Types.WEATHERS.list.wind_change,
+	Types.WEATHERS.list.wind_change,
+	Types.WEATHERS.list.wind_change,
 	Types.WEATHERS.list.no_items,
 	Types.WEATHERS.list.no_items,
-	//Types.WEATHERS.list.sun,
+	Types.WEATHERS.list.sun,
 	Types.WEATHERS.list.lightning,
-	//Types.WEATHERS.list.black,
+	Types.WEATHERS.list.black,
 	//Types.WEATHERS.list.random,
 	Types.WEATHERS.list.mirror,
 	Types.WEATHERS.list.tornado

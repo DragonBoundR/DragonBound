@@ -870,6 +870,9 @@ jumps:[],
 		      shot_step.push(time_lapse + sum_step);
 		    }
 			this.shoots_data[this.shoots_complete].tr = [51, 3, time * 2, 50, shot_step];
+
+			// Increase damage by 50%
+			shoot.damage = shoot.damage * 1.5;
 		}
 	}
 	_castWeatherBlack(shoot,force,config) {
@@ -878,8 +881,12 @@ jumps:[],
 			shoot.is		= "weatherBlack"
 			// shoot.addAtEnd	= shoot.addAtEnd.includes("black")?shoot.addAtEnd:shoot.addAtEnd.concat(["black"])
 			this.shoots_data[this.shoots_complete].black_at = time * 2
+
+        	// Reduce damage by 50%
+			shoot.damage = shoot.damage * 0.5;
 		}
 	}
+
 	addGroundHole(shoot){
 		let self = this;
 		self.shoots_data[self.shoots_complete].hole.push(shoot.a.x);
