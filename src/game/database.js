@@ -47,7 +47,7 @@ module.exports = class DataBase {
   }
 
   getConnection() {
-    console.log("ga");
+    console.log("Connected!");
     return this.connection;
   }
 
@@ -2442,54 +2442,55 @@ module.exports = class DataBase {
     var self = this;
     var rdata = {};
     return new Promise(function (resolve, reject) {
-      self
-        .getUserAvatarById(arr_up)
-        .then(function (r_data) {
-          var rows = r_data[0];
-          var gst = account.player.gender;
-          var gender = 0;
-          if (gst === "f") gender = 1;
-          for (var r in rows) {
-            var dx = rows[r];
-            var item_data = account.gameserver.avatars.getAvatar2(
-              dx.aId,
-              gender
-            );
-            if (item_data !== null) {
-              var _xtype = item_data[2];
-              if (_xtype === 0) {
-                account.player.ahead = dx.aId;
-              } else if (_xtype === 1) {
-                account.player.abody = dx.aId;
-              } else if (_xtype === 2) {
-                account.player.aeyes = dx.aId;
-              } else if (_xtype === 3) {
-                account.player.aflag = dx.aId;
-              } else if (_xtype === 4) {
-                account.player.abackground = dx.aId;
-              } else if (_xtype === 5) {
-                account.player.aforeground = dx.aId;
-              }
-            }
-          }
-          var data = {
-            head: account.player.ahead,
-            body: account.player.abody,
-            eyes: account.player.aeyes,
-            flag: account.player.aflag,
-            background: account.player.abackground,
-            foreground: account.player.aforeground,
-          };
-          self
-            .updateUserAvatarEquipById(data, account.player.reg_id)
-            .then(function (rows) {
-              rdata.complete = true;
-              return resolve(rdata);
+        self
+            .getUserAvatarById(arr_up)
+            .then(function (r_data) {
+                var rows = r_data[0];
+                var gst = account.player.gender;
+                var gender = 0;
+                if (gst === "f") gender = 1;
+                for (var r in rows) {
+                    var dx = rows[r];
+                    var item_data = account.gameserver.avatars.getAvatar2(
+                        dx.aId,
+                        gender
+                    );
+                    if (item_data !== null) {
+                        var _xtype = item_data[2];
+                        if (_xtype === 0) {
+                            account.player.ahead = dx.aId;
+                        } else if (_xtype === 1) {
+                            account.player.abody = dx.aId;
+                        } else if (_xtype === 2) {
+                            account.player.aeyes = dx.aId;
+                        } else if (_xtype === 3) {
+                            account.player.aflag = dx.aId;
+                        } else if (_xtype === 4) {
+                            account.player.abackground = dx.aId;
+                        } else if (_xtype === 5) {
+                            account.player.aforeground = dx.aId;
+                        }
+                    }
+                }
+                var data = {
+                    head: account.player.ahead,
+                    body: account.player.abody,
+                    eyes: account.player.aeyes,
+                    flag: account.player.aflag,
+                    background: account.player.abackground,
+                    foreground: account.player.aforeground,
+                };
+                self
+                    .updateUserAvatarEquipById(data, account.player.reg_id)
+                    .then(function (rows) {
+                        rdata.complete = true;
+                        rdata.data = data; // Add the data property to rdata
+                        return resolve(rdata);
+                    });
+            })
+            .catch(function (err) {
+                return reject();
             });
-        })
-        .catch(function (err) {
-          return reject();
-        });
     });
   }
 

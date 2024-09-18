@@ -154,7 +154,7 @@ module.exports = class Game {
 			if (account !== null) {
 				let player = account.player;
 				var point = self.map.GetPoint();
-				if(typeof (point) !== 'undefined' && typeof (point.x) !== 'undefined') {
+				if (typeof (point) !== 'undefined' && typeof (point.x) !== 'undefined') {
 					player.x = point.x;
 					player.y = point.y;
 				}
@@ -164,7 +164,7 @@ module.exports = class Game {
 				}
 			}
 		});
-		self.checkRoom()
+		self.checkRoom();
 		callback();
 	}
 
@@ -379,15 +379,15 @@ module.exports = class Game {
 		let mobile_data;
 		clearTimeout(self.turnPassClock);
 		power = parseInt(power * 234 / 100);
-		if (account.player.mobile == Types.MOBILE.RANDOMIZER)
-			mobile_data = Types.MOBILES[Types.RANDOMIZER[this.getRandomInt(0,Types.RANDOMIZER.length)]];
-		else
+		if (account.player.mobile == Types.MOBILE.RANDOMIZER) {
+			mobile_data = Types.MOBILES[Types.RANDOMIZER[this.getRandomInt(0, Types.RANDOMIZER.length)]];
+		} else {
 			mobile_data = Types.MOBILES[account.player.mobile];
-		
+		}
 		let dis = 0;
 		if (look === 0) {
 			ang = 180 - ang;
-			if (account.player.mobile == Types.MOBILE.ADUKA || account.player.mobile ==  Types.MOBILE.NAK) {
+			if (account.player.mobile == Types.MOBILE.ADUKA || account.player.mobile == Types.MOBILE.NAK) {
 				dis = 26;
 			} else {
 				dis = -11;
@@ -402,42 +402,41 @@ module.exports = class Game {
 		ang -= body;
 		let point = {
 			x: x + dis,
-			y: account.player.mobil == Types.MOBILE.ADUKA || account.player.mobile == Types.MOBILE.NAK ? y - 31 : y - 28
+			y: account.player.mobile == Types.MOBILE.ADUKA || account.player.mobile == Types.MOBILE.NAK ? y - 31 : y - 28
 		};
 		let pfinal = self.rotatePoint(point, {
 			x: x,
 			y: y
 		}, body);
-
-		let calc_thor_angle = Math.round((Math.atan2((this.thor.y-pfinal.y),(this.thor.x-pfinal.x)) * 180 / Math.PI));
-		if(calc_thor_angle<0)
+	
+		let calc_thor_angle = Math.round((Math.atan2((this.thor.y - pfinal.y), (this.thor.x - pfinal.x)) * 180 / Math.PI));
+		if (calc_thor_angle < 0)
 			calc_thor_angle = 360 - calc_thor_angle;
 		this.thor.angle = Math.round(calc_thor_angle);
-
-
+	
 		if (account.player.DUAL == 1 && type === 2) {
 			account.player.DUAL = 0;
 		}
-
+	
 		this.world.shoots_count = 0;
-		this.mobileDelay = mobile_data.delay + time*10;
+		this.mobileDelay = mobile_data.delay + time * 10;
 		if (account.player.TELEPORT == 1) {
 			this.thor.active = false;
-			let data = {x0:pfinal.x, y0:pfinal.y, ang:ang, power:power, pala_bunge: [null,null], weight: 398, friccion: 0, damage:null, type:type, wind_ang:self.wind_angle, wind_power:self.wind_power, stime:0,account:account,shootId:0,bonos:false}		
-			self.setTurnDelay({delay:0},account);
+			let data = { x0: pfinal.x, y0: pfinal.y, ang: ang, power: power, pala_bunge: [null, null], weight: 398, friccion: 0, damage: null, type: type, wind_ang: self.wind_angle, wind_power: self.wind_power, stime: 0, account: account, shootId: 0, bonos: false }
+			self.setTurnDelay({ delay: 0 }, account);
 			self.world.shoots[self.world.shoots_count] = new Shoot(data);
 			this.world.shoots_count = 1;
-		} else if (this.suddenShoot  || (account.player.DUAL === 1 && type !== 2)){
-			this.setShoots(pfinal,mobile_data, 0, ang, power, 0, type, account);
-			this.setShoots(pfinal,mobile_data, 1, ang, power, 1000, type, account)
+		} else if (this.suddenShoot || (account.player.DUAL === 1 && type !== 2)) {
+			this.setShoots(pfinal, mobile_data, 0, ang, power, 0, type, account);
+			this.setShoots(pfinal, mobile_data, 1, ang, power, 1000, type, account)
 		} else if (account.player.DUAL_PLUS === 1 && type !== 2) {
-			this.setShoots(pfinal,mobile_data, 0, ang, power, 0, type, account)
-			this.setShoots(pfinal,mobile_data, 1, ang, power, 1000, type==1?0:1, account)
+			this.setShoots(pfinal, mobile_data, 0, ang, power, 0, type, account)
+			this.setShoots(pfinal, mobile_data, 1, ang, power, 1000, type == 1 ? 0 : 1, account)
 		} else {
-			this.setShoots(pfinal,mobile_data, 0, ang, power, 0, type, account)
+			this.setShoots(pfinal, mobile_data, 0, ang, power, 0, type, account)
 		}
-		this.world.shoot(account.player.TELEPORT==1 ? true : false); // temporal modificar quitar el nohole de lugar
-
+		this.world.shoot(account.player.TELEPORT == 1 ? true : false); // temporal modificar quitar el nohole de lugar
+	
 		this.world.run();
 		this.nohole = !1;
 		account.player.DUAL = 0;

@@ -293,6 +293,7 @@ jumps:[],
 					var scratch_my_ava = shoot.account.player.avaScratch;
 					if (shoot.account.player.check_my_ava === 0)
 						scratch_my_ava = 0;
+					//Logger.log('Scratch: ' + scratch_my_ava);
 					/* |<-========================= [Stats Avatars] ===========================->| */
 					shoot.move(shoot.a.x, shoot.a.y, 0);
 					shoot.bunge_jc = [
@@ -791,34 +792,27 @@ jumps:[],
 			}
 		});
 	}
-	_castWeatherTornado(shoot,force,config) {
-		let side			= shoot.a.x>force.px? "R":"L"
-		shoot.lastTornado	= shoot.lastTornado	? shoot.lastTornado:null
+	_castWeatherTornado(shoot, force, config) {
+		let side = shoot.a.x > force.px ? "R" : "L";
+		shoot.lastTornado = shoot.lastTornado ? shoot.lastTornado : null;
+	
 		if (shoot.lastTornado !== force.px) {
-			shoot.lastTornado	= force.px
-			shoot.sideTornado	= side
-			shoot.countTornado	= Math.ceil(force.power/40)
-		//console.log("cast tornado",{
-			//	c1:!force.isCollide(shoot.a.x,-10),
-			//	c2:shoot.sideTornado!==side,
-			//	c3:shoot.countTornado>0,
-			//	side:side,
-			//	lastTornado:shoot.lastTornado,
-			//	ax:force.px,
-			//	forcePower:force.power
-		//	});
+			shoot.lastTornado = force.px;
+			shoot.sideTornado = side;
+			shoot.countTornado = 2; // Ensure only one bounce
 		}
-		if (!force.isCollide(shoot.a.x,-10)&&shoot.sideTornado!==side&&shoot.countTornado>0) {
-			shoot.countTornado--
-			shoot.countMirror	= 0
-			shoot.lastMirror	= null
-			config = {...config,...{
-				sideTornado	: side,
+	
+		if (!force.isCollide(shoot.a.x, -10) && shoot.sideTornado !== side && shoot.countTornado > 0) {
+			shoot.countTornado--;
+			shoot.countMirror = 0;
+			shoot.lastMirror = null;
+			config = {
+				...config,
+				sideTornado: side,
 				countTornado: shoot.countTornado,
-				lastTornado	: shoot.lastTornado
-			}}
-			//console.log("is true",{shoot:shoot})
-			this._castWeatherMirror(shoot,force,config)
+				lastTornado: shoot.lastTornado
+			};
+			this._castWeatherMirror(shoot, force, config);
 		}
 	}
 	_castWeatherMirror(shoot,force,config) {
@@ -876,6 +870,9 @@ jumps:[],
 		      shot_step.push(time_lapse + sum_step);
 		    }
 			this.shoots_data[this.shoots_complete].tr = [51, 3, time * 2, 50, shot_step];
+
+			// Increase damage by 50%
+			shoot.damage = shoot.damage * 1.5;
 		}
 	}
 	_castWeatherBlack(shoot,force,config) {
@@ -884,8 +881,12 @@ jumps:[],
 			shoot.is		= "weatherBlack"
 			// shoot.addAtEnd	= shoot.addAtEnd.includes("black")?shoot.addAtEnd:shoot.addAtEnd.concat(["black"])
 			this.shoots_data[this.shoots_complete].black_at = time * 2
+
+        	// Reduce damage by 50%
+			shoot.damage = shoot.damage * 0.5;
 		}
 	}
+
 	addGroundHole(shoot){
 		let self = this;
 		self.shoots_data[self.shoots_complete].hole.push(shoot.a.x);

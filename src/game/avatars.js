@@ -186,7 +186,7 @@ module.exports = Avatars = cls.Class.extend({
             if(gm){
                 if ((n[5] == name || (n[5].toLowerCase()).search(name.toLowerCase()) >= 0 || (n[5].toUpperCase()).search(name.toLowerCase()) >= 0 || n[5].search(name) >= 0 || n[5].search(name.toLowerCase()) >= 0 || n[5].search(name.toUpperCase()) >= 0)){
                 if(n[8]===0){
-                    n[6].min_rank = 31
+                    n[6].min_rank = 26
                     n[6].cash_perm = 70000
                 }
                 itm.push(n);

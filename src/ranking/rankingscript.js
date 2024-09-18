@@ -1,35 +1,81 @@
 require("module-alias/register");
-const DragonDataBase = require("@infra/db/connection");
+const fs = require('fs').promises;
+const path = require('path');
+const DataBase = require("@infra/db/connection");
 
+// Paths for the JSON files
+const jsonFilePath = path.join(__dirname, '../web/public_html/data/ranking_updated.json');
+const rankingDataPath = path.join(__dirname, '../web/public_html/data/ranking_data.json');
+
+// Function to log update times in JSON
+async function updateJsonFile() {
+    const now = new Date();
+    const lastUpdateTime = now.toISOString();
+    const nextUpdateTime = new Date(now.getTime() + 30 * 60 * 1000).toISOString();
+
+    const data = {
+        lastUpdateTime,
+        nextUpdateTime
+    };
+
+    try {
+        console.log(`Writing to file: ${jsonFilePath}`);
+        await fs.writeFile(jsonFilePath, JSON.stringify(data, null, 2), 'utf8');
+        console.log(`Last Updated: ${formatDate(new Date(lastUpdateTime))}`);
+        console.log(`Next Update: ${formatDate(new Date(nextUpdateTime))}`);
+    } catch (err) {
+        console.error(`Error writing to JSON file: ${err.message}`);
+    }
+}
+
+// Helper function to format date
+function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+}
+
+async function logPoolStatus(pool) {
+    try {
+        const [rows] = await pool.query('SHOW STATUS LIKE "Threads_connected"');
+        const activeConnections = rows.find(row => row.Variable_name === 'Threads_connected').Value;
+        console.log(`Active connections: ${activeConnections}`);
+    } catch (error) {
+        console.error('Error fetching pool status:', error);
+    }
+}
+
+// Ranking logic and data update
 async function updateRankings() {
-    const db = DragonDataBase;
-    const pool = await db.init(); // Initialize the pool
+    const db = await DataBase.init();
+    const pool = db.getConnection(); // Use the existing pool
+
+    if (!pool) {
+        throw new Error('Database pool is not initialized.');
+    }
 
     let connection;
     try {
+        connection = await pool.getConnection();
         console.time('Total Execution Time');
-        connection = await pool.getConnection(); // Get a connection from the pool
 
-        console.time('Fetch All Users');
+        // Log pool status before executing queries
+        logPoolStatus(pool);
+
         // Get all users sorted by GP in descending order
         const [allRows] = await connection.execute('SELECT Id, gp, gm FROM users ORDER BY gp DESC');
-        console.timeEnd('Fetch All Users');
-        
         const totalPlayers = allRows.length;
 
-        console.time('Filter Users');
-        // Get all users with GP greater than 8746, sorted by GP in descending order
+        // Users with GP greater than 8746
         const rowsGreater = allRows.filter(row => row.gp > 8746 && row.gm !== 1);
-        let totalPlayersGreater = rowsGreater.length;
-
-        // Get all users with GP less than or equal to 8746, sorted by GP in descending order
+        // Users with GP less than or equal to 8746
         const rowsLesser = allRows.filter(row => row.gp <= 8746 && row.gm !== 1);
-        console.timeEnd('Filter Users');
 
-        console.time('Update Previous Rank');
-        // Fetch current ranks and update previous_rank column
+        // Update previous ranks before recalculating the new ranks
         await connection.execute(`UPDATE users SET previous_rank = rank`);
-        console.timeEnd('Update Previous Rank');
 
         // Function to determine rank based on GP
         const determineRank = (gp) => {
@@ -56,40 +102,30 @@ async function updateRankings() {
             }
         };
 
-        // Define the number of players in each rank category
-        const SilverDragon = 1;
-        const RedDragon = 4;
-        const BlueDragon = 16;
-
-        // Rank details array
+        // Ranking details for top players
         const rankDetails = [
-            { count: SilverDragon, rank: 24, name: 'Silver Dragon' },
-            { count: RedDragon, rank: 23, name: 'Red Dragon' },
-            { count: BlueDragon, rank: 22, name: 'Blue Dragon' },
-            { count: Math.ceil(totalPlayers * 0.01), rank: 20, name: 'Diamond Wand' },
-            { count: Math.ceil(totalPlayers * 0.03), rank: 19, name: 'Ruby Wand' },
-            { count: Math.ceil(totalPlayers * 0.06), rank: 18, name: 'Sapphire Wand' },
-            { count: Math.ceil(totalPlayers * 0.12), rank: 17, name: 'Violet Wand' },
-            { count: Math.ceil(totalPlayers * 0.20), rank: 16, name: 'Gold Battle Axe Plus' },
-            { count: Math.ceil(totalPlayers * 0.32), rank: 15, name: 'Gold Battle Axe' },
-            { count: Math.ceil(totalPlayers * 0.46), rank: 14, name: 'Silver Battle Axe Plus' },
-            { count: Math.ceil(totalPlayers * 0.62), rank: 13, name: 'Silver Battle Axe' },
-            { count: Math.ceil(totalPlayers * 0.80), rank: 12, name: 'Battle Axe Plus' }
+            { count: 1, rank: 24 }, // Silver Dragon
+            { count: 4, rank: 23 }, // Red Dragon
+            { count: 16, rank: 22 }, // Blue Dragon
+            { count: Math.ceil(totalPlayers * 0.01), rank: 20 }, // Diamond Wand
+            { count: Math.ceil(totalPlayers * 0.03), rank: 19 }, // Ruby Wand
+            { count: Math.ceil(totalPlayers * 0.06), rank: 18 }, // Sapphire Wand
+            { count: Math.ceil(totalPlayers * 0.12), rank: 17 }, // Violet Wand
+            { count: Math.ceil(totalPlayers * 0.20), rank: 16 }, // Gold Battle Axe Plus
+            { count: Math.ceil(totalPlayers * 0.32), rank: 15 }, // Gold Battle Axe
+            { count: Math.ceil(totalPlayers * 0.46), rank: 14 }, // Silver Battle Axe Plus
+            { count: Math.ceil(totalPlayers * 0.62), rank: 13 }, // Silver Battle Axe
+            { count: Math.ceil(totalPlayers * 0.80), rank: 12 }  // Battle Axe Plus
         ];
 
         let currentIndex = 0;
-
-        console.time('Update Ranks for GP > 8746');
-        for (const { count, rank, name } of rankDetails) {
+        for (const { count, rank } of rankDetails) {
             await updateRanks(currentIndex, currentIndex + count, rowsGreater, rank);
             currentIndex += count;
-            totalPlayersGreater -= count;
         }
-        console.timeEnd('Update Ranks for GP > 8746');
 
-        console.time('Update Ranks for GP <= 8746');
-        // Batch update rankings for users with GP <= 8746
-        const batchSize = 100; // Adjust batch size as needed
+        // Batch update for users with GP <= 8746
+        const batchSize = 100;
         for (let i = 0; i < rowsLesser.length; i += batchSize) {
             const batch = rowsLesser.slice(i, i + batchSize);
             const updates = batch.map(row => ({
@@ -100,30 +136,108 @@ async function updateRankings() {
             const ranks = updates.map(update => update.rank);
             await connection.execute(`UPDATE users SET rank = CASE Id ${ids.map((id, index) => `WHEN ${id} THEN ${ranks[index]}`).join(' ')} END WHERE Id IN (${ids.join(',')})`);
         }
-        console.timeEnd('Update Ranks for GP <= 8746');
 
-        console.time('Update Ranks for GMs');
         // Update ranks for GMs
         const gmIds = allRows.filter(row => row.gm === 1).map(row => row.Id);
         if (gmIds.length > 0) {
             await connection.execute(`UPDATE users SET rank = 26 WHERE Id IN (${gmIds.join(',')})`);
         }
-        console.timeEnd('Update Ranks for GMs');
+
+        // Write ranking data to JSON file
+        const gpValues = new Array(28).fill('-');
+        const playerCounts = new Array(28).fill('-');
+
+        const fixedGpValues = [1000, 1100, 1200, 1500, 1800, 2300, 2800, 3500, 4200, 5100, 6000, 6900, 8764];
+        for (let i = 0; i <= 11; i++) {
+            gpValues[i] = fixedGpValues[i];
+        }
+
+        const gpQuery = `
+            SELECT rank, MIN(gp) as min_gp
+            FROM users
+            WHERE rank > 11
+            GROUP BY rank
+            ORDER BY rank ASC
+        `;
+        const [gpResults] = await connection.query(gpQuery);
+
+        gpResults.forEach(result => {
+            if (result.rank <= 24 && result.rank !== 21) {
+                gpValues[result.rank] = result.min_gp;
+            }
+        });
+
+        const playerCountQuery = `
+            SELECT rank, COUNT(*) as player_count
+            FROM users
+            GROUP BY rank
+            ORDER BY rank ASC
+        `;
+        const [playerCountResults] = await connection.query(playerCountQuery);
+
+        playerCountResults.forEach(result => {
+            if (result.rank <= 24 && result.rank !== 21) {
+                playerCounts[result.rank] = result.player_count;
+            }
+        });
+
+        const gmModQuery = `
+            SELECT gm, COUNT(*) as count
+            FROM users
+            WHERE gm IN (1, 2)
+            GROUP BY gm
+        `;
+        const [gmModResults] = await connection.query(gmModQuery);
+
+        gmModResults.forEach(result => {
+            if (result.gm === 1) {
+                gpValues[26] = '-';
+                playerCounts[26] = result.count;
+            } else if (result.gm === 2) {
+                gpValues[27] = '-';
+                playerCounts[27] = result.count;
+            }
+        });
+
+        const otherValues = [90, 86, 82, 78, 74, 72, 69, 65, 63, 60];
+        const rankingData = [
+            new Date().getTime(),
+            gpValues,
+            playerCounts,
+            otherValues
+        ];
+
+        await fs.writeFile(rankingDataPath, JSON.stringify(rankingData, null, 2));
 
         console.timeEnd('Total Execution Time');
+
+        // Log pool status after executing queries
+        logPoolStatus(pool);
     } catch (error) {
         console.error('Error updating rankings:', error);
     } finally {
-        // Release the connection back to the pool
         if (connection) {
-            connection.releaseConnection();
+            connection.release();
             console.log('Connection released.');
         }
     }
 }
 
-updateRankings().then(() => {
+// Run the updates
+async function runUpdates() {
+    await updateRankings();
+    await updateJsonFile();
     console.log('Ranking Script Completed Successfully.');
-}).catch(error => {
-    console.error('Error in rankingscript.js:', error);
-});
+}
+
+// Export the function for use in the scheduler
+module.exports = {
+    runUpdates
+};
+
+// Execute the script immediately
+if (require.main === module) {
+    runUpdates().catch(error => {
+        console.error('Error running ranking script:', error);
+    });
+}

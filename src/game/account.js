@@ -1011,7 +1011,8 @@ module.exports = class Account {
 			case Types.CLIENT_OPCODE.equip: {
 				// seguridad
 				if (!self.login_complete) {
-					console.log("login incomplete",opcode);self.connection.close();
+					console.log("login incomplete", opcode);
+					self.connection.close();
 					return null;
 				}
 				let arr_up = message[1];
@@ -1034,22 +1035,28 @@ module.exports = class Account {
 				self.player.aflag = 0;
 				self.player.abackground = 0;
 				self.player.aforeground = 0;
+			
 				if (work) {
 					self.gameserver.db.equipAvatar(arr_up, self).then(function (data) {
-						if (data.error_mysql || data.error_querry) {} else {
+			
+						if (data.error_mysql || data.error_querry) {
+							// Handle errors if necessary
+						} else {
 							if (self.room) {
 								self.gameserver.pushToRoom(self.room.id, new Message.roomPlayers(self.room), null);
 							}
 							self.sendMessage(new Message.loginResponse(self));
-							self.player.avaDelayOne		= 0;
-							self.player.avaDelayTwo		= 0;
-							self.player.avaGold			= 0;
-							self.player.avaScratch		= 0;
-							self.player.avaLife			= 0;
-							self.player.avaGuard		= 0;
-							self.player.avaAttack		= 0;
-							self.player.avaShieldRegen	= 0;
-							self.player.updateAva([data.data.head,data.data.body,data.data.eyes,data.data.flag,data.data.background,data.data.foreground]);
+			
+							self.player.avaDelayOne = 0;
+							self.player.avaDelayTwo = 0;
+							self.player.avaGold = 0;
+							self.player.avaScratch = 0;
+							self.player.avaLife = 0;
+							self.player.avaGuard = 0;
+							self.player.avaAttack = 0;
+							self.player.avaShieldRegen = 0;
+							self.player.updateAva([data.data.head, data.data.body, data.data.eyes, data.data.flag, data.data.background, data.data.foreground]);
+			
 							self.gameserver.sendAccountsOnline();
 						}
 					});
@@ -1059,16 +1066,17 @@ module.exports = class Account {
 					}
 					self.sendMessage(new Message.loginResponse(self));
 					self.gameserver.sendAccountsOnline();
-					self.gameserver.db.defaultAvatars(self.player.reg_id, self.player.ahead, self.player.abody)
-					self.player.avaDelayOne		= 0;
-					self.player.avaDelayTwo		= 0;
-					self.player.avaGold			= 0;
-					self.player.avaScratch		= 0;
-					self.player.avaLife			= 0;
-					self.player.avaGuard		= 0;
-					self.player.avaAttack		= 0;
-					self.player.avaShieldRegen	= 0;
-					self.player.updateAva([self.player.ahead,self.player.abody]);
+					self.gameserver.db.defaultAvatars(self.player.reg_id, self.player.ahead, self.player.abody);
+			
+					self.player.avaDelayOne = 0;
+					self.player.avaDelayTwo = 0;
+					self.player.avaGold = 0;
+					self.player.avaScratch = 0;
+					self.player.avaLife = 0;
+					self.player.avaGuard = 0;
+					self.player.avaAttack = 0;
+					self.player.avaShieldRegen = 0;
+					self.player.updateAva([self.player.ahead, self.player.abody]);
 				}
 				break;
 			}
