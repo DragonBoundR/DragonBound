@@ -1,3 +1,4 @@
+const config = require("./env");
 let mysql = require("mysql2/promise");
 var Logger = require("./lib/logger");
 var Promise = require("promise");
@@ -6,10 +7,10 @@ module.exports = class DataBase {
   constructor(wait = false) {
     var self = this;
     this.connection = null;
-    this.host = "localhost";
-    this.user = "root";
-    this.password = "rootpassword";
-    this.database = "dragonbound";
+    this.host = config.DB.HOST;
+    this.user = config.DB.USER;
+    this.password = config.DB.PASSWORD;
+    this.database = config.DB.DATABASE;
 
     if (!wait) {
       this.connection = mysql.createPool({
@@ -88,7 +89,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT rank, game_id, gender, country, banned FROM users where IdAcc = ?",
+            "SELECT `rank`, game_id, gender, country, banned FROM users where IdAcc = ?",
             [id]
           )
           .then((rows) => {
@@ -348,7 +349,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT Id, IdAcc, game_id, rank, prixw FROM users WHERE prixw >= ? ORDER BY prixw DESC",
+            "SELECT Id, IdAcc, game_id, `rank`, prixw FROM users WHERE prixw >= ? ORDER BY prixw DESC",
             [id]
           )
           .then((rows) => {
@@ -455,7 +456,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT Id, IdAcc, rank, time FROM rankspecial WHERE IdAcc = ?",
+            "SELECT Id, IdAcc, `rank`, time FROM rankspecial WHERE IdAcc = ?",
             [IdAcc]
           )
           .then((rows) => {
@@ -536,7 +537,7 @@ module.exports = class DataBase {
         .getConnection()
         .then((conn) => {
           conn
-            .query("SELECT rank FROM users WHERE IdAcc = ?", [user_id])
+            .query("SELECT `rank` FROM users WHERE IdAcc = ?", [user_id])
             .then((result) => {
               conn.release();
               if (result.length > 0 && result[0].length > 0) {
@@ -649,7 +650,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("SELECT game_id, rank, IdAcc, IP FROM users WHERE IP = ?", [
+          .query("SELECT game_id, `rank`, IdAcc, IP FROM users WHERE IP = ?", [
             IP,
           ])
           .then((rows) => {
@@ -702,7 +703,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, photo_url, bg_url, country, rank, gp, win, gender, loss FROM users WHERE IdAcc = ?",
+            "SELECT IdAcc, game_id, photo_url, bg_url, country, `rank`, gp, win, gender, loss FROM users WHERE IdAcc = ?",
             [id]
           )
           .then((rows) => {
@@ -1117,7 +1118,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 0, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 0, 1",
             [punts]
           )
           .then((rows) => {
@@ -1135,7 +1136,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 1, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 1, 1",
             [punts]
           )
           .then((rows) => {
@@ -1153,7 +1154,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 2, 1",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != ? ORDER BY prixw DESC limit 2, 1",
             [punts]
           )
           .then((rows) => {
@@ -1171,7 +1172,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "SELECT IdAcc, game_id, rank, gender, prixw FROM users WHERE prixw != 0 ORDER BY prixw DESC limit ?, ?",
+            "SELECT IdAcc, game_id, `rank`, gender, prixw FROM users WHERE prixw != 0 ORDER BY prixw DESC limit ?, ?",
             [starting, end]
           )
           .then((rows) => {
@@ -2442,55 +2443,55 @@ module.exports = class DataBase {
     var self = this;
     var rdata = {};
     return new Promise(function (resolve, reject) {
-        self
-            .getUserAvatarById(arr_up)
-            .then(function (r_data) {
-                var rows = r_data[0];
-                var gst = account.player.gender;
-                var gender = 0;
-                if (gst === "f") gender = 1;
-                for (var r in rows) {
-                    var dx = rows[r];
-                    var item_data = account.gameserver.avatars.getAvatar2(
-                        dx.aId,
-                        gender
-                    );
-                    if (item_data !== null) {
-                        var _xtype = item_data[2];
-                        if (_xtype === 0) {
-                            account.player.ahead = dx.aId;
-                        } else if (_xtype === 1) {
-                            account.player.abody = dx.aId;
-                        } else if (_xtype === 2) {
-                            account.player.aeyes = dx.aId;
-                        } else if (_xtype === 3) {
-                            account.player.aflag = dx.aId;
-                        } else if (_xtype === 4) {
-                            account.player.abackground = dx.aId;
-                        } else if (_xtype === 5) {
-                            account.player.aforeground = dx.aId;
-                        }
-                    }
-                }
-                var data = {
-                    head: account.player.ahead,
-                    body: account.player.abody,
-                    eyes: account.player.aeyes,
-                    flag: account.player.aflag,
-                    background: account.player.abackground,
-                    foreground: account.player.aforeground,
-                };
-                self
-                    .updateUserAvatarEquipById(data, account.player.reg_id)
-                    .then(function (rows) {
-                        rdata.complete = true;
-                        rdata.data = data; // Add the data property to rdata
-                        return resolve(rdata);
-                    });
-            })
-            .catch(function (err) {
-                return reject();
+      self
+        .getUserAvatarById(arr_up)
+        .then(function (r_data) {
+          var rows = r_data[0];
+          var gst = account.player.gender;
+          var gender = 0;
+          if (gst === "f") gender = 1;
+          for (var r in rows) {
+            var dx = rows[r];
+            var item_data = account.gameserver.avatars.getAvatar2(
+              dx.aId,
+              gender
+            );
+            if (item_data !== null) {
+              var _xtype = item_data[2];
+              if (_xtype === 0) {
+                account.player.ahead = dx.aId;
+              } else if (_xtype === 1) {
+                account.player.abody = dx.aId;
+              } else if (_xtype === 2) {
+                account.player.aeyes = dx.aId;
+              } else if (_xtype === 3) {
+                account.player.aflag = dx.aId;
+              } else if (_xtype === 4) {
+                account.player.abackground = dx.aId;
+              } else if (_xtype === 5) {
+                account.player.aforeground = dx.aId;
+              }
+            }
+          }
+          var data = {
+            head: account.player.ahead,
+            body: account.player.abody,
+            eyes: account.player.aeyes,
+            flag: account.player.aflag,
+            background: account.player.abackground,
+            foreground: account.player.aforeground,
+          };
+          self
+            .updateUserAvatarEquipById(data, account.player.reg_id)
+            .then(function (rows) {
+              rdata.complete = true;
+              rdata.data = data; // Add the data property to rdata
+              return resolve(rdata);
             });
+        })
+        .catch(function (err) {
+          return reject();
+        });
     });
   }
 
@@ -2778,7 +2779,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "INSERT into rankspecial SET IdAcc = ?, game_id = ?, rank = ?, cash = ?, time = ?",
+            "INSERT into rankspecial SET IdAcc = ?, game_id = ?, `rank` = ?, cash = ?, time = ?",
             [UserId, game_id, rank, cash, time]
           )
           .then((rows) => {
@@ -3180,7 +3181,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("select rank from users where IdAcc = ?", [a])
+          .query("select `rank` from users where IdAcc = ?", [a])
           .then((rows) => {
             conn.release();
             if (rows[0].length > 0) {
@@ -3342,7 +3343,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("select rank from users where IdAcc = ?", [a])
+          .query("select `rank` from users where IdAcc = ?", [a])
           .then((rows) => {
             conn.release();
             if (rows[0].length > 0) {
