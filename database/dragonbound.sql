@@ -40008,6 +40008,7 @@ CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
   `game_id` varchar(45) DEFAULT NULL,
   `rank` int(11) DEFAULT NULL,
+  `previous_rank` int(11) DEFAULT NULL,
   `gp` int(11) DEFAULT NULL,
   `gold` int(11) DEFAULT NULL,
   `cash` int(11) DEFAULT NULL,

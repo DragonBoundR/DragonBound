@@ -6,8 +6,8 @@
   "scripts": {
     "start:web": "node src/web/main/server.js",
     "start:game": "node src/game.js",
-    "dev:web": "nodemon src/web/main/server.js",
-    "dev:game": "nodemon src/game.js",
+    "dev:web": "nodemon --exitcrash src/web/main/server.js",
+    "dev:game": "nodemon --exitcrash src/game.js",
     "start:scheduler": "node src/ranking/scheduler.js"
   },
   "repository": {
