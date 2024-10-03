@@ -109,7 +109,7 @@ async function updateRankings() {
       const ids = rows.slice(start, end).map((row) => row.Id);
       if (ids.length > 0) {
         await connection.execute(
-          `UPDATE users SET rank = ? WHERE Id IN (${ids.join(",")})`,
+          `UPDATE users SET \`rank\` = ? WHERE Id IN (${ids.join(",")})`,
           [rank]
         );
       }
@@ -148,7 +148,7 @@ async function updateRankings() {
       const ids = updates.map((update) => update.id);
       const ranks = updates.map((update) => update.rank);
       await connection.execute(
-        `UPDATE users SET rank = CASE Id ${ids
+        `UPDATE users SET \`rank\` = CASE Id ${ids
           .map((id, index) => `WHEN ${id} THEN ${ranks[index]}`)
           .join(" ")} END WHERE Id IN (${ids.join(",")})`
       );
@@ -158,7 +158,7 @@ async function updateRankings() {
     const gmIds = allRows.filter((row) => row.gm === 1).map((row) => row.Id);
     if (gmIds.length > 0) {
       await connection.execute(
-        `UPDATE users SET rank = 26 WHERE Id IN (${gmIds.join(",")})`
+        `UPDATE users SET \`rank\` = 26 WHERE Id IN (${gmIds.join(",")})`
       );
     }
 

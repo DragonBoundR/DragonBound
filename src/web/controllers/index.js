@@ -243,7 +243,7 @@ router.get("/rr", function (req, res) {
                 if (res01[u].rank <= 25 && res01[u].Name !== "GM") {
                   var IdGuild = res01[u].Id;
                   conn
-                    .query("UPDATE guild SET rank = ? WHERE Id = ?", [
+                    .query("UPDATE guild SET `rank` = ? WHERE Id = ?", [
                       next_rank,
                       IdGuild,
                     ])
