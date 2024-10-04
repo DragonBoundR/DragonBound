@@ -1036,7 +1036,7 @@ Types.WEATHERS = {
 Types.WEATHERS.active = [
   Types.WEATHERS.list.thor,
   //Types.WEATHERS.list.wind_change,
-  Types.WEATHERS.list.wind_change,
+  // Types.WEATHERS.list.wind_change,
   Types.WEATHERS.list.wind_change,
   Types.WEATHERS.list.wind_change,
   Types.WEATHERS.list.wind_change,

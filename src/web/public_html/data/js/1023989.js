@@ -38811,11 +38811,16 @@
       this.UpdateWeatherGUI();
     };
     DangerBound.prototype.PushWeather = function (a) {
-      -1 != a &&
-        (this.weather.shift(),
-        this.weather.push(a),
-        this.UpdateWeatherGUI(),
-        1 != this.weather[1] || this.IsInFastReply() || AudioPlay(AUDIO_WIND));
+      if (this.turn_number % 2 === 0) {  // Update weather every 2 turns
+        if (a != -1) {
+          this.weather.shift();
+          this.weather.push(a);
+          this.UpdateWeatherGUI();
+          if (1 != this.weather[1] || this.IsInFastReply()) {
+            AudioPlay(AUDIO_WIND);
+          }
+        }
+      }
     };
     DangerBound.prototype.UpdateWeatherGUI = function () {
       $("#weatherSlot0").attr("class", "grayscale weather-" + this.weather[0]);
