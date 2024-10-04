@@ -193,12 +193,6 @@ module.exports = class Shoot {
     return ang;
   }
 
-  getReflectedAngleAtTime(time) {
-    const v = this.getVelocityAtTime(time);
-    const ang = RadToAngle(Math.atan2(-v.y, -v.x));
-    return ang;
-  }
-
   GetPosForWalking() {
     //   a, b, c
     if (!this.a) this.a = { x: this.x0, y: this.y0 };

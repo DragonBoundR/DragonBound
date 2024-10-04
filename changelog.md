@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 
-- Fix mirror effect
+- Fix mirror effect angle & power
 
 ==========
 
