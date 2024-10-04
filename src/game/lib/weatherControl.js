@@ -19,9 +19,14 @@ module.exports = class {
 		this.update();
 	}
 	update(){
+		this._clearPreviousWeather()
 		this._updateCount()
 		this._updateCurrent()
 		this._executeCast()
+	}
+	_clearPreviousWeather(){
+		this.active = []
+		this.client.active = []
 	}
 	_updateCount(){
 		this.#count = (this.#count >= Types.WEATHERS.length-1)?0:this.#count + 1
