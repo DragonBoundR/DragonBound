@@ -946,10 +946,15 @@ jumps:[],
     if (shoot.lastMirror !== force.px) {
       shoot.isComplete = true;
 
+      const v = shoot.getVelocityAtTime(shoot.time);
+      const reflectedAngle = (180 * Math.atan2(-v.y, -v.x)) / Math.PI;
+      const reflectedPower = Math.sqrt(v.x * v.x + v.y * v.y);
+
       shoot.config = {
         ...config,
         ...{
-          ang: shoot.getReflectedAngleAtTime(shoot.time),
+          ang: reflectedAngle,
+          power: reflectedPower,
           damage: shoot.damage,
           pala_bunge: shoot.pala_bunge,
           image: shoot.image,
@@ -959,7 +964,6 @@ jumps:[],
           lastMirror: force.px,
           countMirror: shoot.countMirror + 1,
           stime: shoot.stime + shoot.time * 2,
-          power: shoot.power,
         },
       };
       shoot.damage = null;
