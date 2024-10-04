@@ -119,7 +119,7 @@ router.get("/rr", function (req, res) {
                 if (res01[u].rank <= 25 && res01[u].Name !== "GM") {
                   var IdGuild = res01[u].Id;
                   conn
-                    .query("UPDATE guild SET rank = ? WHERE Id = ?", [
+                    .query("UPDATE guild SET `rank` = ? WHERE Id = ?", [
                       next_rank,
                       IdGuild,
                     ])
@@ -237,7 +237,7 @@ router.get("/rr", function (req, res) {
                       let ranking_rows1 = rows_ranking1[0][0];
                       conn
                         .query(
-                          "UPDATE users SET rank = ? WHERE rank !=26 AND gp>=400000 AND rank !=27 AND rank !=31 AND IdAcc = ?",
+                          "UPDATE users SET `rank` = ? WHERE rank !=26 AND gp>=400000 AND rank !=27 AND rank !=31 AND IdAcc = ?",
                           [parseInt(24), parseInt(ranking_rows1.IdAcc)]
                         )
                         .then((rows_ranking1_1) => {
@@ -252,7 +252,7 @@ router.get("/rr", function (req, res) {
                               for (var xm_rows2 in ranking_rows2) {
                                 conn
                                   .query(
-                                    "UPDATE users SET rank = ? WHERE rank !=26  AND gp>=336017 AND rank !=27 AND rank !=31 AND IdAcc = ?",
+                                    "UPDATE users SET `rank` = ? WHERE rank !=26  AND gp>=336017 AND rank !=27 AND rank !=31 AND IdAcc = ?",
                                     [
                                       parseInt(23),
                                       parseInt(ranking_rows2[xm_rows2].IdAcc),
@@ -270,7 +270,7 @@ router.get("/rr", function (req, res) {
                                         for (var xm_rows3 in ranking_rows3) {
                                           conn
                                             .query(
-                                              "UPDATE users SET rank = ? WHERE  rank !=26  AND gp>=100300  AND rank !=27 AND rank !=31 AND IdAcc = ?",
+                                              "UPDATE users SET `rank` = ? WHERE  rank !=26  AND gp>=100300  AND rank !=27 AND rank !=31 AND IdAcc = ?",
                                               [
                                                 parseInt(22),
                                                 parseInt(

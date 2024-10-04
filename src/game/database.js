@@ -489,7 +489,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = ? WHERE IdAcc = ?", [rank, user_id])
+          .query("UPDATE users SET `rank` = ? WHERE IdAcc = ?", [rank, user_id])
           .then((rows) => {
             conn.release();
             if (rows[0].affectedRows > 0 || rows[0].changedRows > 0)
@@ -1847,7 +1847,7 @@ module.exports = class DataBase {
       self.connection.getConnection().then((conn) => {
         conn
           .query(
-            "INSERT INTO guild SET Name = ?, points = 0, members = 0, rank = 0, about = 'Bienvenidos'",
+            "INSERT INTO guild SET Name = ?, points = 0, members = 0, `rank` = 0, about = 'Bienvenidos'",
             [name]
           )
           .then((rows) => {
@@ -2701,7 +2701,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = rank + ? WHERE IdAcc = ?", [
+          .query("UPDATE users SET `rank` = `rank` + ? WHERE IdAcc = ?", [
             rank,
             user_id,
           ])
@@ -2758,7 +2758,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("UPDATE users SET rank = ?, gm = ? WHERE IdAcc = ?", [
+          .query("UPDATE users SET `rank` = ?, gm = ? WHERE IdAcc = ?", [
             rank,
             gm,
             user_id,
@@ -3162,7 +3162,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("update users set rank = ? where IdAcc = ? AND rank < 25", [
+          .query("update users set `rank` = ? where IdAcc = ? AND rank < 25", [
             rank,
             id,
           ])
@@ -3324,7 +3324,7 @@ module.exports = class DataBase {
     return new Promise(function (resolve, reject) {
       self.connection.getConnection().then((conn) => {
         conn
-          .query("update users set rank = ? where IdAcc = ? AND rank < 25", [
+          .query("update users set `rank` = ? where IdAcc = ? AND rank < 25", [
             rank,
             id,
           ])
