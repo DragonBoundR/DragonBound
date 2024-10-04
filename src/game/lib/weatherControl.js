@@ -5,24 +5,30 @@ module.exports = class {
 	#count
 	#mapw
 	constructor(map) {
-		this.#list	= []
-		this.#count	= 0
+		this.#list	= [];
+		this.#count	= 0;
 		this.#mapw  = map.w
-		this.active	= []
-		this.current= {}
+		this.active	= [];
+		this.current= {};
 		this.client = {
 			active	: [],
 			next	: [],
 			list	: [],
-		}
-		this._setWeatherList()
+		};
+		this.turnCounter = 0;
+		this._setWeatherList();
 		this.update();
 	}
-	update(){
-		this._clearPreviousWeather()
-		this._updateCount()
-		this._updateCurrent()
-		this._executeCast()
+	update() {
+		this.turnCounter++; // Increment turn counter
+	
+		// Update on the first turn (turnCounter === 1), and every 2 turns starting from turn 3
+		if (this.turnCounter === 1 || (this.turnCounter > 2 && this.turnCounter % 2 !== 0)) {
+			this._clearPreviousWeather();
+			this._updateCount();
+			this._updateCurrent();
+			this._executeCast();
+		}
 	}
 	_clearPreviousWeather(){
 		this.active = []
