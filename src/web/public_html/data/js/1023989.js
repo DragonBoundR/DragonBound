@@ -29118,7 +29118,7 @@
         {
           rank: 0,
           name: "Clown Stripe",
-          gp: 12,
+          gp: 1,
           atk: 5,
           def: 0,
           life: 10,
