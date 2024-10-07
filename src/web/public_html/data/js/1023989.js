@@ -29118,7 +29118,7 @@
         {
           rank: 0,
           name: "Clown Stripe",
-          gp: 12,
+          gp: 1,
           atk: 5,
           def: 0,
           life: 10,
@@ -38310,24 +38310,39 @@
             this.StartNextTurn();
             this.AddEventLetter(this.addEventLetter);
             break;
-          case "pass":
-            b = ArrayToObject(
-              b,
-              "next_turn_number player_number x y look add_delay next_turn_of_player chat thor_x thor_y thor_angle thor_damage".split(
-                " "
-              )
-            );
-            a = this.GetPlayerByPlayerNumber(b.player_number);
-            a.MoveTo(b.x, b.y, b.look);
-            a.ChangeDelay(a.delay + b.add_delay, b.next_turn_number - 1);
-            this.UpdateTurnList();
-            this.turn_number = b.next_turn_number;
-            this.UpdateGhostsTurn();
-            this.EndTurn();
-            this.next_turn = b.next_turn_of_player;
-            this.ReceivedChatArray(b.chat, a.name);
-            this.UpdateThor([b.thor_x, b.thor_y, b.thor_angle, b.thor_damage]);
-            this.StartNextTurn();
+            case "pass":
+              b = ArrayToObject(
+                b,
+                "next_turn_number player_number x y look add_delay next_turn_of_player chat thor_x thor_y thor_angle thor_damage new_weather wind_power wind_angle active_weathers next_weather_pos".split(
+                  " "
+                )
+              );
+              a = this.GetPlayerByPlayerNumber(b.player_number);
+              a.MoveTo(b.x, b.y, b.look);
+              a.ChangeDelay(a.delay + b.add_delay, b.next_turn_number - 1);
+              this.UpdateTurnList();
+              this.turn_number = b.next_turn_number;
+              this.UpdateGhostsTurn();
+              this.EndTurn();
+              this.next_turn = b.next_turn_of_player;
+              
+              // Weather and Thor updates (added from the play case)
+              this.ReceivedChatArray(b.chat, a.name);
+              
+              // Update Thor lightning effect
+              this.UpdateThor([b.thor_x, b.thor_y, b.thor_angle, b.thor_damage]);
+            
+              // Push new weather and update active weathers
+              this.PushWeather(b.new_weather);
+              
+              // Update wind
+              this.next_wind = [b.wind_power, b.wind_angle];
+              this.DrawWind(this.next_wind[0], this.next_wind[1]);
+            
+              // Draw active weathers and update weather position
+              this.DrawWeathers(b.active_weathers, b.next_weather_pos);
+            
+              this.StartNextTurn();
             break;
           case "update":
             this.UpdatePlayer(b);

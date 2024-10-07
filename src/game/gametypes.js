@@ -719,7 +719,7 @@ Types = {
     {
       rank: 0,
       game_id: "Clown Stripe",
-      gp: 12,
+      gp: 1,
       atk: 5,
       def: 0,
       life: 10,
