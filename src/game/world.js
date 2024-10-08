@@ -937,7 +937,42 @@ jumps:[],
         countTornado: shoot.countTornado,
         lastTornado: shoot.lastTornado,
       };
-      this._castWeatherMirror(shoot, force, config);
+      this._castWeatherMirrorTornado(shoot, force, config);
+    }
+  }
+  _castWeatherMirrorTornado(shoot, force, config) {
+    shoot.lastMirror = shoot.lastMirror ? shoot.lastMirror : null;
+    shoot.countMirror = shoot.countMirror ? shoot.countMirror : 0;
+    if (shoot.lastMirror !== force.px) {
+        shoot.isComplete = true;
+
+        const v = shoot.getVelocityAtTime(shoot.time);
+        let reflectedAngle = (180 * Math.atan2(-v.y, -v.x)) / Math.PI;
+
+        shoot.config = {
+            ...config,
+            ...{
+                ang: reflectedAngle,
+                power: shoot.power,
+                damage: shoot.damage,
+                pala_bunge: shoot.pala_bunge,
+                image: shoot.image,
+                explode: shoot.explode,
+                weight: shoot.weight,
+                friccion: shoot.friccion,
+                lastMirror: force.px,
+                countMirror: shoot.countMirror + 1,
+                stime: shoot.stime + shoot.time * 2,
+            },
+        };
+        shoot.damage = null;
+        shoot.explode = null;
+        //	console.log("is mirror",{shoot:shoot})
+        if (shoot.config.countMirror < 10) this.addbulets(shoot);
+        else {
+            this.addGroundHole(shoot);
+            shoot.groundCollide = true;
+        }
     }
   }
   _castWeatherMirror(shoot, force, config) {

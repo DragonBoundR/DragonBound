@@ -152,15 +152,18 @@ module.exports = class Bot {
     }
 
     update() {
-        var self = this;
-        var map = self.room.game.map;
-        var yf = map.GetUnder(self.player.x, self.player.y);
-        if (yf === 0)
-            self.player.is_alive = 0;
-        else
-            self.player.y = yf;
-        self.player.move();
-        return yf;
+        if (this.room && this.room.game && this.room.game.map) {
+            var map = this.room.game.map;
+            var yf = map.GetUnder(this.player.x, this.player.y);
+            if (yf === 0) {
+                this.player.is_alive = 0;
+            } else {
+                this.player.y = yf;
+            }
+            this.player.move();
+            return yf;
+        }
+        return null;
     }
 
     Calcular(xv) {

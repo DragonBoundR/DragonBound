@@ -105,14 +105,13 @@ module.exports = class {
 		return [
 			weather.id,
 			this._randomInt(50,this.#mapw-50),
-			140 + this._getRandomSizePlus()
+			100 + this._getRandomSizePlus()
 		];
 	}
 	_getRandomSizePlus(){
 		const min = 0;
-	    const max = 120;
-	    const plus = 20;
-	    return (Math.floor(Math.random() * (max - min + 1)) + min) - 20;
+	    const max = 80;
+	    return (Math.floor(Math.random() * (max - min + 1)) + min);
 	}
 	_formatActive(force,formatForce) {
 		return {
