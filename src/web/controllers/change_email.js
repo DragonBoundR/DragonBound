@@ -1,6 +1,6 @@
 var express = require('express'),
 router = express.Router();
-var mysql = require('mysql');
+var mysql = require("mysql");
 var Logger = require('../../game/lib/logger');
 var constants = require('constants');
 router.get('/', function (req, res) {

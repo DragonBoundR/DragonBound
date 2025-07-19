@@ -9,22 +9,24 @@ const loggerFactory = require("@shared/logger");
 
 const logger = loggerFactory.getLogger("DragonApp");
 
-const setupApp = async () => {
+const setupApp = () => {
   const app = express();
 
   logger.log("Setting up app");
-  const controllers = await setupControllers();
+  // const controllers = await setupControllers();
   logger.log("Setting controllers")
   setupEngine(app);
   logger.log("Setting engine");
   setupMiddleware(app);
   logger.log("Setting middleware");
-  setupRouter(app, controllers);
+  // setupRouter(app, controllers);
   logger.log("Setting router");
   setupLegacyControllers(app);
   logger.log("Setting legacy controllers");
   setupHttpServer(app);
   logger.log("Setting HTTP server");
+
+  return app
 };
 
 module.exports = setupApp;

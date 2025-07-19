@@ -758,9 +758,9 @@ router.post("/ajaxLogin", function (req, res) {
                       if (rows2[0].length > 0) {
                         var res1 = rows2[0][0];
                         req.session.cookie.expires = false;
-                        req.session.cookie.maxAge = new Date(
-                          Date.now() + 60 * 1000 * 1440
-                        );
+                        // req.session.cookie.maxAge = new Date(
+                        //   Date.now() + 60 * 1000 * 1440
+                        // );
                         req.session.account_id = data.Id;
                         req.session.rank = res1.rank;
                         req.session.acc_session = data.Session;
@@ -1061,9 +1061,9 @@ router.post("/ajaxRegister", function (req, res) {
                               .putAvatarUseFB(nxdi)
                               .then(function (rows4) {
                                 req.session.cookie.expires = false;
-                                req.session.cookie.maxAge = new Date(
-                                  Date.now() + 60 * 1000 * 1440
-                                );
+                                // req.session.cookie.maxAge = new Date(
+                                //   Date.now() + 60 * 1000 * 1440
+                                // );
                                 req.session.account_id = uid;
                                 req.session.rank = datos.rank;
                                 req.session.acc_session = dt2.Session;

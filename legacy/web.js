@@ -51,7 +51,7 @@ this._app.use(
     saveUninitialized: true,
     cookie: {
       secure: true,
-      maxAge: new Date(Date.now() + 100 * 1000 * 10),
+      maxAge:  100 * 1000 * 10,
     },
   })
 ); // middleware - OK

@@ -1,10 +1,7 @@
-const log4js = require("./config");
 const colors = require("colors");
 
 class Logger {
   constructor(context = "Application") {
-    this.defaultLogger = log4js.getLogger(context);
-    this.customLogger = log4js.getLogger("custom");
     this.context = context;
   }
 
@@ -12,24 +9,28 @@ class Logger {
     return new Logger(context);
   }
 
+  _prefix() {
+    return `[${this.context}]`;
+  }
+
   log(...args) {
-    this.defaultLogger.info(`[${this.context}]`, ...args);
+    console.log(this._prefix(), ...args);
   }
 
   error(...args) {
-    this.defaultLogger.error(`[${this.context}]`, ...args);
+    console.error(colors.red(this._prefix()), ...args);
   }
 
   warn(...args) {
-    this.defaultLogger.warn(`[${this.context}]`, ...args);
+    console.warn(colors.yellow(this._prefix()), ...args);
   }
 
   debug(...args) {
-    this.defaultLogger.debug(`[${this.context}]`, ...args);
+    console.debug(colors.gray(this._prefix()), ...args);
   }
 
   verbose(...args) {
-    this.defaultLogger.trace(`[${this.context}]`, ...args);
+    console.trace(colors.magenta(this._prefix()), ...args);
   }
 
   cyan(...args) {
@@ -47,7 +48,7 @@ class Logger {
   break() {
     console.log();
   }
-  
+
   customColor(colorArray, ...args) {
     const coloredMessage = args
       .map((arg, index) => {
@@ -55,7 +56,6 @@ class Logger {
         return color ? color(arg) : arg;
       })
       .join("");
-
     console.log(coloredMessage);
   }
 }

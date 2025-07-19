@@ -1,7 +1,7 @@
 ﻿var express = require('express'),
     router = express.Router();
 
-var mysql = require('mysql');
+var mysql = require("mysql");
 var Logger = require('../../game/lib/logger');
 var ignoreCase = require('ignore-case');
 var md5 = require('md5');
