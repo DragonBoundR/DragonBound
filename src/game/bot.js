@@ -26,6 +26,7 @@ module.exports = class Bot {
         this.pfinal = null;
         this.base_ang = 60;
         this.ss_count = 0;
+        this.has_teleported = false; // Agregar este flag
         //this.player.mobile = Types.MOBILE.BOOMER;
     }
 
@@ -52,7 +53,7 @@ module.exports = class Bot {
         self.room.game.checkDead();
     }
 
-    turn() {
+   turn() {
         var self = this;
         var time = 0;
         var type = 0;
@@ -60,10 +61,10 @@ module.exports = class Bot {
         self.player.look = 0;
         self.player.ang = 60;
         self.objetivo = null;
-    
+
         var closestDistance = Infinity;
         var closestPlayer = null;
-    
+
         self.room.forPlayerA(function (account) {
             if (account.player.is_alive === 1) {
                 var distance = Math.sqrt(
@@ -76,7 +77,7 @@ module.exports = class Bot {
                 }
             }
         });
-    
+
         self.objetivo = closestPlayer;
         if (self.room === null) {
             Logger.debug("room exist");
@@ -87,6 +88,7 @@ module.exports = class Bot {
             Logger.debug("game exist");
             return null;
         }
+        
         var map = self.room.game.map;
         if (self.player.x > map.w || self.player.y > map.h) {
             self.player.is_alive = 0;
@@ -109,9 +111,69 @@ module.exports = class Bot {
                 } else {
                     self.player.look = 1;
                 }
+                var maxHp = 1000; 
+                var healthPercentage = (self.player.hp / maxHp) * 100;
+                
+                if (healthPercentage <= 30 && !self.has_teleported) {
+                    self.has_teleported = true;
+                    self.player.TELEPORT = 1;
+                    if (typeof Types.ITEM_TELEPORT !== 'undefined') {
+                        self.player.itemUsed = Types.ITEM_TELEPORT;
+                    }
+                    
+                    if (self.gameserver.name !== "Holiday") {
+                        self.gameserver.pushBroadcastChat(
+                            self.room
+                        );
+                    }
+                    var escapeDistance = 400; 
+                    var escapeX, escapeY;
+                    var escapeAngle;
+                    if (self.player.x < self.objetivo.player.x) {
+                        escapeX = self.player.x - escapeDistance;
+                        escapeAngle = 135; 
+                        self.player.look = 0;
+                    } else {
+                        escapeX = self.player.x + escapeDistance;
+                        escapeAngle = 45;
+                        self.player.look = 1;
+                    }
+                    if (escapeX < 50) escapeX = 50;
+                    if (escapeX > map.w - 50) escapeX = map.w - 50;
+                    escapeY = map.GetUnder(escapeX, 0);
+                    if (escapeY === 0 || escapeY === undefined) {
+                        escapeX = self.player.x < map.w / 2 ? map.w - 200 : 200;
+                        escapeY = map.GetUnder(escapeX, 0);
+                    }
+                    var pfx = self.CalcularEscape(escapeX, escapeY, escapeAngle);
+                    if (typeof (pfx.power) === 'undefined')
+                        pfx.power = 400;
+                        
+                    if (self.room.game) {
+                        var shoot_timer = setTimeout(function () {
+                            if (self.room.game) {
+                                self.room.game.gameShoot(
+                                    self.player.x, 
+                                    self.player.y, 
+                                    self.player.body, 
+                                    self.player.look, 
+                                    escapeAngle, 
+                                    pfx.power, 
+                                    time, 
+                                    0, 
+                                    self
+                                );
+                            }
+                            shoot_timer = null;
+                        }, 4000);
+                    }
+                    return; 
+                }
+                
                 var pfx = self.Calcular(dist);
                 if (typeof (pfx.power) === 'undefined')
                     pfx.power = 400;
+                    
                 if (self.room.game) {
                     var shoot_timer = setTimeout(function () {
                         if (self.room.game) {
@@ -123,7 +185,7 @@ module.exports = class Bot {
                                         self.gameserver.pushBroadcastChat(new Message.chatResponse(self, "Te matare maldito desperdicio de oxigeno -_-", Types.CHAT_TYPE.BOT), self.room);
                                 } else {
                                     if (self.objetivo.player.hp < 800) {
-                                        type = 1/*self.getRandomInt(0, 1)*/;
+                                        type = 1;
                                     } else {
                                         type = 0;
                                     }
@@ -138,8 +200,6 @@ module.exports = class Bot {
             } else {
                 if (self.room) {
                     if (self.room.game) {
-                        //self.room.game.checkDead();
-                       /* Logger.debug("player bot fail"); */
                         if (self.objetivo === null) {
                             self.room.game.checkDead();
                         } else {
@@ -150,7 +210,62 @@ module.exports = class Bot {
             }
         }
     }
-
+    CalcularEscape(targetX, targetY, ang) {
+        var self = this;
+        var mobile_data = Types.MOBILES[self.player.mobile];
+        var b0 = Math.round(parseInt(Math.cos(self.room.game.wind_angle * Math.PI / 180) * self.room.game.wind_power * mobile_data.by)) / 100;
+        var b1 = Math.round(parseInt(Math.sin(self.room.game.wind_angle * Math.PI / 180) * self.room.game.wind_power * mobile_data.by - mobile_data.bx)) / 100;
+        this.ax = Math.round(0 - b0);
+        this.ay = Math.round(mobile_data.by - b1);
+        
+        if (self.room.game.wind_power === 0) {
+            this.ax = 0;
+            this.ay = mobile_data.by;
+        }
+        
+        var dis = 0;
+        if (self.player.look === 0) {
+            ang = 180 - ang;
+            dis = -11;
+        } else {
+            dis = 11;
+        }
+        ang -= self.player.body;
+        
+        var point = {
+            x: self.player.x + dis,
+            y: self.player.y - 28
+        };
+        
+        this.pfinal = self.rotatePoint(point, {
+            x: self.player.x,
+            y: self.player.y
+        }, self.player.body);
+        var found = false;
+        var tmppower = 700; 
+        
+        for (var i = 500; i < 900; i += 10) {
+            this.power = i;
+            this.v = new Vector2(ang, this.power);
+            
+            for (var t = 0; t < 2000; t++) {
+                var f = self.getPosAtTime(t);
+                var cl = Math.sqrt(Math.pow(targetX - f.x, 2) + Math.pow(targetY - f.y, 2));
+                
+                if (cl < 100) {
+                    tmppower = i;
+                    found = true;
+                    break;
+                }
+            }
+            if (found) break;
+        }
+        
+        return {
+            power: parseInt(tmppower / 234 * 100),
+            found: found
+        };
+    }
     update() {
         if (this.room && this.room.game && this.room.game.map) {
             var map = this.room.game.map;
